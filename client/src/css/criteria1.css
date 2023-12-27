@@ -1,0 +1,43 @@
+.criteria1{
+    max-width: 95%;
+    height: auto;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.text-area{
+    max-width: 80%;
+    height: auto;
+}
+
+table {
+    border-collapse: collapse;
+    max-width: 80%;
+    height: auto;
+    margin-top: 30px;
+}
+  
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+  
+th {
+    background-color: #f2f2f2;
+}
+
+li{
+    list-style: none;
+}
+
+.radioBtn-1_4_1,
+.radioBtn-1_4_2 {
+    margin-top: 20px;
+    max-width: 1000px;
+    display: flex;
+}
+
+.c-1_1,.c-1_2,.c-1_3,.c-1_4{
+    border: 1px solid #ddd;
+}

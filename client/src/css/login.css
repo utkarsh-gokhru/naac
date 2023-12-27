@@ -1,0 +1,61 @@
+.loginPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo{
+    margin-top: 10px;
+}
+
+.logo img{
+    max-width: 100%;
+    height: auto;
+}
+
+.loginContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-heading h2,p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+label{
+    display: flex;
+    align-items: flex-start;
+    width: 20vw;
+}
+
+.id-div, .pwd-div{
+    margin-top: 10px;
+}
+
+.pwd-div{
+    margin-bottom: 20px;
+}
+
+#login-btn{
+    background-color: black;
+    color: white;
+    width: 10vw;
+    height: 30px;
+}
+
+#login-btn:hover{
+    cursor: pointer;
+}
+
+input{
+    height: 30px;
+    width: 20vw;
+}
