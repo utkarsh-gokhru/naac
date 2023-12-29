@@ -48,7 +48,7 @@ const Login = () => {
                 </div>
                 <div className='pwd-div'>
                     <label>PASSWORD</label>
-                    <input type='password' value={password} required
+                    <input type='password' value={password} required placeholder='Enter your Password'
                     onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className='btn'>
