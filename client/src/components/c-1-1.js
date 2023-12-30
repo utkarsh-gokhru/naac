@@ -27,7 +27,7 @@ const Criteria11 = () => {
                             <tr>
                                 <td>Upload relevant supporting documents</td>
                                 <td></td>
-                                <td><input type="file" id="fileUpload" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                <td><input type="file" id="fileUpload" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" required /></td>
                                 <td>xls,xlsx,doc,docx,pdf.<b>File size: 6MB</b> </td>
                             </tr>
                         </table>
@@ -53,7 +53,7 @@ const Criteria11 = () => {
                             <tr>
                                 <td>Upload relevant supporting documents</td>
                                 <td></td>
-                                <td><input type="file" id="fileUpload" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                <td><input type="file" id="fileUpload" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" required /></td>
                                 <td>xls,xlsx,doc,docx,pdf.<b>File size: 6MB</b> </td>
                             </tr>
                         </table>
@@ -84,7 +84,7 @@ const Criteria11 = () => {
                                     <tr>
                                         <td>Upload relevant supporting documents</td>
                                         <td></td>
-                                        <td><input type="file" id="fileUpload" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                        <td><input type="file" id="fileUpload" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" required /></td>
                                         <td>xls,xlsx,doc,docx,pdf.<b>File size: 6MB</b> </td>
                                     </tr>
                                 </table>
