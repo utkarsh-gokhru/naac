@@ -14,7 +14,7 @@ const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:5000/auth/login',{id, password})
+        axios.post('http://localhost:3000/auth/login',{id, password})
         .then(response => {
             console.log(response.data);
             setId('');
