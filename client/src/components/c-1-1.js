@@ -42,7 +42,7 @@ const Criteria11 = () => {
                             <tr>
                                 <td>Upload relevant supporting documents</td>
                                 <td></td>
-                                <td><input type="file" id="fileUpload1_1_1" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                <td><input type="file" id="fileUpload1_1_1" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf"  required/></td>
                                 <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
                             </tr>
                         </table>
@@ -67,14 +67,14 @@ const Criteria11 = () => {
                                     <td>
                                         <button onClick={() => downloadExcel('1.1.2.xlsx')}>Data Template</button>
                                     </td>
-                                    <td><input type="file" id="fileUpload1_1_2_1" name="fileUpload" accept=".xls, .xlsx" /></td>
+                                    <td><input type="file" id="fileUpload1_1_2_1" name="fileUpload" accept=".xls, .xlsx" required /></td>
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
                                     <td>Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>
-                                        <input type="file" id="fileUpload1_1_2_2" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" />
+                                        <input type="file" id="fileUpload1_1_2_2" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" required />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
                                 </tr>
@@ -101,13 +101,13 @@ const Criteria11 = () => {
                                     <tr>
                                         <td>Upload the data template</td>
                                         <td><button onClick={() => downloadExcel('1.1.3.xlsx')}>Data Template</button></td>
-                                        <td><input type="file" id="fileUpload1_1_3_1" name="fileUpload" accept=".xls, .xlsx" /></td>
+                                        <td><input type="file" id="fileUpload1_1_3_1" name="fileUpload" accept=".xls, .xlsx" equired  /></td>
                                         <td>xls, xlsx. File size: 6MB</td>
                                     </tr>
                                     <tr>
                                         <td>Upload relevant supporting documents</td>
                                         <td></td>
-                                        <td><input type="file" id="fileUpload1_1_3_2" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                        <td><input type="file" id="fileUpload1_1_3_2" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" required /></td>
                                         <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
                                     </tr>
                                 </table>
