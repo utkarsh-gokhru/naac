@@ -21,4 +21,4 @@ mongoose.connect(db_url)
 
 app.use('/auth', userAuth);
 
-app.listen(3000,() => console.log('Server started'));
+app.listen(5000,() => console.log('Server started'));
