@@ -20,9 +20,6 @@ const Criteria1 = () => {
                 <Criteria13 />
                 <Criteria14 />
             </div>
-            <div>
-                <button onClick={handleSubmit}>Submit</button>
-            </div>
         </div>
     )
 }
