@@ -1,6 +1,21 @@
 import React from "react";
+import { saveAs } from 'file-saver';
 
 const Criteria12 = () => {
+
+    const downloadExcel = async (exc_file) => {
+        const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
+      
+        try {
+            const response = await fetch(templateFilePath);
+            const blob = await response.blob();
+        
+            saveAs(blob, `${exc_file}_output.xlsx`);
+        } catch (error) {
+            console.error('Error fetching the template file:', error);
+        }
+    };
+
     return (
         <div className="c-1_2">
             <h3>1.2 - Academic Flexibility</h3>
@@ -8,7 +23,7 @@ const Criteria12 = () => {
                 <li>
                     <div className="c-1_2_1">
                         <h4>1.2.1 - Number of new courses introduced of the total number of courses across all programs offered during the year</h4>
-                        <input type="number" />
+                        <input type="number" id="newCoursesCount1_2_1" />
                         <table>
                             <thead>
                                 <tr>
@@ -21,14 +36,14 @@ const Criteria12 = () => {
                             <tbody>
                                 <tr>
                                     <td>Upload the data template</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><button onClick={() => downloadExcel('1.2.1.xlsx')}>Data Template</button></td>
+                                    <td><input type="file" id="fileUpload1_2_1_1" name="fileUpload" accept=".xls, .xlsx" /></td>
                                     <td>xls,xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
                                     <td>Upload relevant supporting documents</td>
                                     <td></td>
-                                    <td><input type="file" id="fileUpload1" name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                    <td><input type="file" id="fileUpload1_2_1_2" name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
                                     <td>xls,xlsx,doc,docx,pdf. <b>File size: 6MB</b> </td>
                                 </tr>
                             </tbody>
@@ -38,7 +53,7 @@ const Criteria12 = () => {
                 <li>
                     <div className="c-1_2_2">
                         <h4>1.2.2 - Number of Programmes in which Choice Based Credit System (CBCS)/elective course system has been implemented during the year</h4>
-                        <input type="number" />
+                        <input type="number" id="programCount1_2_2" />
                         <table>
                             <thead>
                                 <tr>
@@ -51,14 +66,14 @@ const Criteria12 = () => {
                             <tbody>
                                 <tr>
                                     <td>Upload the data template</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><button onClick={() => downloadExcel('1.2.2.xlsx')}>Data Template</button></td>
+                                    <td><input type="file" id="fileUpload1_2_2_1" name="fileUpload" accept=".xls, .xlsx" /></td>
                                     <td>xls,xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
                                     <td>Upload relevant supporting documents</td>
                                     <td></td>
-                                    <td><input type="file" id="fileUpload2" name="fileUpload2" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                    <td><input type="file" id="fileUpload1_2_2_2" name="fileUpload2" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
                                     <td>xls,xlsx,doc,docx,pdf. <b>File size: 6MB</b> </td>
                                 </tr>
                             </tbody>

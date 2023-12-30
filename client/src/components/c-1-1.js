@@ -1,7 +1,22 @@
 import React from "react";
 import StyledTextArea from "./textArea";
+import { saveAs } from 'file-saver';
 
 const Criteria11 = () => {
+
+    const downloadExcel = async (exc_file) => {
+        const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
+      
+        try {
+            const response = await fetch(templateFilePath);
+            const blob = await response.blob();
+        
+            saveAs(blob, `${exc_file}_output.xlsx`);
+        } catch (error) {
+            console.error('Error fetching the template file:', error);
+        }
+    };
+
     return(
         <div className="c-1_1">
             <h3>1.1 - Curriculum Design and Development</h3>
@@ -27,8 +42,8 @@ const Criteria11 = () => {
                             <tr>
                                 <td>Upload relevant supporting documents</td>
                                 <td></td>
-                                <td><input type="file" id="fileUpload" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
-                                <td>xls,xlsx,doc,docx,pdf.<b>File size: 6MB</b> </td>
+                                <td><input type="file" id="fileUpload1_1_1" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
                             </tr>
                         </table>
                     </div>
@@ -36,26 +51,34 @@ const Criteria11 = () => {
                 <li>
                     <div className="c-1_1_2">
                         <h4>1.1.2- Number of Programmes where syllabus revision was carried out during the year</h4>
-                        <input type="number" /><br />
+                        <input type="number" id="syllabusRevisionCount" /><br />
                         <table>
-                            <tr>
-                                <th>File Description</th>
-                                <th>Template</th>
-                                <th>Documents</th>
-                                <th>File Types/Size Supported</th>
-                            </tr>
-                            <tr>
-                                <td>Upload the data template</td>
-                                <td><a href="/1.1.2.xlsx" download="1.1.2.xlsx">Data Template</a></td>
-                                <td></td>
-                                <td>xls,xlsx.File size: 6MB</td>
-                            </tr>
-                            <tr>
-                                <td>Upload relevant supporting documents</td>
-                                <td></td>
-                                <td><input type="file" id="fileUpload" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
-                                <td>xls,xlsx,doc,docx,pdf.<b>File size: 6MB</b> </td>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th>File Description</th>
+                                    <th>Template</th>
+                                    <th>Documents</th>
+                                    <th>File Types/Size Supported</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Upload the data template</td>
+                                    <td>
+                                        <button onClick={() => downloadExcel('1.1.2.xlsx')}>Data Template</button>
+                                    </td>
+                                    <td><input type="file" id="fileUpload1_1_2_1" name="fileUpload" accept=".xls, .xlsx" /></td>
+                                    <td>xls, xlsx. File size: 6MB</td>
+                                </tr>
+                                <tr>
+                                    <td>Upload relevant supporting documents</td>
+                                    <td></td>
+                                    <td>
+                                        <input type="file" id="fileUpload1_1_2_2" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" />
+                                    </td>
+                                    <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </li>
@@ -67,7 +90,7 @@ const Criteria11 = () => {
                         <ul>
                             <li>
                                 <h4>1.1.3.1 - Number of courses having focus on employability/ entrepreneurship/ skill development during the year</h4>
-                                <input type="number" />
+                                <input type="number" id="coursesFocusCount" />
                                 <table>
                                     <tr>
                                         <th>File Description</th>
@@ -77,15 +100,15 @@ const Criteria11 = () => {
                                     </tr>
                                     <tr>
                                         <td>Upload the data template</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>xls,xlsx.File size: 6MB</td>
+                                        <td><button onClick={() => downloadExcel('1.1.3.xlsx')}>Data Template</button></td>
+                                        <td><input type="file" id="fileUpload1_1_3_1" name="fileUpload" accept=".xls, .xlsx" /></td>
+                                        <td>xls, xlsx. File size: 6MB</td>
                                     </tr>
                                     <tr>
                                         <td>Upload relevant supporting documents</td>
                                         <td></td>
-                                        <td><input type="file" id="fileUpload" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
-                                        <td>xls,xlsx,doc,docx,pdf.<b>File size: 6MB</b> </td>
+                                        <td><input type="file" id="fileUpload1_1_3_2" name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                        <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
                                     </tr>
                                 </table>
                             </li>

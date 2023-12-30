@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Login from './pages/login';
-import Criteria1 from './components/criteria1';
+import Criteria1 from './pages/criteria1';
 
 function App() {
   return (

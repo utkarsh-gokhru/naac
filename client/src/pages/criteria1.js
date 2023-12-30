@@ -1,9 +1,9 @@
 import React from "react";
 import '../css/criteria1.css';
-import Criteria11 from "./c-1-1";
-import Criteria12 from "./c-1-2";
-import Criteria13 from "./c-1-3";
-import Criteria14 from "./c-1-4";
+import Criteria11 from "../components/c-1-1";
+import Criteria12 from "../components/c-1-2";
+import Criteria13 from "../components/c-1-3";
+import Criteria14 from "../components/c-1-4";
 
 
 const Criteria1 = () => {
@@ -19,6 +19,9 @@ const Criteria1 = () => {
                 <Criteria12 />
                 <Criteria13 />
                 <Criteria14 />
+            </div>
+            <div>
+                <button onClick={handleSubmit}>Submit</button>
             </div>
         </div>
     )
