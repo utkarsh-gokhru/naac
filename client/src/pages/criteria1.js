@@ -73,8 +73,8 @@ const Criteria1 = () => {
         <Criteria12 onCrit12Data={handleCrit12Data} />
         <Criteria13 onCrit13Data={handleCrit13Data} />
         <Criteria14 onCrit14Data={handleCrit14Data} />
-        <div>
-          <button onClick={handleSubmit}>Submit</button>
+        <div className="button-container">
+          <button onClick={handleSubmit} className="custom-button">Submit</button>
         </div>
       </div>
     </div>
