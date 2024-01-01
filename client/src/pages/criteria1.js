@@ -53,6 +53,7 @@ const Criteria1 = () => {
 
       const response = await axios.post("http://localhost:5000/data/submit", formdata);
       console.log(response.data); 
+      alert("Criteria 1 submitted!");
     } catch (error) {
       console.error(error);
       alert("Submission failed. Please try again later.");
