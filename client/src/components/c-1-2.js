@@ -1,20 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { saveAs } from 'file-saver';
 
-const Criteria12 = () => {
+const Criteria12 = ({ onCrit12Data }) => {
+    const [programCount1_2_2, setProgramCount1_2_2] = useState('');
+    const [newCoursesCount1_2_1, setNewCoursesCount1_2_1] = useState('');
+    const [file1_2_1_1, setFile1_2_1_1] = useState(null);
+    const [file1_2_1_2, setFile1_2_1_2] = useState(null);
+    const [file1_2_2_1, setFile1_2_2_1] = useState(null);
+    const [file1_2_2_2, setFile1_2_2_2] = useState(null);
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
-      
+
         try {
             const response = await fetch(templateFilePath);
             const blob = await response.blob();
-        
+
             saveAs(blob, `${exc_file}_output.xlsx`);
         } catch (error) {
             console.error('Error fetching the template file:', error);
         }
     };
+
+    useEffect(() => {
+        const crit12 = {
+            programCount1_2_2,
+            newCoursesCount1_2_1,
+            file1_2_1_1,
+            file1_2_1_2,
+            file1_2_2_1,
+            file1_2_2_2
+        };
+        onCrit12Data(crit12);
+    }, [programCount1_2_2, newCoursesCount1_2_1, file1_2_1_1, file1_2_1_2, file1_2_2_1, file1_2_2_2]);    
 
     return (
         <div className="c-1_2">
@@ -23,7 +41,12 @@ const Criteria12 = () => {
                 <li>
                     <div className="c-1_2_1">
                         <h4>1.2.1 - Number of new courses introduced of the total number of courses across all programs offered during the year</h4>
-                        <input type="number" id="newCoursesCount1_2_1" />
+                        <input
+                            type="number"
+                            id="newCoursesCount1_2_1"
+                            value={newCoursesCount1_2_1}
+                            onChange={(e) => setNewCoursesCount1_2_1(e.target.value)}
+                        />
                         <table>
                             <thead>
                                 <tr>
@@ -37,14 +60,22 @@ const Criteria12 = () => {
                                 <tr>
                                     <td>Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('1.2.1.xlsx')}>Data Template</button></td>
-                                    <td><input type="file" id="fileUpload1_2_1_1" name="fileUpload" accept=".xls, .xlsx" /></td>
-                                    <td>xls,xlsx. File size: 6MB</td>
+                                    <td>
+                                        <input
+                                            type="file"
+                                            id="fileUpload1_2_1_1"
+                                            onChange={(e) => setFile1_2_1_1(e.target.files[0])}
+                                            name="fileUpload"
+                                            accept=".xls, .xlsx"
+                                        />
+                                    </td>
+                                    <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
                                     <td>Upload relevant supporting documents</td>
                                     <td></td>
-                                    <td><input type="file" id="fileUpload1_2_1_2" name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
-                                    <td>xls,xlsx,doc,docx,pdf. <b>File size: 6MB</b> </td>
+                                    <td><input type="file" id="fileUpload1_2_1_2" onChange={(e) => setFile1_2_1_2(e.target.files[0])} name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                    <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -53,7 +84,12 @@ const Criteria12 = () => {
                 <li>
                     <div className="c-1_2_2">
                         <h4>1.2.2 - Number of Programmes in which Choice Based Credit System (CBCS)/elective course system has been implemented during the year</h4>
-                        <input type="number" id="programCount1_2_2" />
+                        <input
+                            type="number"
+                            id="programCount1_2_2"
+                            value={programCount1_2_2}
+                            onChange={(e) => setProgramCount1_2_2(e.target.value)}
+                        />
                         <table>
                             <thead>
                                 <tr>
@@ -67,14 +103,14 @@ const Criteria12 = () => {
                                 <tr>
                                     <td>Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('1.2.2.xlsx')}>Data Template</button></td>
-                                    <td><input type="file" id="fileUpload1_2_2_1" name="fileUpload" accept=".xls, .xlsx" /></td>
-                                    <td>xls,xlsx. File size: 6MB</td>
+                                    <td><input type="file" id="fileUpload1_2_2" onChange={(e) => setFile1_2_2_1(e.target.files[0])} name="fileUpload" accept=".xls, .xlsx" /></td>
+                                    <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
                                     <td>Upload relevant supporting documents</td>
                                     <td></td>
-                                    <td><input type="file" id="fileUpload1_2_2_2" name="fileUpload2" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
-                                    <td>xls,xlsx,doc,docx,pdf. <b>File size: 6MB</b> </td>
+                                    <td><input type="file" id="fileUpload1_2_2_2" onChange={(e) => setFile1_2_2_2(e.target.files[0])} name="fileUpload2" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
+                                    <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
                                 </tr>
                             </tbody>
                         </table>

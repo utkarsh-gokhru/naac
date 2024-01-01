@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { userAuth } from './routes/auth.js';
+import { Criteria1_submit } from './routes/criteria1.js';
+
 
 const app = express();
 
@@ -20,5 +22,6 @@ mongoose.connect(db_url)
 })
 
 app.use('/auth', userAuth);
+app.use('/data',Criteria1_submit);
 
 app.listen(5000,() => console.log('Server started'));
