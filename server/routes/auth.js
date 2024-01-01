@@ -5,8 +5,8 @@ const app = express();
 
 app.post('/login', async (req,res) => {
     try{
-        const {id, password} = req.body;
-        const user = await userModel.findOne({id});
+        const {id, password, department} = req.body;
+        const user = await userModel.findOne({id, department});
         if (user){
             if (password === user.password){
                 return res.status(200).json({message:"Login successfull"});

@@ -11,6 +11,7 @@ const Criteria1 = () => {
   const [crit13Data, setCrit13Data] = useState(null);
   const [crit14Data, setCrit14Data] = useState(null);
   const [crit11Data, setCrit11Data] = useState(null);
+  const department = localStorage.getItem('department');
 
   const handleCrit11Data = (data) => {
     setCrit11Data(data);
@@ -63,6 +64,7 @@ const Criteria1 = () => {
       <div className="yearly_status_rep">
         <p>Yearly Status Report - Part B</p>
         <p>Academic Year to which AQAR has to be submitted: </p>
+        <p>Department: {department}</p>
       </div>
       <div className="crit1">
         <h2>Criterion 1 - Curricular Aspects</h2>
