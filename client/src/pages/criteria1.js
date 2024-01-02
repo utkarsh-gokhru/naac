@@ -34,7 +34,7 @@ const Criteria1 = () => {
 
     try {
       const formdata = new FormData();
-
+      formdata.append('department',department)
       for (const key in crit11Data) {
         formdata.append(key, crit11Data[key]);
       }

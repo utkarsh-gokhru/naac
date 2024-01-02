@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import StyledTextArea from "./textArea";
 import { saveAs } from 'file-saver';
+import axios from "axios";
 
 const Criteria11 = ({ onCrit11Data }) => {
     const [curriculumText, setCurriculumText] = useState("");
@@ -11,6 +12,76 @@ const Criteria11 = ({ onCrit11Data }) => {
     const [coursesFocusCount, setCoursesFocusCount] = useState("");
     const [file1_1_3_1, setFile1_1_3_1] = useState(null);
     const [file1_1_3_2, setFile1_1_3_2] = useState(null);
+    const department = localStorage.getItem('department');
+
+    const saveSection1_1_1 = async() => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            department,
+            curriculumText,
+            file1_1_1,
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+        try{
+            const response = await axios.post("http://localhost:5000/data/save1-1-1", formdata);
+            console.log(response.data); 
+            alert("Saved Section 1.1.1 data:");
+        }catch(error){
+            console.log("Error",error.message);
+        }
+    };
+
+    const saveSection1_1_2 = async () => {
+        const formdata = new FormData();
+    
+        const sectionData = {
+            department,
+            syllabusRevisionCount,
+            file1_1_2_1,
+            file1_1_2_2,
+        };
+    
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+    
+        try {
+            const response = await axios.post("http://localhost:5000/data/save1-1-2", formdata);
+            console.log(response.data);
+            alert("Saved Section 1.1.2 data successfully!");
+        } catch (error) {
+            console.error("Error saving Section 1.1.2 data:", error.message);
+            alert("Failed to save Section 1.1.2 data. Please try again.");
+        }
+    };
+    
+    const saveSection1_1_3 = async () => {
+        const formdata = new FormData();
+    
+        const sectionData = {
+            department,
+            coursesFocusCount,
+            file1_1_3_1,
+            file1_1_3_2,
+        };
+    
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+    
+        try {
+            const response = await axios.post("http://localhost:5000/data/save1-1-3", formdata);
+            console.log(response.data);
+            alert("Saved Section 1.1.3 data successfully!");
+        } catch (error) {
+            console.error("Error saving Section 1.1.3 data:", error.message);
+            alert("Failed to save Section 1.1.3 data. Please try again.");
+        }
+    };    
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -24,6 +95,25 @@ const Criteria11 = ({ onCrit11Data }) => {
             console.error('Error fetching the template file:', error);
         }
     };
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}`);
+            const data = response.data.data.criteria11;
+    
+            if (data) {
+                data.curriculumText ? setCurriculumText(data.curriculumText) : setCurriculumText('');
+                data.coursesFocusCount ? setCoursesFocusCount(data.coursesFocusCount) : setCoursesFocusCount('');
+                data.syllabusRevisionCount ? setSyllabusRevisionCount(data.syllabusRevisionCount) : setSyllabusRevisionCount('');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    },[]);
 
     useEffect(() => {
         const crit11 = {
@@ -87,6 +177,9 @@ const Criteria11 = ({ onCrit11Data }) => {
                                 </tr>
                             </tbody>
                         </table>
+                        <div>
+                            <button onClick={saveSection1_1_1}>Save</button>
+                        </div>
                     </div>
                 </li>
                 <li>
@@ -140,6 +233,9 @@ const Criteria11 = ({ onCrit11Data }) => {
                                 </tr>
                             </tbody>
                         </table>
+                        <div>
+                            <button onClick={saveSection1_1_2}>Save</button>
+                        </div>
                     </div>
                 </li>
                 <li>
@@ -200,6 +296,9 @@ const Criteria11 = ({ onCrit11Data }) => {
                                 </table>
                             </li>
                         </ul>
+                    </div>
+                    <div>
+                        <button onClick={saveSection1_1_3}>Save</button>
                     </div>
                 </li>
             </ul>

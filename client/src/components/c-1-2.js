@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { saveAs } from 'file-saver';
+import axios from "axios";
 
 const Criteria12 = ({ onCrit12Data }) => {
     const [programCount1_2_2, setProgramCount1_2_2] = useState('');
@@ -8,6 +9,7 @@ const Criteria12 = ({ onCrit12Data }) => {
     const [file1_2_1_2, setFile1_2_1_2] = useState(null);
     const [file1_2_2_1, setFile1_2_2_1] = useState(null);
     const [file1_2_2_2, setFile1_2_2_2] = useState(null);
+    const department = localStorage.getItem('department');
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -21,6 +23,68 @@ const Criteria12 = ({ onCrit12Data }) => {
             console.error('Error fetching the template file:', error);
         }
     };
+
+    const saveSection1_2_1 = async() => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            department,
+            newCoursesCount1_2_1,
+            file1_2_1_1,
+            file1_2_1_2
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+        try{
+            const response = await axios.post("http://localhost:5000/data/save1-2-1", formdata);
+            console.log(response.data); 
+            alert("Saved Section 1.2.1 data:");
+        }catch(error){
+            console.log("Error",error.message);
+        }
+    };
+
+    const saveSection1_2_2 = async() => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            department,
+            programCount1_2_2,
+            file1_2_2_1,
+            file1_2_2_2
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+        try{
+            const response = await axios.post("http://localhost:5000/data/save1-2-2", formdata);
+            console.log(response.data); 
+            alert("Saved Section 1.2.1 data:");
+        }catch(error){
+            console.log("Error",error.message);
+        }
+    };
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}`);
+            const data = response.data.data.criteria12;
+    
+            if (data) {
+                data.programCount1_2_2 ? setProgramCount1_2_2(data.programCount1_2_2) : setProgramCount1_2_2('');
+                data.newCoursesCount1_2_1 ? setNewCoursesCount1_2_1(data.newCoursesCount1_2_1) : setNewCoursesCount1_2_1('');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    },[]);
 
     useEffect(() => {
         const crit12 = {
@@ -79,6 +143,9 @@ const Criteria12 = ({ onCrit12Data }) => {
                                 </tr>
                             </tbody>
                         </table>
+                        <div>
+                            <button onClick={saveSection1_2_1}>Save</button>
+                        </div>
                     </div>
                 </li>
                 <li>
@@ -114,6 +181,9 @@ const Criteria12 = ({ onCrit12Data }) => {
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div>
+                        <button onClick={saveSection1_2_2}>Save</button>
                     </div>
                 </li>
             </ul>
