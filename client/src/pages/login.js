@@ -56,6 +56,7 @@ const Login = () => {
                         <option value='Engineering'>Engineering</option>
                         <option value='Law'>Law</option>
                         <option value='Medical'>Medical</option>
+                        <option value='Admin'>Admin</option>
                     </select>
                 </div>
                 <div className='academic-year-div'>
