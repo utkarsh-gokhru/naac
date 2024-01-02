@@ -168,7 +168,7 @@ const Criteria11 = ({ onCrit11Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
-                                    {file1_1_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}>✗</span>)}
+                                    {file1_1_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
