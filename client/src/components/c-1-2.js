@@ -79,6 +79,10 @@ const Criteria12 = ({ onCrit12Data }) => {
             if (data) {
                 data.programCount1_2_2 ? setProgramCount1_2_2(data.programCount1_2_2) : setProgramCount1_2_2('');
                 data.newCoursesCount1_2_1 ? setNewCoursesCount1_2_1(data.newCoursesCount1_2_1) : setNewCoursesCount1_2_1('');
+                data.file1_2_1_1 ? setFile1_2_1_1('true') : setFile1_2_1_1('false');
+                data.file1_2_1_2 ? setFile1_2_1_2('true') : setFile1_2_1_2('false');
+                data.file1_2_2_1 ? setFile1_2_1_1('true') : setFile1_2_1_1('false');
+                data.file1_2_2_2 ? setFile1_2_2_2('true') : setFile1_2_2_2('false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -125,7 +129,8 @@ const Criteria12 = ({ onCrit12Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Upload the data template</td>
+                                    <td> {file1_2_1_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)} 
+                                        Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('1.2.1.xlsx')}>Data Template</button></td>
                                     <td>
                                         <input
@@ -139,7 +144,8 @@ const Criteria12 = ({ onCrit12Data }) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td>Upload relevant supporting documents</td>
+                                    <td>{file1_2_1_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)} 
+                                        Upload relevant supporting documents</td>
                                     <td></td>
                                     <td><input type="file" id="fileUpload1_2_1_2" onChange={(e) => setFile1_2_1_2(e.target.files[0])} name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
@@ -171,13 +177,15 @@ const Criteria12 = ({ onCrit12Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Upload the data template</td>
+                                    <td> {file1_2_2_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)} 
+                                        Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('1.2.2.xlsx')}>Data Template</button></td>
                                     <td><input type="file" id="fileUpload1_2_2" onChange={(e) => setFile1_2_2_1(e.target.files[0])} name="fileUpload" accept=".xls, .xlsx" /></td>
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td>Upload relevant supporting documents</td>
+                                    <td> {file1_2_2_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)} 
+                                        Upload relevant supporting documents</td>
                                     <td></td>
                                     <td><input type="file" id="fileUpload1_2_2_2" onChange={(e) => setFile1_2_2_2(e.target.files[0])} name="fileUpload2" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
