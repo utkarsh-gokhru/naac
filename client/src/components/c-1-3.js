@@ -16,10 +16,11 @@ const Criteria13 = ({ onCrit13Data }) => {
     const [text_1_3_1, setText_1_3_1] = useState('');
     const [file1_3_1, setFile1_3_1] = useState('');
     const department = localStorage.getItem('department');
+    const academicYear = localStorage.getItem('academicYear');
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}`);
+            const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data.criteria13;
     
             if (data) {
@@ -72,6 +73,7 @@ const Criteria13 = ({ onCrit13Data }) => {
 
         const sectionData = {
             department,
+            academicYear,
             text_1_3_1,
             file1_3_1
         };
@@ -94,6 +96,7 @@ const Criteria13 = ({ onCrit13Data }) => {
 
         const sectionData = {
             department,
+            academicYear,
             valueAddedCoursesCount1_3_2, 
             file1_3_2_1,
             file1_3_2_2
@@ -116,6 +119,7 @@ const Criteria13 = ({ onCrit13Data }) => {
 
         const sectionData = {
             department,
+            academicYear,
             enrolledStudentsCount1_3_3_1, 
             file1_3_3_1_1,
             file1_3_3_1_2
@@ -138,6 +142,7 @@ const Criteria13 = ({ onCrit13Data }) => {
 
         const sectionData = {
             department,
+            academicYear,
             projectsCount1_3_4,
             file1_3_4_1,
             file1_3_4_2
@@ -154,7 +159,6 @@ const Criteria13 = ({ onCrit13Data }) => {
             console.log("Error",error.message);
         }
     };
-
 
     return (
         <div className="c-1_3">

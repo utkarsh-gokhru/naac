@@ -7,10 +7,11 @@ const Criteria14 = ({ onCrit14Data }) => {
   const [feedbackType1_4_2, setFeedbackType1_4_2] = useState('');
   const [file1_4_1, setFile1_4_1] = useState('');
   const department = localStorage.getItem('department');
+  const academicYear = localStorage.getItem('academicYear');
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}`);
+      const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}&academicYear=${academicYear}`);
       const data = response.data.data.criteria14;
     
       if (data) {
@@ -65,6 +66,7 @@ const Criteria14 = ({ onCrit14Data }) => {
 
     const sectionData = {
       department,
+      academicYear,
       feedbackType1_4_1,
       file1_4_1
     };
@@ -81,22 +83,6 @@ const Criteria14 = ({ onCrit14Data }) => {
       console.log("Error", error.message);
     }
   };
-
-  const saveSection1_4_2 = async () => {
-    const formdata = new FormData();
-  
-    formdata.append('department', department);
-    formdata.append('feedbackType1_4_2', feedbackType1_4_2);
-  
-    try {
-      const response = await axios.post("http://localhost:5000/data/save1-4-2", formdata);
-      console.log(response.data);
-      alert("Saved Section 1.4.2 data:");
-    } catch (error) {
-      console.log("Error", error.message);
-    }
-  };
-  
 
   return (
     <div className="c-1_4">
@@ -162,9 +148,6 @@ const Criteria14 = ({ onCrit14Data }) => {
 
               <input type="radio" id="feedback5_1_4_2" name="group2_1_4_2" onChange={() => setFeedbackType1_4_2('Feedback not collected')} />
               <label htmlFor="feedback5_1_4_2">Feedback not collected</label>
-            </div>
-            <div>
-              <button onClick={saveSection1_4_2}>Save</button>
             </div>
           </div>
         </li>

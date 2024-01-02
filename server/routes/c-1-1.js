@@ -35,8 +35,11 @@ const handleFileUpload = async (existingData, fieldName, newFile, newData) => {
     }
 
     if (!existingData) {
+        console.log(newData);
+
         existingData = new Criteria1Model({
             department: newData.department,
+            academicYear: newData.academicYear,
             criteria11: {
                 [fieldName]: newFile.path,
                 ...newData,
@@ -52,16 +55,16 @@ const handleFileUpload = async (existingData, fieldName, newFile, newData) => {
 
 app.post('/save1-1-1', upload.single('file1_1_1'), async (req, res) => {
     try {
-        const { department, curriculumText } = req.body;
+        const { department, academicYear, curriculumText } = req.body;
         const file1_1_1 = req.file;
 
         if (!file1_1_1 || !curriculumText) {
             return res.status(400).json({ error: 'Missing required data.' });
         }
 
-        let existingData = await Criteria1Model.findOne({ department });
+        let existingData = await Criteria1Model.findOne({ department, academicYear });
 
-        await handleFileUpload(existingData, 'file1_1_1', file1_1_1, { curriculumText });
+        await handleFileUpload(existingData, 'file1_1_1', file1_1_1, { curriculumText, department, academicYear });
 
         res.status(200).json({ message: 'Data saved successfully for Section 1.1.1' });
     } catch (error) {
@@ -72,7 +75,7 @@ app.post('/save1-1-1', upload.single('file1_1_1'), async (req, res) => {
 
 app.post('/save1-1-2', upload.fields([{ name: 'file1_1_2_1' }, { name: 'file1_1_2_2' }]), async (req, res) => {
     try {
-        const { department, syllabusRevisionCount } = req.body;
+        const { department, academicYear, syllabusRevisionCount } = req.body;
         const file1_1_2_1 = req.files['file1_1_2_1'][0];
         const file1_1_2_2 = req.files['file1_1_2_2'][0];
 
@@ -80,11 +83,13 @@ app.post('/save1-1-2', upload.fields([{ name: 'file1_1_2_1' }, { name: 'file1_1_
             return res.status(400).json({ error: 'Missing required data.' });
         }
 
-        let existingData = await Criteria1Model.findOne({ department });
+        let existingData = await Criteria1Model.findOne({ department, academicYear });
 
         await handleFileUpload(existingData, 'file1_1_2_1', file1_1_2_1, {
             syllabusRevisionCount,
             file1_1_2_2: file1_1_2_2.path,
+            department,
+            academicYear
         });
 
         res.status(200).json({ message: 'Data saved successfully for Section 1.1.2' });
@@ -96,7 +101,7 @@ app.post('/save1-1-2', upload.fields([{ name: 'file1_1_2_1' }, { name: 'file1_1_
 
 app.post('/save1-1-3', upload.fields([{ name: 'file1_1_3_1' }, { name: 'file1_1_3_2' }]), async (req, res) => {
     try {
-        const { department, coursesFocusCount } = req.body;
+        const { department, academicYear, coursesFocusCount } = req.body;
         const file1_1_3_1 = req.files['file1_1_3_1'][0];
         const file1_1_3_2 = req.files['file1_1_3_2'][0];
 
@@ -104,11 +109,13 @@ app.post('/save1-1-3', upload.fields([{ name: 'file1_1_3_1' }, { name: 'file1_1_
             return res.status(400).json({ error: 'Missing required data.' });
         }
 
-        let existingData = await Criteria1Model.findOne({ department });
+        let existingData = await Criteria1Model.findOne({ department, academicYear });
 
         await handleFileUpload(existingData, 'file1_1_3_1', file1_1_3_1, {
             coursesFocusCount,
             file1_1_3_2: file1_1_3_2.path,
+            department,
+            academicYear
         });
 
         res.status(200).json({ message: 'Data saved successfully for Section 1.1.3' });

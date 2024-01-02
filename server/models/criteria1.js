@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const Criteria1Schema = new mongoose.Schema({
   department: {type: String},
+  academicYear: {type: String},
   criteria11: {
     curriculumText: { type: String },
     syllabusRevisionCount: { type: Number },

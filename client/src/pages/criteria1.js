@@ -12,6 +12,7 @@ const Criteria1 = () => {
   const [crit14Data, setCrit14Data] = useState(null);
   const [crit11Data, setCrit11Data] = useState(null);
   const department = localStorage.getItem('department');
+  const academicYear = localStorage.getItem('academicYear');
 
   const handleCrit11Data = (data) => {
     setCrit11Data(data);
@@ -35,6 +36,7 @@ const Criteria1 = () => {
     try {
       const formdata = new FormData();
       formdata.append('department',department)
+      formdata.append('academicYear',academicYear);
       for (const key in crit11Data) {
         formdata.append(key, crit11Data[key]);
       }
@@ -64,7 +66,7 @@ const Criteria1 = () => {
     <div className="criteria1">
       <div className="yearly_status_rep">
         <p>Yearly Status Report - Part B</p>
-        <p>Academic Year to which AQAR has to be submitted: </p>
+        <p>Academic Year to which AQAR has to be submitted: {academicYear}</p>
         <p>Department: {department}</p>
       </div>
       <div className="crit1">

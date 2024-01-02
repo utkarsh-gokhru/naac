@@ -37,6 +37,7 @@ const handleFileUpload = async (existingData, fieldName, newFile, newData) => {
     if (!existingData) {
         existingData = new Criteria1Model({
             department: newData.department,
+            academicYear: newData.academicYear,
             criteria14: {
                 [fieldName]: newFile.path,
                 ...newData,
@@ -52,17 +53,19 @@ const handleFileUpload = async (existingData, fieldName, newFile, newData) => {
 
 app.post('/save1-4-1', upload.single('file1_4_1'), async (req, res) => {
     try {
-        const { department, feedbackType1_4_1 } = req.body;
+        const { department, feedbackType1_4_1, academicYear } = req.body;
         const file1_4_1 = req.file;
 
         if (!file1_4_1 || !feedbackType1_4_1) {
             return res.status(400).json({ error: 'Missing required data.' });
         }
 
-        let existingData = await Criteria1Model.findOne({ department });
+        let existingData = await Criteria1Model.findOne({ department, academicYear });
 
         await handleFileUpload(existingData, 'file1_4_1', file1_4_1, {
             feedbackType1_4_1,
+            department,
+            academicYear
         });
 
         res.status(200).json({ message: 'Data saved successfully for Section 1.4.1' });
@@ -70,37 +73,6 @@ app.post('/save1-4-1', upload.single('file1_4_1'), async (req, res) => {
         console.error('Error saving data:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
-});
-
-
-app.post('/save1-4-2', upload.single('fileUpload'), async (req, res) => {
-  try {
-    const { department, feedbackType1_4_2 } = req.body;
-
-    if (!feedbackType1_4_2) {
-      return res.status(400).json({ error: 'Missing required data.' });
-    }
-
-    let existingData = await Criteria1Model.findOne({ department });
-
-    if (!existingData) {
-      existingData = new Criteria1Model({
-        department,
-        criteria14: {
-          feedbackType1_4_2,
-        },
-      });
-    } else {
-      existingData.criteria14.feedbackType1_4_2 = feedbackType1_4_2;
-    }
-
-    await existingData.save();
-
-    res.status(200).json({ message: 'Data saved successfully for Section 1.4.2' });
-  } catch (error) {
-    console.error('Error saving data:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
 });
 
 export { app as C14 };

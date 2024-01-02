@@ -10,6 +10,7 @@ const Criteria12 = ({ onCrit12Data }) => {
     const [file1_2_2_1, setFile1_2_2_1] = useState(null);
     const [file1_2_2_2, setFile1_2_2_2] = useState(null);
     const department = localStorage.getItem('department');
+    const academicYear = localStorage.getItem('academicYear');
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -29,6 +30,7 @@ const Criteria12 = ({ onCrit12Data }) => {
 
         const sectionData = {
             department,
+            academicYear,
             newCoursesCount1_2_1,
             file1_2_1_1,
             file1_2_1_2
@@ -51,6 +53,7 @@ const Criteria12 = ({ onCrit12Data }) => {
 
         const sectionData = {
             department,
+            academicYear,
             programCount1_2_2,
             file1_2_2_1,
             file1_2_2_2
@@ -70,7 +73,7 @@ const Criteria12 = ({ onCrit12Data }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}`);
+            const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data.criteria12;
     
             if (data) {

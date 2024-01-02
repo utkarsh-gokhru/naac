@@ -94,7 +94,7 @@ app.post('/submit', upload.fields([
             file1_4_1: path.join('uploads', files['file1_4_1'][0].filename),
         };
 
-        let existingData = await Criteria1Model.findOne({ department: req.body.department });
+        let existingData = await Criteria1Model.findOne({ department: req.body.department, academicYear: req.body.academicYear });
 
 
         if (existingData) {
@@ -142,6 +142,7 @@ app.post('/submit', upload.fields([
         } else {
             const newData = new Criteria1Model({
                 department: req.body.department,
+                academicYear: req.body.academicYear,
                 criteria11: {
                     curriculumText: req.body.curriculumText,
                     syllabusRevisionCount: req.body.syllabusRevisionCount,

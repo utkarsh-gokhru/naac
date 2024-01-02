@@ -13,12 +13,14 @@ const Criteria11 = ({ onCrit11Data }) => {
     const [file1_1_3_1, setFile1_1_3_1] = useState(null);
     const [file1_1_3_2, setFile1_1_3_2] = useState(null);
     const department = localStorage.getItem('department');
+    const academicYear = localStorage.getItem('academicYear');
 
     const saveSection1_1_1 = async() => {
         const formdata = new FormData();
 
         const sectionData = {
             department,
+            academicYear,
             curriculumText,
             file1_1_1,
         };
@@ -40,6 +42,7 @@ const Criteria11 = ({ onCrit11Data }) => {
     
         const sectionData = {
             department,
+            academicYear,
             syllabusRevisionCount,
             file1_1_2_1,
             file1_1_2_2,
@@ -64,6 +67,7 @@ const Criteria11 = ({ onCrit11Data }) => {
     
         const sectionData = {
             department,
+            academicYear,
             coursesFocusCount,
             file1_1_3_1,
             file1_1_3_2,
@@ -98,7 +102,7 @@ const Criteria11 = ({ onCrit11Data }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}`);
+            const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data.criteria11;
     
             if (data) {
