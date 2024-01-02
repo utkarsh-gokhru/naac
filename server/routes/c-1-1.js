@@ -35,7 +35,6 @@ const handleFileUpload = async (existingData, fieldName, newFile, newData) => {
     }
 
     if (!existingData) {
-        console.log(newData);
 
         existingData = new Criteria1Model({
             department: newData.department,

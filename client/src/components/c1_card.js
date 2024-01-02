@@ -70,7 +70,7 @@ const CardC1 = () => {
     fetchData();
   }, []); 
 
-  const progress = (fieldCount / totalFields) * 100;
+  const progress = ((fieldCount / totalFields) * 100).toFixed(2);
 
   const handlClick = () => {
     if(progress<100){
