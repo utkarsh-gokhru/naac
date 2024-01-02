@@ -110,6 +110,8 @@ const Criteria11 = ({ onCrit11Data }) => {
                 data.coursesFocusCount ? setCoursesFocusCount(data.coursesFocusCount) : setCoursesFocusCount('');
                 data.syllabusRevisionCount ? setSyllabusRevisionCount(data.syllabusRevisionCount) : setSyllabusRevisionCount('');
                 data.file1_1_1 ? setFile1_1_1('true') : setFile1_1_1('false');
+                data.file1_1_2_1 ? setFile1_1_2_1('true') : setFile1_1_2_1('false');
+                data.file1_1_2_2 ? setFile1_1_2_2('true') : setFile1_1_2_2('false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -210,7 +212,9 @@ const Criteria11 = ({ onCrit11Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Upload the data template</td>
+                                    <td> {file1_1_2_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                                      
+                                        Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('1.1.2.xlsx')}>Data Template</button>
                                     </td>
@@ -226,7 +230,8 @@ const Criteria11 = ({ onCrit11Data }) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td>Upload relevant supporting documents</td>
+                                    <td> {file1_1_2_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                                        Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>
                                         <input
