@@ -72,7 +72,7 @@ const Criteria11 = ({ onCrit11Data }) => {
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
-    
+
         try {
             const response = await axios.post("http://localhost:5000/data/save1-1-3", formdata);
             console.log(response.data);
@@ -105,6 +105,7 @@ const Criteria11 = ({ onCrit11Data }) => {
                 data.curriculumText ? setCurriculumText(data.curriculumText) : setCurriculumText('');
                 data.coursesFocusCount ? setCoursesFocusCount(data.coursesFocusCount) : setCoursesFocusCount('');
                 data.syllabusRevisionCount ? setSyllabusRevisionCount(data.syllabusRevisionCount) : setSyllabusRevisionCount('');
+                data.file1_1_1 ? setFile1_1_1('true') : setFile1_1_1('false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -162,7 +163,10 @@ const Criteria11 = ({ onCrit11Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Upload relevant supporting documents</td>
+                                    <td>
+                                    {file1_1_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}>✗</span>)}
+                                        Upload relevant supporting documents
+                                    </td>
                                     <td></td>
                                     <td>
                                         <input
