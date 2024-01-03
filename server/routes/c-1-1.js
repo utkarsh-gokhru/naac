@@ -6,7 +6,7 @@ import fs from 'fs';
 import Criteria1Model from '../models/criteria1.js';
 
 const app = express();
-
+    
 app.use(bodyParser.json());
 
 const storage = multer.diskStorage({
@@ -18,6 +18,7 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
     },
 });
+
 const upload = multer({ storage: storage });
 
 const deleteExistingFile = (existingFilePath) => {

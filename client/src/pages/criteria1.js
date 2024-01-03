@@ -5,6 +5,7 @@ import Criteria12 from "../components/c-1-2";
 import Criteria13 from "../components/c-1-3";
 import Criteria14 from "../components/c-1-4";
 import axios from "axios";
+import Popup from "../components/popup";
 
 const Criteria1 = () => {
   const [crit12Data, setCrit12Data] = useState(null);
@@ -13,6 +14,7 @@ const Criteria1 = () => {
   const [crit11Data, setCrit11Data] = useState(null);
   const department = localStorage.getItem('department');
   const academicYear = localStorage.getItem('academicYear');
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleCrit11Data = (data) => {
     setCrit11Data(data);
@@ -30,8 +32,13 @@ const Criteria1 = () => {
     setCrit14Data(data);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+
+    setShowPopup(true);
+  };
+
+  const handePopupOk = async () => {
 
     try {
       const formdata = new FormData();
@@ -52,7 +59,6 @@ const Criteria1 = () => {
       for (const key in crit14Data) {
         formdata.append(key, crit14Data[key]);
       }
-
       const response = await axios.post("http://localhost:5000/data/submit", formdata);
       console.log(response.data); 
       alert("Criteria 1 submitted!");
@@ -60,7 +66,12 @@ const Criteria1 = () => {
       console.error(error);
       alert("Submission failed. Please try again later.");
     }
-  };
+    setShowPopup(false);
+  }
+
+  const handlePopupClose = () => {
+    setShowPopup(false);
+  }
 
   return (
     <div className="criteria1">
@@ -78,6 +89,13 @@ const Criteria1 = () => {
         <div className="button-container">
           <button onClick={handleSubmit} className="custom-button">Submit</button>
         </div>
+        {showPopup && (
+          <Popup 
+          message='Once the data is submitted, it cannot be edited. Are you sure you want to submit the data?'
+          onOk={handePopupOk}
+          onClose={handlePopupClose}
+          />
+        )}
       </div>
     </div>
   );

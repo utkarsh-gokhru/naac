@@ -20,38 +20,39 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-const deleteExistingFiles = (existingData) => {
-    if (existingData) {
-        const filesToDelete = [];
+const deleteExistingFiles = (data) => {
+    const filePaths = [
+        data?.criteria11?.file1_1_1,
+        data?.criteria11?.file1_1_2_1,
+        data?.criteria11?.file1_1_2_2,
+        data?.criteria11?.file1_1_3_1,
+        data?.criteria11?.file1_1_3_2,
+        data?.criteria12?.file1_2_1_1,
+        data?.criteria12?.file1_2_1_2,
+        data?.criteria12?.file1_2_2_1,
+        data?.criteria12?.file1_2_2_2,
+        data?.criteria13?.file1_3_1,
+        data?.criteria13?.file1_3_2_1,
+        data?.criteria13?.file1_3_2_2,
+        data?.criteria13?.file1_3_3_1_1,
+        data?.criteria13?.file1_3_3_1_2,
+        data?.criteria13?.file1_3_4_1,
+        data?.criteria13?.file1_3_4_2,
+        data?.criteria14?.file1_4_1,
+    ];
 
-        filesToDelete.push(existingData.criteria11.file1_1_1);
-        filesToDelete.push(existingData.criteria11.file1_1_2_1);
-        filesToDelete.push(existingData.criteria11.file1_1_2_2);
-        filesToDelete.push(existingData.criteria11.file1_1_3_1);
-        filesToDelete.push(existingData.criteria11.file1_1_3_2);
-        filesToDelete.push(existingData.criteria12.file1_2_1_1);
-        filesToDelete.push(existingData.criteria12.file1_2_1_2);
-        filesToDelete.push(existingData.criteria12.file1_2_2_1);
-        filesToDelete.push(existingData.criteria12.file1_2_2_2);
-        filesToDelete.push(existingData.criteria13.file1_3_1);
-        filesToDelete.push(existingData.criteria13.file1_3_2_1);
-        filesToDelete.push(existingData.criteria13.file1_3_2_2);
-        filesToDelete.push(existingData.criteria13.file1_3_3_1_1);
-        filesToDelete.push(existingData.criteria13.file1_3_3_1_2);
-        filesToDelete.push(existingData.criteria13.file1_3_4_1);
-        filesToDelete.push(existingData.criteria13.file1_3_4_2);
-        filesToDelete.push(existingData.criteria14.file1_4_1);
-
-        filesToDelete.forEach((filePath) => {
+    filePaths.forEach(filePath => {
+        if (filePath) {
             try {
                 fs.unlinkSync(filePath);
-                console.log('deleted existing files');
+                console.log(`Deleted existing file: ${filePath}`);
             } catch (err) {
-                console.error('Error deleting file:', err);
+                console.error(`Error deleting existing file ${filePath}:`, err);
             }
-        });
-    }
+        }
+    });
 };
+
 
 app.post('/submit', upload.fields([
     { name: 'file1_1_1', maxCount: 1 },
@@ -95,7 +96,6 @@ app.post('/submit', upload.fields([
         };
 
         let existingData = await Criteria1Model.findOne({ department: req.body.department, academicYear: req.body.academicYear });
-
 
         if (existingData) {
             deleteExistingFiles(existingData);

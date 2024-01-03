@@ -18,6 +18,7 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
     },
 });
+
 const upload = multer({ storage: storage });
 
 const deleteExistingFile = (existingFilePath) => {

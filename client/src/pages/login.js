@@ -12,8 +12,6 @@ const Login = () => {
     const [invalCred, setInvalCred] = useState(false);
     const navigate = useNavigate();
 
-    
-
     const handleLogin = (e) => {
         e.preventDefault();
 

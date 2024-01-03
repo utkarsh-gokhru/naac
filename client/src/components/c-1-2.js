@@ -65,7 +65,7 @@ const Criteria12 = ({ onCrit12Data }) => {
         try{
             const response = await axios.post("http://localhost:5000/data/save1-2-2", formdata);
             console.log(response.data); 
-            alert("Saved Section 1.2.1 data:");
+            alert("Saved Section 1.2.2 data:");
         }catch(error){
             console.log("Error",error.message);
         }

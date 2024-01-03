@@ -5,6 +5,7 @@ const Dashoard = () => {
 
     return(
         <div className="dashboard">
+            <h2>Dashboard</h2>
             <CardC1 />
         </div>
     )
