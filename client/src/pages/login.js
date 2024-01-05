@@ -69,8 +69,8 @@ const Login = () => {
                     </select>
                 </div>
                 <div className='id-div'>
-                    <label>ID</label>
-                    <input type='text' value={id} required placeholder='Enter your ID' onChange={(e) => setId(e.target.value)} />
+                    <label>EMAIL</label>
+                    <input type='email' value={id} required placeholder='Enter your ID' onChange={(e) => setId(e.target.value)} />
                 </div>
                 <div className='pwd-div'>
                     <label>PASSWORD</label>
