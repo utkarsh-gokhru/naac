@@ -1,42 +1,44 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import path from 'path';
-import fs from 'fs';
 import Criteria1Model from '../models/criteria1.js';
+import { getDownloadURL, ref } from 'firebase/storage';
+import { getStorage } from '../firebase.js';
+import cors from 'cors';
 
 const app = express();
-    
-app.use(bodyParser.json());
 
-const mimetypes = {
-    '.xls': 'application/vnd.ms-excel',
-    '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-    '.pdf': 'application/pdf',
-    '.doc': 'application/msword',
-    '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-};
+app.use(cors());
+app.use(bodyParser.json());
 
 app.get('/download/:fileKey', async (req, res) => {
     try {
         const fileKey = req.params.fileKey;
-        const department = req.query.department;
+        const department = req.query.department;    
         const academicYear = req.query.academicYear;
 
         const data = await Criteria1Model.findOne({ department, academicYear });
+
+        if (!data) {
+            return res.status(404).json({ error: 'Data not found.' });
+        }
+
         const criteria11 = data.criteria11;
-        const filePath = criteria11[`${fileKey}`];
+        const filePath = criteria11[fileKey];
 
         if (!filePath) {
             return res.status(404).json({ error: 'File not found.' });
         }
 
-        const fileName = path.basename(filePath);
+        const storage = getStorage();
+        const fileRef = ref(storage, filePath);
+        const downloadURL = await getDownloadURL(fileRef);
 
-        res.sendFile(filePath, { root: process.cwd(), headers: { 'Content-Disposition': `attachment; filename=${fileName}` } });
+        console.log(downloadURL);
+        res.redirect(downloadURL);
     } catch (error) {
         console.error('Error sending file:', error);
-        res.status(500).json({ error: 'Internal Server Error'});
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
-export {app as Files};
+export { app as Files };

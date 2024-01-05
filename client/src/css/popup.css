@@ -40,10 +40,26 @@ transition: background 0.3s;
 }
 
 .popup-buttons button:hover {
-background: #4caf50; 
+background: #4caf50;
 color: #fff;
 }
 
 .popup-buttons button.cancel:hover {
-background: #c0392b; 
+background: #c0392b;
+}
+
+.loading-spinner-container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* Adjust these styles as needed for your specific design */
+.loading-spinner {
+border: 5px solid #3498db;
+border-top: 5px solid transparent;
+border-radius: 50%;
+width: 30px;
+height: 30px;
+animation: spin 1s linear infinite;
 }
