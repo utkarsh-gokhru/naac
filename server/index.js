@@ -7,7 +7,6 @@ import { Criteria1_submit } from './routes/criteria1.js';
 import { C11 } from './routes/c-1-1.js';
 import { C12 } from './routes/c-1-2.js';
 import { C13 } from './routes/c-1-3.js';
-import { C14 } from './routes/c-1-4.js';
 import { fetchC1 } from './routes/fetchC1.js';
 import { Files } from './routes/files.js';
 
@@ -28,7 +27,7 @@ mongoose.connect(db_url)
 })
 
 app.use('/auth', userAuth);
-app.use('/data',[Criteria1_submit,C11,C12,C13,C14,fetchC1]);
+app.use('/data',[Criteria1_submit,C11,C12,C13,fetchC1]);
 app.use('/files', Files)
 
 app.use(bodyParser.urlencoded({ extended: true }));

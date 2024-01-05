@@ -1,43 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { saveAs } from "file-saver";
-import axios from "axios";
 
 const Criteria14 = ({ onCrit14Data }) => {
   const [feedbackType1_4_1, setFeedbackType1_4_1] = useState('');
   const [feedbackType1_4_2, setFeedbackType1_4_2] = useState('');
   const [file1_4_1, setFile1_4_1] = useState('');
-  const department = localStorage.getItem('department');
-  const academicYear = localStorage.getItem('academicYear');
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}&academicYear=${academicYear}`);
-      const data = response.data.data.criteria14;
-    
-      if (data) {
-        const feedbackType1_4_1Options = ['All 4 of the above', 'Any 3 of the above', 'Any 2 of the above', 'Any 1 of the above', 'None of the above'];
-        if (feedbackType1_4_1Options.includes(data.feedbackType1_4_1)) {
-          setFeedbackType1_4_1(data.feedbackType1_4_1);
-        } else {
-          setFeedbackType1_4_1('');
-        }
-        
-        const feedbackType1_4_2Options = ['Feedback collected, analyzed and action taken and feedback available on the website', 'Feedback collected, analyzed and action has been taken', 'Feedback collected and analyzed', 'Feedback collected', 'Feedback not collected'];
-        if (feedbackType1_4_2Options.includes(data.feedbackType1_4_2)) {
-          setFeedbackType1_4_2(data.feedbackType1_4_2);
-        } else {
-          setFeedbackType1_4_2('');
-        }
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error.message);
-    }
-  };
-  
-
-  useEffect(() => {
-    fetchData();
-  },[]);
 
   useEffect(() => {
     const crit14 = {
@@ -58,29 +25,6 @@ const Criteria14 = ({ onCrit14Data }) => {
       saveAs(blob, `${exc_file}_output.xlsx`);
     } catch (error) {
       console.error('Error fetching the template file:', error);
-    }
-  };
-
-  const saveSection1_4_1 = async () => {
-    const formdata = new FormData();
-
-    const sectionData = {
-      department,
-      academicYear,
-      feedbackType1_4_1,
-      file1_4_1
-    };
-
-    for (const key in sectionData) {
-      formdata.append(key, sectionData[key]);
-    }
-    console.log(formdata);
-    try {
-      const response = await axios.post("http://localhost:5000/data/save1-4-1", formdata);
-      console.log(response.data);
-      alert("Saved Section 1.4.1 data:");
-    } catch (error) {
-      console.log("Error", error.message);
     }
   };
 
@@ -125,9 +69,6 @@ const Criteria14 = ({ onCrit14Data }) => {
                 </tr>
               </tbody>
             </table>
-            <div>
-              <button onClick={saveSection1_4_1}>Save</button>
-            </div>
           </div>
         </li>
         <li>
