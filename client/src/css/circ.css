@@ -1,0 +1,7 @@
+.progress-bar-background {
+transition: stroke-dashoffset 1s ease;
+}
+
+.progress-bar {
+transition: stroke-dashoffset 1s ease;
+}

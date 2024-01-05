@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/c1_card.css';
 import { useNavigate } from 'react-router-dom';
+import CircularProgressBar from './cicular-progress';
 
 const CardC1 = () => {
   const totalFields = 28;
@@ -72,7 +73,7 @@ const CardC1 = () => {
 
   const progress = ((fieldCount / totalFields) * 100).toFixed(2);
 
-  const handlClick = () => {
+  const handleClick = () => {
     if(progress<100){
         navigate('/criteria1');
     }
@@ -82,14 +83,11 @@ const CardC1 = () => {
   }
 
   return (
-    <div className="card" onClick={handlClick}>
+    <div className="card" onClick={handleClick}>
       <div className="card-content">
-        <h2 className="card-title">Criteria 1</h2>
-        <div className="progress-bar">
-          <div
-            className="progress-bar-fill"
-            style={{ width: `${progress}%` }}
-          ></div>
+        <div className="progress-container">
+          <CircularProgressBar progress={progress} />
+          <h2 className="card-title">Criteria 1</h2>
         </div>
         <p className="progress-text">{`${progress}% Complete`}</p>
       </div>
