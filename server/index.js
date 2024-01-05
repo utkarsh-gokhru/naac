@@ -11,10 +11,6 @@ import { fetchC1 } from './routes/fetchC1.js';
 import { Files } from './routes/files.js';
 
 const app = express();
-<<<<<<< HEAD
-// const bodyParser = require('body-parser');
-=======
->>>>>>> parent of a485175 (commit)
 
 app.use(cors());
 app.use(express.json());
@@ -33,7 +29,7 @@ app.use('/auth', userAuth);
 app.use('/data',[Criteria1_submit,C11,C12,C13,fetchC1]);
 app.use('/files', Files)
 
-<<<<<<< HEAD
+
 // app.use(bodyParser.urlencoded({ extended: true }));
 
 // const apiKey = 'Cg0qMZmO5roGbyI73LhjkuFdUewTzisH'; // Replace with your actual API key
@@ -78,6 +74,4 @@ app.use('/files', Files)
 //   res.send('Callback URL');
 // });
 
-=======
->>>>>>> parent of a485175 (commit)
 app.listen(5000,() => console.log('Server started'));
