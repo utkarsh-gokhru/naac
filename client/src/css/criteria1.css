@@ -1,11 +1,11 @@
-.criteria1{
+.criteria1 {
     max-width: 95%;
     height: auto;
     margin-left: 20px;
     margin-bottom: 20px;
 }
 
-.text-area{
+.text-area {
     max-width: 80%;
     height: auto;
 }
@@ -16,18 +16,18 @@ table {
     height: auto;
     margin-top: 30px;
 }
-  
+
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
-  
+
 th {
     background-color: #f2f2f2;
 }
 
-li{
+li {
     list-style: none;
 }
 
@@ -35,23 +35,23 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh; /* Adjust as needed to center vertically */
-  }
-  .custom-button {
-    padding: 10px 20px; /* Adjust padding to make the button larger */
-    font-size: 18px; /* Adjust font size to make the text larger */
-    background-color: grey; /* Add your desired background color */
-    color: #fff; /* Add your desired text color */
+    height: 10vh;
+}
+
+.custom-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: grey;
+    color: #fff;
     border: none;
-    border-radius: 5px; /* Adjust border-radius for rounded corners */
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Add a smooth transition effect */
-  
-    /* Optional: Hover styles */
+    transition: background-color 0.3s ease;
+
     &:hover {
-      background-color: rgb(83, 82, 82); /* Change background color on hover */
+        background-color: rgb(83, 82, 82);
     }
-  }
+}
 
 .radioBtn-1_4_1,
 .radioBtn-1_4_2 {
@@ -60,7 +60,6 @@ li{
     display: flex;
 }
 
-.c-1_1,.c-1_2,.c-1_3,.c-1_4{
+.c-1_1, .c-1_2, .c-1_3, .c-1_4 {
     border: 1px solid #ddd;
 }
-    
