@@ -9,6 +9,7 @@ const CardC1 = () => {
   const [fieldCount, setFieldCount] = useState(0);
   const department = localStorage.getItem('department');
   const academicYear = localStorage.getItem('academicYear');
+  const admin = localStorage.getItem('admin');
 
   const navigate = useNavigate();
 
@@ -74,11 +75,16 @@ const CardC1 = () => {
   const progress = ((fieldCount / totalFields) * 100).toFixed(2);
 
   const handleClick = () => {
-    if(progress<100){
+    if(admin){
+      navigate('/admin/criteria1');
+    }
+    else{
+      if(progress<100){
         navigate('/criteria1');
     }
     else{
         alert('Criteria 1 has been submitted!');
+    }
     }
   }
 

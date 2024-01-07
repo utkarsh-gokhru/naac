@@ -52,10 +52,17 @@ const Login = () => {
                 setPassword('');
                 setDepartment('');
                 setAcademicYear('');
-                localStorage.setItem('id', id);
-                localStorage.setItem('department', department);
-                localStorage.setItem('academicYear', academicYear);
-                navigate('/dashboard');
+                if (department === 'Admin') {
+                    localStorage.setItem('id', id);
+                    localStorage.setItem('admin', department);
+                    localStorage.setItem('academicYear', academicYear);
+                    navigate('/admin');
+                  } else {
+                    localStorage.setItem('id', id);
+                    localStorage.setItem('department', department);
+                    localStorage.setItem('academicYear', academicYear);
+                    navigate('/dashboard');
+                  }
             })
             .catch(error => {
                 console.log(error);

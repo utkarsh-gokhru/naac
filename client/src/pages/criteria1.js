@@ -80,6 +80,14 @@ const Criteria1 = () => {
         <p>Academic Year to which AQAR has to be submitted: {academicYear}</p>
         <p>Department: {department}</p>
       </div>
+      <div className="info-section">
+        <h2>Note</h2>
+        <ul>
+          <li>When the save button is clicked, the progress will be restored when you come back.</li>
+          <li>The data can be edited till the time you don't click the submit button</li>
+          <li>Before clicking the submit button, ensure that all the fields are filled even if you had saved the progress</li>
+        </ul>
+      </div>
       <div className="crit1">
         <h2>Criterion 1 - Curricular Aspects</h2>
         <Criteria11 onCrit11Data={handleCrit11Data} />

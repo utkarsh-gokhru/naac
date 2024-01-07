@@ -98,6 +98,10 @@ const AdminC1 = () => {
 
     return(
         <div className='adminC1-page'>
+            <div className='c1-header'>
+                <h1>Department- {department}</h1>
+                <h1>Academic Year- {academicYear}</h1>
+            </div>
             <div className='C-1-1'>
                 <div className='C-1-1-1'>
                     <div className='curr_text'>
