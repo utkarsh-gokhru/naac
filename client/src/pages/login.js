@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../css/login.css';
 import naacLogo from '../naac_logo.png';
+import muLogo from '../mu_logo.jpg';
 
 const Login = () => {
     const [id, setId] = useState('');
@@ -57,12 +58,12 @@ const Login = () => {
                     localStorage.setItem('admin', department);
                     localStorage.setItem('academicYear', academicYear);
                     navigate('/admin');
-                  } else {
+                } else {
                     localStorage.setItem('id', id);
                     localStorage.setItem('department', department);
                     localStorage.setItem('academicYear', academicYear);
                     navigate('/dashboard');
-                  }
+                }
             })
             .catch(error => {
                 console.log(error);
@@ -75,8 +76,13 @@ const Login = () => {
 
     return (
         <div className='loginPage'>
-            <div className='logo'>
-                <img src={naacLogo} alt='NAAC LOGO' />
+            <div className='lu'>
+                <div className='logo'>
+                    <img src={naacLogo} alt='NAAC LOGO' />
+                </div>
+                <div className='logo'>
+                    <img src={muLogo} alt='MU LOGO' />
+                </div>
             </div>
             <div className='loginContainer'>
                 <div className='login-heading'>

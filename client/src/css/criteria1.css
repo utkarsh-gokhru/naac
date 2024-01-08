@@ -86,3 +86,7 @@ display: flex;
 .c-1_1, .c-1_2, .c-1_3, .c-1_4 {
 border: 1px solid #ddd;
 }
+
+.yearly_status_rep{
+    background-color: #ddd;
+}

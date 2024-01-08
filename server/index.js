@@ -16,7 +16,8 @@ app.use(cors());
 app.use(express.json());
 dotenv.config();
 
-const db_url = process.env.DATABASE_URL;
+const pass = encodeURIComponent(`@Utkarsh123`);
+const db_url = `mongodb+srv://utkarsh:${pass}@cluster0.uiwjnnu.mongodb.net/?retryWrites=true&w=majority`;
 mongoose.connect(db_url)
 .then(() => {
     console.log('DB connected!');

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from '../components/cards';
 import { useNavigate } from 'react-router-dom';
 import '../css/admin.css';
+import naacLogo from '../naac_logo.png';
 
 const AdminDash = () => {
   const allDepartments = [
@@ -65,8 +66,11 @@ const AdminDash = () => {
 
   return (
     <div className="admin-dash-container">
+      <div className='logo-f'>
+        <img src={naacLogo} alt='NAAC LOGO' />
+      </div>
       <div className='head'>
-        
+
         <h1>University of Mumbai</h1>
         <h3>AQAR Platform</h3>
       </div>

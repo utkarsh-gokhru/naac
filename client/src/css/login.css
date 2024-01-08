@@ -159,3 +159,9 @@ background-color: #218f54;
 .error-message{
     color: red;
 }
+
+
+.lu{
+    display: flex;
+    flex-direction: column;
+}

@@ -6,6 +6,7 @@ import Criteria13 from "../components/c-1-3";
 import Criteria14 from "../components/c-1-4";
 import axios from "axios";
 import Popup from "../components/popup";
+import naacLogo from '../naac_logo.png';
 
 const Criteria1 = () => {
   const [crit12Data, setCrit12Data] = useState(null);
@@ -75,6 +76,15 @@ const Criteria1 = () => {
 
   return (
     <div className="criteria1">
+      <div className='logo-e'>
+                <img src={naacLogo} alt='NAAC LOGO' />
+                <div className='head'>
+
+                    <h1 >University of Mumbai</h1>
+                    <h3>AQAR Platform</h3>
+
+                </div>
+            </div>
       <div className="yearly_status_rep">
         <p>Yearly Status Report - Part B</p>
         <p>Academic Year to which AQAR has to be submitted: {academicYear}</p>

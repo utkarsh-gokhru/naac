@@ -7,12 +7,26 @@ import CardC5 from "../components/c5_card";
 import CardC6 from "../components/c6_card";
 import CardC7 from "../components/c7_card";
 import '../css/dashboard.css';
+import naacLogo from '../naac_logo.png';
 
+
+const academicYear = localStorage.getItem('academicYear');
 const Dashboard = () => {
 
-    return(
+    return (
         <div className="dashboard">
-            <h2>Dashboard</h2>
+            <div className='logo-e'>
+                <img src={naacLogo} alt='NAAC LOGO' />
+                <div className='head'>
+
+                    <h1 >University of Mumbai</h1>
+                    <h3>AQAR Platform</h3>
+
+                </div>
+            </div>
+            <h2 className="hhv">Dashboard</h2>
+            <h3>Academic Year: {academicYear}</h3>
+
             <div className="criteria-cont">
                 <CardC1 />
                 <CardC2 />
