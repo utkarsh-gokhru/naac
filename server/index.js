@@ -13,11 +13,11 @@ import { Files } from './routes/files.js';
 const app = express();
 
 app.use(cors(
-    {
-        origin: ["naac-frontend-hci2wkv3z-ayan-joshi.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
+    // {
+    //     origin: ["naac-frontend-hci2wkv3z-ayan-joshi.vercel.app"],
+    //     methods: ["POST", "GET"],
+    //     credentials: true
+    // }
 ));
 app.use(express.json());
 dotenv.config();
