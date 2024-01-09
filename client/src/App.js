@@ -8,7 +8,7 @@ import AdminDash from './pages/admin-dash';
 import axios from 'axios';
 
 function App() {
-  axios.post('https://naac-qzz01japa-ayan-joshi.vercel.app/')
+  
   return (
     <div className="App">
       <BrowserRouter>
