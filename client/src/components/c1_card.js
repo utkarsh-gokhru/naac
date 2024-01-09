@@ -75,19 +75,17 @@ const CardC1 = () => {
   const progress = ((fieldCount / totalFields) * 100).toFixed(2);
 
   const handleClick = () => {
-    if(admin){
+    if (department === admin) {
       navigate('/admin/criteria1');
-    }
-    else{
-      if(progress<100){
+    } else {
+      if (progress < 100) {
         navigate('/criteria1');
-    }
-    else{
+      } else {
         alert('Criteria 1 has been submitted!');
-    }
+      }
     }
   }
-
+  
   return (
     <div className="card" onClick={handleClick}>
       <div className="card-content">
