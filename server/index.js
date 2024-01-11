@@ -2,13 +2,13 @@ import express from 'express';
 import mongoose from "mongoose";
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { userAuth } from './api/auth.js';
-import { Criteria1_submit } from './api/criteria1.js';
-import { C11 } from './api/c-1-1.js';
-import { C12 } from './api/c-1-2.js';
-import { C13 } from './api/c-1-3.js';
-import { fetchC1 } from './api/fetchC1.js';
-import { Files } from './api/files.js';
+import { userAuth } from './routes/auth.js';
+import { Criteria1_submit } from './routes/criteria1.js';
+import { C11 } from './routes/c-1-1.js';
+import { C12 } from './routes/c-1-2.js';
+import { C13 } from './routes/c-1-3.js';
+import { fetchC1 } from './routes/fetchC1.js';
+import { Files } from './routes/files.js';
 
 const app = express();
 

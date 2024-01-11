@@ -152,7 +152,7 @@ const Criteria13 = ({ onCrit13Data }) => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("https://naacserver.vercel.app/data/save1-3-4", formdata);
+            const response = await axios.post("http://localhost:5000/data/save1-3-4", formdata);
             console.log(response.data); 
             alert("Saved Section 1.3.4 data:");
         }catch(error){
