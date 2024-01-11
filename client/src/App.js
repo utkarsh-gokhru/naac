@@ -5,7 +5,6 @@ import Criteria1 from './pages/criteria1';
 import Dashboard from './pages/dashboard';
 import AdminC1 from './pages/adminC1';
 import AdminDash from './pages/admin-dash';
-import axios from 'axios';
 
 function App() {
   

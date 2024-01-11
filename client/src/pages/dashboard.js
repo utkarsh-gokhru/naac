@@ -8,10 +8,18 @@ import CardC6 from "../components/c6_card";
 import CardC7 from "../components/c7_card";
 import '../css/dashboard.css';
 import naacLogo from '../naac_logo.png';
+import { useNavigate } from "react-router-dom";
 
 
 const academicYear = localStorage.getItem('academicYear');
 const Dashboard = () => {
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/');
+    }
 
     return (
         <div className="dashboard">
@@ -21,6 +29,7 @@ const Dashboard = () => {
 
                     <h1 >University of Mumbai</h1>
                     <h3>AQAR Platform</h3>
+                    <button onClick={handleLogout}>Logout</button>
 
                 </div>
             </div>
