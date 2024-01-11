@@ -25,7 +25,7 @@ const Login = () => {
         if (form.checkValidity()) {
             setShowOtpPopup(true);
 
-            axios.post('http://localhost:5000/auth/login', { id, password, department, academicYear })
+            axios.post('https://naacserver.vercel.app/auth/login', { id, password, department, academicYear })
                 .then(response => {
                     if (response.data && response.data.otp) {
                         setMailOtp(response.data.otp);
