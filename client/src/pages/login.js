@@ -45,7 +45,7 @@ const Login = () => {
 
     const handleVerifyOTP = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/auth/otp', { otp, mailOtp })
+        axios.post('https://naacserver.vercel.app/auth/otp', { otp, mailOtp })
             .then(response => {
                 console.log(response.data);
                 setShowOtpPopup(false);
