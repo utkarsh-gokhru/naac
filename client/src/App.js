@@ -4,9 +4,11 @@ import Login from './pages/login';
 import Criteria1 from './pages/criteria1';
 import Dashboard from './pages/dashboard';
 import AdminC1 from './pages/adminC1';
+import Criteria2 from './pages/criteria2';
 import AdminDash from './pages/admin-dash';
 import SectionPage from './pages/sections';
 import Criteria3 from './pages/criteria3';
+import Criteria21 from './components/c-2-1';
 
 function App() {
   
@@ -16,6 +18,8 @@ function App() {
       <Routes>  
         <Route path='/' element = {< Login />} />
         <Route path='/criteria1' element = {< Criteria1 />} />
+        <Route path='/criteria2' element = {< Criteria2 />} />
+        <Route path='/c-2-1' element = {< Criteria21 />} />
         <Route path='/dashboard' element = {< Dashboard />} />
         <Route path='/admin/dashboard' element = {< AdminDash />} />
         <Route path='/admin/criterias' element = {< Dashboard />} />
