@@ -23,11 +23,10 @@ const Login = () => {
         const form = e.target.form;
 
         if (form.checkValidity()) {
-            setShowOtpPopup(true);
-
             axios.post('http://localhost:5000/auth/login', { id, password, department, academicYear })
                 .then(response => {
                     if (response.data && response.data.otp) {
+                        setShowOtpPopup(true);
                         setMailOtp(response.data.otp);
                     }
                 })
@@ -57,7 +56,7 @@ const Login = () => {
                     localStorage.setItem('id', id);
                     localStorage.setItem('admin', department);
                     localStorage.setItem('academicYear', academicYear);
-                    navigate('/admin');
+                    navigate('/admin/dashboard');
                 } else {
                     localStorage.setItem('id', id);
                     localStorage.setItem('department', department);

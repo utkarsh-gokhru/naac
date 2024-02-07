@@ -123,13 +123,14 @@ app.post('/save1-1-2', upload.fields([{ name: 'file1_1_2_1' }, { name: 'file1_1_
 
             await handleFileUpload(existingData, 'file1_1_2_1', { path: filePath1 }, {
                 syllabusRevisionCount,
-                file1_1_2_2: filePath2,
+                file1_1_2_1: filePath1,
                 department,
                 academicYear
             });
 
             await handleFileUpload(existingData, 'file1_1_2_2', { path: filePath2 }, {
                 syllabusRevisionCount,
+                file1_1_2_2: filePath2,
                 department,
                 academicYear
             });

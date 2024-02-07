@@ -35,9 +35,10 @@ const Criteria1Schema = new mongoose.Schema({
     file1_3_4_2: { type: String },
   },
   criteria14: {
-    feedbackType1_4_1: { type: String,   },
-    feedbackType1_4_2: { type: String,   },
-    file1_4_1: { type: String,   },
+    feedbackType1_4_1: { type: String },
+    feedbackType1_4_2: { type: String },
+    file1_4_1: { type: String },
+    file1_4_2: { type: String }
   }
 });
 

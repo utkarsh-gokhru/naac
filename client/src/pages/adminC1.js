@@ -38,7 +38,7 @@ const AdminC1 = () => {
     const [feedbackType1_4_1, setFeedbackType1_4_1] = useState('');
     const [feedbackType1_4_2, setFeedbackType1_4_2] = useState('');
     const [file1_4_1, setFile1_4_1] = useState('');
-       
+    const [file1_4_2, setFile1_4_2] = useState('');
 
     const fetchData = async () => {
         try {
@@ -85,6 +85,7 @@ const AdminC1 = () => {
                     setFeedbackType1_4_1(data.criteria14.feedbackType1_4_1 ? data.criteria14.feedbackType1_4_1 : 'Pending');
                     setFeedbackType1_4_2(data.criteria14.feedbackType1_4_2 ? data.criteria14.feedbackType1_4_2 : 'Pending');
                     setFile1_4_1(data.criteria14.file1_4_1 ? data.criteria14.file1_4_1 : 'Pending');
+                    setFile1_4_2(data.criteria14.file1_4_2 ? data.criteria14.file1_4_2 : 'Pending');
                 }                  
             }
         } catch (error) {
@@ -224,6 +225,9 @@ const AdminC1 = () => {
                 <div className='C-1-4-2'>
                     <h4>
                         1.4.2 - Feedback processes of the institution may be classified as follows: {feedbackType1_4_2}
+                    </h4>
+                    <h4>
+                        Data template: {file1_4_2 ? (<a href={file1_4_2} target='_blank'>View</a>) : (<h4>Pending</h4>)}
                     </h4>
                 </div>
             </div>

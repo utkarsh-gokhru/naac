@@ -5,6 +5,8 @@ import Criteria1 from './pages/criteria1';
 import Dashboard from './pages/dashboard';
 import AdminC1 from './pages/adminC1';
 import AdminDash from './pages/admin-dash';
+import SectionPage from './pages/sections';
+import Criteria3 from './pages/criteria3';
 
 function App() {
   
@@ -15,9 +17,11 @@ function App() {
         <Route path='/' element = {< Login />} />
         <Route path='/criteria1' element = {< Criteria1 />} />
         <Route path='/dashboard' element = {< Dashboard />} />
-        <Route path='/admin' element = {< AdminDash />} />
+        <Route path='/admin/dashboard' element = {< AdminDash />} />
         <Route path='/admin/criterias' element = {< Dashboard />} />
         <Route path='/admin/criteria1' element = {< AdminC1 />} />
+        <Route path='/sections' element = {< SectionPage />} />
+        <Route path='/criteria3' element = {< Criteria3 />} />
       </Routes>
       </BrowserRouter>
     </div>

@@ -19,6 +19,7 @@ const Criteria1 = () => {
 
   const handleCrit11Data = (data) => {
     setCrit11Data(data);
+    console.log(crit11Data);
   };
 
   const handleCrit12Data = (data) => {

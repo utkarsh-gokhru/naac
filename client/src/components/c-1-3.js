@@ -215,6 +215,14 @@ const Criteria13 = ({ onCrit13Data }) => {
                             onChange={(e) => setValueAddedCoursesCount1_3_2(e.target.value)} 
                         />
                         <table>
+                            <thead>
+                                <tr>
+                                    <th>File Description</th>
+                                    <th>Template</th>
+                                    <th>Documents</th>
+                                    <th>File Types/Size Supported</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr>
                                     <td>Upload the data template</td>
@@ -249,6 +257,14 @@ const Criteria13 = ({ onCrit13Data }) => {
                                         onChange={(e) => setEnrolledStudentsCount1_3_3_1(e.target.value)} 
                                     />
                                     <table>
+                                    <thead>
+                                        <tr>
+                                            <th>File Description</th>
+                                            <th>Template</th>
+                                            <th>Documents</th>
+                                            <th>File Types/Size Supported</th>
+                                        </tr>
+                                    </thead>
                                         <tbody>
                                             <tr>
                                                 <td>Upload the data template</td>
@@ -282,6 +298,14 @@ const Criteria13 = ({ onCrit13Data }) => {
                             onChange={(e) => setProjectsCount1_3_4(e.target.value)} 
                         />
                         <table>
+                            <thead>
+                                <tr>
+                                    <th>File Description</th>
+                                    <th>Template</th>
+                                    <th>Documents</th>
+                                    <th>File Types/Size Supported</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr>
                                     <td>Upload the data template</td>

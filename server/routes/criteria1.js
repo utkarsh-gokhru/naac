@@ -30,6 +30,7 @@ const deleteExistingFiles = async (data) => {
         data?.criteria13?.file1_3_4_1,
         data?.criteria13?.file1_3_4_2,
         data?.criteria14?.file1_4_1,
+        data?.criteria14?.file1_4_2
     ];
 
     const deletePromises = filePaths.map(async (filePath) => {
@@ -76,7 +77,7 @@ const updateExistingData = async (existingData, filePaths) => {
         'file1_1_3_2', 'file1_2_1_1', 'file1_2_1_2', 'file1_2_2_1',
         'file1_2_2_2', 'file1_3_1', 'file1_3_2_1', 'file1_3_2_2',
         'file1_3_3_1_1', 'file1_3_3_1_2', 'file1_3_4_1', 'file1_3_4_2',
-        'file1_4_1',
+        'file1_4_1','file1_4_2'
     ];
 
     const updateFields = expectedFileFields.reduce((fieldsToUpdate, fieldName) => {
@@ -112,6 +113,7 @@ app.post('/submit', upload.fields([
     { name: 'file1_3_4_1', maxCount: 1 },
     { name: 'file1_3_4_2', maxCount: 1 },
     { name: 'file1_4_1', maxCount: 1 },
+    { name: 'file1_4_2', maxCount: 1 },
 ]), async (req, res) => {
     try {
         const files = req.files;
@@ -122,7 +124,7 @@ app.post('/submit', upload.fields([
             'file1_1_3_2', 'file1_2_1_1', 'file1_2_1_2', 'file1_2_2_1',
             'file1_2_2_2', 'file1_3_1', 'file1_3_2_1', 'file1_3_2_2',
             'file1_3_3_1_1', 'file1_3_3_1_2', 'file1_3_4_1', 'file1_3_4_2',
-            'file1_4_1',
+            'file1_4_1','file1_4_2'
         ];
 
         if (!requiredFileFields.every(fieldName => files[fieldName])) {
@@ -192,6 +194,7 @@ app.post('/submit', upload.fields([
                             feedbackType1_4_1: req.body.feedbackType1_4_1,
                             feedbackType1_4_2: req.body.feedbackType1_4_2,
                             file1_4_1: filePaths.file1_4_1,
+                            file1_4_2: filePaths.file1_4_2,
                         },
                     });
                     await existingData.save();
@@ -241,6 +244,7 @@ app.post('/submit', upload.fields([
                     feedbackType1_4_1: req.body.feedbackType1_4_1,
                     feedbackType1_4_2: req.body.feedbackType1_4_2,
                     file1_4_1: filePaths.file1_4_1,
+                    file1_4_2: filePaths.file1_4_2,
                 },
             });
 

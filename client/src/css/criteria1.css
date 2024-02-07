@@ -38,6 +38,7 @@ border-collapse: collapse;
 max-width: 80%;
 height: auto;
 margin-top: 30px;
+table-layout: auto;
 }
 
 th, td {
@@ -72,7 +73,7 @@ cursor: pointer;
 transition: background-color 0.3s ease;
 
 &:hover {
-    background-color: rgb(83, 82, 82);
+background-color: rgb(83, 82, 82);
 }
 }
 
@@ -88,5 +89,15 @@ border: 1px solid #ddd;
 }
 
 .yearly_status_rep{
-    background-color: #ddd;
+background-color: #ddd;
 }
+
+@media only screen and (max-width: 600px) {
+table {
+border-collapse: collapse;
+border-spacing: 0;
+width: 80%;
+display: block;
+overflow-x: auto;
+}
+}  

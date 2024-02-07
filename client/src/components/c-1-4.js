@@ -5,15 +5,18 @@ const Criteria14 = ({ onCrit14Data }) => {
   const [feedbackType1_4_1, setFeedbackType1_4_1] = useState('');
   const [feedbackType1_4_2, setFeedbackType1_4_2] = useState('');
   const [file1_4_1, setFile1_4_1] = useState('');
+  const [file1_4_2, setFile1_4_2] = useState('');
+  
 
   useEffect(() => {
     const crit14 = {
       feedbackType1_4_1,
       feedbackType1_4_2,
       file1_4_1,
+      file1_4_2
     };
     onCrit14Data(crit14);
-  }, [feedbackType1_4_1, feedbackType1_4_2, file1_4_1]);
+  }, [feedbackType1_4_1, feedbackType1_4_2, file1_4_1,file1_4_2]);
 
   const downloadExcel = async (exc_file) => {
     const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -60,6 +63,14 @@ const Criteria14 = ({ onCrit14Data }) => {
             </div>
 
             <table>
+              <thead>
+                    <tr>
+                        <th>File Description</th>
+                        <th>Template</th>
+                        <th>Documents</th>
+                        <th>File Types/Size Supported</th>
+                    </tr>
+                </thead>
               <tbody>
                 <tr>
                   <td>Upload relevant supporting documents</td>
@@ -90,6 +101,24 @@ const Criteria14 = ({ onCrit14Data }) => {
               <input type="radio" id="feedback5_1_4_2" name="group2_1_4_2" onChange={() => setFeedbackType1_4_2('Feedback not collected')} />
               <label htmlFor="feedback5_1_4_2">Feedback not collected</label>
             </div>
+            <table>
+              <thead>
+                  <tr>
+                      <th>File Description</th>
+                      <th>Template</th>
+                      <th>Documents</th>
+                      <th>File Types/Size Supported</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Upload relevant supporting documents</td>
+                  <td>Template</td>
+                  <td><input type="file" id="fileUpload_1_4_2" onChange={(e) => setFile1_4_2(e.target.files[0])} name="fileUpload" accept=".xls, .xlsx,.doc,,docx,.pdf" /></td>
+                  <td>xls, xlsx, doc, docx, pdf.<b>File size: 6MB</b> </td>
+                </tr>
+              </tbody>
+              </table>
           </div>
         </li>
       </ul>

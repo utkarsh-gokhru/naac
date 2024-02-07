@@ -8,35 +8,12 @@ const AdminDash = () => {
   const allDepartments = [
     'Engineering',
     'Law',
-    'Medical',
-    'Humanities',
-    'Statistics',
-    'Department 6',
-    'Department 7',
-    'Department 8',
-    'Department 9',
-    'Department 10',
-    'Department 11',
-    'Department 12',
-    'Department 13',
-    'Department 14',
-    'Department 15',
-    'Department 16',
-    'Department 17',
-    'Department 18',
-    'Department 19',
-    'Department 20',
-    'Department 21',
-    'Department 22',
-    'Department 23',
-    'Department 24',
-    'Department 25',
-    'Department 26',
-    'Department 27',
-    'Department 28',
-    'Department 29',
-    'Department 30',
+    'Medical'
   ];
+
+  for (let i = 4; i <= 60; i++) {
+    allDepartments.push(`Department ${i}`);
+  }
 
   const [departments, setDepartments] = useState(allDepartments);
   const [selectedDepartment, setSelectedDepartment] = useState('');
