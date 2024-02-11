@@ -23,7 +23,7 @@ const Login = () => {
         const form = e.target.form;
 
         if (form.checkValidity()) {
-            axios.post('http://localhost:5000/auth/login', { id, password, department, academicYear })
+            axios.post('https://naacserver.onrender.com/auth/login', { id, password, department, academicYear })
                 .then(response => {
                     if (response.data && response.data.otp) {
                         setShowOtpPopup(true);
@@ -44,7 +44,7 @@ const Login = () => {
 
     const handleVerifyOTP = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/auth/otp', { otp, mailOtp })
+        axios.post('https://naacserver.onrender.com/auth/otp', { otp, mailOtp })
             .then(response => {
                 console.log(response.data);
                 setShowOtpPopup(false);
