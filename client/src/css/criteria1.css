@@ -1,12 +1,4 @@
-.criteria1 {
-max-width: 95%;
-height: auto;
-margin-left: 20px;
-margin-bottom: 20px;
-}
-
 .info-section ul{
-
 ul {
 list-style-type: none;
 padding: 0;
@@ -84,7 +76,9 @@ max-width: 1000px;
 display: flex;
 }
 
-.c-1_1, .c-1_2, .c-1_3, .c-1_4 {
+.c-1_1, .c-1_2, .c-1_3, .c-1_4,.crit1-head {
+margin: 30px;
+padding: 30px;
 border: 1px solid #ddd;
 }
 
@@ -93,10 +87,19 @@ background-color: #ddd;
 }
 
 @media only screen and (max-width: 600px) {
+.c-1_1, .c-1_2, .c-1_3, .c-1_4,.crit1-head{
+margin: 10px;
+padding: 10px;
+}
+.radioBtn-1_4_1,
+.radioBtn-1_4_2{
+display: flex;
+flex-wrap: wrap;
+}
 table {
 border-collapse: collapse;
 border-spacing: 0;
-width: 80%;
+width: 100%;
 display: block;
 overflow-x: auto;
 }
