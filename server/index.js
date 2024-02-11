@@ -19,18 +19,11 @@ import { Criteria3_submit } from './routes/criteria3.js';
 
 const app = express();
 
-app.use(cors(
-    // {
-    //     origin: ["naac-frontend-hci2wkv3z-ayan-joshi.vercel.app"],
-    //     methods: ["POST", "GET"],
-    //     credentials: true
-    // }
-));
+app.use(cors());
 app.use(express.json());
 dotenv.config();
 
-const pass = encodeURIComponent(`@Utkarsh123`);
-const db_url = `mongodb+srv://utkarsh:${pass}@cluster0.uiwjnnu.mongodb.net/?retryWrites=true&w=majority`;
+const db_url = process.env.DATABASE_URL;
 mongoose.connect(db_url)
 .then(() => {
     console.log('DB connected!');

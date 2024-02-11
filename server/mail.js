@@ -4,8 +4,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 function mail_sender(user_mail, otp) {
-    const email = `gokhruutkarsh2122@ternaengg.ac.in`;
-    const pass = `@Utkarsh0604`;
+    const email = process.env.EMAIL;
+    const pass = process.env.EMAIL_PASS;
 
     const transporter = nodemailer.createTransport({
         service: 'gmail',
