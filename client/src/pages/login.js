@@ -58,6 +58,7 @@ const Login = () => {
                     localStorage.setItem('academicYear', academicYear);
                     navigate('/admin/dashboard');
                 } else {
+                    localStorage.removeItem('admin');
                     localStorage.setItem('id', id);
                     localStorage.setItem('department', department);
                     localStorage.setItem('academicYear', academicYear);
