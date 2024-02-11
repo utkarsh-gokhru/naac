@@ -4,6 +4,9 @@ import axios from "axios";
 
 const Criteria32 = ({onCrit32Data}) => {
 
+    const department = localStorage.getItem('department');
+    const academicYear = localStorage.getItem('academicYear');
+
     const [extraFunding, setExtraFunding] = useState("");
     const [file3_2_1_1, setFile3_2_1_1] = useState(null);
     const [file3_2_1_2, setFile3_2_1_2] = useState(null);
@@ -33,6 +36,8 @@ const Criteria32 = ({onCrit32Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             extraFunding,
             file3_2_1_1,
             file3_2_1_2
@@ -56,6 +61,8 @@ const Criteria32 = ({onCrit32Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             grants,
             file3_2_2_1,
             file3_2_2_2
@@ -66,9 +73,9 @@ const Criteria32 = ({onCrit32Data}) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/data/save1-1-3", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-2-2", formdata);
             console.log(response.data);
-            alert("Saved Section 3.2.1 data successfully!");
+            alert("Saved Section 3.2.2 data successfully!");
         } catch (error) {
             console.error("Error saving Section 3.2.1 data:", error.message);
             alert("Failed to save Section 3.2.1 data. Please try again.");
@@ -79,6 +86,8 @@ const Criteria32 = ({onCrit32Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             teacherResearchProjects,
             file3_2_3_1,
             file3_2_3_2
@@ -89,11 +98,11 @@ const Criteria32 = ({onCrit32Data}) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/data/save1-1-3", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-2-3", formdata);
             console.log(response.data);
             alert("Saved Section 3.2.1 data successfully!");
         } catch (error) {
-            console.error("Error saving Section 3.2.1 data:", error.message);
+            console.error("Error saving Section 3.2.3 data:", error.message);
             alert("Failed to save Section 3.2.1 data. Please try again.");
         }
     };

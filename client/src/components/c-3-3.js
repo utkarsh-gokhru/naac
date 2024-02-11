@@ -5,6 +5,9 @@ import axios from "axios";
 
 const Criteria33 = ({onCrit33Data}) => {
 
+    const department = localStorage.getItem('department');
+    const academicYear = localStorage.getItem('academicYear');
+
     const [ecosystemText, setEcosystemText] = useState("");
     const [file3_3_1, setFile3_3_1] = useState(null);
     const [seminars, setSeminars] = useState(0);
@@ -32,6 +35,8 @@ const Criteria33 = ({onCrit33Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             ecosystemText,
             file3_3_1
         };
@@ -54,6 +59,8 @@ const Criteria33 = ({onCrit33Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             seminars,
             totalSeminars,
             file3_3_2_1,
@@ -78,6 +85,8 @@ const Criteria33 = ({onCrit33Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             awards,
             file3_3_3_1,
             file3_3_3_2

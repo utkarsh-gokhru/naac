@@ -6,6 +6,9 @@ import '../css/criteria3.css';
 
 const Criteria31 = ({onCrit31Data}) => {
 
+    const department = localStorage.getItem('department');
+    const academicYear = localStorage.getItem('academicYear');
+
     const [researchFacilities, setResearchFacilities] = useState("");
     const [file3_1_1, setFile3_1_1] = useState(null);
 
@@ -45,6 +48,8 @@ const Criteria31 = ({onCrit31Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             researchFacilities,
             file3_1_1
         };
@@ -67,6 +72,8 @@ const Criteria31 = ({onCrit31Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             seedMoney,
             file3_1_2_1,
             file3_1_2_2
@@ -90,6 +97,8 @@ const Criteria31 = ({onCrit31Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             teachersFellowship,
             file3_1_3_1,
             file3_1_3_2
@@ -113,6 +122,8 @@ const Criteria31 = ({onCrit31Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             fellowsEnrolled,
             file3_1_4_1,
             file3_1_4_2
@@ -136,6 +147,8 @@ const Criteria31 = ({onCrit31Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             feed_3_1_5_Type,
             file3_1_5
         };
@@ -158,6 +171,8 @@ const Criteria31 = ({onCrit31Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             departmentNo,
             file3_1_6_1,
             file3_1_6_2

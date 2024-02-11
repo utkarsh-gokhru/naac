@@ -5,6 +5,9 @@ import axios from "axios";
 
 const Criteria36 = ({onCrit36Data}) => {
 
+    const department = localStorage.getItem('department');
+    const academicYear = localStorage.getItem('academicYear');
+
     const [extensionActText, setExtensionActText] = useState("");
     const [file3_6_1, setFile3_6_1] = useState(null);
     const [file3_6_2_1, setFile3_6_2_1] = useState(null);
@@ -34,6 +37,8 @@ const Criteria36 = ({onCrit36Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             extensionActText,
             file3_6_1
         };
@@ -56,6 +61,8 @@ const Criteria36 = ({onCrit36Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             extActAwards,
             file3_6_2_1,
             file3_6_2_2
@@ -79,6 +86,8 @@ const Criteria36 = ({onCrit36Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             outreachPrograms,
             file3_6_3_1,
             file3_6_3_2
@@ -102,6 +111,8 @@ const Criteria36 = ({onCrit36Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             participatingStudents,
             file3_6_4_1,
             file3_6_4_2

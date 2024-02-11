@@ -5,6 +5,9 @@ import axios from "axios";
 
 const Criteria35 = ({onCrit35Data}) => {
 
+    const department = localStorage.getItem('department');
+    const academicYear = localStorage.getItem('academicYear');
+
     const [consultancyText, setConsultancyText] = useState("");
     const [consultancyRev, setConsultancyRev] = useState("");
     const [file3_5_1, setFile3_5_1] = useState(null);
@@ -28,6 +31,8 @@ const Criteria35 = ({onCrit35Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             consultancyText,
             file3_5_1
         };
@@ -50,6 +55,8 @@ const Criteria35 = ({onCrit35Data}) => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             consultancyRev,
             file3_5_2_1,
             file3_5_2_2

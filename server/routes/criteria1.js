@@ -95,7 +95,7 @@ const updateExistingData = async (existingData, filePaths) => {
     }
 };
 
-app.post('/submit', upload.fields([
+app.post('criteira1/submit', upload.fields([
     { name: 'file1_1_1', maxCount: 1 },
     { name: 'file1_1_2_1', maxCount: 1 },
     { name: 'file1_1_2_2', maxCount: 1 },

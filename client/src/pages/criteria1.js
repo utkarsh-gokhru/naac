@@ -19,7 +19,6 @@ const Criteria1 = () => {
 
   const handleCrit11Data = (data) => {
     setCrit11Data(data);
-    console.log(crit11Data);
   };
 
   const handleCrit12Data = (data) => {
@@ -78,14 +77,12 @@ const Criteria1 = () => {
   return (
     <div className="criteria1">
       <div className='logo-e'>
-                <img src={naacLogo} alt='NAAC LOGO' />
-                <div className='head'>
-
-                    <h1 >University of Mumbai</h1>
-                    <h3>AQAR Platform</h3>
-
-                </div>
-            </div>
+        <img src={naacLogo} alt='NAAC LOGO' />
+        <div className='head'>
+          <h1 >University of Mumbai</h1>
+          <h3>AQAR Platform</h3>
+        </div>
+      </div>
       <div className="yearly_status_rep">
         <p>Yearly Status Report - Part B</p>
         <p>Academic Year to which AQAR has to be submitted: {academicYear}</p>

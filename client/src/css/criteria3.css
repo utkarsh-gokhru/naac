@@ -1,4 +1,4 @@
-.c-3-1,.c-3-2,.c-3-3,.c-3-5,.c-3-6,.c-3-7 {
+.c-3-1,.c-3-2,.c-3-3,.c-3-5,.c-3-6,.c-3-7,.crit3-head {
 max-width: 100%;
 margin: 30px;
 padding: 30px;
@@ -55,18 +55,6 @@ text-align: left;
 .c-3_1_5 th,
 .c-3-1-6 th {
 background-color: #f2f2f2;
-}
-
-button {
-background-color: #4caf50;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-}
-
-button:hover {
-background-color: #45a049;
 }
 
 .radioBtn-feedback{

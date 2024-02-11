@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-const Criteria37 = () => {
+const Criteria37 = ({onCrit37Data}) => {
+
+    const department = localStorage.getItem('department');
+    const academicYear = localStorage.getItem('academicYear');
 
     const [collAct, setCollAct] = useState(0);
     const [file3_7_1_1, setFile3_7_1_1] = useState(null);
@@ -28,6 +31,8 @@ const Criteria37 = () => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             collAct,
             file3_7_1_1,
             file3_7_1_2
@@ -51,6 +56,8 @@ const Criteria37 = () => {
         const formdata = new FormData();
     
         const sectionData = {
+            department,
+            academicYear,
             functionalMOUs,
             file3_7_2_1,
             file3_7_2_2
@@ -69,6 +76,18 @@ const Criteria37 = () => {
             alert("Failed to save Section 3.7.2 data. Please try again.");
         }
     };
+
+    useEffect(() => {
+        const crit37 = {
+            collAct,
+            file3_7_1_1,
+            file3_7_1_2,
+            functionalMOUs,
+            file3_7_2_1,
+            file3_7_2_2
+        };
+        onCrit37Data(crit37);
+    }, [collAct,file3_7_1_1,file3_7_1_2,functionalMOUs,file3_7_2_1,file3_7_2_2])
 
     return (
         <div className="c-3-7">

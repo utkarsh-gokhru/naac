@@ -20,7 +20,7 @@ const Criteria13 = ({ onCrit13Data }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/data/fetch?department=${department}&academicYear=${academicYear}`);
+            const response = await axios.get(`http://localhost:5000/data/fetchC1?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data.criteria13;
     
             if (data) {
