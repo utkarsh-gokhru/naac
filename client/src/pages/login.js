@@ -15,10 +15,12 @@ const Login = () => {
     const [otp, setOtp] = useState('');
     const [mailOtp, setMailOtp] = useState('');
     const [invalOtp, setInvalOtp] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
+        setLoading(true); 
 
         const form = e.target.form;
 
@@ -29,6 +31,7 @@ const Login = () => {
                         setShowOtpPopup(true);
                         setMailOtp(response.data.otp);
                     }
+                    setLoading(false); 
                 })
                 .catch(error => {
                     console.log(error);
@@ -36,14 +39,18 @@ const Login = () => {
                     if (error.response && (error.response.status === 401 || error.response.status === 404)) {
                         setInvalCred(true);
                     }
+                    setLoading(false); 
                 });
         } else {
             form.reportValidity();
+            setLoading(false); 
         }
     };
 
     const handleVerifyOTP = (e) => {
         e.preventDefault();
+        setLoading(true); 
+
         axios.post('https://naacserver.onrender.com/auth/otp', { otp, mailOtp })
             .then(response => {
                 console.log(response.data);
@@ -56,14 +63,19 @@ const Login = () => {
                     localStorage.setItem('id', id);
                     localStorage.setItem('admin', department);
                     localStorage.setItem('academicYear', academicYear);
-                    navigate('/admin/dashboard');
+                    navigate('/admin/dashboard').then(() =>{
+                        window.location.reload();
+                    });;
                 } else {
                     localStorage.removeItem('admin');
                     localStorage.setItem('id', id);
                     localStorage.setItem('department', department);
                     localStorage.setItem('academicYear', academicYear);
-                    navigate('/dashboard');
+                    navigate('/dashboard').then(() =>{
+                        window.location.reload();
+                    });
                 }
+                setLoading(false); 
             })
             .catch(error => {
                 console.log(error);
@@ -71,6 +83,7 @@ const Login = () => {
                 if (error.response && error.response.status === 409) {
                     setInvalOtp(true);
                 }
+                setLoading(false); 
             });
     };
 
@@ -125,6 +138,7 @@ const Login = () => {
                     </div>
                 </form>
             </div>
+            {loading && <div className='overlay'><div className="loading-spinner"></div></div>} 
             {showOtpPopup && (
                 <div className='otp-popup'>
                     <div className='popup-cont'>

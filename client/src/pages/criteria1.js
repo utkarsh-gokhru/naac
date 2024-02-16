@@ -60,7 +60,7 @@ const Criteria1 = () => {
       for (const key in crit14Data) {
         formdata.append(key, crit14Data[key]);
       }
-      const response = await axios.post("https://naacserver.onrender.com/data/submit", formdata);
+      const response = await axios.post("https://naacserver.onrender.com/data/criteria1/submit", formdata);
       console.log(response.data); 
       alert("Criteria 1 submitted!");
     } catch (error) {
@@ -104,17 +104,17 @@ const Criteria1 = () => {
         <Criteria12 onCrit12Data={handleCrit12Data} />
         <Criteria13 onCrit13Data={handleCrit13Data} />
         <Criteria14 onCrit14Data={handleCrit14Data} />
-        <div className="button-container">
-          <button onClick={handleSubmit} className="custom-button">Submit</button>
-        </div>
-        {showPopup && (
-          <Popup 
-          message='Once the data is submitted, it cannot be edited. Are you sure you want to submit the data?'
-          onOk={handePopupOk}
-          onClose={handlePopupClose}
-          />
-        )}
       </div>
+      <div className="button-container">
+          <button onClick={handleSubmit} className="custom-button">Submit</button>
+      </div>
+      {showPopup && (
+        <Popup 
+        message='Once the data is submitted, it cannot be edited. Are you sure you want to submit the data?'
+        onOk={handePopupOk}
+        onClose={handlePopupClose}
+        />
+      )}
     </div>
   );
 };

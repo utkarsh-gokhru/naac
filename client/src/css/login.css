@@ -82,6 +82,34 @@ border-radius: 4px;
 box-sizing: border-box;
 }
 
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(255, 255, 255, 0.5); 
+z-index: 9999; 
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.loading-spinner {
+border: 4px solid rgba(255, 255, 255, 0.3); 
+border-top-color: #ffffff; 
+border-radius: 50%;
+width: 50px;
+height: 50px;
+animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+to {
+transform: rotate(360deg);
+}
+}
+
 @media only screen and (max-width: 600px) {
 .loginContainer {
 width: 90%;
@@ -145,23 +173,23 @@ background-color: #218f54;
 
 @media only screen and (max-width: 600px) {
 .popup-cont {
-    padding: 15px; 
+padding: 15px; 
 }
 
 .popup-cont input{
-    width: 60%; 
+width: 60%; 
 }
 .popup-cont button{
-    width: 50%;
+width: 50%;
 }
 }
 
 .error-message{
-    color: red;
+color: red;
 }
 
 
 .lu{
-    display: flex;
-    flex-direction: column;
+display: flex;
+flex-direction: column;
 }
