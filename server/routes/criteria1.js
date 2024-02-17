@@ -127,31 +127,10 @@ app.post('/criteria1/submit', upload.fields([
             'file1_4_1','file1_4_2'
         ];
 
-        for (const fieldName of requiredFileFields) {
-            if (!files[fieldName]) {
-                let criteria, subfield;
-                if (fieldName.startsWith('file1_1')) {
-                    criteria = 'criteria11';
-                    subfield = fieldName;
-                } else if (fieldName.startsWith('file1_2')) {
-                    criteria = 'criteria12';
-                    subfield = fieldName;
-                } else if (fieldName.startsWith('file1_3')) {
-                    criteria = 'criteria13';
-                    subfield = fieldName;
-                } else if (fieldName.startsWith('file1_4')) {
-                    criteria = 'criteria14';
-                    subfield = fieldName;
-                }
-        
-                const query = {};
-                query[criteria + '.' + subfield] = { $exists: true };
-        
-                const existingData = await Criteria1Model.findOne(query);
-                if (existingData && existingData[criteria][subfield]) {
-                    console.log(`File '${fieldName}' exists in the database but not in the request. Skipping deletion.`);
-                }
-            }
+        if (!requiredFileFields.every(fieldName => files[fieldName])) {
+            const errorMessage = 'All required files must be present in the request';
+            console.error(errorMessage);
+            return res.status(400).send(errorMessage);
         }
         
         for (const fieldName in files) {

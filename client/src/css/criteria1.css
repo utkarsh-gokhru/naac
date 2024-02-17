@@ -47,32 +47,6 @@ li {
 list-style: none;
 }
 
-button {
-display: inline-block;
-margin: 10px;
-padding: 10px;
-width: 100px;
-font-size: 16px;
-font-weight: bold;
-text-align: center;
-text-decoration: none;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-background-color: #4CAF50; 
-color: white;
-}
-
-button:hover {
-background-color: #45a049; 
-}
-
-button:focus {
-outline: none;
-box-shadow: 0 0 0 2px #4CAF50; 
-}
-
-
 .button-container {
 display: flex;
 justify-content: center;

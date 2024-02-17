@@ -51,7 +51,6 @@ const handleFileUpload = async (existingData, fieldName, newFile, newData) => {
 
 const upload = multer();
 
-// Route for saving files for Section 1.1.1
 app.post('/save1-1-1', upload.single('file1_1_1'), async (req, res) => {
     try {
         const { department, academicYear, curriculumText } = req.body;
@@ -86,8 +85,6 @@ app.post('/save1-1-1', upload.single('file1_1_1'), async (req, res) => {
     }
 });
 
-
-// Route for saving files for Section 1.1.2
 app.post('/save1-1-2', upload.fields([{ name: 'file1_1_2_1' }, { name: 'file1_1_2_2' }]), async (req, res) => {
     try {
         const { department, academicYear, syllabusRevisionCount } = req.body;
@@ -146,7 +143,6 @@ app.post('/save1-1-2', upload.fields([{ name: 'file1_1_2_1' }, { name: 'file1_1_
     }
 });
 
-// Route for saving files for Section 1.1.3
 app.post('/save1-1-3', upload.fields([{ name: 'file1_1_3_1' }, { name: 'file1_1_3_2' }]), async (req, res) => {
     try {
         const { department, academicYear, coursesFocusCount } = req.body;
