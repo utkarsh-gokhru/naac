@@ -104,7 +104,7 @@ const updateExistingData = async (existingData, filePaths) => {
     return existingData.save();
 };
 
-// Define route for submitting Criteria 3 data
+// Handling post request
 app.post('/criteria3/submit', upload.fields([
     { name: 'file3_1_1', maxCount: 1 },
     { name: 'file3_1_2_1', maxCount: 1 },

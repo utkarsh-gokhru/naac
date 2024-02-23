@@ -65,7 +65,11 @@ const Criteria1 = () => {
       alert("Criteria 1 submitted!");
     } catch (error) {
       console.error(error);
-      alert("Submission failed. Please try again later.");
+      if (error.response && error.response.status === 400) {
+        alert("Submission failed due to incomplete data. Please fill all the data and try again.");
+      }else{
+        alert("Submission failed. Please try again later.");
+      }
     }
     setShowPopup(false);
   }

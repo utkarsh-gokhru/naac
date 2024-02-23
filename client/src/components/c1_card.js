@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import CircularProgressBar from './cicular-progress';
 
 const CardC1 = () => {
-  const totalFields = 28;
+  const totalFields = 29;
   const [fieldCount, setFieldCount] = useState(0);
   const department = localStorage.getItem('department');
   const academicYear = localStorage.getItem('academicYear');
@@ -59,6 +59,7 @@ const CardC1 = () => {
           count += data.criteria14.feedbackType1_4_1 ? 1 : 0;
           count += data.criteria14.feedbackType1_4_2 ? 1 : 0;
           count += data.criteria14.file1_4_1 ? 1 : 0;
+          count += data.criteria14.file1_4_2 ? 1 : 0;
         }
 
         setFieldCount(count);
