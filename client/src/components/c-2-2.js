@@ -15,7 +15,7 @@ export const Criteria22 = () => {
     const [no_of_teachers, setno_of_teachers] = useState("");
     const [file2_2_1_1, setfile2_2_1_1] = useState(null);
     const [link2_2_1_2, setlink2_2_1_2] = useState(null);
-    const [file2_2_1, setfile2_2_1] = useState(null);
+    const [file2_2_2, setfile2_2_2] = useState(null);
 
 
     const saveSection2_2_1 = async() => {
@@ -49,7 +49,7 @@ export const Criteria22 = () => {
             academicYear,
             no_of_students,
             no_of_teachers,
-            file2_2_1
+            file2_2_2
         };
 
         for (const key in sectionData) {
@@ -82,7 +82,7 @@ export const Criteria22 = () => {
 
 
   return (
-    <div>
+    <div className='c-2-2'>
     <div>
     <h3>2.2 Catering to Student Diversity</h3>
 </div>
@@ -187,7 +187,7 @@ export const Criteria22 = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td> {file2_2_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                                <td> {file2_2_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
                                   
                                     Upload the data template</td>
                                 <td>
@@ -196,10 +196,10 @@ export const Criteria22 = () => {
                                 <td>
                                     <input
                                         type="file"
-                                        id="file2_2_1"
+                                        id="file2_2_2"
                                         name="fileUpload"
                                         accept=".xls, .xlsx"
-                                        onChange={(e) => setfile2_2_1(e.target.files[0])}
+                                        onChange={(e) => setfile2_2_2(e.target.files[0])}
                                     />
                                 </td>
                                 <td>xls, xlsx. File size: 6MB</td>
