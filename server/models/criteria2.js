@@ -17,7 +17,7 @@
 //     link2_2_1_2: {type: String},
 //     no_of_students: {type: Number},
 //     no_of_teachers: {type: Number},
-//     file2_2_1: {type: String},
+//     file2_2_2: {type: String},
 //   },
 //   criteria23: {
 //     learning_exp: {type: String},

@@ -51,30 +51,30 @@
 
 // const upload = multer();
 
-// app.post('/save2-2-1', upload.single('file2_2_1_1'), async (req, res) => {
+// app.post('/save2-3-1', upload.single('file2_3_1'), async (req, res) => {
 //     try {
-//         const { department, academicYear, learning_assessment, link2_2_1_2 } = req.body;
-//         const file2_2_1_1 = req.file;
+//         const { department, academicYear, learning_exp } = req.body;
+//         const file2_3_1 = req.file;
 
-//         if (!file2_2_1_1 || !learning_assessment || !link2_2_1_2) {
+//         if (!file2_3_1 || !learning_exp) {
 //             return res.status(400).json({ error: 'Missing required data.' });
 //         }
 
-//         const uniqueFilename = Date.now() + '-' + Math.round(Math.random() * 1E9) + '_' + file2_2_1_1.originalname;
+//         const uniqueFilename = Date.now() + '-' + Math.round(Math.random() * 1E9) + '_' + file2_3_1.originalname;
 //         const fileRef = ref(storage, `uploads/${uniqueFilename}`);
 //         const metadata = {
-//             contentType: file2_2_1_1.mimetype,
+//             contentType: file2_3_1.mimetype,
 //         };
 
 //         try {
-//             await uploadBytes(fileRef, file2_2_1_1.buffer, metadata);
+//             await uploadBytes(fileRef, file2_3_1.buffer, metadata);
 //             const filePath = await getDownloadURL(fileRef);
 
 //             let existingData = await Criteria2Model.findOne({ department, academicYear });
 
-//             await handleFileUpload(existingData, 'file2_2_1_1', { path: filePath }, { learning_assessment, link2_2_1_2, department, academicYear });
+//             await handleFileUpload(existingData, 'file2_3_1', { path: filePath }, { learning_exp, department, academicYear });
 
-//             res.status(200).json({ message: 'Data saved successfully for Section 2.2.1' });
+//             res.status(200).json({ message: 'Data saved successfully for Section 2.3.1' });
 //         } catch (error) {
 //             console.error('Error saving data:', error);
 //             res.status(500).json({ error: 'Internal Server Error' });
@@ -85,30 +85,30 @@
 //     }
 // });
 
-// app.post('/save2-2-2', upload.single('file2_2_2'), async (req, res) => {
+// app.post('/save2-3-2', upload.single('file2_3_2'), async (req, res) => {
 //     try {
-//         const { department, academicYear, no_of_teachers, no_of_students } = req.body;
-//         const file2_2_2 = req.file;
+//         const { department, academicYear, effect_teach_learn } = req.body;
+//         const file2_3_2 = req.file;
 
-//         if (!file2_2_2 || !no_of_students || !no_of_teachers) {
+//         if (!file2_3_2 || !effect_teach_learn) {
 //             return res.status(400).json({ error: 'Missing required data.' });
 //         }
 
-//         const uniqueFilename = Date.now() + '-' + Math.round(Math.random() * 1E9) + '_' + file2_2_2.originalname;
+//         const uniqueFilename = Date.now() + '-' + Math.round(Math.random() * 1E9) + '_' + file2_3_2.originalname;
 //         const fileRef = ref(storage, `uploads/${uniqueFilename}`);
 //         const metadata = {
-//             contentType: file2_2_2.mimetype,
+//             contentType: file2_3_2.mimetype,
 //         };
 
 //         try {
-//             await uploadBytes(fileRef, file2_2_2.buffer, metadata);
+//             await uploadBytes(fileRef, file2_3_2.buffer, metadata);
 //             const filePath = await getDownloadURL(fileRef);
 
-//             let existingData = await Criteria2Model.findOne({ department, academicYear });
+//             let existingData = await Criteria1Model.findOne({ department, academicYear });
 
-//             await handleFileUpload(existingData, 'file2_2_2', { path: filePath }, { no_of_students, no_of_teachers, department, academicYear });
+//             await handleFileUpload(existingData, 'file2_3_2', { path: filePath }, { effect_teach_learn, department, academicYear });
 
-//             res.status(200).json({ message: 'Data saved successfully for Section 2.2.2' });
+//             res.status(200).json({ message: 'Data saved successfully for Section 2.3.2' });
 //         } catch (error) {
 //             console.error('Error saving data:', error);
 //             res.status(500).json({ error: 'Internal Server Error' });
@@ -118,5 +118,3 @@
 //         res.status(500).json({ error: 'Internal Server Error' });
 //     }
 // });
-
-// export {app as C22};
