@@ -104,7 +104,7 @@
 //             await uploadBytes(fileRef, file2_3_2.buffer, metadata);
 //             const filePath = await getDownloadURL(fileRef);
 
-//             let existingData = await Criteria1Model.findOne({ department, academicYear });
+//             let existingData = await Criteria2Model.findOne({ department, academicYear });
 
 //             await handleFileUpload(existingData, 'file2_3_2', { path: filePath }, { effect_teach_learn, department, academicYear });
 
@@ -118,3 +118,39 @@
 //         res.status(500).json({ error: 'Internal Server Error' });
 //     }
 // });
+
+// app.post('/save2-3-3', upload.single('file2_3_3'), async (req, res) => {
+//     try {
+//         const { department, academicYear, no_of_mentors } = req.body;
+//         const file2_3_3 = req.file;
+
+//         if (!file2_3_3 || !no_of_mentors) {
+//             return res.status(400).json({ error: 'Missing required data.' });
+//         }
+
+//         const uniqueFilename = Date.now() + '-' + Math.round(Math.random() * 1E9) + '_' + file2_3_3.originalname;
+//         const fileRef = ref(storage, `uploads/${uniqueFilename}`);
+//         const metadata = {
+//             contentType: file2_3_3.mimetype,
+//         };
+
+//         try {
+//             await uploadBytes(fileRef, file2_3_3.buffer, metadata);
+//             const filePath = await getDownloadURL(fileRef);
+
+//             let existingData = await Criteria2Model.findOne({ department, academicYear });
+
+//             await handleFileUpload(existingData, 'file2_3_3', { path: filePath }, { no_of_mentors, department, academicYear });
+
+//             res.status(200).json({ message: 'Data saved successfully for Section 2.3.3' });
+//         } catch (error) {
+//             console.error('Error saving data:', error);
+//             res.status(500).json({ error: 'Internal Server Error' });
+//         }
+//     } catch (error) {
+//         console.error('Error saving data:', error);
+//         res.status(500).json({ error: 'Internal Server Error' });
+//     }
+// });
+
+// export {app as C23};
