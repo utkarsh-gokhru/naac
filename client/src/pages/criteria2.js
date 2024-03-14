@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import "../css/criteria2.css";
-// import Criteria21 from "../components/c-2-1";
-// import Criteria22 from "../components/c-2-2";
+import Criteria21 from "../components/c-2-1";
+import Criteria22 from "../components/c-2-2";
 // import Criteria23 from "../components/c-2-3";
 // import Criteria24 from "../components/c-2-4";
 // import Criteria25 from "../components/c-2-5";
@@ -12,9 +12,9 @@ import axios from "axios";
 import Popup from "../components/popup";
 
 
-const criteria2 = () => {
-    // const [crit21Data, setcrit21Data] = useState(null);
-//   const [crit22Data, setcrit22Data] = useState(null);
+const Criteria2 = () => {
+    const [crit21Data, setcrit21Data] = useState(null);
+  const [crit22Data, setcrit22Data] = useState(null);
 //   const [crit23Data, setcrit23Data] = useState(null);
 //   const [crit24Data, setcrit24Data] = useState(null);
 //   const [crit25Data, setcrit25Data] = useState(null);
@@ -24,13 +24,13 @@ const criteria2 = () => {
   const academicYear = localStorage.getItem('academicYear');
 //   const [showPopup, setShowPopup] = useState(false);
 
-//   const handlecrit21Data = (data) => {
-//     setcrit21Data(data);
-//   };
+  const handleCrit21Data = (data) => {
+    setcrit21Data(data);
+  };
 
-//   const handlecrit22Data = (data) => {
-//     setcrit22Data(data);
-//   };
+  const handleCrit22Data = (data) => {
+    setcrit22Data(data);
+  };
 
 //   const handlecrit23Data = (data) => {
 //     setcrit23Data(data);
@@ -107,7 +107,7 @@ const criteria2 = () => {
 //   }
 
   return (
-    <div className="criteria2">
+    <div className="Criteria2">
     <div className='logo-e'>
               <img src={naacLogo} alt='NAAC LOGO' />
               <div className='head'>
@@ -123,6 +123,8 @@ const criteria2 = () => {
 
     <div className="crit2">
     <h2>CRITERION II - TEACHING-LEARNING AND EVALUATION</h2>
+    <Criteria21 oncrit21Data={handleCrit21Data} />
+    <Criteria22 oncrit22Data={handleCrit22Data} />
         {/* <Criteria21 oncrit21Data={handleCrit21Data} />
         <Criteria22 oncrit22Data={handleCrit22Data} />
         <Criteria23 oncrit23Data={handleCrit23Data} />
@@ -146,4 +148,4 @@ const criteria2 = () => {
   )
 }
 
-export default criteria2
+export default Criteria2
