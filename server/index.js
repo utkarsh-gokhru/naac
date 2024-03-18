@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+// const path = require("path");
 import dotenv from "dotenv";
 import { userAuth } from "./routes/auth.js";
 import { Criteria1_submit } from "./routes/criteria1.js";
@@ -15,8 +16,9 @@ import { C33 } from "./routes/c-3-3.js";
 import { C35 } from "./routes/c-3-5.js";
 import { C36 } from "./routes/c-3-6.js";
 import { C37 } from "./routes/c-3-7.js";
-import { Criteria3_submit } from "./routes/criteria3.js";
-
+import { Criteria3_submit } from './routes/criteria3.js';
+import router from "./routes/criteria4.js";
+// my stupidity
 const app = express();
 
 app.use(cors());
@@ -49,8 +51,5 @@ app.use("/data", [
   Criteria3_submit,
 ]);
 app.use("/files", Files);
-
-app.use("/hello", (req, res)=>{
-    res.send("hello world!")
-});
+app.use("/what", router);
 app.listen(5000, () => console.log("Server started"));
