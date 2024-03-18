@@ -5,7 +5,6 @@ const submitCriterion4Data = async (req, res) => {
   try {
     const { department, academicYear, questions } = req.body;
 
-    // Check if there's an existing entry for the department
     const existingEntry = await Criterion4Model.findOne({ department });
     if (existingEntry) {
       return res.status(400).json({ error: "Department entry already exists." });

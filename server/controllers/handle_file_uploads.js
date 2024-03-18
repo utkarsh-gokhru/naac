@@ -11,7 +11,6 @@ const handleFileUploadAndDatabase = async (
     additionalData,
     Model
   ) => {
-    // Check if file is provided
     if (!file) {
       throw new Error("File is missing");
     }
