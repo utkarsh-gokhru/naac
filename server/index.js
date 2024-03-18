@@ -51,5 +51,5 @@ app.use("/data", [
   Criteria3_submit,
 ]);
 app.use("/files", Files);
-app.use("/what", router);
+app.use("/admin/", router);
 app.listen(5000, () => console.log("Server started"));
