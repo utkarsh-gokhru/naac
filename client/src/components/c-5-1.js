@@ -4,19 +4,23 @@ import { saveAs } from 'file-saver';
 import axios from "axios";
 import '../css/criteria5.css';
 
-const Criteria51 = ({onCrit31Data}) => {
+const Criteria51 = ({onCrit51Data}) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
-    const [no_of_students, setno_of_students] = useState("");
-    const [no_of_students_benefited, setno_of_students_benefited] = useState("");
+    const [scholarship_beneficiaries, setscholarship_beneficiaries] = useState("");
+    const [career_counsel_beneficiaries, setcareer_counsel_beneficiaries] = useState("");
+    const [capacity_development_initiatives, setcapacity_development_initiatives] = useState("");
+    const [ student_grievances_redressal, setstudent_grievances_redressal] = useState("");
     const [file5_1_1_1, setFile5_1_1_1] = useState(null);
     const [file5_1_1_2, setFile5_1_1_2] = useState(null);
     const [file5_1_2_1, setFile5_1_2_1] = useState(null);
     const [file5_1_2_2, setFile5_1_2_2] = useState(null);
     const [file5_1_3_1, setFile5_1_3_1] = useState(null);
     const [file5_1_3_2, setFile5_1_3_2] = useState(null);
+    const [file5_1_4, setfile5_1_4] = useState(null);
 
+    
     const saveSection5_1_1_1 = async() => {
         const formdata = new FormData();
 
@@ -47,7 +51,8 @@ const Criteria51 = ({onCrit31Data}) => {
             department,
             academicYear,
             file5_1_3_1,
-            file5_1_3_2
+            file5_1_3_2,
+
         };
 
         for (const key in sectionData) {
@@ -71,7 +76,29 @@ const Criteria51 = ({onCrit31Data}) => {
             academicYear,
             file5_1_2_1,
             file5_1_2_2,
-            no_of_students_benefited
+            capacity_development_initiatives
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+        try{
+            const response = await axios.post("http://localhost:5000/data/save5-1-2-1", formdata);
+            console.log(response.data); 
+            alert("Saved Section 5.1.2.1 data:");
+        }catch(error){
+            console.log("Error",error.message);
+        }
+    }
+    const saveSection5_1_4 = async() => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            department,
+            academicYear,
+            file5_5_1_4,
+            student_grievances_redressal
+            
         };
 
         for (const key in sectionData) {
@@ -103,15 +130,16 @@ const Criteria51 = ({onCrit31Data}) => {
 
 
     return(
+        
         <div className="c-5-1">
              <h3>5.1 - Student Support</h3>
 
             <h4> 5.1.1 - Total number of students benefited by scholarships and free ships provided by the institution, Government and non-government agencies (NGOs) during the year (other than the students receiving scholarships under the government schemes for reserved categories)</h4>
             <input
                             type="number"
-                            id="no_of_students"
-                            value={no_of_students}
-                            onChange={(e) => setno_of_students(e.target.value)}
+                            id="scholarship_beneficiaries"
+                            value={scholarship_beneficiaries}
+                            onChange={(e) => setscholarship_beneficiaries(e.target.value)}
                         /><br />
              <table>
                             <thead>
@@ -165,9 +193,9 @@ const Criteria51 = ({onCrit31Data}) => {
                 <h4>5.1.2 - Total number of students benefited by career counselling and guidance for competitive examinations offered by the Institution during the year</h4>
                 <input
                             type="number"
-                            id="no_of_students_benefited"
-                            value={no_of_students_benefited}
-                            onChange={(e) => setno_of_students_benefited(e.target.value)}
+                            id="capacity_development_initiatives"
+                            value={capacity_development_initiatives}
+                            onChange={(e) => setcapacity_development_initiatives(e.target.value)}
                         /><br />
                 <table>
                             <thead>
@@ -218,7 +246,31 @@ const Criteria51 = ({onCrit31Data}) => {
                             <button onClick={saveSection5_1_2_1}>Save</button>
                         </div>
 
-            <h4>5.1.3 - Following Capacity development and skills enhancement initiatives are taken by the institution <br></br> 1. Soft Skills <br></br> 2. Language and Communication Skills <br></br> Life Skills(Yoga, Physical fitness, health and hygiene)<br></br> 4. Awareness of trends in Technology</h4>
+            <h4>5.1.3 - Following Capacity development and skills enhancement initiatives are taken by the institution<br></br>  <br></br> Life Skills(Yoga, Physical fitness, health and hygiene)<br></br> 4. Awareness of trends in Technology</h4>
+            <ul>
+    <li>1. Soft Skills </li>
+    <li>2. Language and Communication Skills</li>
+    <li>3. Life Skills(Yoga, Physical fitness, health and hygiene)</li>
+    <li>4. Awareness of trends in Technology</li>
+</ul>
+<form action="/submit-response" method="post">
+            <input type="radio" id="all" name="option" value="all" onChange={(e) => setcapacity_development_initiatives(e.target.value)} />
+            <label htmlFor="all">All of the above</label><br />
+
+            <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setcapacity_development_initiatives(e.target.value)} />
+            <label htmlFor="any3">Any 3 of the above</label><br />
+
+            <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setcapacity_development_initiatives(e.target.value)} />
+            <label htmlFor="any2">Any 2 of the above</label><br />
+
+            <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setcapacity_development_initiatives(e.target.value)} />
+            <label htmlFor="any1">Any 1 of the above</label><br />
+
+            <input type="radio" id="none" name="option" value="none" onChange={(e) => setcapacity_development_initiatives(e.target.value)} />
+            <label htmlFor="none">None of the above</label><br />
+
+            <input type="submit" value="Submit" />
+        </form>
 
             <table>
                             <thead>
@@ -268,12 +320,82 @@ const Criteria51 = ({onCrit31Data}) => {
                         <div>
                             <button onClick={saveSection5_1_3_1}>Save</button>
                         </div>
+            
+<h4>5.1.4 - The Institution adopts the following for redressal of student grievances including sexual harassment and ragging cases:</h4>
+
+<ul>
+    <li>Implementation of guidelines of statutory/regulatory bodies</li>
+    <li>Organisation-wide awareness and undertakings on policies with zero tolerance</li>
+    <li>Mechanisms for submission of online/offline students grievances</li>
+    <li>Timely redressal of the grievances through appropriate committees</li>
+</ul>
+
+<h4>Select one:</h4>
+
+<form action="/submit-response" method="post">
+            <input type="radio" id="all" name="option" value="all" onChange={(e) => setstudent_grievances_redressal(e.target.value)} />
+            <label htmlFor="all">All of the above</label><br />
+
+            <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setstudent_grievances_redressal(e.target.value)} />
+            <label htmlFor="any3">Any 3 of the above</label><br />
+
+            <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setstudent_grievances_redressal(e.target.value)} />
+            <label htmlFor="any2">Any 2 of the above</label><br />
+
+            <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setstudent_grievances_redressal(e.target.value)} />
+            <label htmlFor="any1">Any 1 of the above</label><br />
+
+            <input type="radio" id="none" name="option" value="none" onChange={(e) => setstudent_grievances_redressal(e.target.value)} />
+            <label htmlFor="none">None of the above</label><br />
+
+            <input type="submit" value="Submit" />
+        </form>
+
+        <table>
+                        <thead>
+                            <tr>
+                                <th>File Description</th>
+                                <th>Template</th>
+                                <th>Documents</th>
+                                <th>File Types/Size Supported</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> {file5_1_4 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                                  
+                                    Upload the data template</td>
+                                <td>
+                                    <button onClick={() => downloadExcel('5.1.4.xlsx')}>Data Template</button>
+                                </td>
+                                <td>
+                                    <input
+                                        type="file"
+                                        id="file5_1_4"
+                                        name="fileUpload"
+                                        accept=".xls, .xlsx"
+                                        onChange={(e) => setfile5_1_4(e.target.files[0])}
+                                    />
+                                </td>
+                                <td>xls, xlsx. File size: 6MB</td>
+                            </tr>
+                            </tbody>
+                            </table>
+                            <div>
+                    <button onClick={saveSection5_1_4}>Save</button>
+                </div> 
+
+
 
         </div>
+
+        
+        
         
     )
 }
 
 
 
-export default Criteria31;
+
+export default Criteria51;
