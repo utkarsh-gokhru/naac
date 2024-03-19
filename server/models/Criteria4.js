@@ -10,38 +10,38 @@ const documentSchema = new mongoose.Schema({
 const Criterion4Schema = new mongoose.Schema({
   department: {
     type: String,
-    required: true,
+    required: false,
   },
   academicYear: {
     type: String,
-    required: true,
+    required: false,
   },
   questions: {
     "4.1.1": {
       type: String,
-      required: true,
-      documents: [documentSchema], // Array of supporting documents
+      required: false,
+      documents: [documentSchema],
     },
     "4.1.2": {
       type: String,
-      required: true,
-      documents: [documentSchema], // Array of supporting documents
+      required: false,
+      documents: [documentSchema],
     },
     "4.1.3": {
       type: String,
-      required: true,
-      documents: [documentSchema], // Array of supporting documents
+      required: false,
+      documents: [documentSchema],
     },
     "4.1.4": {
       expenditure: {
         type: Number,
-        required: true,
+        required: false,
       },
       documents: [documentSchema], // Array of supporting documents
     },
     "4.2.1": {
       type: String,
-      required: true,
+      required: false,
     },
     "4.2.2": {
       options: [String], // Options for multiple choice question
@@ -50,49 +50,49 @@ const Criterion4Schema = new mongoose.Schema({
     "4.2.3": {
       expenditure: {
         type: Number,
-        required: true,
+        required: false,
       },
       documents: [documentSchema], // Array of supporting documents
     },
     "4.2.4": {
       footfalls: {
         type: Number,
-        required: true,
+        required: false,
       },
       documents: [documentSchema], // Array of supporting documents
     },
     "4.3.1": {
       classrooms: {
         type: Number,
-        required: true,
+        required: false,
       },
       // seminarHalls: {
       //   type: Number,
-      //   required: true,
+      //   required: false,
       // },
       documents: [documentSchema], // Array of supporting documents
     },
     "4.3.2": {
       type: String,
-      required: true,
+      required: false,
       documents: [documentSchema], // Array of supporting documents
     },
     "4.3.3": {
       studentComputerRatio: {
         students: {
           type: Number,
-          required: true,
+          required: false,
         },
         computers: {
           type: Number,
-          required: true,
+          required: false,
         },
       },
     },
     "4.3.4": {
       bandwidth: {
         type: String,
-        required: true,
+        required: false,
       },
       documents: [documentSchema], // Array of supporting documents
     },
@@ -103,13 +103,13 @@ const Criterion4Schema = new mongoose.Schema({
     "4.4.1": {
       expenditure: {
         type: Number,
-        required: true,
+        required: false,
       },
       documents: [documentSchema], // Array of supporting documents
     },
     "4.4.2": {
       type: String,
-      required: true,
+      required: false,
     },
   },
 });
