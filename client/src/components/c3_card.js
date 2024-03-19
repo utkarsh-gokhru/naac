@@ -1,28 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import '../css/c1_card.css';
-import CircularProgressBar from './cicular-progress';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import "../css/c1_card.css";
+import CircularProgressBar from "./cicular-progress";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const CardC3 = () => {
-
   const totalFields = 56;
   const [fieldCount, setFieldCount] = useState(0);
-  const department = localStorage.getItem('department');
-  const academicYear = localStorage.getItem('academicYear');
-  const admin = localStorage.getItem('admin');
+  const department = localStorage.getItem("department");
+  const academicYear = localStorage.getItem("academicYear");
+  const admin = localStorage.getItem("admin");
 
   const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://naacserver.onrender.com/data/fetchC3?department=${department}&academicYear=${academicYear}`);
+      const response = await axios.get(
+        `http://localhost:5000/data/fetchC3?department=${department}&academicYear=${academicYear}`
+      );
       const data = response.data.data;
 
       if (data) {
         let count = 0;
-    
-        if(data.criteria31){
+
+        if (data.criteria31) {
           count += data.criteria31.researchFacilities ? 1 : 0;
           count += data.criteria31.file3_1_1 ? 1 : 0;
           count += data.criteria31.seedMoney ? 1 : 0;
@@ -40,8 +41,8 @@ const CardC3 = () => {
           count += data.criteria31.file3_1_6_1 ? 1 : 0;
           count += data.criteria31.file3_1_6_2 ? 1 : 0;
         }
-    
-        if(data.criteria32){
+
+        if (data.criteria32) {
           count += data.criteria32.extraFunding ? 1 : 0;
           count += data.criteria32.file3_2_1_1 ? 1 : 0;
           count += data.criteria32.file3_2_1_2 ? 1 : 0;
@@ -52,8 +53,8 @@ const CardC3 = () => {
           count += data.criteria32.file3_2_3_1 ? 1 : 0;
           count += data.criteria32.file3_2_3_2 ? 1 : 0;
         }
-    
-        if(data.criteria33){
+
+        if (data.criteria33) {
           count += data.criteria33.ecosystemText ? 1 : 0;
           count += data.criteria33.file3_3_1 ? 1 : 0;
           count += data.criteria33.seminars ? 1 : 0;
@@ -64,16 +65,16 @@ const CardC3 = () => {
           count += data.criteria33.file3_3_3_1 ? 1 : 0;
           count += data.criteria33.file3_3_3_2 ? 1 : 0;
         }
-    
-        if(data.criteria35){
+
+        if (data.criteria35) {
           count += data.criteria35.consultancyText ? 1 : 0;
           count += data.criteria35.consultancyRev ? 1 : 0;
           count += data.criteria35.file3_5_1 ? 1 : 0;
           count += data.criteria35.file3_5_2_1 ? 1 : 0;
           count += data.criteria35.file3_5_2_2 ? 1 : 0;
         }
-    
-        if(data.criteria36){
+
+        if (data.criteria36) {
           count += data.criteria36.extensionActText ? 1 : 0;
           count += data.criteria36.file3_6_1 ? 1 : 0;
           count += data.criteria36.file3_6_2_1 ? 1 : 0;
@@ -86,8 +87,8 @@ const CardC3 = () => {
           count += data.criteria36.file3_6_4_1 ? 1 : 0;
           count += data.criteria36.file3_6_4_2 ? 1 : 0;
         }
-    
-        if(data.criteria37){
+
+        if (data.criteria37) {
           count += data.criteria37.collAct ? 1 : 0;
           count += data.criteria37.file3_7_1_1 ? 1 : 0;
           count += data.criteria37.file3_7_1_2 ? 1 : 0;
@@ -95,10 +96,9 @@ const CardC3 = () => {
           count += data.criteria37.file3_7_2_1 ? 1 : 0;
           count += data.criteria37.file3_7_2_2 ? 1 : 0;
         }
-    
+
         setFieldCount(count);
-    }
-    
+      }
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
@@ -106,15 +106,15 @@ const CardC3 = () => {
 
   const handleClick = () => {
     if (department === admin) {
-      navigate('/admin/criteria3');
+      navigate("/admin/criteria3");
     } else {
       if (progress < 100) {
-        navigate('/criteria3');
+        navigate("/criteria3");
       } else {
-        alert('Criteria 3 has been submitted!');
+        alert("Criteria 3 has been submitted!");
       }
     }
-  }
+  };
 
   const progress = ((fieldCount / totalFields) * 100).toFixed(2);
 
