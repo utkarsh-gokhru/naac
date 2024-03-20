@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../css/c1_card.css';
-import CircularProgressBar from './cicular-progress';
+import CircularProgressBar from './circular-progress';
 
 const CardC7 = () => {
 

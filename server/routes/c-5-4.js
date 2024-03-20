@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import multer from 'multer';
 import { getStorage } from '../firebase.js';
 import { ref, getDownloadURL, deleteObject, uploadBytes } from 'firebase/storage';
-import Criteria2Model from '../models/criteria2.js.js';
+import Criteria5Model from '../models/criteria5.js';
 
 const app = express();
 
@@ -28,22 +28,22 @@ const deleteExistingFile = async (existingFilePath) => {
 };
 
 const handleFileUpload = async (existingData, fieldName, newFile, newData) => {
-    if (existingData && existingData.criteria22[fieldName]) {
-        await deleteExistingFile(existingData.criteria22[fieldName]);
+    if (existingData && existingData.criteria54[fieldName]) {
+        await deleteExistingFile(existingData.criteria54[fieldName]);
     }
 
     if (!existingData) {
-        existingData = new Criteria2Model({
+        existingData = new Criteria5Model({
             department: newData.department,
             academicYear: newData.academicYear,
-            criteria22: {
+            criteria54: {
                 [fieldName]: newFile.path,
                 ...newData,
             }
         });
     } else {
-        existingData.criteria22[fieldName] = newFile.path;
-        Object.assign(existingData.criteria22, newData);
+        existingData.criteria54[fieldName] = newFile.path;
+        Object.assign(existingData.criteria54, newData);
     }
 
     await existingData.save();
@@ -51,30 +51,30 @@ const handleFileUpload = async (existingData, fieldName, newFile, newData) => {
 
 const upload = multer();
 
-app.post('/save2-2-1', upload.single('file2_2_1_1'), async (req, res) => {
+app.post('/save5-4-1', upload.single('file5_4_1'), async (req, res) => {
     try {
-        const { department, academicYear, learning_assessment, link2_2_1_2 } = req.body;
-        const file2_2_1_1 = req.file;
+        const { department, academicYear, alumni_chapters } = req.body;
+        const file5_4_1 = req.file;
 
-        if (!file2_2_1_1 || !learning_assessment || !link2_2_1_2) {
+        if (!file5_4_1 || !alumni_chapters) {
             return res.status(400).json({ error: 'Missing required data.' });
         }
 
-        const uniqueFilename = Date.now() + '-' + Math.round(Math.random() * 1E9) + '_' + file2_2_1_1.originalname;
+        const uniqueFilename = Date.now() + '-' + Math.round(Math.random() * 1E9) + '_' + file5_4_1.originalname;
         const fileRef = ref(storage, `uploads/${uniqueFilename}`);
         const metadata = {
-            contentType: file2_2_1_1.mimetype,
+            contentType: file5_4_1.mimetype,
         };
 
         try {
-            await uploadBytes(fileRef, file2_2_1_1.buffer, metadata);
+            await uploadBytes(fileRef, file5_4_1.buffer, metadata);
             const filePath = await getDownloadURL(fileRef);
 
-            let existingData = await Criteria2Model.findOne({ department, academicYear });
+            let existingData = await Criteria5Model.findOne({ department, academicYear });
 
-            await handleFileUpload(existingData, 'file2_2_1_1', { path: filePath }, { learning_assessment, link2_2_1_2, department, academicYear });
+            await handleFileUpload(existingData, 'file5_4_1', { path: filePath }, { alumni_chapters, department, academicYear });
 
-            res.status(200).json({ message: 'Data saved successfully for Section 2.2.1' });
+            res.status(200).json({ message: 'Data saved successfully for Section 5.4.1' });
         } catch (error) {
             console.error('Error saving data:', error);
             res.status(500).json({ error: 'Internal Server Error' });
@@ -85,30 +85,30 @@ app.post('/save2-2-1', upload.single('file2_2_1_1'), async (req, res) => {
     }
 });
 
-app.post('/save2-2-2', upload.single('file2_2_2'), async (req, res) => {
+app.post('/save1-1-1', upload.single('file5_4_2'), async (req, res) => {
     try {
-        const { department, academicYear, no_of_teachers, no_of_students } = req.body;
-        const file2_2_2 = req.file;
+        const { department, academicYear, alumni_contributions } = req.body;
+        const file5_4_2 = req.file;
 
-        if (!file2_2_2 || !no_of_students || !no_of_teachers) {
+        if (!file5_4_2 || !alumni_contributions) {
             return res.status(400).json({ error: 'Missing required data.' });
         }
 
-        const uniqueFilename = Date.now() + '-' + Math.round(Math.random() * 1E9) + '_' + file2_2_2.originalname;
+        const uniqueFilename = Date.now() + '-' + Math.round(Math.random() * 1E9) + '_' + file5_4_2.originalname;
         const fileRef = ref(storage, `uploads/${uniqueFilename}`);
         const metadata = {
-            contentType: file2_2_2.mimetype,
+            contentType: file5_4_2.mimetype,
         };
 
         try {
-            await uploadBytes(fileRef, file2_2_2.buffer, metadata);
+            await uploadBytes(fileRef, file5_4_2.buffer, metadata);
             const filePath = await getDownloadURL(fileRef);
 
-            let existingData = await Criteria2Model.findOne({ department, academicYear });
+            let existingData = await Criteria5Model.findOne({ department, academicYear });
 
-            await handleFileUpload(existingData, 'file2_2_2', { path: filePath }, { no_of_students, no_of_teachers, department, academicYear });
+            await handleFileUpload(existingData, 'file5_4_2', { path: filePath }, { alumni_contributions, department, academicYear });
 
-            res.status(200).json({ message: 'Data saved successfully for Section 2.2.2' });
+            res.status(200).json({ message: 'Data saved successfully for Section 5.4.2' });
         } catch (error) {
             console.error('Error saving data:', error);
             res.status(500).json({ error: 'Internal Server Error' });
@@ -119,4 +119,4 @@ app.post('/save2-2-2', upload.single('file2_2_2'), async (req, res) => {
     }
 });
 
-export {app as C22};
+export { app as C54 };

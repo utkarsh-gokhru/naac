@@ -23,6 +23,7 @@ function generateUniqueFileName(filename) {
 
 // Function to delete existing files from storage
 const deleteExistingFiles = async (data) => {
+    
     const filePaths = [
         data?.criteria31?.file3_1_1,
         data?.criteria31?.file3_1_2_1,

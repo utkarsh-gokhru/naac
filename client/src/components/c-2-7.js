@@ -29,4 +29,4 @@ const Criteria27 = () => {
   )
 }
 
-export default Criteria27
+export default Criteria27;

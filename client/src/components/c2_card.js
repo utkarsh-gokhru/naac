@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/c1_card.css';
 import { useNavigate } from 'react-router-dom';
-import CircularProgressBar from './cicular-progress';
+import CircularProgressBar from './circular-progress';
 
 const CardC2 = () => {
   const totalFields = 28;

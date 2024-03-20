@@ -3,7 +3,6 @@ import StyledTextArea from "./textArea";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-
 export const Criteria21 = () => {
 
     const department = localStorage.getItem('department');
@@ -19,7 +18,7 @@ export const Criteria21 = () => {
     
     
 
-    const saveSection2_1_1_1 = async() => {
+    const saveSection2_1_1 = async() => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -34,7 +33,7 @@ export const Criteria21 = () => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save2-1-1-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-1-1", formdata);
             console.log(response.data); 
             alert("Saved Section 2.1.1.1 data:");
         }catch(error){
@@ -55,7 +54,7 @@ export const Criteria21 = () => {
         }
     };
 
-    const saveSection2_1_2_1 = async() => {
+    const saveSection2_1_2 = async() => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -70,19 +69,13 @@ export const Criteria21 = () => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save2-1-1-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-1-2", formdata);
             console.log(response.data); 
-            alert("Saved Section 2.1.2.1 data:");
+            alert("Saved Section 2.1.2 data:");
         }catch(error){
             console.log("Error",error.message);
         }
     };
-
-
-   
-    
-
-
 
   return (
    <div class='c-2-1'>
@@ -145,7 +138,7 @@ export const Criteria21 = () => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection2_1_1_1}>Save</button>
+                            <button onClick={saveSection2_1_1}>Save</button>
                         </div> 
                         <br></br>
                         <br></br>
@@ -210,7 +203,7 @@ export const Criteria21 = () => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection2_1_2_1}>Save</button>
+                            <button onClick={saveSection2_1_2}>Save</button>
                         </div> 
                         <br></br>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../css/c1_card.css';
-import CircularProgressBar from './cicular-progress';
+import CircularProgressBar from './circular-progress';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 

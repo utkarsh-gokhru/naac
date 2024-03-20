@@ -84,7 +84,24 @@ const Criteria3 = () => {
 
         console.log(formdata);
 
-        const response = await axios.post("https://naacserver.onrender.com/data/criteria3/submit", formdata);
+        if (!crit31Data || !crit32Data || !crit33Data || !crit35Data || !crit36Data || !crit37Data) {
+            alert("Please fill in all the fields before submitting.");
+            return;
+        }
+    
+        // Check if any data is null or undefined
+        const allData = [crit31Data, crit32Data, crit33Data, crit35Data, crit36Data, crit37Data];
+        for (const data of allData) {
+            for (const key in data) {
+                console.log(data);
+                if (data[key] === null || data[key] === undefined) {
+                    alert("Please fill in all the fields before submitting.");
+                    return;
+                }
+            }
+        }
+
+        const response = await axios.post("http://localhost:5000/data/criteria3/submit", formdata);
         console.log(response.data); 
         alert("Criteria 3 submitted!");
     } catch (error) {

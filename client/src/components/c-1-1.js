@@ -28,6 +28,7 @@ const Criteria11 = ({ onCrit11Data }) => {
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
+
         try{
             const response = await axios.post("http://localhost:5000/data/save1-1-1", formdata);
             console.log(response.data); 
@@ -134,9 +135,7 @@ const Criteria11 = ({ onCrit11Data }) => {
             file1_1_3_2
         };
         onCrit11Data(crit11);
-    }, [file1_1_1, curriculumText, syllabusRevisionCount, file1_1_2_1, file1_1_2_2, coursesFocusCount, file1_1_3_1, file1_1_3_2]);
-    
-    
+    }, [file1_1_1, curriculumText, syllabusRevisionCount, file1_1_2_1, file1_1_2_2, coursesFocusCount, file1_1_3_1, file1_1_3_2]); 
 
     return (
         <div className="c-1_1">

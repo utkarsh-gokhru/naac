@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/c1_card.css';
 import { useNavigate } from 'react-router-dom';
-import CircularProgressBar from './cicular-progress';
+import CircularProgressBar from './circular-progress';
 
 const CardC1 = () => {
   const totalFields = 29;
@@ -76,7 +76,7 @@ const CardC1 = () => {
   const progress = ((fieldCount / totalFields) * 100).toFixed(2);
 
   const handleClick = () => {
-    if (department === admin) {
+    if (admin) {
       navigate('/admin/criteria1');
     } else {
       if (progress < 100) {

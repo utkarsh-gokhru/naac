@@ -33,39 +33,13 @@ const Criteria26 = () => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save2-6-3-2-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-6-1", formdata);
             console.log(response.data); 
             alert("Saved Section 2.6.3.2.1 data:");
         }catch(error){
             console.log("Error",error.message);
         }
     };
-
-    const saveSection2_6_3_2_1 = async() => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file2_6_3_2_1,
-            file2_6_3_2_2,
-            learning_outcomes
-        
-            
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try{
-            const response = await axios.post("http://localhost:5000/data/save2-6-1", formdata);
-            console.log(response.data); 
-            alert("Saved Section 2.6.1 data:");
-        }catch(error){
-            console.log("Error",error.message);
-        }
-    };
-
 
     const saveSection2_6_2 = async() => {
         const formdata = new FormData();
@@ -87,6 +61,30 @@ const Criteria26 = () => {
             const response = await axios.post("http://localhost:5000/data/save2-6-2", formdata);
             console.log(response.data); 
             alert("Saved Section 2.6.2 data:");
+        }catch(error){
+            console.log("Error",error.message);
+        }
+    };
+
+    const saveSection2_6_3 = async() => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            department,
+            academicYear,
+            file2_6_3_2_1,
+            file2_6_3_2_2,
+            final_year_students_passed,
+            final_year_students_appeared,
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+        try{
+            const response = await axios.post("http://localhost:5000/data/save2-6-3", formdata);
+            console.log(response.data); 
+            alert("Saved Section 2.6.1 data:");
         }catch(error){
             console.log("Error",error.message);
         }
@@ -262,7 +260,7 @@ const Criteria26 = () => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection2_6_3_2_1}>Save</button>
+                            <button onClick={saveSection2_6_3}>Save</button>
                         </div> 
 
     </div>

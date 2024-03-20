@@ -207,7 +207,7 @@ export const Criteria22 = () => {
                             </tbody>
                             </table>
                             <div>
-                        <button onClick={saveSection2_2_1}>Save</button>
+                        <button onClick={saveSection2_2_2}>Save</button>
                     </div>
     </div>
 

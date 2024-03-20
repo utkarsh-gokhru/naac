@@ -23,7 +23,7 @@ const Criteria25 = () => {
  
 
   
-    const saveSection2_5_1_1 = async() => {
+    const saveSection2_5_1 = async() => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -40,33 +40,9 @@ const Criteria25 = () => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save2-5-1-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-5-1", formdata);
             console.log(response.data); 
             alert("Saved Section 2.5.1.1 data:");
-        }catch(error){
-            console.log("Error",error.message);
-        }
-    };
-
-    const saveSection2_5_4_1 = async() => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file2_5_4_1,
-            file2_5_4_2,
-            status_of_automation
-            
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try{
-            const response = await axios.post("http://localhost:5000/data/save2-5-4-1", formdata);
-            console.log(response.data); 
-            alert("Saved Section 2.5.4.1 data:");
         }catch(error){
             console.log("Error",error.message);
         }
@@ -111,7 +87,7 @@ const Criteria25 = () => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save2-5-2", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-5-3", formdata);
             console.log(response.data); 
             alert("Saved Section 2.5.2 data:")
         }catch(error){
@@ -119,7 +95,29 @@ const Criteria25 = () => {
         }
     };
 
+    const saveSection2_5_4 = async() => {
+        const formdata = new FormData();
 
+        const sectionData = {
+            department,
+            academicYear,
+            file2_5_4_1,
+            file2_5_4_2,
+            status_of_automation
+            
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+        try{
+            const response = await axios.post("http://localhost:5000/data/save2-5-4", formdata);
+            console.log(response.data); 
+            alert("Saved Section 2.5.4.1 data:");
+        }catch(error){
+            console.log("Error",error.message);
+        }
+    };
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -202,7 +200,7 @@ const Criteria25 = () => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection2_5_1_1}>Save</button>
+                            <button onClick={saveSection2_5_1}>Save</button>
                         </div> 
 
             <h4>2.5.2 - Total number of student complaints/grievances about evaluation against total number appeared in the examinations during the year</h4>
@@ -365,7 +363,7 @@ const Criteria25 = () => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection2_5_4_1}>Save</button>
+                            <button onClick={saveSection2_5_4}>Save</button>
                         </div> 
 
 
