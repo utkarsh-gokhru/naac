@@ -19,9 +19,8 @@ const Criteria51 = ({onCrit51Data}) => {
     const [file5_1_3_1, setFile5_1_3_1] = useState(null);
     const [file5_1_3_2, setFile5_1_3_2] = useState(null);
     const [file5_1_4, setfile5_1_4] = useState(null);
-
     
-    const saveSection5_1_1_1 = async() => {
+    const saveSection5_1_1 = async() => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -29,46 +28,22 @@ const Criteria51 = ({onCrit51Data}) => {
             academicYear,
             file5_1_1_1,
             file5_1_1_2,
-            no_of_students
+            scholarship_beneficiaries
         };
 
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save5-1-1-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save5-1-1", formdata);
             console.log(response.data); 
-            alert("Saved Section 5.1.1.1 data:");
+            alert("Saved Section 5.1.1 data:");
         }catch(error){
             console.log("Error",error.message);
         }
     };
 
-    const saveSection5_1_3_1 = async() => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file5_1_3_1,
-            file5_1_3_2,
-
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try{
-            const response = await axios.post("http://localhost:5000/data/save5-1-3-1", formdata);
-            console.log(response.data); 
-            alert("Saved Section 5.1.3.1 data:");
-        }catch(error){
-            console.log("Error",error.message);
-        }
-    };
-
-
-    const saveSection5_1_2_1 = async() => {
+    const saveSection5_1_2 = async() => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -76,6 +51,29 @@ const Criteria51 = ({onCrit51Data}) => {
             academicYear,
             file5_1_2_1,
             file5_1_2_2,
+            career_counsel_beneficiaries
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+        try{
+            const response = await axios.post("http://localhost:5000/data/save5-1-2", formdata);
+            console.log(response.data); 
+            alert("Saved Section 5.1.2 data:");
+        }catch(error){
+            console.log("Error",error.message);
+        }
+    }
+
+    const saveSection5_1_3 = async() => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            department,
+            academicYear,
+            file5_1_3_1,
+            file5_1_3_2,
             capacity_development_initiatives
         };
 
@@ -83,31 +81,31 @@ const Criteria51 = ({onCrit51Data}) => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save5-1-2-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save5-1-3", formdata);
             console.log(response.data); 
-            alert("Saved Section 5.1.2.1 data:");
+            alert("Saved Section 5.1.3 data:");
         }catch(error){
             console.log("Error",error.message);
         }
-    }
+    };
+
     const saveSection5_1_4 = async() => {
         const formdata = new FormData();
 
         const sectionData = {
             department,
             academicYear,
-            file5_5_1_4,
+            file5_1_4,
             student_grievances_redressal
-            
         };
 
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save5-1-2-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save5-1-4", formdata);
             console.log(response.data); 
-            alert("Saved Section 5.1.2.1 data:");
+            alert("Saved Section 5.1.4 data:");
         }catch(error){
             console.log("Error",error.message);
         }
@@ -127,7 +125,22 @@ const Criteria51 = ({onCrit51Data}) => {
         }
     };
 
-
+    useEffect(() => {
+        const crit51 = {
+            scholarship_beneficiaries,
+            file5_1_1_1,
+            file5_1_1_2,
+            career_counsel_beneficiaries,
+            file5_1_2_1,
+            file5_1_2_2,
+            capacity_development_initiatives,
+            file5_1_3_1,
+            file5_1_3_2,
+            student_grievances_redressal,
+            file5_1_4
+        };
+        onCrit51Data(crit51);
+    }, [scholarship_beneficiaries, file5_1_1_1, file5_1_1_2, career_counsel_beneficiaries, file5_1_2_1, file5_1_2_2, capacity_development_initiatives, file5_1_3_1, file5_1_3_2, student_grievances_redressal, file5_1_4]);    
 
     return(
         
@@ -170,7 +183,7 @@ const Criteria51 = ({onCrit51Data}) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td> {file5_1_1_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                                    <td> 
                                         Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>
@@ -187,15 +200,15 @@ const Criteria51 = ({onCrit51Data}) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection5_1_1_1}>Save</button>
+                            <button onClick={saveSection5_1_1}>Save</button>
                         </div>
 
                 <h4>5.1.2 - Total number of students benefited by career counselling and guidance for competitive examinations offered by the Institution during the year</h4>
                 <input
                             type="number"
-                            id="capacity_development_initiatives"
-                            value={capacity_development_initiatives}
-                            onChange={(e) => setcapacity_development_initiatives(e.target.value)}
+                            id="career_counsel_beneficiaries"
+                            value={career_counsel_beneficiaries}
+                            onChange={(e) => setcareer_counsel_beneficiaries(e.target.value)}
                         /><br />
                 <table>
                             <thead>
@@ -208,7 +221,7 @@ const Criteria51 = ({onCrit51Data}) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> {file5_1_2_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                                    <td> 
                                       
                                         Upload the data template</td>
                                     <td>
@@ -243,7 +256,7 @@ const Criteria51 = ({onCrit51Data}) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection5_1_2_1}>Save</button>
+                            <button onClick={saveSection5_1_2}>Save</button>
                         </div>
 
             <h4>5.1.3 - Following Capacity development and skills enhancement initiatives are taken by the institution<br></br>  <br></br> Life Skills(Yoga, Physical fitness, health and hygiene)<br></br> 4. Awareness of trends in Technology</h4>
@@ -318,7 +331,7 @@ const Criteria51 = ({onCrit51Data}) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection5_1_3_1}>Save</button>
+                            <button onClick={saveSection5_1_3}>Save</button>
                         </div>
             
 <h4>5.1.4 - The Institution adopts the following for redressal of student grievances including sexual harassment and ragging cases:</h4>
@@ -394,8 +407,5 @@ const Criteria51 = ({onCrit51Data}) => {
         
     )
 }
-
-
-
 
 export default Criteria51;

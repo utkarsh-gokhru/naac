@@ -12,19 +12,22 @@ const Criteria52 = ({onCrit52Data}) => {
     const [students_appeared, setstudents_appeared] = useState("");
     const [  higher_studies_students, sethigher_studies_students] = useState("");
     const [ placement_no, setplacement_no] = useState("");
-    const [ file5_2_1_1, setfile5_2_1_1] = useState(null);
-    const [ file5_2_1_2, setfile5_2_1_2] = useState(null);
-    const [ file5_2_2_1, setfile5_2_2_1] = useState(null);
-    const [ file5_2_2_2, setfile5_2_2_2] = useState(null);
+    const [ file5_2_1_1, setFile5_2_1_1] = useState(null);
+    const [ file5_2_1_2, setFile5_2_1_2] = useState(null);
+    const [ file5_2_2_1, setFile5_2_2_1] = useState(null);
+    const [ file5_2_2_2, setFile5_2_2_2] = useState(null);
+    const [ file5_2_3_1, setFile5_2_3_1] = useState(null);
+    const [ file5_2_3_2, setFile5_2_3_2] = useState(null);
 
 
-    const saveSection5_2_1_1 = async() => {
+    const saveSection5_2_1 = async() => {
         const formdata = new FormData();
 
         const sectionData = {
             department,
             academicYear,
             file5_2_1_1,
+            file5_2_1_2,
             students_qualified,
             students_appeared
            
@@ -34,15 +37,15 @@ const Criteria52 = ({onCrit52Data}) => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save5-2-1-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save5-2-1", formdata);
             console.log(response.data); 
-            alert("Saved Section 5.2.1.1 data:");
+            alert("Saved Section 5.2.1 data:");
         }catch(error){
             console.log("Error",error.message);
         }
     };
 
-    const saveSection5_2_2_1 = async() => {
+    const saveSection5_2_2 = async() => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -58,16 +61,16 @@ const Criteria52 = ({onCrit52Data}) => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save5-2-2-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save5-2-2", formdata);
             console.log(response.data); 
-            alert("Saved Section 5.2.2.1 data:");
+            alert("Saved Section 5.2.2 data:");
         }catch(error){
             console.log("Error",error.message);
         }
     };
 
     
-    const saveSection5_2_3_1 = async() => {
+    const saveSection5_2_3 = async() => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -83,9 +86,9 @@ const Criteria52 = ({onCrit52Data}) => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save5-2-3-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save5-2-3", formdata);
             console.log(response.data); 
-            alert("Saved Section 5.2.3.1 data:");
+            alert("Saved Section 5.2.3 data:");
         }catch(error){
             console.log("Error",error.message);
         }
@@ -105,6 +108,22 @@ const Criteria52 = ({onCrit52Data}) => {
         }
     };
 
+    useEffect(() => {
+        const crit52 = {
+            students_qualified,
+            students_appeared,
+            file5_2_1_1,
+            file5_2_1_2,
+            placement_no,
+            file5_2_2_1,
+            file5_2_2_2,
+            higher_studies_students,
+            file5_2_3_1,
+            file5_2_3_2
+        };
+        onCrit52Data(crit52);
+    }, [students_qualified, students_appeared, file5_2_1_1, file5_2_1_2, placement_no, file5_2_2_1, file5_2_2_2, higher_studies_students, file5_2_3_1, file5_2_3_2]);
+    
 
   return (
     <div className="c-5-2">
@@ -127,7 +146,7 @@ year
                             type="number"
                             id="students_appeared"
                             value={students_appeared}
-                            onChange={(e) => setsstudents_appeared(e.target.value)}
+                            onChange={(e) => setstudents_appeared(e.target.value)}
                         /><br />
 
 <table>
@@ -176,7 +195,7 @@ year
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection5_2_1_1}>Save</button>
+                            <button onClick={saveSection5_2_1}>Save</button>
                         </div>
         <h4> 5.2.2 - total number of placememt of ongoing students during the year</h4>
         <input
@@ -232,7 +251,7 @@ year
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection5_2_1_1}>Save</button>
+                            <button onClick={saveSection5_2_2}>Save</button>
                         </div>
 
     <h4>5.2.3 - Number of recently graduated students who have progressed to higher education ( previous graduating batch) during The year </h4>
@@ -289,10 +308,10 @@ year
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection5_2_3_1}>Save</button>
+                            <button onClick={saveSection5_2_3}>Save</button>
                         </div>
     </div>
   )
 }
 
-export default Criteria52
+export default Criteria52;

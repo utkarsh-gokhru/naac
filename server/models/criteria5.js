@@ -41,7 +41,7 @@ const Criteria5Schema = new mongoose.Schema({
   criteria54: {
     alumni_chapters: { type: String },
     file5_4_1: { type: String },
-    alumni_contributions: { type: Number },
+    alumni_contributions: { type: String },
     file5_4_2: { type: String },
   }
 });

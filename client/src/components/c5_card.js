@@ -15,34 +15,57 @@ const CardC5 = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://naacserver.onrender.com/data/fetchC5?department=${department}&academicYear=${academicYear}`);
+      const response = await axios.get(`http://localhost:5000/data/fetchC5?department=${department}&academicYear=${academicYear}`);
       const data = response.data.data;
 
       if (data) {
         let count = 0;
 
-        // Calculate the number of filled fields for Criteria 5
         if (data.criteria51) {
-          const criteria51Fields = Object.values(data.criteria51);
-          count += criteria51Fields.filter(field => field).length;
-        }
+          count += data.criteria51.scholarship_beneficiaries ? 1 : 0;
+          count += data.criteria51.file5_1_1_1 ? 1 : 0;
+          count += data.criteria51.file5_1_1_2 ? 1 : 0;
+          count += data.criteria51.career_counsel_beneficiaries ? 1 : 0;
+          count += data.criteria51.file5_1_2_1 ? 1 : 0;
+          count += data.criteria51.file5_1_2_2 ? 1 : 0;
+          count += data.criteria51.capacity_development_initiatives ? 1 : 0;
+          count += data.criteria51.file5_1_3_1 ? 1 : 0;
+          count += data.criteria51.file5_1_3_2 ? 1 : 0;
+          count += data.criteria51.student_grievances_redressal ? 1 : 0;
+          count += data.criteria51.file5_1_4 ? 1 : 0;
+      }
 
-        if (data.criteria52) {
-          const criteria52Fields = Object.values(data.criteria52);
-          count += criteria52Fields.filter(field => field).length;
-        }
+      if (data.criteria52) {
+          count += data.criteria52.students_qualified ? 1 : 0;
+          count += data.criteria52.students_appeared ? 1 : 0;
+          count += data.criteria52.file5_2_1_1 ? 1 : 0;
+          count += data.criteria52.file5_2_1_2 ? 1 : 0;
+          count += data.criteria52.placement_no ? 1 : 0;
+          count += data.criteria52.file5_2_2_1 ? 1 : 0;
+          count += data.criteria52.file5_2_2_2 ? 1 : 0;
+          count += data.criteria52.higher_studies_students ? 1 : 0;
+          count += data.criteria52.file5_2_3_1 ? 1 : 0;
+          count += data.criteria52.file5_2_3_2 ? 1 : 0;
+      }
 
-        if (data.criteria53) {
-          const criteria53Fields = Object.values(data.criteria53);
-          count += criteria53Fields.filter(field => field).length;
-        }
+      if (data.criteria53) {
+          count += data.criteria53.awards_no ? 1 : 0;
+          count += data.criteria53.file5_3_1_1 ? 1 : 0;
+          count += data.criteria53.file5_3_1_2 ? 1 : 0;
+          count += data.criteria53.student_council ? 1 : 0;
+          count += data.criteria53.file5_3_2 ? 1 : 0;
+          count += data.criteria53.events ? 1 : 0;
+          count += data.criteria53.file5_3_3_1 ? 1 : 0;
+          count += data.criteria53.file5_3_3_2 ? 1 : 0;
+      }
 
-        if (data.criteria54) {
-          const criteria54Fields = Object.values(data.criteria54);
-          count += criteria54Fields.filter(field => field).length;
-        }
+      if (data.criteria54) {
+          count += data.criteria54.alumni_chapters ? 1 : 0;
+          count += data.criteria54.file5_4_1 ? 1 : 0;
+          count += data.criteria54.alumni_contributions ? 1 : 0;
+          count += data.criteria54.file5_4_2 ? 1 : 0;
+      }
 
-        // Set the field count state
         setFieldCount(count);
       }
     } catch (error) {
@@ -54,7 +77,6 @@ const CardC5 = () => {
     fetchData();
   }, []); 
 
-  // Calculate progress percentage
   const progress = ((fieldCount / totalFields) * 100).toFixed(2);
 
   // Handle card click event

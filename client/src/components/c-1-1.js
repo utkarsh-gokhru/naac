@@ -4,6 +4,7 @@ import { saveAs } from 'file-saver';
 import axios from "axios";
 
 const Criteria11 = ({ onCrit11Data }) => {
+    
     const [curriculumText, setCurriculumText] = useState("");
     const [file1_1_1, setFile1_1_1] = useState(null);
     const [syllabusRevisionCount, setSyllabusRevisionCount] = useState("");

@@ -2,21 +2,17 @@ import React , {useState} from "react";
 import Criteria51 from "../components/c-5-1";
 import Criteria52 from "../components/c-5-2";
 import Criteria53 from "../components/c-5-3";
-import Criteria55 from "../components/c-5-5";
-import Criteria56 from "../components/c-5-6";
-import Criteria57 from "../components/c-5-7";
+import Criteria54 from "../components/c-5-4";
 import Popup from "../components/popup";
 import naacLogo from '../naac_logo.png';
 import axios from 'axios';
 
-const criteria5 = () => {
+const Criteria5 = () => {
 
     const [crit51Data, setCrit51Data] = useState(null);
     const [crit52Data, setCrit52Data] = useState(null);
     const [crit53Data, setCrit53Data] = useState(null);
-    const [crit55Data, setCrit55Data] = useState(null);
-    const [crit56Data, setCrit56Data] = useState(null);
-    const [crit57Data, setCrit57Data] = useState(null);
+    const [crit54Data, setCrit54Data] = useState(null);
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
     const [showPopup, setShowPopup] = useState(false);
@@ -33,16 +29,8 @@ const criteria5 = () => {
         setCrit53Data(data);
     };
 
-    const handleCrit55Data = (data) => {
-        setCrit55Data(data);
-    };
-
-    const handleCrit56Data = (data) => {
-        setCrit56Data(data);
-    };
-
-    const handleCrit57Data = (data) => {
-        setCrit57Data(data);
+    const handleCrit54Data = (data) => {
+        setCrit54Data(data);
     };
 
     const handleSubmit = (e) => {
@@ -70,21 +58,13 @@ const criteria5 = () => {
             formdata.append(key, crit53Data[key]);
         }
 
-        for (const key in crit55Data) {
-            formdata.append(key, crit55Data[key]);
-        }
-
-        for (const key in crit56Data) {
-            formdata.append(key, crit56Data[key]);
-        }
-
-        for (const key in crit57Data) {
-            formdata.append(key, crit57Data[key]);
+        for (const key in crit54Data) {
+            formdata.append(key, crit54Data[key]);
         }
 
         console.log(formdata);
 
-        const response = await axios.post("https://naacserver.onrender.com/data/criteria5/submit", formdata);
+        const response = await axios.post("http://localhost:5000/data/criteria5/submit", formdata);
         console.log(response.data); 
         alert("Criteria 5 submitted!");
     } catch (error) {
@@ -126,9 +106,7 @@ const criteria5 = () => {
                 <Criteria51 onCrit51Data={handleCrit51Data}/>
                 <Criteria52 onCrit52Data={handleCrit52Data}/>
                 <Criteria53 onCrit53Data={handleCrit53Data}/>
-                <Criteria55 onCrit55Data={handleCrit55Data}/>
-                <Criteria56 onCrit56Data={handleCrit56Data}/>
-                <Criteria57 onCrit57Data={handleCrit57Data}/>
+                <Criteria54 onCrit54Data={handleCrit54Data}/>
                 <div className="button-container">
                     <button onClick={handleSubmit} className="custom-button">Submit</button>
                 </div>

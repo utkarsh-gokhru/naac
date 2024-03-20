@@ -27,26 +27,30 @@ const deleteExistingFile = async (existingFilePath) => {
     }
 };
 
-const handleFileUpload = async (existingData, fieldName, newFile, newData) => {
-    if (existingData && existingData.criteria52[fieldName]) {
-        await deleteExistingFile(existingData.criteria52[fieldName]);
-    }
+const handleFileUpload = async (existingData, fieldNames, newFiles, newData) => {
+    try {
+        if (!existingData) {
+            existingData = new Criteria5Model({
+                department: newData.department,
+                academicYear: newData.academicYear,
+                criteria52: {},
+            });
+        }
 
-    if (!existingData) {
-        existingData = new Criteria5Model({
-            department: newData.department,
-            academicYear: newData.academicYear,
-            criteria52: {
-                [fieldName]: newFile.path,
-                ...newData,
+        fieldNames.forEach((fieldName, index) => {
+            const newFile = newFiles[index];
+            if (existingData.criteria52[fieldName]) {
+                deleteExistingFile(existingData.criteria52[fieldName]);
             }
+            existingData.criteria52[fieldName] = newFile.path;
         });
-    } else {
-        existingData.criteria52[fieldName] = newFile.path;
-        Object.assign(existingData.criteria52, newData);
-    }
 
-    await existingData.save();
+        Object.assign(existingData.criteria52, newData);
+
+        await existingData.save();
+    } catch (error) {
+        throw new Error('Error handling file upload: ' + error.message);
+    }
 };
 
 const upload = multer();
@@ -84,21 +88,20 @@ app.post('/save5-2-1', upload.fields([{ name: 'file5_2_1_1' }, { name: 'file5_2_
 
             let existingData = await Criteria5Model.findOne({ department, academicYear });
 
-            await handleFileUpload(existingData, 'file5_2_1_1', { path: filePath1 }, {
+            await handleFileUpload(existingData, ['file5_2_1_1','file5_2_1_2'], [{ path: filePath1 },{ path: filePath2 }], {
                 students_qualified, 
                 students_appeared,
-                file5_2_1_1: filePath1,
                 department,
                 academicYear
             });
 
-            await handleFileUpload(existingData, 'file5_2_1_2', { path: filePath2 }, {
-                students_qualified, 
-                students_appeared,
-                file5_2_1_2: filePath2,
-                department,
-                academicYear
-            });
+            // await handleFileUpload(existingData, 'file5_2_1_2', { path: filePath2 }, {
+            //     students_qualified, 
+            //     students_appeared,
+            //     file5_2_1_2: filePath2,
+            //     department,
+            //     academicYear
+            // });
 
             res.status(200).json({ message: 'Data saved successfully for Section 5.2.1' });
         } catch (error) {
@@ -144,19 +147,17 @@ app.post('/save5-2-2', upload.fields([{ name: 'file5_2_2_1' }, { name: 'file5_2_
 
             let existingData = await Criteria5Model.findOne({ department, academicYear });
 
-            await handleFileUpload(existingData, 'file5_2_2_1', { path: filePath1 }, {
+            await handleFileUpload(existingData, ['file5_2_2_1','file5_2_2_2'], [{ path: filePath1 },{ path: filePath2 }], {
                 placement_no,
-                file5_2_2_1: filePath1,
                 department,
                 academicYear
             });
 
-            await handleFileUpload(existingData, 'file5_2_2_2', { path: filePath2 }, {
-                placement_no,
-                file5_2_2_2: filePath2,
-                department,
-                academicYear
-            });
+            // await handleFileUpload(existingData, 'file5_2_2_2', { path: filePath2 }, {
+            //     placement_no,
+            //     department,
+            //     academicYear
+            // });
 
             res.status(200).json({ message: 'Data saved successfully for Section 5.2.2' });
         } catch (error) {
@@ -202,19 +203,18 @@ app.post('/save5-2-3', upload.fields([{ name: 'file5_2_3_1' }, { name: 'file5_2_
 
             let existingData = await Criteria5Model.findOne({ department, academicYear });
 
-            await handleFileUpload(existingData, 'file5_2_3_1', { path: filePath1 }, {
+            await handleFileUpload(existingData, ['file5_2_3_1','file5_2_3_2'], [{ path: filePath1 },{ path: filePath2 }], {
                 higher_studies_students,
-                file5_2_3_1: filePath1,
                 department,
                 academicYear
             });
 
-            await handleFileUpload(existingData, 'file5_2_3_2', { path: filePath2 }, {
-                higher_studies_students,
-                file5_2_3_2: filePath2,
-                department,
-                academicYear
-            });
+            // await handleFileUpload(existingData, 'file5_2_3_2', { path: filePath2 }, {
+            //     higher_studies_students,
+            //     file5_2_3_2: filePath2,
+            //     department,
+            //     academicYear
+            // });
 
             res.status(200).json({ message: 'Data saved successfully for Section 5.2.3' });
         } catch (error) {
