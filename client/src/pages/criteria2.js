@@ -3,7 +3,7 @@ import "../css/criteria2.css";
 import Criteria21 from "../components/c-2-1";
 import Criteria22 from "../components/c-2-2";
 import Criteria23 from "../components/c-2-3";
-// import Criteria24 from "../components/c-2-4";
+import Criteria24 from "../components/c-2-4";
 import Criteria25 from "../components/c-2-5";
 import Criteria26 from "../components/c-2-6";
 import Criteria27 from "../components/c-2-7";
@@ -17,7 +17,7 @@ const Criteria2 = () => {
   const [crit22Data, setcrit22Data] = useState(null);
   const [crit23Data, setcrit23Data] = useState(null);
   const [crit25Data, setcrit25Data] = useState(null);
-//   const [crit24Data, setcrit24Data] = useState(null);
+  const [crit24Data, setcrit24Data] = useState(null);
   const [crit26Data, setcrit26Data] = useState(null);
   const [crit27Data, setcrit27Data] = useState(null);
   const department = localStorage.getItem('department');
@@ -36,9 +36,9 @@ const Criteria2 = () => {
     setcrit23Data(data);
   };
 
-//   const handlecrit24Data = (data) => {
-//     setcrit24Data(data);
-//   };
+  const handleCrit24Data = (data) => {
+    setcrit24Data(data);
+  };
 
   const handleCrit25Data = (data) => {
     setcrit25Data(data);
@@ -126,13 +126,14 @@ const Criteria2 = () => {
     <Criteria21 oncrit21Data={handleCrit21Data} />
     <Criteria22 oncrit22Data={handleCrit22Data} />
     <Criteria23 oncrit23Data={handleCrit23Data} />
+    <Criteria24 oncrit24Data={handleCrit24Data} />
     <Criteria25 onCrit25Data={handleCrit25Data} />
     <Criteria26 onCrit26Data={handleCrit26Data}/>
     <Criteria27 onCrit27Data={handleCrit27Data}/>
         {/* <Criteria21 oncrit21Data={handleCrit21Data} />
         <Criteria22 oncrit22Data={handleCrit22Data} />
         
-        <Criteria24 oncrit24Data={handleCrit24Data} />
+        
         
         
        
