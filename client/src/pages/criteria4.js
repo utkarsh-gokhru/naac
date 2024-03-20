@@ -73,19 +73,24 @@ const CriterionForm = () => {
     });
   };
 
+  
   const handleFileChange = (questionId, files) => {
+    if (!files) {
+      return;
+    }
+  
     const formDataWithFiles = new FormData();
-
+  
     // Append other form data
     formDataWithFiles.append("department", formData.department);
     formDataWithFiles.append("academicYear", formData.academicYear);
     formDataWithFiles.append("questions", JSON.stringify(formData.questions));
-
+  
     // Append files
     for (let i = 0; i < files.length; i++) {
       formDataWithFiles.append(`files_${questionId}`, files[i]);
     }
-
+  
     setFormData((prevFormData) => ({
       ...prevFormData,
       questions: {
@@ -96,10 +101,9 @@ const CriterionForm = () => {
         },
       },
     }));
-
+  
     return formDataWithFiles;
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -123,7 +127,7 @@ const CriterionForm = () => {
 
   return (
     <div>
-      <h1>Criterion Form</h1>
+      <h1 className="text-red-400">Criterion Form</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Department:</label>
@@ -176,7 +180,11 @@ const CriterionForm = () => {
                 <input
                   type="file"
                   multiple
-                  onChange={(e) => handleFileChange(questionId, e.target.files)}
+                  onChange={(e) =>{ 
+                    console.log(e.target.files)
+                    handleFileChange(questionId, e.target.files)
+                  
+                  }}
                 />
               </div>
             )}
