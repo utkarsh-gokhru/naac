@@ -147,7 +147,7 @@ const Criteria51 = ({onCrit51Data}) => {
         <div className="c-5-1">
              <h3>5.1 - Student Support</h3>
 
-            <h4> 5.1.1 - Total number of students benefited by scholarships and free ships provided by the institution, Government and non-government agencies (NGOs) during the year (other than the students receiving scholarships under the government schemes for reserved categories)</h4>
+            <h4> 5.1.1 - Total number of students benefited by scholarships and free ships provided by the institution, Government and non-government agencies (NGOs) during <br></br> the year (other than the students receiving scholarships under the government schemes for reserved categories)</h4>
             <input
                             type="number"
                             id="scholarship_beneficiaries"
@@ -259,7 +259,7 @@ const Criteria51 = ({onCrit51Data}) => {
                             <button onClick={saveSection5_1_2}>Save</button>
                         </div>
 
-            <h4>5.1.3 - Following Capacity development and skills enhancement initiatives are taken by the institution<br></br>  <br></br> Life Skills(Yoga, Physical fitness, health and hygiene)<br></br> 4. Awareness of trends in Technology</h4>
+            <h4>5.1.3 - Following Capacity development and skills enhancement initiatives are taken by the institution</h4>
             <ul>
     <li>1. Soft Skills </li>
     <li>2. Language and Communication Skills</li>
@@ -281,8 +281,6 @@ const Criteria51 = ({onCrit51Data}) => {
 
             <input type="radio" id="none" name="option" value="none" onChange={(e) => setcapacity_development_initiatives(e.target.value)} />
             <label htmlFor="none">None of the above</label><br />
-
-            <input type="submit" value="Submit" />
         </form>
 
             <table>

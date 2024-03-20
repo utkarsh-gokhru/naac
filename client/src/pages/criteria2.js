@@ -52,11 +52,12 @@ const Criteria2 = () => {
     setcrit27Data(data);
   };
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // }
 
-//     setShowPopup(true);
-//   };
+  //   setShowPopup(true);
+  // };
 
 //   const handePopupOk = async () => {
 
@@ -130,6 +131,9 @@ const Criteria2 = () => {
     <Criteria25 onCrit25Data={handleCrit25Data} />
     <Criteria26 onCrit26Data={handleCrit26Data}/>
     <Criteria27 onCrit27Data={handleCrit27Data}/>
+    {/* <div className="button-container">
+          <button onClick={handleSubmit} className="custom-button">Submit</button>
+        </div> */}
         {/* <Criteria21 oncrit21Data={handleCrit21Data} />
         <Criteria22 oncrit22Data={handleCrit22Data} />
         
@@ -137,9 +141,7 @@ const Criteria2 = () => {
         
         
        
-        <div className="button-container">
-          <button onClick={handleSubmit} className="custom-button">Submit</button>
-        </div>
+       
         {showPopup && (
           <Popup 
           message='Once the data is submitted, it cannot be edited. Are you sure you want to submit the data?'

@@ -129,9 +129,9 @@ const Criteria52 = ({onCrit52Data}) => {
     <div className="c-5-2">
         <h3>5.2 - Student Progression</h3>
 
-        <h4>5.2.1 - Number of students qualifying in state/ national/ international level examinations during the year (eg:NET/SLET/GATE/GMAT/CAT/GRE/TOEFL/Civil Services/State government examinations)</h4>
+        <h4>5.2.1 - Number of students qualifying in state/ national/ international level examinations during<br></br> the year (eg:NET/SLET/GATE/GMAT/CAT/GRE/TOEFL/Civil Services/State government examinations)</h4>
 
-        <h4>5.2.1.1 Number of students who qualified in state/ national/ international examinations (e.g.: IIT- JAM/NET/SET/JRF/ GATE /GMAT /CAT/ GRE/ TOEFL/Civil Services/State government examinations)</h4>
+        <h4>5.2.1.1 Number of students who qualified in state/ national/ international <br></br>examinations (e.g.: IIT- JAM/NET/SET/JRF/ GATE /GMAT /CAT/ GRE/ TOEFL/Civil Services/State government examinations)</h4>
         <input
                             type="number"
                             id="students_qualified"
@@ -139,7 +139,7 @@ const Criteria52 = ({onCrit52Data}) => {
                             onChange={(e) => setstudents_qualified(e.target.value)}
                         /><br />
 
-<h4>5.2.1.2 -  Number of students who appeared in state/ national/ international examinations (e.g.: IIT/JAM/ NET/SLET/GATE/GMAT/CAT/ GRE/TOEFL/Civil Services/State government examinations) during the
+<h4>5.2.1.2 -  Number of students who appeared in state/ national/ international<br></br> examinations (e.g.: IIT/JAM/ NET/SLET/GATE/GMAT/CAT/ GRE/TOEFL/Civil Services/State government examinations) during the
 year
 </h4>
 <input
