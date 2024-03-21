@@ -150,7 +150,7 @@ export const Criteria22 = () => {
                         <button onClick={saveSection2_3_1}>Save</button>
                     </div>
 
-            <h4>Teachers use ICT enabled tools incuding online resources for effective teaching and learning processes during the year</h4>
+            <h4>2.3.2 - Teachers use ICT enabled tools incuding online resources for effective teaching and learning processes during the year</h4>
 
             <div className="text-area">
                     <StyledTextArea

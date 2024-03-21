@@ -11,11 +11,11 @@ export const Criteria24 = () => {
     const [full_time_teachers, setfull_time_teachers] = useState("");
     const [full_time_teachers_phd_etc, setfull_time_teachers_phd_etc] = useState("");
     const [award_rec_teachers, setaward_rec_teachers] = useState("");
-    const [learning_exp, setlearning_exp] = useState("");
-    const [file2_4_1_1, setFile2_4_1_1] = useState(null);
-    const [file2_4_1_2, setFile2_4_1_2] = useState(null);
-    const [file2_4_2_1, setFile2_4_2_1] = useState(null);
-    const [file2_4_2_2, setFile2_4_2_2] = useState(null);
+    const [total_exp, settotal_exp] = useState("");
+    const [file2_4_1_1, setfile2_4_1_1] = useState(null);
+    const [file2_4_1_2, setfile2_4_1_2] = useState(null);
+    const [file2_4_2_1, setfile2_4_2_1] = useState(null);
+    const [file2_4_2_2, setfile2_4_2_2] = useState(null);
     
     
 
@@ -124,7 +124,7 @@ export const Criteria24 = () => {
                                             id="file2_4_1_1"
                                             name="fileUpload"
                                             accept=".xls, .xlsx"
-                                            onChange={(e) => setFile2_4_1_1(e.target.files[0])}
+                                            onChange={(e) => setfile2_4_1_1(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx. File size: 6MB</td>
@@ -139,7 +139,7 @@ export const Criteria24 = () => {
                                             id="file2_4_1_2"
                                             name="fileUpload"
                                             accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setFile2_4_1_2(e.target.files[0])}
+                                            onChange={(e) => setfile2_4_1_2(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -188,7 +188,7 @@ export const Criteria24 = () => {
                                             id="file2_4_2_1"
                                             name="fileUpload"
                                             accept=".xls, .xlsx"
-                                            onChange={(e) => setFile2_4_2_1(e.target.files[0])}
+                                            onChange={(e) => setfile2_4_2_1(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx. File size: 6MB</td>
@@ -203,7 +203,7 @@ export const Criteria24 = () => {
                                             id="file2_4_2_2"
                                             name="fileUpload"
                                             accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setFile2_4_2_2(e.target.files[0])}
+                                            onChange={(e) => setfile2_4_2_2(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -226,9 +226,9 @@ export const Criteria24 = () => {
 
         <input
                             type="number"
-                            id="full_time_teachers_phd_etc"
-                            value={full_time_teachers_phd_etc}
-                            onChange={(e) => setfull_time_teachers_phd_etc(e.target.value)}
+                            id="total_exp"
+                            value={total_exp}
+                            onChange={(e) => settotal_exp(e.target.value)}
                         /><br />
                                          
      <table>
@@ -254,7 +254,7 @@ export const Criteria24 = () => {
                                             id="file2_4_2_1"
                                             name="fileUpload"
                                             accept=".xls, .xlsx"
-                                            onChange={(e) => setFile2_4_2_1(e.target.files[0])}
+                                            onChange={(e) => setfile2_4_2_1(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx. File size: 6MB</td>
@@ -269,7 +269,7 @@ export const Criteria24 = () => {
                                             id="file2_4_2_2"
                                             name="fileUpload"
                                             accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setFile2_4_2_2(e.target.files[0])}
+                                            onChange={(e) => setfile2_4_2_2(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -318,7 +318,7 @@ GovernmentlG0vt. recognised bodies during the year</h3>
                                     id="file2_4_2_1"
                                     name="fileUpload"
                                     accept=".xls, .xlsx"
-                                    onChange={(e) => setFile2_4_2_1(e.target.files[0])}
+                                    onChange={(e) => setfile2_4_2_1(e.target.files[0])}
                                 />
                             </td>
                             <td>xls, xlsx. File size: 6MB</td>
@@ -333,7 +333,7 @@ GovernmentlG0vt. recognised bodies during the year</h3>
                                     id="file2_4_2_2"
                                     name="fileUpload"
                                     accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                    onChange={(e) => setFile2_4_2_2(e.target.files[0])}
+                                    onChange={(e) => setfile2_4_2_2(e.target.files[0])}
                                 />
                             </td>
                             <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>

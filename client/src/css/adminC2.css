@@ -1,0 +1,53 @@
+.adminC2-page {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+    }
+    
+    .C-2-1,
+    .C-2-2,
+    .C-2-3,
+    .C-2-4 
+    .C-2-5
+    .C-2-6
+    .C-2-7{
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .C-2-1-1,
+    .C-2-1-2,
+    .C-2-1-3,
+    .C-2-2-1,
+    .C-2-2-2,
+    .C-2-3-1,
+    .C-2-3-2,
+    .C-2-3-3,
+    .C-2-3-4,
+    .C-2-4-1,
+    .C-2-4-2 {
+    margin-bottom: 15px;
+    }
+    
+    h4 {
+    color: #333;
+    }
+    
+    p {
+    color: #555;
+    }
+    
+    a {
+    color: #007bff;
+    text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+    .adminC1-page {
+        padding: 10px;
+    }
+    }
+    

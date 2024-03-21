@@ -8,13 +8,11 @@ export const Criteria21 = () => {
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
     const [no_of_seats, setno_of_seats] = useState("");
-    const [learning_assessment, setlearning_assessment] = useState("");
     const [students_reserved_cat, setstudents_reserved_cat] = useState("");
-    const [learning_exp, setlearning_exp] = useState("");
-    const [file2_1_1_1, setFile2_1_1_1] = useState(null);
-    const [file2_1_1_2, setFile2_1_1_2] = useState(null);
-    const [file2_1_2_1, setFile2_1_2_1] = useState(null);
-    const [file2_1_2_2, setFile2_1_2_2] = useState(null);
+    const [file2_1_1_1, setfile2_1_1_1] = useState(null);
+    const [file2_1_1_2, setfile2_1_1_2] = useState(null);
+    const [file2_1_2_1, setfile2_1_2_1] = useState(null);
+    const [file2_1_2_2, setfile2_1_2_2] = useState(null);
     
     
 
@@ -115,7 +113,7 @@ export const Criteria21 = () => {
                                             id="file2_1_1_1"
                                             name="fileUpload"
                                             accept=".xls, .xlsx"
-                                            onChange={(e) => setFile2_1_1_1(e.target.files[0])}
+                                            onChange={(e) => setfile2_1_1_1(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx. File size: 6MB</td>
@@ -130,7 +128,7 @@ export const Criteria21 = () => {
                                             id="file2_1_1_2"
                                             name="fileUpload"
                                             accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setFile2_1_1_2(e.target.files[0])}
+                                            onChange={(e) => setfile2_1_1_2(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -143,11 +141,11 @@ export const Criteria21 = () => {
                         <br></br>
                         <br></br>
 
-         <h3>2.1.2 - Total number of seats filled against reserved categories (SC, ST, OBC, Divyangjan, etc.) as per applicable reservation<br></br>policy during the year (Excluding Supernumerary Seats)</h3>
+         <h4>2.1.2 - Total number of seats filled against reserved categories (SC, ST, OBC, Divyangjan, etc.) as per applicable reservation<br></br>policy during the year (Excluding Supernumerary Seats)</h4>
          <br></br>
          <br></br>
 
-         <h3>2.1.2.1 - Number of actual students admitted from the reserved categories during the year</h3>
+         <h4>2.1.2.1 - Number of actual students admitted from the reserved categories during the year</h4>
          <br></br>
 
          <input
@@ -180,7 +178,7 @@ export const Criteria21 = () => {
                                             id="file1_1_2_1"
                                             name="fileUpload"
                                             accept=".xls, .xlsx"
-                                            onChange={(e) => setFile2_1_2_1(e.target.files[0])}
+                                            onChange={(e) => setfile2_1_2_1(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx. File size: 6MB</td>
@@ -195,7 +193,7 @@ export const Criteria21 = () => {
                                             id="file1_1_2_2"
                                             name="fileUpload"
                                             accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setFile2_1_2_2(e.target.files[0])}
+                                            onChange={(e) => setfile2_1_2_2(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -207,27 +205,7 @@ export const Criteria21 = () => {
                         </div> 
                         <br></br>
 
-   
-        <div>
-        <h3>2.2.2 - Student  </h3>
 
-        
-        <div className="text-area">
-                        <StyledTextArea
-                            rows={5}
-                            placeholder="Type the text here"
-                            value={learning_exp}
-                            onChange={(e) => setlearning_exp(e.target.value)}
-                        />
-                    </div>
-
-        
-        </div>
-       
-
-
-
-    
    </div>
   )
 }
