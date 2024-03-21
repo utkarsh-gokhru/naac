@@ -197,6 +197,7 @@ import axios from "axios";
 
 // export default CriterionForm;
 
+
 const CriterionForm = () => {
   return (
     <>
@@ -1029,7 +1030,7 @@ const CriterionForm = () => {
                           <h2 className="text-xl font-bold mb-4">
                             4.4.2 -There are established system and procedure for maintaining and utilizing physical,acedemics and support facilities-Laboratary,Library,sports complex,classrooms etc.
                           </h2>
-                          <input type="text" className=" p-6 mx-8 h-6" />
+                          <input type="text" className=" p-6  h-6" />
                           <table className="w-full mt-4">
                             <thead>
                               <tr>
@@ -1063,6 +1064,11 @@ const CriterionForm = () => {
                             </tbody>
                           </table>
                         </div>
+                      </div>
+                      <div className="flex justify-center">
+                        <button className="bg-blue-500 hover:bg-blue-600 rounded px-4 py-2">
+                          Submit
+                        </button>
                       </div>
                     </div>
                   </div>
