@@ -202,7 +202,7 @@ const CriterionForm = () => {
   return (
     <>
       <div>
-        <h1 className="text-center text-semibold">
+        <h1 className="text-center text-3xl text-semibold">
           Criterion 4-Infrastructure and Learning resources
         </h1>
       </div>
@@ -215,7 +215,7 @@ const CriterionForm = () => {
                 4.1.1 - The insititute has adequate facilities to teaching
                 -learning viz,classroom,laborataries and computing lab
               </h2>
-              <input type="text" className=" p-6 mx-8 h-6" />
+              <input type="text" className=" p-6  h-6" />
               <table className="w-full mt-4">
                 <thead>
                   <tr>
@@ -249,7 +249,7 @@ const CriterionForm = () => {
                   4.1.2 - The institute has adequte facilities for cultural
                   activities ,yoga,games and sports
                 </h2>
-                <input type="text" className=" p-6 mx-8 h-6" />
+                <input type="text" className=" p-6  h-6" />
                 <table className="w-full mt-4">
                   <thead>
                     <tr>
