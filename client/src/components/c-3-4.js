@@ -312,17 +312,23 @@ const Criteria34 = ({ onCrit34Data }) => {
                 <div class="radio-group">
                     <p>Select the most appropriate option:</p>
                     <div>
-                        <input type="radio" id="option-a" name="answer" value="A" />
-                        <label for="option-a">A. All of the above</label>
-                        <input type="radio" id="option-a" name="answer" value="B" />
-                        <label for="option-b">B. Any 3 of the above</label>
-                        <input type="radio" id="option-a" name="answer" value="C" />
-                        <label for="option-c">C. Any 2 of the above</label>
-                        <input type="radio" id="option-a" name="answer" value="D" />
-                        <label for="option-d">D. Any 1 of the above</label>
-                        <input type="radio" id="option-a" name="answer" value="E" />
-                        <label for="option-e">E. None of the above</label>
-                    </div>
+            <input type="radio" id="option-a" name="answer" value="A" onChange={(e) => setCode_of_ethics(e.target.value)} />
+            <label htmlFor="option-a">A. All of the above</label>
+
+            <input type="radio" id="option-b" name="answer" value="B" onChange={(e) => setCode_of_ethics(e.target.value)} />
+            <label htmlFor="option-b">B. Any 3 of the above</label>
+
+            <input type="radio" id="option-c" name="answer" value="C" onChange={(e) => setCode_of_ethics(e.target.value)} />
+            <label htmlFor="option-c">C. Any 2 of the above</label>
+
+            <input type="radio" id="option-d" name="answer" value="D" onChange={(e) => setCode_of_ethics(e.target.value)} />
+            <label htmlFor="option-d">D. Any 1 of the above</label>
+
+            <input type="radio" id="option-e" name="answer" value="E" onChange={(e) => setCode_of_ethics(e.target.value)} />
+            <label htmlFor="option-e">E. None of the above</label>
+
+            <p>Selected option: {code_of_ethics}</p>
+        </div>
                     <div className="table-3_4_1">
                         <table>
                             <thead>
@@ -368,17 +374,23 @@ const Criteria34 = ({ onCrit34Data }) => {
                     <div class="radio-group">
                         <p>Select the most appropriate option:</p>
                         <div>
-                            <input type="radio" id="option-a" name="answer" value="A" />
-                            <label for="option-a">A. All of the above</label>
-                            <input type="radio" id="option-a" name="answer" value="B" />
-                            <label for="option-b">B. Any 3 of the above</label>
-                            <input type="radio" id="option-a" name="answer" value="C" />
-                            <label for="option-c">C. Any 2 of the above</label>
-                            <input type="radio" id="option-a" name="answer" value="D" />
-                            <label for="option-d">D. Any 1 of the above</label>
-                            <input type="radio" id="option-a" name="answer" value="E" />
-                            <label for="option-e">E. None of the above</label>
-                        </div>
+            <input type="radio" id="option-a" name="answer" value="A" onChange={(e) => setIncentives(e.target.value)} />
+            <label htmlFor="option-a">A. All of the above</label>
+
+            <input type="radio" id="option-b" name="answer" value="B" onChange={(e) => setIncentives(e.target.value)} />
+            <label htmlFor="option-b">B. Any 3 of the above</label>
+
+            <input type="radio" id="option-c" name="answer" value="C" onChange={(e) => setIncentives(e.target.value)} />
+            <label htmlFor="option-c">C. Any 2 of the above</label>
+
+            <input type="radio" id="option-d" name="answer" value="D" onChange={(e) => setIncentives(e.target.value)} />
+            <label htmlFor="option-d">D. Any 1 of the above</label>
+
+            <input type="radio" id="option-e" name="answer" value="E" onChange={(e) => setIncentives(e.target.value)} />
+            <label htmlFor="option-e">E. None of the above</label>
+
+            <p>Selected option: {incentives}</p>
+        </div>
                         <div className="table-3_4_2">
                             <table>
                                 <thead>
