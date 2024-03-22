@@ -3,6 +3,7 @@ import { handleFileUploadAndDatabase } from "../controllers/handle_file_uploads.
 
 const submitCriterion4Data = async (req, res) => {
   try {
+    console.log(req.body)
     const { department, academicYear, questions } = req.body;
 
     const existingEntry = await Criterion4Model.findOne({ department });
@@ -14,17 +15,19 @@ const submitCriterion4Data = async (req, res) => {
 
     console.log("questions and answer: ", JSON.stringify(questions));
 
+    let documentURLs = [];
     for (const [key, value] of Object.entries(questions)) {
       if (typeof value === "object" && value.documents) {
+        let tempDocumentURLs = [];
         for (const document of value.documents) {
           console.log("m i being called ? ");
-          console.log("this is the documetn: " + JSON.stringify(document));
+          console.log("this is the document: " + JSON.stringify(document));
           const fieldName = `${key}_${document.name}`;
 
           const file = document.file;
           console.log("this is the file: " + typeof file);
           const additionalData = { department, academicYear };
-          await handleFileUploadAndDatabase(
+          const fileURL = await handleFileUploadAndDatabase(
             department,
             academicYear,
             fieldName,
@@ -32,7 +35,10 @@ const submitCriterion4Data = async (req, res) => {
             additionalData,
             Criterion4Model
           );
+          tempDocumentURLs.push(fileURL);
         }
+
+        documentURLs.push(tempDocumentURLs);
       } else {
         console.log("the else block is working!");
       }
@@ -50,8 +56,9 @@ const submitCriterion4Data = async (req, res) => {
     });
 
     await newData.save();
+    console.log(documentURLs)
 
-    res.status(201).json({ message: "Data saved successfully!" });
+    res.status(201).json({ message: "Data saved successfully!", documentURLs: documentURLs });
   } catch (error) {
     console.error("Error saving data:", error);
     res.status(500).json({ error: "Internal Server Error" });

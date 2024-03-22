@@ -18,18 +18,24 @@ const Criterion4Schema = new mongoose.Schema({
   },
   questions: {
     "4.1.1": {
-      type: String,
-      required: false,
+      adequateFacilities: {
+        type: String,
+        required: false,
+      },
       documents: [documentSchema],
     },
     "4.1.2": {
-      type: String,
-      required: false,
+      culturalFacilities: {
+        type: String,
+        required: false,
+      },
       documents: [documentSchema],
     },
     "4.1.3": {
-      type: String,
-      required: false,
+      campusFacilities: {
+        type: String,
+        required: false,
+      },
       documents: [documentSchema],
     },
     "4.1.4": {
@@ -40,8 +46,11 @@ const Criterion4Schema = new mongoose.Schema({
       documents: [documentSchema], // Array of supporting documents
     },
     "4.2.1": {
-      type: String,
-      required: false,
+      libraryFacilities: {
+        type: String,
+        required: false,
+      },
+      documents: [documentSchema], // Array of supporting documents
     },
     "4.2.2": {
       options: [String], // Options for multiple choice question
@@ -73,8 +82,10 @@ const Criterion4Schema = new mongoose.Schema({
       documents: [documentSchema], // Array of supporting documents
     },
     "4.3.2": {
-      type: String,
-      required: false,
+      itPolicy: {
+        type: String,
+        required: false,
+      },
       documents: [documentSchema], // Array of supporting documents
     },
     "4.3.3": {
@@ -108,8 +119,11 @@ const Criterion4Schema = new mongoose.Schema({
       documents: [documentSchema], // Array of supporting documents
     },
     "4.4.2": {
-      type: String,
-      required: false,
+      establishedSystem: {
+        type: String,
+        required: false,
+      },
+      documents: [documentSchema], // Array of supporting documents
     },
   },
 });
