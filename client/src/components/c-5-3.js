@@ -105,7 +105,7 @@ const Criteria53 = ({onCrit53Data}) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td> 
+                                    <td>
                                         Upload relevant supporting documents</td>
                                     <td></td>
                                     <td><input type="file" id="fileUpload5_3_1_2" onChange={(e) => setFile5_3_1_2(e.target.files[0])} name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>

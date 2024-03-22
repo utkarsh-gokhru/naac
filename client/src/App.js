@@ -9,6 +9,7 @@ import AdminDash from './pages/admin-dash';
 import SectionPage from './pages/sections';
 import Criteria3 from './pages/criteria3';
 import Criteria5 from './pages/criteria5';
+import AdminC3 from './pages/adminC3';
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
         <Route path='/admin/dashboard' element = {< AdminDash />} />
         <Route path='/admin/criterias' element = {< Dashboard />} />
         <Route path='/admin/criteria1' element = {< AdminC1 />} />
+        <Route path='/admin/criteria3' element = {< AdminC3 />} />
         <Route path='/sections' element = {< SectionPage />} />
       </Routes>
       </BrowserRouter>

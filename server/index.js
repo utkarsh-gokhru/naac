@@ -22,6 +22,7 @@ import { C53 } from './routes/c-5-3.js';
 import { C54 } from './routes/c-5-4.js';
 import { fetchC5 } from './routes/fetchC5.js';
 import { Criteria5_submit } from './routes/criteria5.js';
+import { fetchC3 } from './routes/fetchC3.js';
 
 const app = express();
 
@@ -39,7 +40,7 @@ mongoose.connect(db_url)
 })
 
 app.use('/auth', userAuth);
-app.use('/data',[Criteria1_submit,C11,C12,C13,fetchC1,C31,C32,C33,C35,C36,C37,Criteria3_submit,C51,C52,C53,C54,fetchC5,Criteria5_submit]);
+app.use('/data',[Criteria1_submit,C11,C12,C13,fetchC1,C31,C32,C33,C35,C36,C37,Criteria3_submit,fetchC3,C51,C52,C53,C54,fetchC5,Criteria5_submit]);
 app.use('/files', Files)
 
 app.listen(5000,() => console.log('Server started'));
