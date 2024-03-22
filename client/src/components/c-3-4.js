@@ -52,8 +52,8 @@ const Criteria34 = ({ onCrit34Data }) => {
         const formdata = new FormData();
 
         const sectionData = {
-            ecosystemText,
-            file3_4_1
+            code_of_ethics,
+            file_3_4_1
         };
 
         for (const key in sectionData) {
@@ -61,23 +61,22 @@ const Criteria34 = ({ onCrit34Data }) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/data/save3-3-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-4-1", formdata);
             console.log(response.data);
-            alert("Saved Section 3.3.1 data successfully!");
+            alert("Saved Section 3.4.1 data successfully!");
         } catch (error) {
-            console.error("Error saving Section 3.3.1 data:", error.message);
-            alert("Failed to save Section 3.3.1 data. Please try again.");
+            console.error("Error saving Section 3.4.1 data:", error.message);
+            alert("Failed to save Section 3.4.1 data. Please try again.");
         }
     };
 
-    const saveSection3_4_2 = async () => {
+    const saveSection3_4_2_1 = async () => {
         const formdata = new FormData();
 
         const sectionData = {
-            seminars,
-            totalSeminars,
-            file3_3_2_1,
-            file3_3_2_2
+            incentives,
+            file_3_4_2_1,
+            file_3_4_2_2
         };
 
         for (const key in sectionData) {
@@ -85,12 +84,12 @@ const Criteria34 = ({ onCrit34Data }) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/data/save3-3-2", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-4-2", formdata);
             console.log(response.data);
-            alert("Saved Section 3.3.2 data successfully!");
+            alert("Saved Section 3.4.2 data successfully!");
         } catch (error) {
-            console.error("Error saving Section 3.3.2 data:", error.message);
-            alert("Failed to save Section 3.3.2 data. Please try again.");
+            console.error("Error saving Section 3.4.2 data:", error.message);
+            alert("Failed to save Section 3.4.2 data. Please try again.");
         }
     };
 
@@ -98,9 +97,9 @@ const Criteria34 = ({ onCrit34Data }) => {
         const formdata = new FormData();
 
         const sectionData = {
-            awards,
-            file3_3_3_1,
-            file3_3_3_2
+            patents_published,
+            file_3_4_3_1,
+            file_3_4_3_2
         };
 
         for (const key in sectionData) {
@@ -108,29 +107,191 @@ const Criteria34 = ({ onCrit34Data }) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/data/save3-3-3", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-4-3", formdata);
             console.log(response.data);
-            alert("Saved Section 3.3.3 data successfully!");
+            alert("Saved Section 3.4.3 data successfully!");
         } catch (error) {
-            console.error("Error saving Section 3.3.3 data:", error.message);
-            alert("Failed to save Section 3.3.3 data. Please try again.");
+            console.error("Error saving Section 3.4.3 data:", error.message);
+            alert("Failed to save Section 3.4.3 data. Please try again.");
+        }
+    };
+  
+    const   saveSection3_4_4_1 = async () => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            phd_awarded,
+            teachers_guides,
+            file_3_4_4_1,
+            file_3_4_4_2
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+
+        try {
+            const response = await axios.post("http://localhost:5000/data/save3-4-4", formdata);
+            console.log(response.data);
+            alert("Saved Section 3.4.4 data successfully!");
+        } catch (error) {
+            console.error("Error saving Section 3.4.4 data:", error.message);
+            alert("Failed to save Section 3.4.4 data. Please try again.");
         }
     };
 
+    const   saveSection3_4_5_1 = async () => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            research_papers_per_teacher,
+            file_3_4_5_1,
+            file_3_4_5_2
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+
+        try {
+            const response = await axios.post("http://localhost:5000/data/save3-4-6", formdata);
+            console.log(response.data);
+            alert("Saved Section 3.4.6 data successfully!");
+        } catch (error) {
+            console.error("Error saving Section 3.4.6 data:", error.message);
+            alert("Failed to save Section 3.4.6 data. Please try again.");
+        }
+    };
+    const   saveSection3_4_6_1 = async () => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            books_edited,
+            file_3_4_6_1,
+            file_3_4_6_2
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+
+        try {
+            const response = await axios.post("http://localhost:5000/data/save3-4-5", formdata);
+            console.log(response.data);
+            alert("Saved Section 3.4.5 data successfully!");
+        } catch (error) {
+            console.error("Error saving Section 3.4.5 data:", error.message);
+            alert("Failed to save Section 3.4.5 data. Please try again.");
+        }
+    };
+
+    const   saveSection3_4_7_1 = async () => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            e_content,
+            file_3_4_7_1,
+            file_3_4_7_2
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+
+        try {
+            const response = await axios.post("http://localhost:5000/data/save3-4-7", formdata);
+            console.log(response.data);
+            alert("Saved Section 3.4.7 data successfully!");
+        } catch (error) {
+            console.error("Error saving Section 3.4.7 data:", error.message);
+            alert("Failed to save Section 3.4.7 data. Please try again.");
+        }
+    };
+
+    const   saveSection3_4_9_1 = async () => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            scopus348,
+            web_of_science348,
+            file_3_4_8_1,
+            file_3_4_8_2
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+
+        try {
+            const response = await axios.post("http://localhost:5000/data/save3-4-8", formdata);
+            console.log(response.data);
+            alert("Saved Section 3.4.8 data successfully!");
+        } catch (error) {
+            console.error("Error saving Section 3.4.8 data:", error.message);
+            alert("Failed to save Section 3.4.8 data. Please try again.");
+        }
+    };
+
+    const   saveSection3_4_8_1 = async () => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            scopus349,
+            web_of_science349,
+            file_3_4_9_1,
+            file_3_4_9_2
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+
+        try {
+            const response = await axios.post("http://localhost:5000/data/save3-4-9", formdata);
+            console.log(response.data);
+            alert("Saved Section 3.4.9 data successfully!");
+        } catch (error) {
+            console.error("Error saving Section 3.4.9 data:", error.message);
+            alert("Failed to save Section 3.4.9 data. Please try again.");
+        }
+    };
+
+
+
     useEffect(() => {
         const crit34 = {
-            ecosystemText,
-            file3_4_1,
-            seminars,
-            totalSeminars,
-            file3_3_2_1,
-            file3_3_2_2,
-            awards,
-            file3_3_3_1,
-            file3_3_3_2
+            code_of_ethics,
+            file_3_4_1,
+            incentives,
+            file_3_4_2_1,
+            file_3_4_2_2,
+            patents_published,
+            file_3_4_3_1,
+            file_3_4_3_2,
+            phd_awarded,
+            teachers_guides,
+            file_3_4_4_1,
+            file_3_4_4_2,
+            research_papers_per_teacher,
+            file_3_4_5_1,
+            file_3_4_5_2,
+            books_edited,
+            file_3_4_6_1,
+            file_3_4_6_2,
+            e_content,
+            file_3_4_7_1,
+            file_3_4_7_2,
+            scopus348,
+            web_of_science348,
+            file_3_4_8_1,
+            file_3_4_8_2,
+            scopus349,
+            web_of_science349,
+            file_3_4_9_1,
+            file_3_4_9_2
         };
         onCrit34Data(crit34);
-    }, [ecosystemText, file3_4_1, seminars, totalSeminars, file3_3_2_1, file3_3_2_2, awards, file3_3_3_1, file3_3_3_2])
+    }, [code_of_ethics, file_3_4_1, incentives, file_3_4_2_1, file_3_4_2_2, patents_published, file_3_4_3_1, file_3_4_3_2, phd_awarded, teachers_guides, file_3_4_4_1, file_3_4_4_2, research_papers_per_teacher, file_3_4_5_1, file_3_4_5_2, books_edited, file_3_4_6_1, file_3_4_6_2, e_content, file_3_4_7_1, file_3_4_7_2, scopus348, web_of_science348, file_3_4_8_1, file_3_4_8_2, scopus349, web_of_science349, file_3_4_9_1, file_3_4_9_2]);
 
     return (
 
@@ -184,7 +345,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                             id="file3_4_1"
                                             name="fileUpload"
                                             accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setfile3_4_1(e.target.files[0])}
+                                            onChange={(e) => setFile3_4_1(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
@@ -237,10 +398,10 @@ const Criteria34 = ({ onCrit34Data }) => {
                                         <td>
                                             <input
                                                 type="file"
-                                                id="file3_4_2"
+                                                id="file3_4_2_1"
                                                 name="fileUpload"
                                                 accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                                onChange={(e) => setFile3_4_2(e.target.files[0])}
+                                                onChange={(e) => setFile3_4_2_1(e.target.files[0])}
                                             />
                                         </td>
                                         <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
@@ -251,10 +412,10 @@ const Criteria34 = ({ onCrit34Data }) => {
                                         <td>
                                             <input
                                                 type="file"
-                                                id="file3_4_2"
+                                                id="file3_4_2_2"
                                                 name="fileUpload"
                                                 accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                                onChange={(e) => setFile3_4_2(e.target.files[0])}
+                                                onChange={(e) => setFile3_4_2_2(e.target.files[0])}
                                             />
                                         </td>
                                         <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
@@ -262,7 +423,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                 </tbody>
                             </table>
                             <div>
-                                <button onClick={saveSection3_4_2}>Save</button>
+                                <button onClick={saveSection3_4_2_1}>Save</button>
                             </div>
                         </div>
                         <div className="c-3_4_3">
@@ -272,9 +433,9 @@ const Criteria34 = ({ onCrit34Data }) => {
                                 <h4>3.4.3.1 - Total number of Patents published/awarded year wise during the year</h4>
                                 <input
                                     type="number"
-                                    id="seedMoney"
-                                    value={seedMoney}
-                                    onChange={(e) => setSeedMoney(e.target.value)}
+                                    id="patents_published"
+                                    value={patents_published}
+                                    onChange={(e) => setPatents_published(e.target.value)}
                                 /><br />
 
                                 <table>
@@ -313,10 +474,10 @@ const Criteria34 = ({ onCrit34Data }) => {
                                             <td>
                                                 <input
                                                     type="file"
-                                                    id="file3_1_2_2"
+                                                    id="file3_4_3_2"
                                                     name="fileUpload"
                                                     accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                                    onChange={(e) => setfile3_4_3_1(e.target.files[0])}
+                                                    onChange={(e) => setFile3_4_3_2(e.target.files[0])}
                                                 />
                                             </td>
                                             <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -336,17 +497,17 @@ const Criteria34 = ({ onCrit34Data }) => {
                             <h4>3.4.4.1 - How many Ph.D's are awarded during the year</h4>
                             <input
                                 type="number"
-                                id="seedMoney"
-                                value={seedMoney}
-                                onChange={(e) => setSeedMoney(e.target.value)}
+                                id="phd_awarded"
+                                value={phd_awarded}
+                                onChange={(e) => setPhd_awarded(e.target.value)}
                             /><br />
                             <div className="c-3_4_4_2">
                                 <h4>3.4.4.2 - Number of teachers recognized as guides during the year</h4>
                                 <input
                                     type="number"
-                                    id="seedMoney"
-                                    value={seedMoney}
-                                    onChange={(e) => setSeedMoney(e.target.value)}
+                                    id="teachers_guides"
+                                    value={teachers_guides}
+                                    onChange={(e) => setTeachers_guides(e.target.value)}
                                 /><br />
                                 <table>
                                     <thead>
@@ -363,15 +524,15 @@ const Criteria34 = ({ onCrit34Data }) => {
                                                 Upload the data template
                                             </td>
                                             <td>
-                                                <button onClick={() => downloadExcel('3.1.2.xlsx')}>Data Template</button>
+                                                <button onClick={() => downloadExcel('3.4.2.xlsx')}>Data Template</button>
                                             </td>
                                             <td>
                                                 <input
                                                     type="file"
-                                                    id="file3_4_4_2"
+                                                    id="file3_4_4_1"
                                                     name="fileUpload"
                                                     accept=".xls, .xlsx"
-                                                    onChange={(e) => setfile3_4_4_2(e.target.files[0])}
+                                                    onChange={(e) => setFile3_4_4_1(e.target.files[0])}
                                                 />
                                             </td>
                                             <td>xls, xlsx. File size: 6MB</td>
@@ -387,7 +548,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                                     id="file3_4_4_2"
                                                     name="fileUpload"
                                                     accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                                    onChange={(e) => setfile3_4_4_2(e.target.files[0])}
+                                                    onChange={(e) => setFile3_4_4_2(e.target.files[0])}
                                                 />
                                             </td>
                                             <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -395,16 +556,16 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     </tbody>
                                 </table>
                                 <div>
-                                    <button onClick={saveSection3_4_4_2}>Save</button>
+                                    <button onClick={saveSection3_4_4_1}>Save</button>
                                 </div>
                             </div>
                             <div className="c-3_4_5">
                                 <h4>3.4.5 - Number of research papers per teacher in the Journals notified on UGC website during the year </h4>
                                 <input
                                     type="number"
-                                    id="seedMoney"
-                                    value={seedMoney}
-                                    onChange={(e) => setSeedMoney(e.target.value)}
+                                    id="research_papers_per_teacher"
+                                    value={research_papers_per_teacher}
+                                    onChange={(e) => setResearch_papers_per_teacher(e.target.value)}
                                 /><br />
                                 <table>
                                     <thead>
@@ -426,10 +587,10 @@ const Criteria34 = ({ onCrit34Data }) => {
                                             <td>
                                                 <input
                                                     type="file"
-                                                    id="file3_4_5"
+                                                    id="file3_4_5_1"
                                                     name="fileUpload"
                                                     accept=".xls, .xlsx"
-                                                    onChange={(e) => setfile3_4_5(e.target.files[0])}
+                                                    onChange={(e) => setFile3_4_5_1(e.target.files[0])}
                                                 />
                                             </td>
                                             <td>xls, xlsx. File size: 6MB</td>
@@ -442,10 +603,10 @@ const Criteria34 = ({ onCrit34Data }) => {
                                             <td>
                                                 <input
                                                     type="file"
-                                                    id="file3_4_5"
+                                                    id="file3_4_5_2"
                                                     name="fileUpload"
                                                     accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                                    onChange={(e) => setfile3_4_5(e.target.files[0])}
+                                                    onChange={(e) => setFile3_4_5_2(e.target.files[0])}
                                                 />
                                             </td>
                                             <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -453,7 +614,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     </tbody>
                                 </table>
                                 <div>
-                                    <button onClick={saveSection3_4_5}>Save</button>
+                                    <button onClick={saveSection3_4_5_1}>Save</button>
                                 </div>
                             </div>
                             <div className="c-3_4_6">
@@ -463,9 +624,9 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <h4>3.4.6.1 - Total number of books and chapters in edited volumes I books published, and papers in national/international onference-proceedings during the year </h4>
                                     <input
                                         type="number"
-                                        id="seedMoney"
-                                        value={seedMoney}
-                                        onChange={(e) => setSeedMoney(e.target.value)}
+                                        id="books_edited"
+                                        value={books_edited}
+                                        onChange={(e) => setBooks_edited(e.target.value)}
                                     /><br />
                                     <table>
                                         <thead>
@@ -490,7 +651,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                                         id="file3_4_6_1"
                                                         name="fileUpload"
                                                         accept=".xls, .xlsx"
-                                                        onChange={(e) => setfile3_4_6_1(e.target.files[0])}
+                                                        onChange={(e) => setFile3_4_6_1(e.target.files[0])}
                                                     />
                                                 </td>
                                                 <td>xls, xlsx. File size: 6MB</td>
@@ -503,10 +664,10 @@ const Criteria34 = ({ onCrit34Data }) => {
                                                 <td>
                                                     <input
                                                         type="file"
-                                                        id="file3_4_6_1"
+                                                        id="file3_4_6_2"
                                                         name="fileUpload"
                                                         accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                                        onChange={(e) => setfile3_4_6_1(e.target.files[0])}
+                                                        onChange={(e) => setFile3_4_6_2(e.target.files[0])}
                                                     />
                                                 </td>
                                                 <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -559,15 +720,15 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <tr>
                                         <td>Upload the data template</td>
                                         <td>
-                                            <button onClick={() => downloadExcel('3.1.4.xlsx')}>Data Template</button>
+                                            <button onClick={() => downloadExcel('3.4.7.xlsx')}>Data Template</button>
                                         </td>
                                         <td>
                                             <input
                                                 type="file"
-                                                id="file3_4_7"
+                                                id="file3_4_7_1"
                                                 name="fileUpload"
                                                 accept=".xls, .xlsx"
-                                                onChange={(e) => setfile3_4_7(e.target.files[0])}
+                                                onChange={(e) => setFile3_4_7_1(e.target.files[0])}
                                             />
                                         </td>
                                         <td>.xls, .xlsx <b>File size: 6MB</b> </td>
@@ -581,7 +742,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                                 id="file3_4_7"
                                                 name="fileUpload"
                                                 accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                                onChange={(e) => setfile3_4_7(e.target.files[0])}
+                                                onChange={(e) => setFile3_4_7_2(e.target.files[0])}
                                             />
                                         </td>
                                         <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
@@ -589,7 +750,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                 </tbody>
                             </table>
                             <div>
-                                <button onClick={saveSection3_4_7}>Save</button>
+                                <button onClick={saveSection3_4_7_1}>Save</button>
                             </div>
                         </div>
                     </div>
@@ -611,16 +772,16 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <td>
                                         <input
                                             type="number"
-                                            id="seedMoney"
-                                            value={seedMoney}
-                                            onChange={(e) => setSeedMoney(e.target.value)}
+                                            id="scopus348"
+                                            value={scopus348}
+                                            onChange={(e) => setScopus348(e.target.value)}
                                         /><br />
                                     </td>
                                     <input
                                         type="number"
-                                        id="seedMoney"
-                                        value={seedMoney}
-                                        onChange={(e) => setSeedMoney(e.target.value)}
+                                        id="web_of_science348"
+                                        value={web_of_science348}
+                                        onChange={(e) => setWeb_of_science348(e.target.value)}
                                     /><br />
                                 </tr>
                             </tbody>
@@ -640,15 +801,15 @@ const Criteria34 = ({ onCrit34Data }) => {
                                 <tr>
                                     <td>Any additional information</td>
                                     <td>
-                                        <button onClick={() => downloadExcel('3.1.4.xlsx')}>Data Template</button>
+                                        <button onClick={() => downloadExcel('3.4.8.xlsx')}>Data Template</button>
                                     </td>
                                     <td>
                                         <input
                                             type="file"
-                                            id="file3_4_8"
+                                            id="file3_4_8_1"
                                             name="fileUpload"
                                             accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setFile3_4_8(e.target.files[0])}
+                                            onChange={(e) => setFile3_4_8_1(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
@@ -659,10 +820,10 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <td>
                                         <input
                                             type="file"
-                                            id="file3_4_8"
+                                            id="file3_4_8_2"
                                             name="fileUpload"
                                             accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setfile3_4_8(e.target.files[0])}
+                                            onChange={(e) => setFile3_4_8_2(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
@@ -670,7 +831,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection3_4_8}>Save</button>
+                            <button onClick={saveSection3_4_8_1}>Save</button>
                         </div>
                     </div>
                     <div className="c-3_4_9">
@@ -690,16 +851,16 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <td>
                                         <input
                                             type="number"
-                                            id="seedMoney"
-                                            value={seedMoney}
-                                            onChange={(e) => setSeedMoney(e.target.value)}
+                                            id="scopus349"
+                                            value={scopus349}
+                                            onChange={(e) => setScopus349(e.target.value)}
                                         /><br />
                                     </td>
                                     <input
                                         type="number"
-                                        id="seedMoney"
-                                        value={seedMoney}
-                                        onChange={(e) => setSeedMoney(e.target.value)}
+                                        id="web_of_science349"
+                                        value={web_of_science349}
+                                        onChange={(e) => setWeb_of_science349(e.target.value)}
                                     /><br />
                                 </tr>
                             </tbody>
@@ -724,10 +885,10 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <td>
                                         <input
                                             type="file"
-                                            id="file3_4_9"
+                                            id="file3_4_9_1"
                                             name="fileUpload"
                                             accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setfile3_4_9(e.target.files[0])}
+                                            onChange={(e) => setFile3_4_9_1(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
@@ -738,10 +899,10 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <td>
                                         <input
                                             type="file"
-                                            id="file3_4_9"
+                                            id="file3_4_9_2"
                                             name="fileUpload"
                                             accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setfile3_4_9(e.target.files[0])}
+                                            onChange={(e) => setFile3_4_9_2(e.target.files[0])}
                                         />
                                     </td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
@@ -749,7 +910,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection3_4_9}>Save</button>
+                            <button onClick={saveSection3_4_9_1}>Save</button>
                         </div>
                     </div>
                 </div>
