@@ -47,7 +47,11 @@ const handleFileUploadAndDatabase = async (
       Object.assign(existingData, additionalData);
     }
 
+    console.log("This is the existingData: ", existingData);
+
     await existingData.save();
+
+    return filePath;
   } catch (error) {
     console.error(
       "Error handling file upload and database interaction:",
