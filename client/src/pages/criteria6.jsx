@@ -34,6 +34,9 @@ const [formData, setFormData] = useState({
           Criterion 6-Governance,Leadership and Management
         </h1>
       </div>
+      <div>
+        <input type="file" />
+      </div>
     </div>
         </> 
   )
