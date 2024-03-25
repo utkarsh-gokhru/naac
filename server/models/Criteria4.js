@@ -1,12 +1,10 @@
 import mongoose from "mongoose";
 
-// Define sub-schema for each question that requires a document
 const documentSchema = new mongoose.Schema({
-  name: String, // Name of the document
-  url: String, // URL or file path of the document
+  name: String,
+  url: String,
 });
 
-// Define main schema for Criterion 4
 const Criterion4Schema = new mongoose.Schema({
   department: {
     type: String,
@@ -52,14 +50,14 @@ const Criterion4Schema = new mongoose.Schema({
         type: Number,
         required: false,
       },
-      documents: [documentSchema], // Array of supporting documents
+      documents: [documentSchema],
     },
     "4.2.4": {
       footfalls: {
         type: Number,
         required: false,
       },
-      documents: [documentSchema], // Array of supporting documents
+      documents: [documentSchema],
     },
     "4.3.1": {
       classrooms: {
@@ -70,12 +68,12 @@ const Criterion4Schema = new mongoose.Schema({
       //   type: Number,
       //   required: false,
       // },
-      documents: [documentSchema], // Array of supporting documents
+      documents: [documentSchema],
     },
     "4.3.2": {
       type: String,
       required: false,
-      documents: [documentSchema], // Array of supporting documents
+      documents: [documentSchema],
     },
     "4.3.3": {
       studentComputerRatio: {
@@ -94,18 +92,18 @@ const Criterion4Schema = new mongoose.Schema({
         type: String,
         required: false,
       },
-      documents: [documentSchema], // Array of supporting documents
+      documents: [documentSchema],
     },
     "4.3.5": {
-      options: [String], // Options for multiple choice question
-      documents: [documentSchema], // Array of supporting documents
+      options: [String],
+      documents: [documentSchema],
     },
     "4.4.1": {
       expenditure: {
         type: Number,
         required: false,
       },
-      documents: [documentSchema], // Array of supporting documents
+      documents: [documentSchema],
     },
     "4.4.2": {
       type: String,

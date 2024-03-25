@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from 'axios'
+import axios from "axios";
 
 const CriterionForm = () => {
   const [formData, setFormData] = useState({
@@ -54,7 +54,6 @@ const CriterionForm = () => {
     },
   });
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -74,16 +73,23 @@ const CriterionForm = () => {
   };
 
   const handleFileChange = (questionId, files) => {
+    if (!files) {
+      console.log("there is not files!");
+      return;
+    }
+    console.log("this is the quetisnos ID: " + questionId);
+    console.log("this is the files: " + JSON.stringify(files));
+    console.log("this is the len : " + files.length);
+    console.log("this are the quetions: " + JSON.stringify(formData.questions));
     const formDataWithFiles = new FormData();
 
-    // Append other form data
     formDataWithFiles.append("department", formData.department);
     formDataWithFiles.append("academicYear", formData.academicYear);
     formDataWithFiles.append("questions", JSON.stringify(formData.questions));
 
-    // Append files
-    for (let i = 0; i < files.length; i++) {
+    for (let i = 0; i <= files.length; i++) {
       formDataWithFiles.append(`files_${questionId}`, files[i]);
+      console.log("it did worked!");
     }
 
     setFormData((prevFormData) => ({
@@ -96,6 +102,10 @@ const CriterionForm = () => {
         },
       },
     }));
+    console.log(
+      "what is the world is this formDAta with files: " +
+        JSON.stringify(formDataWithFiles)
+    );
 
     return formDataWithFiles;
   };
@@ -105,7 +115,6 @@ const CriterionForm = () => {
     try {
       const formDataWithFiles = handleFileChange("4.1.4", e.target.files);
 
-      // Replace 'apiRoute' with your actual API route
       const response = await axios.post(
         "http://localhost:5000/admin/criteria4/submit",
         formDataWithFiles,
@@ -115,7 +124,7 @@ const CriterionForm = () => {
           },
         }
       );
-      console.log(response.data); // Log the response from the API
+      console.log(response.data);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -124,7 +133,7 @@ const CriterionForm = () => {
   return (
     <div>
       <h1>Criterion Form</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div>
           <label>Department:</label>
           <input
@@ -183,7 +192,7 @@ const CriterionForm = () => {
           </div>
         ))}
         <hr />
-        <button type="submit" >Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

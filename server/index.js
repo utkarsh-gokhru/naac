@@ -16,8 +16,9 @@ import { C33 } from "./routes/c-3-3.js";
 import { C35 } from "./routes/c-3-5.js";
 import { C36 } from "./routes/c-3-6.js";
 import { C37 } from "./routes/c-3-7.js";
-import { Criteria3_submit } from './routes/criteria3.js';
+import { Criteria3_submit } from "./routes/criteria3.js";
 import router from "./routes/criteria4.js";
+import router6 from "./routes/criteria6.js";
 // my stupidity
 const app = express();
 
@@ -51,5 +52,6 @@ app.use("/data", [
   Criteria3_submit,
 ]);
 app.use("/files", Files);
-app.use("/admin/", router);
+app.use("/admin/criteria4", router);
+app.use("/admin/criteria6", router6);
 app.listen(5000, () => console.log("Server started"));
