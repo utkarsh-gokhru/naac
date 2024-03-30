@@ -10,7 +10,7 @@ import SectionPage from "./pages/sections";
 import Criteria3 from "./pages/criteria3";
 import Criteria21 from "./components/c-2-1";
 import Criteria4Form from "./pages/criteria4";
-import Criteria6Form from "./pages/criteria6";
+import Criteria6 from "./pages/criteria6";
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
           <Route path="/sections" element={<SectionPage />} />
           <Route path="/criteria3" element={<Criteria3 />} />
           <Route path="/criteria4" element={<Criteria4Form />} />
-          <Route path="/criteria6" element={<Criteria6Form />} />
+          <Route path="/criteria6" element={<Criteria6 />} />
         </Routes>
       </BrowserRouter>
     </div>

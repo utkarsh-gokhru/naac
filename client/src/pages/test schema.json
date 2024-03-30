@@ -1,0 +1,75 @@
+{
+  "department": "Computer Science",
+  "academicYear": "2023-2024",
+  "questions": {
+    "4.1.1": "The institution has adequate facilities for teaching and learning.",
+    "4.1.2": "The institution has adequate facilities for cultural activities, yoga, games (indoor, outdoor), and sports.",
+    "4.1.3": "Availability of general campus facilities and overall ambience.",
+    "4.1.4": {
+      "expenditure": 500000,
+      "documents": [
+        { "name": "Expenditure Document 1", "url": "example.com/document1.pdf" },
+        { "name": "Expenditure Document 2", "url": "example.com/document2.pdf" }
+      ]
+    },
+    "4.2.1": "Library is automated using integrated library management system (ILMS) and has digitisation facility.",
+    "4.2.2": {
+      "options": ["e-journals", "e-books", "e-shodhsidhu", "shodhganga", "databases"],
+      "documents": [
+        { "name": "Subscription Document 1", "url": "example.com/subscription1.pdf" },
+        { "name": "Subscription Document 2", "url": "example.com/subscription2.pdf" }
+      ]
+    },
+    "4.2.3": {
+      "expenditure": 200000,
+      "documents": [
+        { "name": "Expenditure Document 3", "url": "example.com/document3.pdf" },
+        { "name": "Expenditure Document 4", "url": "example.com/document4.pdf" }
+      ]
+    },
+    "4.2.4": {
+      "footfalls": 1000,
+      "documents": [
+        { "name": "Footfall Document 1", "url": "example.com/footfall1.pdf" },
+        { "name": "Footfall Document 2", "url": "example.com/footfall2.pdf" }
+      ]
+    },
+    "4.3.1": {
+      "classrooms": 20,
+      "seminarHalls": 5,
+      "documents": [
+        { "name": "Classroom Document 1", "url": "example.com/classroom1.pdf" },
+        { "name": "Classroom Document 2", "url": "example.com/classroom2.pdf" }
+      ]
+    },
+    "4.3.2": "Institution has an IT policy, makes appropriate budgetary provision, and updates its facilities including Wi-Fi facility.",
+    "4.3.3": {
+      "studentComputerRatio": {
+        "students": 1000,
+        "computers": 300
+      }
+    },
+    "4.3.4": {
+      "bandwidth": "100 Mbps",
+      "documents": [
+        { "name": "Bandwidth Document 1", "url": "example.com/bandwidth1.pdf" },
+        { "name": "Bandwidth Document 2", "url": "example.com/bandwidth2.pdf" }
+      ]
+    },
+    "4.3.5": {
+      "options": ["Content Creation Software", "Studio Facilities", "Learning Management System", "Content Repository"],
+      "documents": [
+        { "name": "E-content Facilities Document 1", "url": "example.com/econtent1.pdf" },
+        { "name": "E-content Facilities Document 2", "url": "example.com/econtent2.pdf" }
+      ]
+    },
+    "4.4.1": {
+      "expenditure": 300000,
+      "documents": [
+        { "name": "Maintenance Document 1", "url": "example.com/maintenance1.pdf" },
+        { "name": "Maintenance Document 2", "url": "example.com/maintenance2.pdf" }
+      ]
+    },
+    "4.4.2": "There are established systems and procedures for maintaining and utilizing physical, academic, and support facilities - laboratory, library, sports complex, computers, classrooms, etc."
+  }
+} 
