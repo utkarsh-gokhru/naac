@@ -13,14 +13,14 @@ import Criteria21 from "./components/c-2-1";
 import Criteria4Form from "./pages/myCriteria4";
 import Criteria6 from "./pages/criteria6";
 import CriteriaForm from "./pages/hope";
-import CriterionForm4 from "./pages/criteria4form"
+import CriterionForm4 from "./pages/criteria4form";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-        <Route path="/admin/:department/criterias" element={<Dashboard />} />
+          <Route path="/admin/:department/criterias" element={<Dashboard />} />
           <Route path="/" element={<Login />} />
           <Route path="/criteria1" element={<Criteria1 />} />
           <Route path="/criteria2" element={<Criteria2 />} />
@@ -36,7 +36,6 @@ function App() {
           <Route path="/criteria6" element={<Criteria6 />} />
           <Route path="/hope" element={<CriteriaForm />} />
           <Route path="/dummy" element={<DummyForm />} />
-
         </Routes>
       </BrowserRouter>
     </div>
