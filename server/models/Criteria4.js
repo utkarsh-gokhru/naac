@@ -41,7 +41,7 @@ const Criterion4Schema = new mongoose.Schema({
         type: Number,
         required: false,
       },
-      documents: [documentSchema], // Array of supporting documents
+      documents: [documentSchema],
     },
     "4.2.1": {
       libraryFacilities: {

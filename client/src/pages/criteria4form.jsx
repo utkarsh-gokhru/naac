@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import naacLogo from "../naac_logo.png";
 import "../css/criteria2.css";
-const CriterionForm = () => {
+const CriterionForm4 = () => {
   const department = localStorage.getItem("department");
   const academicYear = localStorage.getItem("academicYear");
 
@@ -17,19 +17,33 @@ const CriterionForm = () => {
 console.log(form)
 
 
-  const handleStateChange = (e, arrIndex,isText=true) => {
-    if (isText) {
-      const updatedTextData = [...form.textData];
-      updatedTextData[arrIndex] = e.target.value;
-      setForm({ ...form, textData: updatedTextData });
-    } else {
-      const file=form.fileData
-      const updatedFileData = [...file];
-      updatedFileData[arrIndex] = Array.from(e.target.files);
-      setForm({ ...form, fileData: updatedFileData });
-    }
-  };
+  // const handleStateChange = (e, arrIndex,isText=true) => {
+  //   if (isText) {
+  //     const updatedTextData = [...form.textData];
+  //     updatedTextData[arrIndex] = e.target.value;
+  //     setForm({ ...form, textData: updatedTextData });
+  //   } else {
+  //     const file=form.fileData
+  //     const updatedFileData = [...file];
+  //     updatedFileData[arrIndex] = Array.from(e.target.files);
+  //     setForm({ ...form, fileData: updatedFileData });
+  //   }
+  // };
 
+  const handleStateChange = (e, arrIndex, isText = true) => {
+    setForm(prevForm => {
+      if (isText) {
+        const updatedTextData = [...prevForm.textData];
+        updatedTextData[arrIndex] = e.target.value;
+        return { ...prevForm, textData: updatedTextData };
+      } else {
+        const updatedFileData = [...prevForm.fileData];
+        updatedFileData[arrIndex] = Array.from(e.target.files);
+        return { ...prevForm, fileData: updatedFileData };
+      }
+    });
+  };
+  
   const handleRadioChange = (arrIndex, value) => {
     const updatedRadioValues = [...form.radioValues];
     updatedRadioValues[arrIndex] = value;
@@ -1195,4 +1209,4 @@ console.log(form)
   );
 };
 
-export default CriterionForm;
+export default CriterionForm4;

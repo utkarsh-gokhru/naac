@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 // const path = require("path");
+import path from "path";
 import dotenv from "dotenv";
 import { userAuth } from "./routes/auth.js";
 import { Criteria1_submit } from "./routes/criteria1.js";
@@ -21,6 +22,7 @@ import router from "./routes/criteria4.js";
 import router6 from "./routes/criteria6.js";
 // my stupidity
 const app = express();
+const __dirname = path.dirname(new URL(import.meta.url).pathname); // Get __dirname using import.meta.url
 
 app.use(cors());
 app.use(express.json());
@@ -35,6 +37,12 @@ mongoose
   .catch((err) => {
     console.log(`DB conection failed: ${err}`);
   });
+
+  app.post("/saveFile", (req, res) => {
+    const uploadDir = path.join(__dirname, "public", "Criteria4"); // Construct upload directory path
+    // Handle file saving logic here
+  });
+  
 
 app.use("/auth", userAuth);
 app.use("/data", [

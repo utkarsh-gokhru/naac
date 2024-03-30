@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Card from '../components/cards';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/admin.css';
 import naacLogo from '../naac_logo.png';
 
@@ -15,6 +15,7 @@ const AdminDash = () => {
     allDepartments.push(`Department ${i}`);
   }
 
+
   const [departments, setDepartments] = useState(allDepartments);
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,7 +25,7 @@ const AdminDash = () => {
   const handleCardClick = (department) => {
     setSelectedDepartment(department);
     localStorage.setItem('department', department);
-    navigate('/admin/criterias');
+    // navigate('/admin/criterias');
   };
 
   const handleSearchChange = (e) => {
@@ -65,13 +66,16 @@ const AdminDash = () => {
         />
       </div>
       <div className="admin-card-container">
-        {departments.map((department, index) => (
-          <Card key={index} department={department} onClick={() => handleCardClick(department)} />
+        {departments.map((department, index) => ( <Link to={`/admin/${department}/criterias`} className=''>
+          <Card key={index} department={department} onClick={() => handleCardClick(department)} /></Link>
         ))}
       </div>
       {selectedDepartment && (
         <div>
-          <h2>Selected Department: {selectedDepartment}</h2>
+        
+  <h2>Selected Department: {selectedDepartment}</h2>
+
+         
         </div>
       )}
     </div>
