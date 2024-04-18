@@ -37,10 +37,10 @@ mongoose.connect(db_url)
 })
 .catch((err) => {
     console.log(`DB conection failed: ${err}`);
-})
+});
 
 app.use('/auth', userAuth);
 app.use('/data',[Criteria1_submit,C11,C12,C13,fetchC1,C31,C32,C33,C35,C36,C37,Criteria3_submit,fetchC3,C51,C52,C53,C54,fetchC5,Criteria5_submit]);
-app.use('/files', Files)
+app.use('/files', Files);
 
 app.listen(5000,() => console.log('Server started'));

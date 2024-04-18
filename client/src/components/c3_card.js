@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const CardC3 = () => {
 
-  const totalFields = 56;
+  const totalFields = 95;
   const [fieldCount, setFieldCount] = useState(0);
   const department = localStorage.getItem('department');
   const academicYear = localStorage.getItem('academicYear');
@@ -64,6 +64,38 @@ const CardC3 = () => {
           count += data.criteria33.file3_3_3_1 ? 1 : 0;
           count += data.criteria33.file3_3_3_2 ? 1 : 0;
         }
+
+        if (data.criteria34) {
+          count += data.criteria34.code_of_ethics ? 1 : 0;
+          count += data.criteria34.file_3_4_1 ? 1 : 0;
+          count += data.criteria34.incentives ? 1 : 0;
+          count += data.criteria34.file_3_4_2_1 ? 1 : 0;
+          count += data.criteria34.file_3_4_2_2 ? 1 : 0;
+          count += data.criteria34.patents_published ? 1 : 0;
+          count += data.criteria34.file_3_4_3_1 ? 1 : 0;
+          count += data.criteria34.file_3_4_3_2 ? 1 : 0;
+          count += data.criteria34.phd_awarded ? 1 : 0;
+          count += data.criteria34.teachers_guides ? 1 : 0;
+          count += data.criteria34.file_3_4_4_1 ? 1 : 0;
+          count += data.criteria34.file_3_4_4_2 ? 1 : 0;
+          count += data.criteria34.research_papers_per_teacher ? 1 : 0;
+          count += data.criteria34.file_3_4_5_1 ? 1 : 0;
+          count += data.criteria34.file_3_4_5_2 ? 1 : 0;
+          count += data.criteria34.books_edited ? 1 : 0;
+          count += data.criteria34.file_3_4_6_1 ? 1 : 0;
+          count += data.criteria34.file_3_4_6_2 ? 1 : 0;
+          count += data.criteria34.e_content ? 1 : 0;
+          count += data.criteria34.file_3_4_7_1 ? 1 : 0;
+          count += data.criteria34.file_3_4_7_2 ? 1 : 0;
+          count += data.criteria34.scopus348 ? 1 : 0;
+          count += data.criteria34.web_of_science348 ? 1 : 0;
+          count += data.criteria34.file_3_4_8_1 ? 1 : 0;
+          count += data.criteria34.file_3_4_8_2 ? 1 : 0;
+          count += data.criteria34.scopus349 ? 1 : 0;
+          count += data.criteria34.web_of_science349 ? 1 : 0;
+          count += data.criteria34.file_3_4_9_1 ? 1 : 0;
+          count += data.criteria34.file_3_4_9_2 ? 1 : 0;
+        }        
     
         if(data.criteria35){
           count += data.criteria35.consultancyText ? 1 : 0;
@@ -105,7 +137,7 @@ const CardC3 = () => {
   };
 
   const handleClick = () => {
-    if (department === admin) {
+    if (admin) {
       navigate('/admin/criteria3');
     } else {
       if (progress < 100) {

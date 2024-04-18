@@ -55,11 +55,11 @@ const AdminC3 = () => {
     const [patentsPublished, setPatentsPublished] = useState('');
     const [file3_4_3_1, setFile3_4_3_1] = useState('');
     const [file3_4_3_2, setFile3_4_3_2] = useState('');
-    const [phdAwarded, setPhdAwarded] = useState('');
-    const [teachersGuides, setTeachersGuides] = useState('');
+    const [phd_awarded, setPhdAwarded] = useState('');
+    const [teachers_guides, setTeachersGuides] = useState('');
     const [file3_4_4_1, setFile3_4_4_1] = useState('');
     const [file3_4_4_2, setFile3_4_4_2] = useState('');
-    const [researchPapersPerTeacher, setResearchPapersPerTeacher] = useState('');
+    const [research_papers_per_teacher, setResearchPapersPerTeacher] = useState('');
     const [file3_4_5_1, setFile3_4_5_1] = useState('');
     const [file3_4_5_2, setFile3_4_5_2] = useState('');
     const [booksEdited, setBooksEdited] = useState('');
@@ -157,34 +157,34 @@ const AdminC3 = () => {
 
                 if (data.criteria34) {
                     setCodeOfEthics(data.criteria34.code_of_ethics ? data.criteria34.code_of_ethics : 'Pending');
-                    setFile3_4_1(data.criteria34.file_3_4_1 ? data.criteria34.file_3_4_1 : 'Pending');
+                    setFile3_4_1(data.criteria34.file3_4_1 ? data.criteria34.file3_4_1 : 'Pending');
                     setIncentives(data.criteria34.incentives ? data.criteria34.incentives : 'Pending');
-                    setFile3_4_2_1(data.criteria34.file_3_4_2_1 ? data.criteria34.file_3_4_2_1 : 'Pending');
-                    setFile3_4_2_2(data.criteria34.file_3_4_2_2 ? data.criteria34.file_3_4_2_2 : 'Pending');
+                    setFile3_4_2_1(data.criteria34.file3_4_2_1 ? data.criteria34.file3_4_2_1 : 'Pending');
+                    setFile3_4_2_2(data.criteria34.file3_4_2_2 ? data.criteria34.file3_4_2_2 : 'Pending');
                     setPatentsPublished(data.criteria34.patents_published ? data.criteria34.patents_published : 'Pending');
-                    setFile3_4_3_1(data.criteria34.file_3_4_3_1 ? data.criteria34.file_3_4_3_1 : 'Pending');
-                    setFile3_4_3_2(data.criteria34.file_3_4_3_2 ? data.criteria34.file_3_4_3_2 : 'Pending');
+                    setFile3_4_3_1(data.criteria34.file3_4_3_1 ? data.criteria34.file3_4_3_1 : 'Pending');
+                    setFile3_4_3_2(data.criteria34.file3_4_3_2 ? data.criteria34.file3_4_3_2 : 'Pending');
                     setPhdAwarded(data.criteria34.phd_awarded ? data.criteria34.phd_awarded : 'Pending');
                     setTeachersGuides(data.criteria34.teachers_guides ? data.criteria34.teachers_guides : 'Pending');
-                    setFile3_4_4_1(data.criteria34.file_3_4_4_1 ? data.criteria34.file_3_4_4_1 : 'Pending');
-                    setFile3_4_4_2(data.criteria34.file_3_4_4_2 ? data.criteria34.file_3_4_4_2 : 'Pending');
+                    setFile3_4_4_1(data.criteria34.file3_4_4_1 ? data.criteria34.file3_4_4_1 : 'Pending');
+                    setFile3_4_4_2(data.criteria34.file3_4_4_2 ? data.criteria34.file3_4_4_2 : 'Pending');
                     setResearchPapersPerTeacher(data.criteria34.research_papers_per_teacher ? data.criteria34.research_papers_per_teacher : 'Pending');
-                    setFile3_4_5_1(data.criteria34.file_3_4_5_1 ? data.criteria34.file_3_4_5_1 : 'Pending');
-                    setFile3_4_5_2(data.criteria34.file_3_4_5_2 ? data.criteria34.file_3_4_5_2 : 'Pending');
+                    setFile3_4_5_1(data.criteria34.file3_4_5_1 ? data.criteria34.file3_4_5_1 : 'Pending');
+                    setFile3_4_5_2(data.criteria34.file3_4_5_2 ? data.criteria34.file3_4_5_2 : 'Pending');
                     setBooksEdited(data.criteria34.books_edited ? data.criteria34.books_edited : 'Pending');
-                    setFile3_4_6_1(data.criteria34.file_3_4_6_1 ? data.criteria34.file_3_4_6_1 : 'Pending');
-                    setFile3_4_6_2(data.criteria34.file_3_4_6_2 ? data.criteria34.file_3_4_6_2 : 'Pending');
+                    setFile3_4_6_1(data.criteria34.file3_4_6_1 ? data.criteria34.file3_4_6_1 : 'Pending');
+                    setFile3_4_6_2(data.criteria34.file3_4_6_2 ? data.criteria34.file3_4_6_2 : 'Pending');
                     setEContent(data.criteria34.e_content ? data.criteria34.e_content : 'Pending');
-                    setFile3_4_7_1(data.criteria34.file_3_4_7_1 ? data.criteria34.file_3_4_7_1 : 'Pending');
-                    setFile3_4_7_2(data.criteria34.file_3_4_7_2 ? data.criteria34.file_3_4_7_2 : 'Pending');
+                    setFile3_4_7_1(data.criteria34.file3_4_7_1 ? data.criteria34.file3_4_7_1 : 'Pending');
+                    setFile3_4_7_2(data.criteria34.file3_4_7_2 ? data.criteria34.file3_4_7_2 : 'Pending');
                     setScopus348(data.criteria34.scopus348 ? data.criteria34.scopus348 : 'Pending');
                     setWebOfScience348(data.criteria34.web_of_science348 ? data.criteria34.web_of_science348 : 'Pending');
-                    setFile3_4_8_1(data.criteria34.file_3_4_8_1 ? data.criteria34.file_3_4_8_1 : 'Pending');
-                    setFile3_4_8_2(data.criteria34.file_3_4_8_2 ? data.criteria34.file_3_4_8_2 : 'Pending');
+                    setFile3_4_8_1(data.criteria34.file3_4_8_1 ? data.criteria34.file3_4_8_1 : 'Pending');
+                    setFile3_4_8_2(data.criteria34.file3_4_8_2 ? data.criteria34.file3_4_8_2 : 'Pending');
                     setScopus349(data.criteria34.scopus349 ? data.criteria34.scopus349 : 'Pending');
                     setWebOfScience349(data.criteria34.web_of_science349 ? data.criteria34.web_of_science349 : 'Pending');
-                    setFile3_4_9_1(data.criteria34.file_3_4_9_1 ? data.criteria34.file_3_4_9_1 : 'Pending');
-                    setFile3_4_9_2(data.criteria34.file_3_4_9_2 ? data.criteria34.file_3_4_9_2 : 'Pending');
+                    setFile3_4_9_1(data.criteria34.file3_4_9_1 ? data.criteria34.file3_4_9_1 : 'Pending');
+                    setFile3_4_9_2(data.criteria34.file3_4_9_2 ? data.criteria34.file3_4_9_2 : 'Pending');
                 }
     
                 if (data.criteria35) {
@@ -375,6 +375,116 @@ const AdminC3 = () => {
                     </h4>
                     <h4>
                         Document supporting the same: {file3_3_3_2 ? (<a href={file3_3_3_2} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                </div>
+            </div>
+            <div className='C-3-4'>
+                <div className='C-3-4-1'>
+                    <h3>3.4.1 - The institution ensures implementation of its stated Code of Ethics for research</h3>
+                    <h4>3.4.1.1 - The institution has a stated Code of Ethics for research and the implementation of which is
+                        ensured through the following : {codeOfEthics}</h4>
+                    <ol class="list">
+                        <li>Inclusion of research ethics in the research methodology coursework</li>
+                        <li>Presence of institutional Ethics committees (Animal, chemical, bio-ethics, etc)</li>
+                        <li>Plagiarism check</li>
+                        <li>Research Advisory Committee</li>
+                    </ol>
+                    <h4>
+                        Document supporting the same: {file3_4_1 ? (<a href={file3_4_1} target='_blank'>View</a>) : <h4>Pending</h4>}
+                    </h4>
+                </div>
+                <div className='C-3-4-2'>
+                    <h4>3.4.2 - The institution provides incentives to teachers who receive state, national and international recognitions/awards : {incentives}</h4>
+                    <ol class="list">
+                        <li> Commendation and monetary incentive at a University function</li>
+                        <li>Commendation and medal at a University function</li>
+                        <li>Certificate of honork</li>
+                        <li>Announcement in the Newsletter I website</li>
+                    </ol>
+                    <h4>
+                        Data template: {file3_4_2_1 ? (<a href={file3_4_2_1} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                    <h4>
+                        Document supporting the same: {file3_4_2_2 ? (<a href={file3_4_2_2} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                </div>
+                <div className='C-3-4-3'>
+                    <h3>3.4.3 - Number of Patents published/awarded during the year</h3>
+                    <h4>3.4.3.1 - Total number of Patents published/awarded year wise during the year : {patentsPublished}</h4>
+                    <h4>
+                        Data template: {file3_4_3_1 ? (<a href={file3_4_3_1} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                    <h4>
+                        Document supporting the same: {file3_4_3_2 ? (<a href={file3_4_3_2} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                </div>
+                <div className='C-3-4-4'>
+                    <h3>3.4.4 - Number of Ph.D's awarded per teacher during the year</h3>
+                    <h4>3.4.4.1 - How many Ph.D's are awarded during the year : {phd_awarded}</h4>
+                    <h4>3.4.4.2 - Number of teachers recognized as guides during the year {teachers_guides}</h4>
+                    <h4>
+                        Data template: {file3_4_4_1 ? (<a href={file3_4_4_1} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                    <h4>
+                        Document supporting the same: {file3_4_4_2 ? (<a href={file3_4_4_2} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                </div>
+                <div className='C-3-4-5'>
+                    <h4>3.4.5 - Number of research papers per teacher in the Journals notified on UGC website during the year : {research_papers_per_teacher}</h4>
+                    <h4>
+                        Data template: {file3_4_5_1 ? (<a href={file3_4_5_1} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                    <h4>
+                        Document supporting the same: {file3_4_5_2 ? (<a href={file3_4_5_2} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                </div>
+                <div className='C-3-4-6'>
+                    <h3>3.4.6 Number of books and chapters in edited volumes published per teacher during the year</h3>
+                    <h4>3.4.6.1 - Total number of books and chapters in edited volumes I books published, and papers in national/international onference-proceedings during the year : {booksEdited}</h4>
+                    <h4>
+                        Data template: {file3_4_6_1 ? (<a href={file3_4_6_1} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                    <h4>
+                        Document supporting the same: {file3_4_6_2 ? (<a href={file3_4_6_2} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                </div>
+                <div className='C-3-4-7'>
+                    <h4>3.4.7 - E-content is developed by teachers : {eContent}</h4>
+                    <ol class="list">
+                        <li> For e-PG-Pathshala</li>
+                        <li>For CEC(Under Graduate)</li>
+                        <li>For SWAYAM</li>
+                        <li>For other MOOCs platform</li>
+                        <li>For NPTEL/NMEICT/any other Governmenr Inititatives</li>
+                        <li>For Institutional LMS</li>
+                    </ol>
+                    <h4>
+                        Data template: {file3_4_7_1 ? (<a href={file3_4_7_1} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                    <h4>
+                        Document supporting the same: {file3_4_7_2 ? (<a href={file3_4_7_2} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                </div>
+                <div className='C-3-4-8'>
+                    <h4>3.4.8 - Bibliometrics of the publications during the year based on average Citation Index in Scopus/ Web of Science/PubMed</h4>
+                    <h4>Scopus: {scopus348}</h4>
+                    <h4>Web of Science: {webOfScience348}</h4>
+                    <h4>
+                        Data template: {file3_4_8_1 ? (<a href={file3_4_8_1} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                    <h4>
+                        Document supporting the same: {file3_4_8_2 ? (<a href={file3_4_8_2} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                </div>
+                <div className='C-3-4-9'>
+                    <h4>3.4.9 - Bibliometrics of the publications during the year based on Scopus/ Web of Science — h-lndex of the University</h4>
+                    <h4>Scopus: {scopus349}</h4>
+                    <h4>Web of Science: {webOfScience349}</h4>
+                    <h4>
+                        Data template: {file3_4_9_1 ? (<a href={file3_4_9_1} target='_blank'>View</a>) : (<h4>Pending</h4>)}
+                    </h4>
+                    <h4>
+                        Document supporting the same: {file3_4_9_2 ? (<a href={file3_4_9_2} target='_blank'>View</a>) : (<h4>Pending</h4>)}
                     </h4>
                 </div>
             </div>
