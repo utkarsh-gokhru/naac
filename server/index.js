@@ -30,6 +30,7 @@ import { fetchC5 } from './routes/fetchC5.js';
 import { Criteria5_submit } from './routes/criteria5.js';
 import { fetchC3 } from './routes/fetchC3.js';
 import { Criteria2_submit } from './routes/criteria2.js';
+import { fetchC2 } from './routes/fetchC2.js';
 
 const app = express();
 
@@ -47,7 +48,7 @@ mongoose.connect(db_url)
 });
 
 app.use('/auth', userAuth);
-app.use('/data',[Criteria1_submit,C11,C12,C13,C21,C22,C23,C24,C25,C26,fetchC1,C31,C32,C33,C35,C36,C37,Criteria3_submit,fetchC3,C51,C52,C53,C54,fetchC5,Criteria5_submit,Criteria2_submit]);
+app.use('/data',[Criteria1_submit,C11,C12,C13,C21,C22,C23,C24,C25,C26,fetchC1,fetchC2,C31,C32,C33,C35,C36,C37,Criteria3_submit,fetchC3,C51,C52,C53,C54,fetchC5,Criteria5_submit,Criteria2_submit]);
 app.use('/files', Files);
 
 app.listen(5000,() => console.log('Server started'));
