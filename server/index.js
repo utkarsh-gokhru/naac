@@ -30,7 +30,6 @@ import { fetchC5 } from './routes/fetchC5.js';
 import { Criteria5_submit } from './routes/criteria5.js';
 import { fetchC3 } from './routes/fetchC3.js';
 import { Criteria2_submit } from './routes/criteria2.js';
-import { C21 } from './routes/c-2-1.js';
 
 const app = express();
 
