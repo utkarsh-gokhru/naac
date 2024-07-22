@@ -1,62 +1,87 @@
 // import mongoose from "mongoose";
 // import ExcelJS from "exceljs";
-// import Criteria1Model from "./models/criteria1.js";
 // import dotenv from 'dotenv';
 
-// async function generateExcel() {
-//   try {
-//     dotenv.config();
+// async function generateExcel(model, nestedObjectName) {
+//     try {
+//         dotenv.config();
 
-//     // Connect to MongoDB
-//     const db_url = process.env.DATABASE_URL;
-//     await mongoose.connect(db_url, {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true
-//     });
-//     console.log('DB connected!');
+//         // Connect to MongoDB
+//         const db_url = process.env.DATABASE_URL;
+//         await mongoose.connect(db_url, {
+//             useNewUrlParser: true,
+//             useUnifiedTopology: true
+//         });
+//         console.log('DB connected!');
 
-//     // Fetch all documents from the database
-//     const data = await Criteria1Model.find({});
-//     console.log(data[0]);
-//     const exc_data = data[0]; // Access the entire document
+//         // Fetch all documents from the database
+//         const data = await model.find({});
 
-//     // Create a new Excel workbook
-//     const workbook = new ExcelJS.Workbook();
-//     const worksheet = workbook.addWorksheet("Criteria1 Data");
+//         if (data.length === 0) {
+//             console.log("No data found.");
+//             return;
+//         }
 
-//     // Define headers for the Excel file
-//     const headers = Object.keys(exc_data.criteria11); // Use keys from criteria11 object
-//     headers.unshift('department', 'academicYear'); // Add department and academicYear to headers
-//     worksheet.addRow(headers);
+//         // Create a new Excel workbook
+//         const workbook = new ExcelJS.Workbook();
+//         const worksheet = workbook.addWorksheet(`${nestedObjectName} Data`);
 
-//     // Add data to the Excel file
-//     const rowData = [];
-//     rowData.push(exc_data.department, exc_data.academicYear); // Add department and academicYear to rowData
-//     headers.shift();
-//     headers.shift();
-//     headers.forEach((header) => {
-//       // Check if the field exists in the document
-//       if (exc_data.criteria11[header] !== undefined && exc_data.criteria11[header] !== null) {
-//         rowData.push(exc_data.criteria11[header]);
-//       } else {
-//         // If the field is null or not present, save as "pending"
-//         rowData.push("pending");
-//       }
-//     });
-//     worksheet.addRow(rowData);
+//         // Define headers dynamically
+//         const headers = new Set(['department', 'academicYear']); // Always include department and academicYear
+//         data.forEach(document => {
+//             if (nestedObjectName && document._doc[nestedObjectName]) {
+//                 Object.keys(document._doc[nestedObjectName]).forEach(key => {
+//                     headers.add(key);
+//                 });
+//             } else {
+//                 Object.keys(document._doc).forEach(key => {
+//                     headers.add(key);
+//                 });
+//             }
+//         });
+//         const headerArray = Array.from(headers);
+//         worksheet.addRow(headerArray);
 
-//     // Save the Excel file
-//     await workbook.xlsx.writeFile("criteria1_data.xlsx");
+//         // Add data to the Excel file
+//         data.forEach(document => {
+//             const baseData = {
+//                 department: document._doc.department || "Pending",
+//                 academicYear: document._doc.academicYear || "Pending"
+//             };
 
-//     console.log("Excel file generated successfully.");
-//   } catch (error) {
-//     console.error("Error generating Excel file:", error);
-//   } finally {
-//     // Close the MongoDB connection
-//     await mongoose.disconnect();
-//     console.log('DB disconnected!');
-//   }
+//             let rowData;
+//             if (nestedObjectName && document._doc[nestedObjectName]) {
+//                 rowData = headerArray.map(header => {
+//                     if (header in baseData) {
+//                         return baseData[header];
+//                     }
+//                     const value = document._doc[nestedObjectName][header];
+//                     return value !== undefined && value !== null ? value : "Pending";
+//                 });
+//             } else {
+//                 rowData = headerArray.map(header => {
+//                     const value = document._doc[header];
+//                     return value !== undefined && value !== null ? value : "Pending";
+//                 });
+//             }
+//             worksheet.addRow(rowData);
+//         });
+
+//         // Save the Excel file
+//         await workbook.xlsx.writeFile(`${nestedObjectName}_data.xlsx`);
+
+//         console.log("Excel file generated successfully.");
+//     } catch (error) {
+//         console.error("Error generating Excel file:", error);
+//     } finally {
+//         // Close the MongoDB connection
+//         await mongoose.disconnect();
+//         console.log('DB disconnected!');
+//     }
 // }
 
-// // Call the function to generate the Excel file
-// generateExcel();
+// // Example usage with Criteria1Model
+// import Criteria1Model from "./models/criteria1.js";
+// generateExcel(Criteria1Model, "criteria11");
+
+// export default generateExcel;

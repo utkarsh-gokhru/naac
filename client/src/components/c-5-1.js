@@ -35,7 +35,7 @@ const Criteria51 = ({onCrit51Data}) => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save5-1-1", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save5-1-1", formdata);
             console.log(response.data); 
             alert("Saved Section 5.1.1 data:");
         }catch(error){
@@ -58,7 +58,7 @@ const Criteria51 = ({onCrit51Data}) => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save5-1-2", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save5-1-2", formdata);
             console.log(response.data); 
             alert("Saved Section 5.1.2 data:");
         }catch(error){
@@ -81,7 +81,7 @@ const Criteria51 = ({onCrit51Data}) => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save5-1-3", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save5-1-3", formdata);
             console.log(response.data); 
             alert("Saved Section 5.1.3 data:");
         }catch(error){
@@ -103,7 +103,7 @@ const Criteria51 = ({onCrit51Data}) => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save5-1-4", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save5-1-4", formdata);
             console.log(response.data); 
             alert("Saved Section 5.1.4 data:");
         }catch(error){
@@ -377,7 +377,6 @@ const Criteria51 = ({onCrit51Data}) => {
                                   
                                     Upload the data template</td>
                                 <td>
-                                    <button onClick={() => downloadExcel('5.1.4.xlsx')}>Data Template</button>
                                 </td>
                                 <td>
                                     <input

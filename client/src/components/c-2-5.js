@@ -40,7 +40,7 @@ const Criteria25 = () => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save2-5-1", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save2-5-1", formdata);
             console.log(response.data); 
             alert("Saved Section 2.5.1.1 data:");
         }catch(error){
@@ -63,7 +63,7 @@ const Criteria25 = () => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save2-5-2", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save2-5-2", formdata);
             console.log(response.data); 
             alert("Saved Section 2.5.2 data:")
         }catch(error){
@@ -87,7 +87,7 @@ const Criteria25 = () => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save2-5-3", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save2-5-3", formdata);
             console.log(response.data); 
             alert("Saved Section 2.5.2 data:")
         }catch(error){
@@ -111,7 +111,7 @@ const Criteria25 = () => {
             formdata.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post("http://localhost:5000/data/save2-5-4", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save2-5-4", formdata);
             console.log(response.data); 
             alert("Saved Section 2.5.4.1 data:");
         }catch(error){
@@ -169,7 +169,7 @@ const Criteria25 = () => {
                                       
                                         Upload the data template</td>
                                     <td>
-                                        <button onClick={() => downloadExcel('2.5.1.1.xlsx')}>Data Template</button>
+                                        <button onClick={() => downloadExcel('2.5.1.xlsx')}>Data Template</button>
                                     </td>
                                     <td>
                                         <input
@@ -225,7 +225,6 @@ const Criteria25 = () => {
                                   
                                     Upload the data template</td>
                                 <td>
-                                    <button onClick={() => downloadExcel('2.2.1.xlsx')}>Data Template</button>
                                 </td>
                                 <td>
                                     <input
@@ -270,7 +269,6 @@ const Criteria25 = () => {
                                   
                                     Upload the data template</td>
                                 <td>
-                                    <button onClick={() => downloadExcel('2.2.1.xlsx')}>Data Template</button>
                                 </td>
                                 <td>
                                     <input
@@ -332,7 +330,7 @@ const Criteria25 = () => {
                                       
                                         Upload the data template</td>
                                     <td>
-                                        <button onClick={() => downloadExcel('2.5.4.1.xlsx')}>Data Template</button>
+                                        <button onClick={() => downloadExcel('2.5.4.xlsx')}>Data Template</button>
                                     </td>
                                     <td>
                                         <input
