@@ -7,6 +7,12 @@ import { Criteria1_submit } from './routes/criteria1.js';
 import { C11 } from './routes/c-1-1.js';
 import { C12 } from './routes/c-1-2.js';
 import { C13 } from './routes/c-1-3.js';
+import { C21 } from './routes/c-2-1.js';
+import { C22 } from './routes/c-2-2.js';
+import { C23 } from './routes/c-2-3.js';
+import { C24 } from './routes/c-2-4.js';
+import { C25 } from './routes/c-2-5.js';
+import { C26 } from './routes/c-2-6.js';
 import { fetchC1 } from './routes/fetchC1.js';
 import { Files } from './routes/files.js';
 import { C31 } from './routes/c-3-1.js';
@@ -24,6 +30,7 @@ import { fetchC5 } from './routes/fetchC5.js';
 import { Criteria5_submit } from './routes/criteria5.js';
 import { fetchC3 } from './routes/fetchC3.js';
 import { Criteria2_submit } from './routes/criteria2.js';
+import { C21 } from './routes/c-2-1.js';
 
 const app = express();
 
@@ -41,7 +48,7 @@ mongoose.connect(db_url)
 });
 
 app.use('/auth', userAuth);
-app.use('/data',[Criteria1_submit,C11,C12,C13,fetchC1,C31,C32,C33,C35,C36,C37,Criteria3_submit,fetchC3,C51,C52,C53,C54,fetchC5,Criteria5_submit,Criteria2_submit]);
+app.use('/data',[Criteria1_submit,C11,C12,C13,C21,C22,C23,C24,C25,C26,fetchC1,C31,C32,C33,C35,C36,C37,Criteria3_submit,fetchC3,C51,C52,C53,C54,fetchC5,Criteria5_submit,Criteria2_submit]);
 app.use('/files', Files);
 
 app.listen(5000,() => console.log('Server started'));
