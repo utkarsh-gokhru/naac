@@ -94,7 +94,7 @@ const Criteria41 = ({onCrit41Data}) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save4-1-1", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save4-1-2", formdata);
             console.log(response.data);
             alert("Saved Section 4.1.2 data successfully!");
         } catch (error) {

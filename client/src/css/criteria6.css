@@ -1,0 +1,77 @@
+.c-6-1,.c-6-2,.c-6-3,.c-6-5,.c-6-4,.c-6-6,.c-6-7,.crit6-head {
+    max-width: 100%;
+    margin: 30px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    }
+    
+    ul {
+    list-style-type: none;
+    padding: 0;
+    }
+    
+    li {
+    margin-bottom: 20px;
+    }
+    
+    .text-area textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    }
+    
+    .table-6_1_1 table,
+    .c-6_1_2 table,
+    .c-6_1_3 table,
+    .c-6_1_4 table,
+    .c-6_1_5 table,
+    .c-6-1-6 table {
+    width: 100%;
+    border-collapse: collapse;
+    }
+    
+    .table-6_1_1 th,
+    .table-6_1_1 td,
+    .c-6_1_2 th,
+    .c-6_1_2 td,
+    .c-6_1_3 th,
+    .c-6_1_3 td,
+    .c-6_1_4 th,
+    .c-6_1_4 td,
+    .c-6_1_5 th,
+    .c-6_1_5 td,
+    .c-6-1-6 th,
+    .c-6-1-6 td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    }
+    
+    .table-6_1_1 th,
+    .c-6_1_2 th,
+    .c-6_1_3 th,
+    .c-6_1_4 th,
+    .c-6_1_5 th,
+    .c-6-1-6 th {
+    background-color: #f2f2f2;
+    }
+    
+    .radioBtn-feedback{
+    margin-top: 20px;
+    max-width: 1000px;
+    display: flex;
+    margin-right: 30px;
+    }
+    
+    @media (max-width: 450px) {
+    .c-6-1,.c-6-2,.c-6-3,.c-6-5,.c-6-6,.c-6-7,.crit6-head {
+    margin: 10px;
+    padding: 10px;
+    }
+    .radioBtn-feedback{
+    display: flex;
+    flex-wrap: wrap;
+    }
+    }
+    

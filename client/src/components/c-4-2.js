@@ -283,7 +283,7 @@ const Criteria42 = ({onCrit42Data}) => {
                                         Upload the data template
                                     </td>
                                     <td>
-                                        <button onClick={() => downloadExcel('4.1.4.xlsx')}>Data Template</button>
+                                        <button onClick={() => downloadExcel('4.2.3.xlsx')}>Data Template</button>
                                     </td>
                                     <td>
                                         <input
