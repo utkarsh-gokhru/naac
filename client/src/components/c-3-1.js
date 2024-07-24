@@ -4,7 +4,7 @@ import { saveAs } from 'file-saver';
 import axios from "axios";
 import '../css/criteria3.css';
 
-const Criteria31 = ({onCrit31Data}) => {
+const Criteria31 = ({ onCrit31Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -46,14 +46,14 @@ const Criteria31 = ({onCrit31Data}) => {
 
     const saveSection3_1_1 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
             researchFacilities,
             file3_1_1
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -70,7 +70,7 @@ const Criteria31 = ({onCrit31Data}) => {
 
     const saveSection3_1_2 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -78,7 +78,7 @@ const Criteria31 = ({onCrit31Data}) => {
             file3_1_2_1,
             file3_1_2_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -95,7 +95,7 @@ const Criteria31 = ({onCrit31Data}) => {
 
     const saveSection3_1_3 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -103,7 +103,7 @@ const Criteria31 = ({onCrit31Data}) => {
             file3_1_3_1,
             file3_1_3_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -120,7 +120,7 @@ const Criteria31 = ({onCrit31Data}) => {
 
     const saveSection3_1_4 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -128,7 +128,7 @@ const Criteria31 = ({onCrit31Data}) => {
             file3_1_4_1,
             file3_1_4_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -145,14 +145,14 @@ const Criteria31 = ({onCrit31Data}) => {
 
     const saveSection3_1_5 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
             feed_3_1_5_Type,
             file3_1_5
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -169,7 +169,7 @@ const Criteria31 = ({onCrit31Data}) => {
 
     const saveSection3_1_6 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -177,7 +177,7 @@ const Criteria31 = ({onCrit31Data}) => {
             file3_1_6_1,
             file3_1_6_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -212,8 +212,8 @@ const Criteria31 = ({onCrit31Data}) => {
             file3_1_6_2
         };
         onCrit31Data(crit31);
-    },[researchFacilities,file3_1_1,seedMoney,file3_1_2_1,file3_1_2_2,teachersFellowship,file3_1_3_1,file3_1_3_2,
-        fellowsEnrolled,file3_1_4_1,file3_1_4_2,feed_3_1_5_Type,file3_1_5,departmentNo,file3_1_6_1, file3_1_6_2])
+    }, [researchFacilities, file3_1_1, seedMoney, file3_1_2_1, file3_1_2_2, teachersFellowship, file3_1_3_1, file3_1_3_2,
+        fellowsEnrolled, file3_1_4_1, file3_1_4_2, feed_3_1_5_Type, file3_1_5, departmentNo, file3_1_6_1, file3_1_6_2]);
 
     return (
         <div className="c-3-1">
@@ -221,7 +221,7 @@ const Criteria31 = ({onCrit31Data}) => {
             <ul>
                 <li>
                     <div className="c-3_1_1">
-                        <h4>3.1.1 - The institution Research facilities are frequently updated and there is well dedfined 
+                        <h4>3.1.1 - The institution Research facilities are frequently updated and there is well dedfined
                             policy for promotion and research which is uploaded on the institutional website and implemented
                         </h4>
                     </div>
@@ -287,7 +287,7 @@ const Criteria31 = ({onCrit31Data}) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>   
+                                    <td>
                                         Upload the data template
                                     </td>
                                     <td>
@@ -305,7 +305,7 @@ const Criteria31 = ({onCrit31Data}) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td> 
+                                    <td>
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -330,7 +330,7 @@ const Criteria31 = ({onCrit31Data}) => {
                 <li>
                     <div className="c-3_1_3">
                         <h4>3.1.3 - Number of teachers receiving national/international fellowship/financial supported
-                                by various agencies for advanced studies/research during the year
+                            by various agencies for advanced studies/research during the year
                         </h4>
                         <input
                             type="number"
@@ -447,7 +447,7 @@ const Criteria31 = ({onCrit31Data}) => {
                 <li>
                     <div className="c-3_1_5">
                         <h4>
-                            3.1.5 - Institution has the following facilities to support research    
+                            3.1.5 - Institution has the following facilities to support research
                         </h4>
                         <ul>
                             <li>Central Instrumentation Centre</li>

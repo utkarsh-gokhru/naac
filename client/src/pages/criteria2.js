@@ -107,6 +107,7 @@ const Criteria2 = () => {
 
   return (
     <div className="Criteria2">
+      <div className='crit2-head'>
       <div className='logo-e'>
         <img src={naacLogo} alt='NAAC LOGO' />
         <div className='head'>
@@ -119,9 +120,9 @@ const Criteria2 = () => {
         <p>Academic Year to which AQAR has to be submitted: {academicYear}</p>
         <p>Department: {department}</p>
       </div>
+      </div>
 
       <div className="crit2">
-        <h2>CRITERION II - TEACHING-LEARNING AND EVALUATION</h2>
         <Criteria21 oncrit21Data={handleCrit21Data} />
         <Criteria22 oncrit22Data={handleCrit22Data} />
         <Criteria23 oncrit23Data={handleCrit23Data} />

@@ -1,11 +1,13 @@
 import React , {useState} from "react";
 import Criteria41 from "../components/c-4-1";
 import Criteria42 from "../components/c-4-2";
+import Criteria43 from "../components/c-4-3";
 // import Criteria43 from "../components/c-4-3";
 // import Criteria44 from "../components/c-4-4";
 import Popup from "../components/popup";
 import naacLogo from '../naac_logo.png';
 import axios from 'axios';
+import Criteria44 from "../components/c-4-4";
 
 const Criteria4 = () => {
 
@@ -105,8 +107,8 @@ const Criteria4 = () => {
             <div className="crit4">
                 <Criteria41 onCrit41Data={handleCrit41Data}/>
                 <Criteria42 onCrit42Data={handleCrit42Data}/>
-                {/* <Criteria43 onCrit43Data={handleCrit43Data}/>
-                <Criteria44 onCrit44Data={handleCrit44Data}/> */}
+                <Criteria43 onCrit43Data={handleCrit43Data}/>
+                <Criteria44 onCrit44Data={handleCrit44Data}/> 
                 <div className="button-container">
                     <button onClick={handleSubmit} className="custom-button">Submit</button>
                 </div>

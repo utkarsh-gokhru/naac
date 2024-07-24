@@ -3,7 +3,7 @@ import StyledTextArea from "./textArea";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-const Criteria33 = ({onCrit33Data}) => {
+const Criteria33 = ({ onCrit33Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -33,14 +33,14 @@ const Criteria33 = ({onCrit33Data}) => {
 
     const saveSection3_3_1 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
             ecosystemText,
             file3_3_1
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -57,7 +57,7 @@ const Criteria33 = ({onCrit33Data}) => {
 
     const saveSection3_3_2 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -66,7 +66,7 @@ const Criteria33 = ({onCrit33Data}) => {
             file3_3_2_1,
             file3_3_2_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -83,7 +83,7 @@ const Criteria33 = ({onCrit33Data}) => {
 
     const saveSection3_3_3 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -91,7 +91,7 @@ const Criteria33 = ({onCrit33Data}) => {
             file3_3_3_1,
             file3_3_3_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -119,7 +119,7 @@ const Criteria33 = ({onCrit33Data}) => {
             file3_3_3_2
         };
         onCrit33Data(crit33);
-    },[ecosystemText,file3_3_1,seminars,totalSeminars,file3_3_2_1,file3_3_2_2,awards,file3_3_3_1,file3_3_3_2])
+    }, [ecosystemText, file3_3_1, seminars, totalSeminars, file3_3_2_1, file3_3_2_2, awards, file3_3_3_1, file3_3_3_2])
 
     return (
         <div className="c-3-3">
@@ -128,7 +128,7 @@ const Criteria33 = ({onCrit33Data}) => {
                 <li>
                     <div className="c-3_3_1">
                         <h4>3.3.1 - Institution has created an eco-system for innovation including incubation
-                          centre and other inititatives for creation and transfer of knowledge  
+                            centre and other inititatives for creation and transfer of knowledge
                         </h4>
                         <div className="text-area">
                             <StyledTextArea
@@ -185,14 +185,14 @@ const Criteria33 = ({onCrit33Data}) => {
                         <ul>
                             <li>
                                 <h4>3.3.2.1 - Number of seminars/workshops conducted on Research Methodology,
-                                Intellectual Property Rights (IPR), Entrepreneurship and Skill Development year wise during the year
+                                    Intellectual Property Rights (IPR), Entrepreneurship and Skill Development year wise during the year
                                 </h4>
-                            <input
-                                type="number"
-                                id="totaslSeminars"
-                                value={totalSeminars}
-                                onChange={(e) => setTotalSeminars(e.target.value)}
-                            />
+                                <input
+                                    type="number"
+                                    id="totaslSeminars"
+                                    value={totalSeminars}
+                                    onChange={(e) => setTotalSeminars(e.target.value)}
+                                />
                             </li>
                         </ul>
                         <table>
@@ -227,7 +227,7 @@ const Criteria33 = ({onCrit33Data}) => {
                     </div>
                 </li>
                 <li>
-                <div className="c-3_3_3">
+                    <div className="c-3_3_3">
                         <h4>3.3.3 - Number of awards/recogntions received for research/innovation by the
                             institution/teachers/research scholars/students during the year
                         </h4>
@@ -236,12 +236,12 @@ const Criteria33 = ({onCrit33Data}) => {
                                 <h4>3.3.3.1 - Number of awards/recogntions received for research/innovation by the
                                     institution/teachers/research scholars/students year wise during the year
                                 </h4>
-                            <input
-                                type="number"
-                                id="awards"
-                                value={awards}
-                                onChange={(e) => setAwards(e.target.value)}
-                            />
+                                <input
+                                    type="number"
+                                    id="awards"
+                                    value={awards}
+                                    onChange={(e) => setAwards(e.target.value)}
+                                />
                             </li>
                         </ul>
                         <table>
