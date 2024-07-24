@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import multer from 'multer';
-import handleUpload from '../controllers/criteria5.js';
+import handleUpload from '../controllers/criteria1.js';
 
 const app = express();
 app.use(bodyParser.json());
