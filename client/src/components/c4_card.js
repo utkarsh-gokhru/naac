@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const CardC4 = () => {
 
-  const totalFields = 95;
+  const totalFields = 35;
   const [fieldCount, setFieldCount] = useState(0);
   const department = localStorage.getItem('department');
   const academicYear = localStorage.getItem('academicYear');

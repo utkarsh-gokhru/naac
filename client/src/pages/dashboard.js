@@ -33,7 +33,7 @@ const Dashboard = () => {
                 <div className='head'>
                     <h1>University of Mumbai</h1>
                     <h3>AQAR Platform</h3>
-                    <button onClick={handleLogout}>Logout</button>
+                    <button class = "logout-btn" onClick={handleLogout}>Logout</button>
                 </div>
             </div>
             <h2 className="hhv">Dashboard</h2>
