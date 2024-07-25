@@ -91,7 +91,7 @@ const Criteria2 = () => {
         formdata.append(key, crit27Data[key]);
       }
 
-      const response = await axios.post("https://naacserver.onrender.com/data/criteria2/submit", formdata);
+      const response = await axios.post("http://localhost:5000/data/criteria2/submit", formdata);
       console.log(response.data);
       alert("Criteria 2 submitted!");
     } catch (error) {
@@ -123,10 +123,10 @@ const Criteria2 = () => {
       </div>
 
       <div className="crit2">
-        <Criteria21 oncrit21Data={handleCrit21Data} />
-        <Criteria22 oncrit22Data={handleCrit22Data} />
-        <Criteria23 oncrit23Data={handleCrit23Data} />
-        <Criteria24 oncrit24Data={handleCrit24Data} />
+        <Criteria21 onCrit21Data={handleCrit21Data} />
+        <Criteria22 onCrit22Data={handleCrit22Data} />
+        <Criteria23 onCrit23Data={handleCrit23Data} />
+        <Criteria24 onCrit24Data={handleCrit24Data} />
         <Criteria25 onCrit25Data={handleCrit25Data} />
         <Criteria26 onCrit26Data={handleCrit26Data} />
         <Criteria27 onCrit27Data={handleCrit27Data} />

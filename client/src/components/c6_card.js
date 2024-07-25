@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const CardC6 = () => {
-  
-  const totalFields = 39; 
+
+  const totalFields = 39;
   const [fieldCount, setFieldCount] = useState(0);
   const department = localStorage.getItem('department');
   const academicYear = localStorage.getItem('academicYear');
@@ -29,7 +29,7 @@ const CardC6 = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://naacserver.onrender.com/data/fetchC6?department=${department}&academicYear=${academicYear}`);
+      const response = await axios.get(`http://localhost:5000/data/fetchC6?department=${department}&academicYear=${academicYear}`);
       const data = response.data.data;
 
       if (data) {
@@ -47,7 +47,7 @@ const CardC6 = () => {
           count += data.criteria62.file6_2_1 ? 1 : 0;
           count += data.criteria62.text_6_2_2 ? 1 : 0;
           count += data.criteria62.file6_2_2 ? 1 : 0;
-          count += data.criteria62.data_6_2_3 || data.criteria62.data_6_2_3 === 0 ? 1 : 0;
+          count += data.criteria62.data_6_2_3 ? 1 : 0;
           count += data.criteria62.file6_2_3_1 ? 1 : 0;
           count += data.criteria62.file6_2_3_2 ? 1 : 0;
         }
@@ -55,13 +55,13 @@ const CardC6 = () => {
         if (data.criteria63) {
           count += data.criteria63.text6_3_1 ? 1 : 0;
           count += data.criteria63.file6_3_1 ? 1 : 0;
-          count += data.criteria63.data_6_3_2 || data.criteria63.data_6_3_2 === 0 ? 1 : 0;
+          count += data.criteria63.data_6_3_2 ? 1 : 0;
           count += data.criteria63.file6_3_2_1 ? 1 : 0;
           count += data.criteria63.file6_3_2_2 ? 1 : 0;
-          count += data.criteria63.data_6_3_3 || data.criteria63.data_6_3_3 === 0 ? 1 : 0;
+          count += data.criteria63.data_6_3_3 ? 1 : 0;
           count += data.criteria63.file6_3_3_1 ? 1 : 0;
           count += data.criteria63.file6_3_3_2 ? 1 : 0;
-          count += data.criteria63.data_6_3_4 || data.criteria63.data_6_3_4 === 0 ? 1 : 0;
+          count += data.criteria63.data_6_3_4 ? 1 : 0;
           count += data.criteria63.file6_3_4_1 ? 1 : 0;
           count += data.criteria63.file6_3_4_2 ? 1 : 0;
         }
@@ -69,10 +69,10 @@ const CardC6 = () => {
         if (data.criteria64) {
           count += data.criteria64.text_6_4_1 ? 1 : 0;
           count += data.criteria64.file6_4_1 ? 1 : 0;
-          count += data.criteria64.data_6_4_2 || data.criteria64.data_6_4_2 === 0 ? 1 : 0;
+          count += data.criteria64.data_6_4_2 ? 1 : 0;
           count += data.criteria64.file6_4_2_1 ? 1 : 0;
           count += data.criteria64.file6_4_2_2 ? 1 : 0;
-          count += data.criteria64.data_6_4_3 || data.criteria64.data_6_4_3 === 0 ? 1 : 0;
+          count += data.criteria64.data_6_4_3 ? 1 : 0;
           count += data.criteria64.file6_4_3_1 ? 1 : 0;
           count += data.criteria64.file6_4_3_2 ? 1 : 0;
           count += data.criteria64.text_6_4_4 ? 1 : 0;

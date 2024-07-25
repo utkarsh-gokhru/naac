@@ -4,7 +4,7 @@ import { saveAs } from 'file-saver';
 import axios from "axios";
 
 
-export const Criteria24 = () => {
+export const Criteria24 = ({ onCrit24Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -16,10 +16,12 @@ export const Criteria24 = () => {
     const [file2_4_1_2, setfile2_4_1_2] = useState(null);
     const [file2_4_2_1, setfile2_4_2_1] = useState(null);
     const [file2_4_2_2, setfile2_4_2_2] = useState(null);
+    const [file2_4_3_1, setfile2_4_3_1] = useState(null);
+    const [file2_4_3_2, setfile2_4_3_2] = useState(null);
+    const [file2_4_4_1, setfile2_4_4_1] = useState(null);
+    const [file2_4_4_2, setfile2_4_4_2] = useState(null);
 
-
-
-    const saveSection2_4_1_1 = async () => {
+    const saveSection2_4_1 = async () => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -34,9 +36,9 @@ export const Criteria24 = () => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-1-1-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-4-1", formdata);
             console.log(response.data);
-            alert("Saved Section 2.1.1.1 data:");
+            alert("Saved Section 2.4.1 data:");
         } catch (error) {
             console.log("Error", error.message);
         }
@@ -44,7 +46,7 @@ export const Criteria24 = () => {
 
 
 
-    const saveSection2_4_2_1 = async () => {
+    const saveSection2_4_2 = async () => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -60,9 +62,55 @@ export const Criteria24 = () => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-1-1-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-4-2", formdata);
             console.log(response.data);
-            alert("Saved Section 2.1.2.1 data:");
+            alert("Saved Section 2.4.2 data:");
+        } catch (error) {
+            console.log("Error", error.message);
+        }
+    };
+
+    const saveSection2_4_3 = async () => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            department,
+            academicYear,
+            total_exp,
+            file2_4_3_1,
+            file2_4_3_2,
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+        try {
+            const response = await axios.post("http://localhost:5000/data/save2-4-3", formdata);
+            console.log(response.data);
+            alert("Saved Section 2.4.3 data:");
+        } catch (error) {
+            console.log("Error", error.message);
+        }
+    };
+
+    const saveSection2_4_4 = async () => {
+        const formdata = new FormData();
+
+        const sectionData = {
+            department,
+            academicYear,
+            award_rec_teachers,
+            file2_4_4_1,
+            file2_4_4_2,
+        };
+
+        for (const key in sectionData) {
+            formdata.append(key, sectionData[key]);
+        }
+        try {
+            const response = await axios.post("http://localhost:5000/data/save2-4-4", formdata);
+            console.log(response.data);
+            alert("Saved Section 2.4.4 data:");
         } catch (error) {
             console.log("Error", error.message);
         }
@@ -80,6 +128,25 @@ export const Criteria24 = () => {
             console.error('Error fetching the template file:', error);
         }
     };
+
+    useEffect(() => {
+        const crit24 = {
+            full_time_teachers,
+            file2_4_1_1,
+            file2_4_1_2,
+            full_time_teachers_phd_etc,
+            file2_4_2_1,
+            file2_4_2_2,
+            total_exp,
+            file2_4_3_1,
+            file2_4_3_2,
+            award_rec_teachers,
+            file2_4_4_1,
+            file2_4_4_2
+        };
+
+        onCrit24Data(crit24);
+    }, [full_time_teachers, file2_4_1_1, file2_4_1_2, full_time_teachers_phd_etc, file2_4_2_1, file2_4_2_2, total_exp, file2_4_3_1, file2_4_3_2, award_rec_teachers, file2_4_4_1, file2_4_4_2]);
 
     return (
         <div class='c-2-4'>
@@ -141,7 +208,7 @@ export const Criteria24 = () => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_4_1_1}>Save</button>
+                <button onClick={saveSection2_4_1}>Save</button>
             </div>
             <br></br>
             <br></br>
@@ -203,7 +270,7 @@ export const Criteria24 = () => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_4_2_1}>Save</button>
+                <button onClick={saveSection2_4_2}>Save</button>
             </div>
             <br></br>
 
@@ -230,7 +297,7 @@ export const Criteria24 = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td> {file2_4_2_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                            <td> {file2_4_3_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
 
                                 Upload the data template</td>
                             <td>
@@ -239,25 +306,25 @@ export const Criteria24 = () => {
                             <td>
                                 <input
                                     type="file"
-                                    id="file2_4_2_1"
+                                    id="file2_4_3_1"
                                     name="fileUpload"
                                     accept=".xls, .xlsx"
-                                    onChange={(e) => setfile2_4_2_1(e.target.files[0])}
+                                    onChange={(e) => setfile2_4_3_1(e.target.files[0])}
                                 />
                             </td>
                             <td>xls, xlsx. File size: 6MB</td>
                         </tr>
                         <tr>
-                            <td> {file2_4_2_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                            <td> {file2_4_3_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
                                 Upload relevant supporting documents</td>
                             <td></td>
                             <td>
                                 <input
                                     type="file"
-                                    id="file2_4_2_2"
+                                    id="file2_4_3_2"
                                     name="fileUpload"
                                     accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                    onChange={(e) => setfile2_4_2_2(e.target.files[0])}
+                                    onChange={(e) => setfile2_4_3_2(e.target.files[0])}
                                 />
                             </td>
                             <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -265,7 +332,7 @@ export const Criteria24 = () => {
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={saveSection2_4_2_1}>Save</button>
+                    <button onClick={saveSection2_4_3}>Save</button>
                 </div>
                 <br></br>
             </div>
@@ -290,7 +357,7 @@ export const Criteria24 = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td> {file2_4_2_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                        <td> {file2_4_4_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
 
                             Upload the data template</td>
                         <td>
@@ -299,25 +366,25 @@ export const Criteria24 = () => {
                         <td>
                             <input
                                 type="file"
-                                id="file2_4_2_1"
+                                id="file2_4_4_1"
                                 name="fileUpload"
                                 accept=".xls, .xlsx"
-                                onChange={(e) => setfile2_4_2_1(e.target.files[0])}
+                                onChange={(e) => setfile2_4_4_1(e.target.files[0])}
                             />
                         </td>
                         <td>xls, xlsx. File size: 6MB</td>
                     </tr>
                     <tr>
-                        <td> {file2_4_2_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                        <td> {file2_4_4_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
                             Upload relevant supporting documents</td>
                         <td></td>
                         <td>
                             <input
                                 type="file"
-                                id="file2_4_2_2"
+                                id="file2_4_4_2"
                                 name="fileUpload"
                                 accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                onChange={(e) => setfile2_4_2_2(e.target.files[0])}
+                                onChange={(e) => setfile2_4_4_2(e.target.files[0])}
                             />
                         </td>
                         <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -325,7 +392,7 @@ export const Criteria24 = () => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_4_2_1}>Save</button>
+                <button onClick={saveSection2_4_4}>Save</button>
             </div>
             <br></br>
         </div>

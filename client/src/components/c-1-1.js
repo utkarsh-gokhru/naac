@@ -31,7 +31,7 @@ const Criteria11 = ({ onCrit11Data }) => {
         }
 
         try{
-            const response = await axios.post("https://naacserver.onrender.com/data/save1-1-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save1-1-1", formdata);
             console.log(response.data); 
             alert("Saved Section 1.1.1 data:");
         }catch(error){
@@ -55,7 +55,7 @@ const Criteria11 = ({ onCrit11Data }) => {
         }
     
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save1-1-2", formdata);
+            const response = await axios.post("http://localhost:5000/data/save1-1-2", formdata);
             console.log(response.data);
             alert("Saved Section 1.1.2 data successfully!");
         } catch (error) {
@@ -80,7 +80,7 @@ const Criteria11 = ({ onCrit11Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save1-1-3", formdata);
+            const response = await axios.post("http://localhost:5000/data/save1-1-3", formdata);
             console.log(response.data);
             alert("Saved Section 1.1.3 data successfully!");
         } catch (error) {
@@ -104,7 +104,7 @@ const Criteria11 = ({ onCrit11Data }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC1?department=${department}&academicYear=${academicYear}`);
+            const response = await axios.get(`http://localhost:5000/data/fetchC1?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data.criteria11;
     
             if (data) {

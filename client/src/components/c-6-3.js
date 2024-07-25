@@ -9,7 +9,7 @@ const Criteria63 = ({ onCrit63Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
-    const [text_6_3_1, settext_6_3_1] = useState("");
+    const [text6_3_1, settext6_3_1] = useState("");
     const [data_6_3_2, setdata_6_3_2] = useState("");
     const [data_6_3_3, setdata_6_3_3] = useState("");
     const [data_6_3_4, setdata_6_3_4] = useState("");
@@ -30,7 +30,7 @@ const Criteria63 = ({ onCrit63Data }) => {
         const sectionData = {
             department,
             academicYear,
-            text_6_3_1,
+            text6_3_1,
             file6_3_1
         };
     
@@ -39,7 +39,7 @@ const Criteria63 = ({ onCrit63Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save6-3-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save6-3-1", formdata);
             console.log(response.data);
             alert("Saved Section 6.3.1 data successfully!");
         } catch (error) {
@@ -64,7 +64,7 @@ const Criteria63 = ({ onCrit63Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save6-3-2", formdata);
+            const response = await axios.post("http://localhost:5000/data/save6-3-2", formdata);
             console.log(response.data);
             alert("Saved Section 6.3.2 data successfully!");
         } catch (error) {
@@ -89,7 +89,7 @@ const Criteria63 = ({ onCrit63Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save6-3-3", formdata);
+            const response = await axios.post("http://localhost:5000/data/save6-3-3", formdata);
             console.log(response.data);
             alert("Saved Section 6.3.3 data successfully!");
         } catch (error) {
@@ -114,7 +114,7 @@ const Criteria63 = ({ onCrit63Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save6-3-4", formdata);
+            const response = await axios.post("http://localhost:5000/data/save6-3-4", formdata);
             console.log(response.data);
             alert("Saved Section 6.3.4 data successfully!");
         } catch (error) {
@@ -123,10 +123,9 @@ const Criteria63 = ({ onCrit63Data }) => {
         }
     };
 
-
     useEffect(() => {
         const crit63 = {
-            text_6_3_1,
+            text6_3_1,
             file6_3_1,
             data_6_3_2,
             file6_3_2_1,
@@ -139,7 +138,7 @@ const Criteria63 = ({ onCrit63Data }) => {
             file6_3_4_2
         };
         onCrit63Data(crit63);
-    },[text_6_3_1,
+    },[text6_3_1,
         file6_3_1,
         data_6_3_2,
         file6_3_2_1,
@@ -175,8 +174,8 @@ const Criteria63 = ({ onCrit63Data }) => {
             <StyledTextArea
                                 rows={5}
                                 placeholder="Type the text here"
-                                value={text_6_3_1}
-                                onChange={(e) => settext_6_3_1(e.target.value)}
+                                value={text6_3_1}
+                                onChange={(e) => settext6_3_1(e.target.value)}
                         />
                         <table>
                             <thead>
@@ -207,7 +206,7 @@ const Criteria63 = ({ onCrit63Data }) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={() => saveSection6_3_1({text_6_3_1,file6_3_1},'6-3-1')}>Save</button>
+                            <button onClick={() => saveSection6_3_1({text6_3_1,file6_3_1},'6-3-1')}>Save</button>
                         </div>
                         </div>
 

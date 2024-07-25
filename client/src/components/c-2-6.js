@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import StyledTextArea from "./textArea";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-const Criteria26 = () => {
+const Criteria26 = ({ onCrit26Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -25,17 +25,15 @@ const Criteria26 = () => {
             academicYear,
             file2_6_1,
             learning_outcomes
-
-
         };
 
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-6-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-6-1", formdata);
             console.log(response.data);
-            alert("Saved Section 2.6.3.2.1 data:");
+            alert("Saved Section 2.6.1 data:");
         } catch (error) {
             console.log("Error", error.message);
         }
@@ -49,16 +47,13 @@ const Criteria26 = () => {
             academicYear,
             file2_6_2,
             attainment_prog_outcomes
-
-
-
         };
 
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-6-2", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-6-2", formdata);
             console.log(response.data);
             alert("Saved Section 2.6.2 data:");
         } catch (error) {
@@ -82,14 +77,13 @@ const Criteria26 = () => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-6-3", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-6-3", formdata);
             console.log(response.data);
-            alert("Saved Section 2.6.1 data:");
+            alert("Saved Section 2.6.3 data:");
         } catch (error) {
             console.log("Error", error.message);
         }
     };
-
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -103,6 +97,20 @@ const Criteria26 = () => {
             console.error('Error fetching the template file:', error);
         }
     };
+
+    useEffect(() => {
+        const crit26 = {
+            learning_outcomes,
+            file2_6_1,
+            attainment_prog_outcomes,
+            file2_6_2,
+            final_year_students_passed,
+            final_year_students_appeared,
+            file2_6_3_2_1,
+            file2_6_3_2_2
+        };
+        onCrit26Data(crit26);
+    }, [learning_outcomes, file2_6_1, attainment_prog_outcomes, file2_6_2, final_year_students_passed, final_year_students_appeared, file2_6_3_2_1, file2_6_3_2_2]);
 
 
     return (

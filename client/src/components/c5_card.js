@@ -15,7 +15,7 @@ const CardC5 = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://naacserver.onrender.com/data/fetchC5?department=${department}&academicYear=${academicYear}`);
+      const response = await axios.get(`http://localhost:5000/data/fetchC5?department=${department}&academicYear=${academicYear}`);
       const data = response.data.data;
 
       if (data) {

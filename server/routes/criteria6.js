@@ -18,13 +18,13 @@ const deleteExistingFiles = async (data) => {
         // Criteria 61
         data?.criteria61?.file6_1_1,
         data?.criteria61?.file6_1_2,
-    
+
         // Criteria 62
         data?.criteria62?.file6_2_1,
         data?.criteria62?.file6_2_2,
         data?.criteria62?.file6_2_3_1,
         data?.criteria62?.file6_2_3_2,
-    
+
         // Criteria 63
         data?.criteria63?.file6_3_1,
         data?.criteria63?.file6_3_2_1,
@@ -33,7 +33,7 @@ const deleteExistingFiles = async (data) => {
         data?.criteria63?.file6_3_3_2,
         data?.criteria63?.file6_3_4_1,
         data?.criteria63?.file6_3_4_2,
-    
+
         // Criteria 64
         data?.criteria64?.file6_4_1,
         data?.criteria64?.file6_4_2_1,
@@ -41,13 +41,13 @@ const deleteExistingFiles = async (data) => {
         data?.criteria64?.file6_4_3_1,
         data?.criteria64?.file6_4_3_2,
         data?.criteria64?.file6_4_4,
-    
+
         // Criteria 65
         data?.criteria65?.file6_5_1,
         data?.criteria65?.file6_5_2_1,
         data?.criteria65?.file6_5_2_2,
         data?.criteria65?.file6_5_3
-    ];    
+    ];
 
     const deletePromises = filePaths.map(async (filePath) => {
         if (filePath) {
@@ -103,7 +103,7 @@ const updateExistingData = async (existingData, filePaths) => {
             fieldsToUpdate[fieldName] = filePaths[fieldName];
         }
         return fieldsToUpdate;
-    }, {}); 
+    }, {});
 
     if (Object.keys(updateFields).length > 0) {
         Object.assign(existingData, updateFields);
@@ -113,27 +113,30 @@ const updateExistingData = async (existingData, filePaths) => {
     }
 };
 
-app.post('/criteria5/submit', upload.fields([
-    { name: 'file5_1_1_1', maxCount: 1 },
-    { name: 'file5_1_1_2', maxCount: 1 },
-    { name: 'file5_1_2_1', maxCount: 1 },
-    { name: 'file5_1_2_2', maxCount: 1 },
-    { name: 'file5_1_3_1', maxCount: 1 },
-    { name: 'file5_1_3_2', maxCount: 1 },
-    { name: 'file5_1_4', maxCount: 1 },
-    { name: 'file5_2_1_1', maxCount: 1 },
-    { name: 'file5_2_1_2', maxCount: 1 },
-    { name: 'file5_2_2_1', maxCount: 1 },
-    { name: 'file5_2_2_2', maxCount: 1 },
-    { name: 'file5_2_3_1', maxCount: 1 },
-    { name: 'file5_2_3_2', maxCount: 1 },
-    { name: 'file5_3_1_1', maxCount: 1 },
-    { name: 'file5_3_1_2', maxCount: 1 },
-    { name: 'file5_3_2', maxCount: 1 },
-    { name: 'file5_3_3_1', maxCount: 1 },
-    { name: 'file5_3_3_2', maxCount: 1 },
-    { name: 'file5_4_1', maxCount: 1 },
-    { name: 'file5_4_2', maxCount: 1 }
+app.post('/criteria6/submit', upload.fields([
+    { name: 'file6_1_1', maxCount: 1 },
+    { name: 'file6_1_2', maxCount: 1 },
+    { name: 'file6_2_1', maxCount: 1 },
+    { name: 'file6_2_2', maxCount: 1 },
+    { name: 'file6_2_3_1', maxCount: 1 },
+    { name: 'file6_2_3_2', maxCount: 1 },
+    { name: 'file6_3_1', maxCount: 1 },
+    { name: 'file6_3_2_1', maxCount: 1 },
+    { name: 'file6_3_2_2', maxCount: 1 },
+    { name: 'file6_3_3_1', maxCount: 1 },
+    { name: 'file6_3_3_2', maxCount: 1 },
+    { name: 'file6_3_4_1', maxCount: 1 },
+    { name: 'file6_3_4_2', maxCount: 1 },
+    { name: 'file6_4_1', maxCount: 1 },
+    { name: 'file6_4_2_1', maxCount: 1 },
+    { name: 'file6_4_2_2', maxCount: 1 },
+    { name: 'file6_4_3_1', maxCount: 1 },
+    { name: 'file6_4_3_2', maxCount: 1 },
+    { name: 'file6_4_4', maxCount: 1 },
+    { name: 'file6_5_1', maxCount: 1 },
+    { name: 'file6_5_2_1', maxCount: 1 },
+    { name: 'file6_5_2_2', maxCount: 1 },
+    { name: 'file6_5_3', maxCount: 1 }
 ]), async (req, res) => {
     try {
         const files = req.files;
@@ -141,11 +144,11 @@ app.post('/criteria5/submit', upload.fields([
 
         const requiredFileFields = [
             'file6_1_1', 'file6_1_2', 'file6_2_1', 'file6_2_2', 'file6_2_3_1',
-    'file6_2_3_2', 'file6_3_1', 'file6_3_2_1', 'file6_3_2_2', 'file6_3_3_1',
-    'file6_3_3_2', 'file6_3_4_1', 'file6_3_4_2', 'file6_4_1', 'file6_4_2_1',
-    'file6_4_2_2', 'file6_4_3_1', 'file6_4_3_2', 'file6_4_4', 'file6_5_1',
-    'file6_5_2_1', 'file6_5_2_2', 'file6_5_3'
-        ];        
+            'file6_2_3_2', 'file6_3_1', 'file6_3_2_1', 'file6_3_2_2', 'file6_3_3_1',
+            'file6_3_3_2', 'file6_3_4_1', 'file6_3_4_2', 'file6_4_1', 'file6_4_2_1',
+            'file6_4_2_2', 'file6_4_3_1', 'file6_4_3_2', 'file6_4_4', 'file6_5_1',
+            'file6_5_2_1', 'file6_5_2_2', 'file6_5_3'
+        ];
 
         let existingData = await Criteria6Model.findOne({ department: req.body.department, academicYear: req.body.academicYear });
 
@@ -186,7 +189,7 @@ app.post('/criteria5/submit', upload.fields([
                                 expectedFileFields.splice(index, 1);
                             }
                         }
-                    }else if (missingField.startsWith('file6_5')) {
+                    } else if (missingField.startsWith('file6_5')) {
                         if (existingData.criteria64 && existingData.criteria65.hasOwnProperty(missingField)) {
                             const index = requiredFileFields.indexOf(missingField);
                             if (index !== -1) {
@@ -203,7 +206,7 @@ app.post('/criteria5/submit', upload.fields([
                 return res.status(400).send(errorMessage);
             }
         }
-        
+
 
         //Storing the file in firebase
         for (const fieldName in files) {
@@ -226,7 +229,7 @@ app.post('/criteria5/submit', upload.fields([
         if (existingData) {
 
             const existingDataCopy = JSON.parse(JSON.stringify(existingData));
-            
+
             for (let i = 61; i <= 65; i++) {
                 const criteria = existingDataCopy[`criteria${i}`];
                 for (const x in criteria) {
@@ -249,8 +252,8 @@ app.post('/criteria5/submit', upload.fields([
                         }
                     }
                 }
-            }                         
-    
+            }
+
             await deleteExistingFiles(existingDataCopy);
             const updateResult = await updateExistingData(existingData, filePaths);
 
@@ -307,7 +310,7 @@ app.post('/criteria5/submit', upload.fields([
                             file6_5_3: existingData.criteria65.file6_5_3 && filePaths.file6_5_3 ? filePaths.file6_5_3 : existingData.criteria65.file6_5_3 || filePaths.file6_5_3,
                         },
                     });
-                
+
                     await existingData.save();
                     console.log('Data updated and saved successfully!');
                     res.status(201).send(updateResult.message);
@@ -316,7 +319,7 @@ app.post('/criteria5/submit', upload.fields([
                     res.status(500).send('Internal Server Error');
                 }
             }
-            
+
         } else {
             const newData = new Criteria6Model({
                 department: req.body.department,
@@ -371,7 +374,7 @@ app.post('/criteria5/submit', upload.fields([
                     file6_5_3: filePaths.file6_5_3,
                 },
             });
-        
+
             try {
                 await newData.save();
                 console.log('Data saved successfully!');
@@ -381,8 +384,8 @@ app.post('/criteria5/submit', upload.fields([
                 res.status(500).send('Internal Server Error');
             }
         }
-        
-        
+
+
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

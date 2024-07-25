@@ -64,7 +64,7 @@ const Criteria5 = () => {
 
         console.log(formdata);
 
-        const response = await axios.post("https://naacserver.onrender.com/data/criteria5/submit", formdata);
+        const response = await axios.post("http://localhost:5000/data/criteria5/submit", formdata);
         console.log(response.data); 
         alert("Criteria 5 submitted!");
     } catch (error) {

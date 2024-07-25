@@ -3,7 +3,7 @@ import StyledTextArea from "./textArea";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-export const Criteria21 = () => {
+export const Criteria21 = ({ onCrit21Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -13,8 +13,6 @@ export const Criteria21 = () => {
     const [file2_1_1_2, setfile2_1_1_2] = useState(null);
     const [file2_1_2_1, setfile2_1_2_1] = useState(null);
     const [file2_1_2_2, setfile2_1_2_2] = useState(null);
-
-
 
     const saveSection2_1_1 = async () => {
         const formdata = new FormData();
@@ -31,7 +29,7 @@ export const Criteria21 = () => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-1-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-1-1", formdata);
             console.log(response.data);
             alert("Saved Section 2.1.1.1 data:");
         } catch (error) {
@@ -67,13 +65,30 @@ export const Criteria21 = () => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-1-2", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-1-2", formdata);
             console.log(response.data);
             alert("Saved Section 2.1.2 data:");
         } catch (error) {
             console.log("Error", error.message);
         }
     };
+
+    useEffect(() => {
+        const crit21 = {
+            no_of_seats,
+            file2_1_1_1,
+            file2_1_1_2,
+            students_reserved_cat,
+            file2_1_2_1,
+            file2_1_2_2
+        };
+        onCrit21Data(crit21);
+    }, [no_of_seats,
+        file2_1_1_1,
+        file2_1_1_2,
+        students_reserved_cat,
+        file2_1_2_1,
+        file2_1_2_2])
 
     return (
         <div class='c-2-1'>

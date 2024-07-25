@@ -16,7 +16,7 @@ app.get('/fetchC1', async (req, res) => {
     if (data) {
       res.status(200).json({ data });
     } else {
-      res.status(404).json({ message: 'Data not found' });
+      res.status(200).json({ message: 'No data found', data: {} });
     }
   } catch (error) {
     console.error('Error fetching data:', error.message);

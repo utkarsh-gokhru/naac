@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import StyledTextArea from "./textArea";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-const Criteria27 = () => {
+const Criteria27 = ({ onCrit27Data }) => {
 
   const department = localStorage.getItem('department');
   const academicYear = localStorage.getItem('academicYear');
   const [sss_web_link, setsss_web_link] = useState("");
 
-
+  useEffect(() => {
+    const crit27 = { sss_web_link };
+    onCrit27Data(crit27);
+  }, [sss_web_link]);
 
   return (
     <div className='c-2-7'>

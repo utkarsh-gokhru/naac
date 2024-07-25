@@ -59,7 +59,7 @@ const Criteria31 = ({ onCrit31Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-1-1", formdata);
             console.log(response.data);
             alert("Saved Section 3.1.1 data successfully!");
         } catch (error) {
@@ -84,7 +84,7 @@ const Criteria31 = ({ onCrit31Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-2", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-1-2", formdata);
             console.log(response.data);
             alert("Saved Section 3.1.2 data successfully!");
         } catch (error) {
@@ -109,7 +109,7 @@ const Criteria31 = ({ onCrit31Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-3", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-1-3", formdata);
             console.log(response.data);
             alert("Saved Section 3.1.3 data successfully!");
         } catch (error) {
@@ -134,7 +134,7 @@ const Criteria31 = ({ onCrit31Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-4", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-1-4", formdata);
             console.log(response.data);
             alert("Saved Section 3.1.4 data successfully!");
         } catch (error) {
@@ -158,7 +158,7 @@ const Criteria31 = ({ onCrit31Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-5", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-1-5", formdata);
             console.log(response.data);
             alert("Saved Section 3.1.5 data successfully!");
         } catch (error) {
@@ -183,7 +183,7 @@ const Criteria31 = ({ onCrit31Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-6", formdata);
+            const response = await axios.post("http://localhost:5000/data/save3-1-6", formdata);
             console.log(response.data);
             alert("Saved Section 3.1.6 data successfully!");
         } catch (error) {

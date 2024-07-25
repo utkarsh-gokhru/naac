@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import CircularProgressBar from './circular-progress';
 
 const CardC2 = () => {
+
   const totalFields = 50;
   const [fieldCount, setFieldCount] = useState(0);
   const department = localStorage.getItem('department');
@@ -15,14 +16,14 @@ const CardC2 = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://naacserver.onrender.com/data/fetchC2?department=${department}&academicYear=${academicYear}`);
+      const response = await axios.get(`http://localhost:5000/data/fetchC2?department=${department}&academicYear=${academicYear}`);
       const data = response.data.data;
 
       if (data) {
         let count = 0;
 
         // Criteria 21
-        if(data.criteria21){
+        if (data.criteria21) {
           count += data.criteria21.no_of_seats ? 1 : 0;
           count += data.criteria21.file2_1_1_1 ? 1 : 0;
           count += data.criteria21.file2_1_1_2 ? 1 : 0;
@@ -32,7 +33,7 @@ const CardC2 = () => {
         }
 
         // Criteria 22
-        if(data.criteria22){
+        if (data.criteria22) {
           count += data.criteria22.learning_assessment ? 1 : 0;
           count += data.criteria22.file2_2_1_1 ? 1 : 0;
           count += data.criteria22.link2_2_1_2 ? 1 : 0;
@@ -42,7 +43,7 @@ const CardC2 = () => {
         }
 
         // Criteria 23
-        if(data.criteria23){
+        if (data.criteria23) {
           count += data.criteria23.learning_exp ? 1 : 0;
           count += data.criteria23.file2_3_1 ? 1 : 0;
           count += data.criteria23.effect_teach_learn ? 1 : 0;
@@ -52,7 +53,7 @@ const CardC2 = () => {
         }
 
         // Criteria 24
-        if(data.criteria24){
+        if (data.criteria24) {
           count += data.criteria24.full_time_teachers ? 1 : 0;
           count += data.criteria24.file2_4_1_1 ? 1 : 0;
           count += data.criteria24.file2_4_1_2 ? 1 : 0;
@@ -68,7 +69,7 @@ const CardC2 = () => {
         }
 
         // Criteria 25
-        if(data.criteria25){
+        if (data.criteria25) {
           count += data.criteria25.no_of_days ? 1 : 0;
           count += data.criteria25.no_of_days_yearwise ? 1 : 0;
           count += data.criteria25.file2_5_1_1 ? 1 : 0;
@@ -83,7 +84,7 @@ const CardC2 = () => {
         }
 
         // Criteria 26
-        if(data.criteria26){
+        if (data.criteria26) {
           count += data.criteria26.learning_outcomes ? 1 : 0;
           count += data.criteria26.file2_6_1 ? 1 : 0;
           count += data.criteria26.attainment_prog_outcomes ? 1 : 0;
@@ -95,7 +96,7 @@ const CardC2 = () => {
         }
 
         // Criteria 27
-        if(data.criteria27){
+        if (data.criteria27) {
           count += data.criteria27.sss_web_link ? 1 : 0;
         }
 
@@ -108,7 +109,7 @@ const CardC2 = () => {
 
   useEffect(() => {
     fetchData();
-  }, []); 
+  }, []);
 
   const progress = ((fieldCount / totalFields) * 100).toFixed(2);
 
@@ -123,7 +124,7 @@ const CardC2 = () => {
       }
     }
   }
-  
+
   return (
     <div className="card" onClick={handleClick}>
       <div className="card-content">

@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import StyledTextArea from "./textArea";
-import { saveAs } from 'file-saver';
 import axios from "axios";
 
-export const Criteria22 = () => {
+export const Criteria23 = ({ onCrit23Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -14,8 +13,6 @@ export const Criteria22 = () => {
     const [effect_teach_learn, seteffect_teach_learn] = useState("");
     const [file2_3_2, setfile2_3_2] = useState(null);
     const [file2_3_3, setfile2_3_3] = useState(null);
-
-
 
     const saveSection2_3_1 = async () => {
         const formdata = new FormData();
@@ -31,7 +28,7 @@ export const Criteria22 = () => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-3-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-3-1", formdata);
             console.log(response.data);
             alert("Saved Section 2.3.1 data:");
         } catch (error) {
@@ -54,7 +51,7 @@ export const Criteria22 = () => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-3-2", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-3-2", formdata);
             console.log(response.data);
             alert("Saved Section 2.3.2 data:");
         } catch (error) {
@@ -76,7 +73,7 @@ export const Criteria22 = () => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-3-3", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-3-3", formdata);
             console.log(response.data);
             alert("Saved Section 2.3.3 data:");
         } catch (error) {
@@ -84,13 +81,22 @@ export const Criteria22 = () => {
         }
     };
 
+    useEffect(() => {
+        const crit23 = {
+            learning_exp,
+            file2_3_1,
+            effect_teach_learn,
+            file2_3_2,
+            no_of_mentors,
+            file2_3_3
+        };
+        onCrit23Data(crit23);
+    }, [learning_exp, file2_3_1, effect_teach_learn, file2_3_2, no_of_mentors, file2_3_3]);
+
     return (
         <div className='c-2-3'>
-
             <h3>2.3- Teaching- Learning Process</h3>
-
             <h4>2.3.1 - Student centric methods, such as experiential learning, participative learning and problem-solving methodologies are used for enhancing learning experiences</h4>
-
             <div className="text-area">
                 <StyledTextArea
                     rows={5}
@@ -224,4 +230,4 @@ export const Criteria22 = () => {
     )
 }
 
-export default Criteria22
+export default Criteria23;

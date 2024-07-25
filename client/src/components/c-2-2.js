@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import StyledTextArea from "./textArea";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-export const Criteria22 = () => {
-
+export const Criteria22 = ({ onCrit22Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -16,7 +15,6 @@ export const Criteria22 = () => {
     const [file2_2_1_1, setfile2_2_1_1] = useState(null);
     const [link2_2_1_2, setlink2_2_1_2] = useState(null);
     const [file2_2_2, setfile2_2_2] = useState(null);
-
 
     const saveSection2_2_1 = async () => {
         const formdata = new FormData();
@@ -33,7 +31,7 @@ export const Criteria22 = () => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-2-1", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-2-1", formdata);
             console.log(response.data);
             alert("Saved Section 2.2.1 data:");
         } catch (error) {
@@ -56,13 +54,30 @@ export const Criteria22 = () => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-2-2", formdata);
+            const response = await axios.post("http://localhost:5000/data/save2-2-2", formdata);
             console.log(response.data);
             alert("Saved Section 2.2.2 data:");
         } catch (error) {
             console.log("Error", error.message);
         }
     };
+
+    useEffect(() => {
+        const crit22 = {
+            learning_assessment,
+            file2_2_1_1,
+            link2_2_1_2,
+            no_of_students,
+            no_of_teachers,
+            file2_2_2
+        };
+        onCrit22Data(crit22);
+    }, [learning_assessment,
+        file2_2_1_1,
+        link2_2_1_2,
+        no_of_students,
+        no_of_teachers,
+        file2_2_2]);
 
     return (
         <div className='c-2-2'>
