@@ -6,6 +6,7 @@ import naacLogo from '../naac_logo.png';
 import muLogo from '../mu_logo.jpg';
 
 const Login = () => {
+
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
     const [department, setDepartment] = useState('');
@@ -17,6 +18,87 @@ const Login = () => {
     const [invalOtp, setInvalOtp] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    const departments = [
+        'Academy of Administrative Careers',
+        'Academy of Theatre Arts (Ambedkar Bhavan)',
+        'Alkesh Dinesh Mosy Institute for Financial and Management Studies (Separate Building)',
+        'Center for Eurasian Studies',
+        'Center for Excellence in Basic Sciences',
+        'Center of Extra Mural Studies / MA Archeology',
+        'Chankya Institute of Leadership Studies',
+        'Confucius Institute',
+        'Department of Sociology (Ranade)',
+        'Department of Lifelong Learning and Education',
+        'Department of Applied Psychology',
+        'Department of Arabic (Ranade)',
+        'Department of Bio-Physics (Separate Building)',
+        'Department of Bio-Technology (Ls Block)',
+        'Department of Chemistry',
+        'Department of Civics and Politics',
+        'Department of Commerce (Ranade)',
+        'Department of Communication and Journalism',
+        'Department of Education',
+        'Department of English',
+        'Centre for African Studies',
+        'Department of French (Ranade)',
+        'Department of Geography (Tilak)',
+        'Department of German',
+        'Department of Gujarati',
+        'Department of Hindi',
+        'Department of History (Ranade Bhavan)',
+        'Department of Kannada (Ranade)',
+        'Department of Law (Fort Campus)',
+        'Department of Library and Information Science (JN)',
+        'Department of Life Sciences',
+        'Department of Linguistics',
+        'Department of Marathi (Ranade)',
+        'Department of Mathematics',
+        'Department of Music',
+        'Department of Pali',
+        'Department of Persian (Ranade)',
+        'Department of Philosophy (Gyaneshwar)',
+        'Department of Physical Education (Sports Complex)',
+        'Department of Physics (Tilak)',
+        'Department of Russian',
+        'Department of Sanskrit',
+        'Department of Sindhi',
+        'Department of Statistics',
+        'Department of Urdu',
+        'Garware Institute of Career Education and Development',
+        'JBIMS',
+        'Lokkala Academy',
+        'Mumbai School of Economics and Public Policy',
+        'Dr. Ambedkar Centre for Social Justice',
+        'Mahatma Gandhi Peace Center',
+        'Ratnagiri Sub-Center',
+        'Thane Sub-Center (5 years integrated Law & Management Programme and 5 years integrated Management Programme)',
+        'UDIT (IDOL Building)',
+        'UMLA',
+        'University Department of Computer Science (Ranade)',
+        'Director NSS',
+        'Director Student Development',
+        'National Center for Nanoscience and Nanotechnology',
+        'Gurudev Tagore Chair of Comparative Literature',
+        'Institute of Distance and Open Learning',
+        'J. J. College of Architecture',
+        'Rajiv Gandhi Center for Contemporary Studies (MSW)',
+        'Phule-Ambedkar Chair',
+        'UGC HRDC',
+        'Vijaylakshmi Vishwanath Dalvie College, Talere',
+        'Vishwabhushan Bharatratna Dr. Babasaheb Ambedkar College (Model College) Ambadave',
+        'Women Development Cell',
+        'MU IDEAS',
+        'Knowledge Resource Center',
+        'Finance and Accounts Section',
+        'TAU',
+        'Affiliation Section',
+        'Examination Section',
+        'UG and PG Section',
+        'Enrollment and Eligibility Section',
+        'Thesis Section',
+        'AAQA'
+    ];
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -108,10 +190,9 @@ const Login = () => {
                         <label>Department</label>
                         <select value={department} onChange={(e) => setDepartment(e.target.value)} required>
                             <option value='' disabled>Select your department</option>
-                            <option value='Engineering'>Engineering</option>
-                            <option value='Law'>Law</option>
-                            <option value='Medical'>Medical</option>
-                            <option value='Admin'>Admin</option>
+                            {departments.map((dept, index) => (
+                                <option key={index} value={dept}>{dept}</option>
+                            ))}
                         </select>
                     </div>
                     <div className='academic-year-div'>
