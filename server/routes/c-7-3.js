@@ -8,8 +8,8 @@ app.use(bodyParser.json());
 
 const upload = multer();
 
-app.post('/save7-1-3', upload.fields([{ name: 'file7_1_3' }]), async (req, res) => {
+app.post('/save7-3-1', upload.any(), async (req, res) => {
     handleUpload(req, res, 'criteria73');
 });
 
-export {app as C73}
+export { app as C73 };

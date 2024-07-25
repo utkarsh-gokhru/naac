@@ -18,7 +18,7 @@ const handleUpload = async (req, res, section) => {
         } else {
             files = req.files;
         }
-    
+
         const data = req.body;
 
         if (!files || !data) {
@@ -45,7 +45,7 @@ const handleUpload = async (req, res, section) => {
             const existingFiles = Object.keys(existingData[section]).filter(fieldName => fieldName.startsWith('file') && existingData[section][fieldName] !== null && existingData[section][fieldName] !== undefined);
             const newFiles = fieldNames;
             const filesToDelete = existingFiles.filter(existingFile => newFiles.includes(existingFile));
-        
+
             await Promise.all(filesToDelete.map(async fileToDelete => {
                 const filePath = existingData[section][fileToDelete];
                 const fileRef = ref(storage, filePath);
@@ -57,7 +57,7 @@ const handleUpload = async (req, res, section) => {
                 }
             }));
         }
-        
+
         if (existingData) {
             newData = { ...existingData[section], ...newData };
         }

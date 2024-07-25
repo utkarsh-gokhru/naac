@@ -16,7 +16,7 @@ app.post('/save4-3-2', upload.fields([{ name: 'file4_3_2' }]), async (req, res) 
     handleUpload(req, res, 'criteria43');
 });
 
-app.post('/save4-3-3', async (req, res) => {
+app.post('/save4-3-3', upload.any(), async (req, res) => {
     handleUpload(req, res, 'criteria43');
 });
 

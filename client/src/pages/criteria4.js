@@ -2,12 +2,10 @@ import React , {useState} from "react";
 import Criteria41 from "../components/c-4-1";
 import Criteria42 from "../components/c-4-2";
 import Criteria43 from "../components/c-4-3";
-// import Criteria43 from "../components/c-4-3";
-// import Criteria44 from "../components/c-4-4";
+import Criteria44 from "../components/c-4-4";
 import Popup from "../components/popup";
 import naacLogo from '../naac_logo.png';
 import axios from 'axios';
-import Criteria44 from "../components/c-4-4";
 
 const Criteria4 = () => {
 
