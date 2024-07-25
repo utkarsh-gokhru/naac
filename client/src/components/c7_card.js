@@ -51,7 +51,7 @@ const CardC7 = () => {
           count += data.criteria71.file7_1_6 ? 1 : 0;
           count += data.criteria71.data7_1_7 || data.criteria71.data7_1_7 === 0 ? 1 : 0;
           count += data.criteria71.file7_1_7 ? 1 : 0;
-          count += data.criteria71.data7_1_8 || data.criteria71.data7_1_8 === 0 ? 1 : 0;
+          count += data.criteria71.text7_1_8 || data.criteria71.text7_1_8 === 0 ? 1 : 0;
           count += data.criteria71.file7_1_8 ? 1 : 0;
           count += data.criteria71.text7_1_9 ? 1 : 0;
           count += data.criteria71.data7_1_10 || data.criteria71.data7_1_10 === 0 ? 1 : 0;
@@ -83,7 +83,7 @@ const CardC7 = () => {
   }, []);
 
   return (
-    <div className="card">
+    <div className="card" onClick={handleClick}>
       <div className="card-content">
         <div className="progress-container">
           <CircularProgressBar progress={progress} />
