@@ -19,7 +19,7 @@ const Criteria72 = ({ onCrit72Data }) => {
         }
     
         try {
-            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData, {
+            const response = await axios.post(`https://naacserver.onrender.com/save${section}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

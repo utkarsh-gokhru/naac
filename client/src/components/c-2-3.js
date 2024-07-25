@@ -28,7 +28,7 @@ export const Criteria23 = ({ onCrit23Data }) => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("http://localhost:5000/data/save2-3-1", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/save2-3-1", formdata);
             console.log(response.data);
             alert("Saved Section 2.3.1 data:");
         } catch (error) {
@@ -51,7 +51,7 @@ export const Criteria23 = ({ onCrit23Data }) => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("http://localhost:5000/data/save2-3-2", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/save2-3-2", formdata);
             console.log(response.data);
             alert("Saved Section 2.3.2 data:");
         } catch (error) {
@@ -73,7 +73,7 @@ export const Criteria23 = ({ onCrit23Data }) => {
             formdata.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post("http://localhost:5000/data/save2-3-3", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/save2-3-3", formdata);
             console.log(response.data);
             alert("Saved Section 2.3.3 data:");
         } catch (error) {

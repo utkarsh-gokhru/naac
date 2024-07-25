@@ -36,7 +36,7 @@ const Criteria43 = ({ onCrit43Data }) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/data/save4-3-1", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/save4-3-1", formdata);
             console.log(response.data);
             alert("Saved Section 4.3.1 data:");
         } catch (error) {
@@ -59,7 +59,7 @@ const Criteria43 = ({ onCrit43Data }) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/data/save4-3-2", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/save4-3-2", formdata);
             console.log(response.data);
             alert("Saved Section 4.3.2 data:");
         } catch (error) {
@@ -82,7 +82,7 @@ const Criteria43 = ({ onCrit43Data }) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/data/save4-3-3", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/save4-3-3", formdata);
             console.log(response.data);
             alert("Saved Section 4.3.3 data:");
         } catch (error) {
@@ -105,7 +105,7 @@ const Criteria43 = ({ onCrit43Data }) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/data/save4-3-4", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/save4-3-4", formdata);
             console.log(response.data);
             alert("Saved Section 4.3.4 data:");
         } catch (error) {
@@ -129,7 +129,7 @@ const Criteria43 = ({ onCrit43Data }) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/data/save4-3-1", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/save4-3-1", formdata);
             console.log(response.data);
             alert("Saved Section 4.3.1 data:");
         } catch (error) {

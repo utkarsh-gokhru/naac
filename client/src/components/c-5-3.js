@@ -28,7 +28,7 @@ const Criteria53 = ({onCrit53Data}) => {
             formData.append(key, sectionData[key]);
         }
         try{
-            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
+            const response = await axios.post(`https://naacserver.onrender.com/save${section}`, formData);
             console.log(response.data); 
             alert(`Saved Section ${section} data`);
         }catch(error){

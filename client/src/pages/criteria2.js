@@ -91,7 +91,7 @@ const Criteria2 = () => {
         formdata.append(key, crit27Data[key]);
       }
 
-      const response = await axios.post("http://localhost:5000/data/criteria2/submit", formdata);
+      const response = await axios.post("https://naacserver.onrender.com/criteria2/submit", formdata);
       console.log(response.data);
       alert("Criteria 2 submitted!");
     } catch (error) {
