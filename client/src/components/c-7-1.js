@@ -40,7 +40,7 @@ const Criteria71 = ({ onCrit71Data }) => {
             formData.append(key, sectionData[key]);
         }
         try {
-            const response = await axios.post(`https://naacserver.onrender.com/save${section}`, formData);
+            const response = await axios.post(`https://naacserver.onrender.com/data/save${section}`, formData);
             console.log(response.data);
             alert(`Saved Section ${section} data`);
         } catch (error) {

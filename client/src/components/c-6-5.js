@@ -36,7 +36,7 @@ const Criteria65 = ({ onCrit65Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/save6-5-1", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save6-5-1", formdata);
             console.log(response.data);
             alert("Saved Section 6.5.1 data successfully!");
         } catch (error) {
@@ -61,7 +61,7 @@ const Criteria65 = ({ onCrit65Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/save6-5-2", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save6-5-2", formdata);
             console.log(response.data);
             alert("Saved Section 6.5.2 data successfully!");
         } catch (error) {
@@ -85,7 +85,7 @@ const Criteria65 = ({ onCrit65Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/save6-5-3", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save6-5-3", formdata);
             console.log(response.data);
             alert("Saved Section 6.5.2 data successfully!");
         } catch (error) {

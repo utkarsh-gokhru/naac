@@ -62,7 +62,7 @@ const adminC2 = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`https://naacserver.onrender.com/fetchC1?department=${department}&academicYear=${academicYear}`);
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC1?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data;
         
             if (data) {

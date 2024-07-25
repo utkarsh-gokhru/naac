@@ -29,7 +29,7 @@ const Criteria44 = ({ onCrit44Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/save4-4-1", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save4-4-1", formdata);
             console.log(response.data);
             alert("Saved Section 4.4.1 data:");
         } catch (error) {
@@ -52,7 +52,7 @@ const Criteria44 = ({ onCrit44Data }) => {
         }
 
         try {
-            const response = await axios.post("https://naacserver.onrender.com/save4-4-2", formdata);
+            const response = await axios.post("https://naacserver.onrender.com/data/save4-4-2", formdata);
             console.log(response.data);
             alert("Saved Section 4.4.2 data:");
         } catch (error) {
