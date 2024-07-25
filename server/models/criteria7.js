@@ -18,7 +18,7 @@ const Criteria7Schema = new mongoose.Schema({
         file7_1_6: { type: String },
         data7_1_7: { type: String },
         file7_1_7: { type: String },
-        data7_1_8: { type: String },
+        text7_1_8: { type: String },
         file7_1_8: { type: String },
         text7_1_9: { type: String },
         data7_1_10: { type: String },

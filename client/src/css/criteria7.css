@@ -1,0 +1,92 @@
+.c-7-1,.c-7-2,.c-7-3,.crit7-head {
+    max-width: 100%;
+    margin: 30px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    }
+    
+    ul {
+    list-style-type: none;
+    padding: 0;
+    }
+    
+    li {
+    margin-bottom: 20px;
+    }
+    
+    .text-area textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    }
+    
+    .table-7_1_1 table,
+    .c-7_1_2 table,
+    .c-7_1_3 table,
+    .c-7_1_4 table,
+    .c-7_1_5 table,
+    .c-7-1-6 table,
+    .c-7-1-7 table,
+    .c-7-1-8 table,
+    .c-7-1-9 table,
+    .c-7-1-10 table,
+    .c-7-1-11 table{
+    width: 100%;
+    border-collapse: collapse;
+    }
+    
+    .table-7_1_1 th,
+    .table-7_1_1 td,
+    .c-7_1_2 th,
+    .c-7_1_2 td,
+    .c-7_1_3 th,
+    .c-7_1_3 td,
+    .c-7_1_4 th,
+    .c-7_1_4 td,
+    .c-7_1_5 th,
+    .c-7_1_5 td,
+    .c-7-1-6 th,
+    .c-7-1-6 td,
+    .c-7-1-7 th,
+    .c-7-1-7 td,
+    .c-7-1-8 th,
+    .c-7-1-8 td,
+    .c-7-1-9 th,
+    .c-7-1-9 td,
+    .c-7-1-10 th,
+    .c-7-1-10 td,
+    .c-7-1-11 th,
+    .c-7-1-11 td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    }
+    
+    .table-7_1_1 th,
+    .c-7_1_2 th,
+    .c-7_1_3 th,
+    .c-7_1_4 th,
+    .c-7_1_5 th,
+    .c-7-1-6 th {
+    background-color: #f2f2f2;
+    }
+    
+    .radioBtn-feedback{
+    margin-top: 20px;
+    max-width: 1000px;
+    display: flex;
+    margin-right: 30px;
+    }
+    
+    @media (max-width: 750px) {
+    .c-7-1,.c-7-2,.c-7-3,.crit7-head {
+    margin: 10px;
+    padding: 10px;
+    }
+    .radioBtn-feedback{
+    display: flex;
+    flex-wrap: wrap;
+    }
+    }
+    
