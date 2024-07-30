@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-const Criteria32 = ({onCrit32Data}) => {
+const Criteria32 = ({ onCrit32Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -34,7 +34,7 @@ const Criteria32 = ({onCrit32Data}) => {
 
     const saveSection3_2_1 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -42,7 +42,7 @@ const Criteria32 = ({onCrit32Data}) => {
             file3_2_1_1,
             file3_2_1_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -59,7 +59,7 @@ const Criteria32 = ({onCrit32Data}) => {
 
     const saveSection3_2_2 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -67,7 +67,7 @@ const Criteria32 = ({onCrit32Data}) => {
             file3_2_2_1,
             file3_2_2_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -84,7 +84,7 @@ const Criteria32 = ({onCrit32Data}) => {
 
     const saveSection3_2_3 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -92,7 +92,7 @@ const Criteria32 = ({onCrit32Data}) => {
             file3_2_3_1,
             file3_2_3_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -120,7 +120,26 @@ const Criteria32 = ({onCrit32Data}) => {
             file3_2_3_2
         };
         onCrit32Data(crit32);
-    },[extraFunding,file3_2_1_1,file3_2_1_2,grants,file3_2_2_1,file3_2_2_2,teacherResearchProjects,file3_2_3_1,file3_2_3_2])
+    }, [extraFunding, file3_2_1_1, file3_2_1_2, grants, file3_2_2_1, file3_2_2_2, teacherResearchProjects, file3_2_3_1, file3_2_3_2])
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC3?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria32;
+
+            if (data) {
+                setExtraFunding(data.extraFunding ? data.extraFunding : '');
+                setGrants(data.grants ? data.grants : '');
+                setTeacherResearchProjects(data.teacherResearchProjects ? data.teacherResearchProjects : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className="c-3-2">
@@ -130,7 +149,7 @@ const Criteria32 = ({onCrit32Data}) => {
                     <div className="c-3-2-1">
                         <h4>
                             3.2.1 - Extramural funding for Research (Grants sponsored by the non-government sources
-                            such as industry, corporate houses, international bodies for research projects) endowments, 
+                            such as industry, corporate houses, international bodies for research projects) endowments,
                             Chairs in the University during the year (INR in Lakhs)
                         </h4>
                         <input
@@ -152,7 +171,7 @@ const Criteria32 = ({onCrit32Data}) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> 
+                                    <td>
                                         Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('3.2.1.xlsx')}>Data Template</button>
@@ -211,7 +230,7 @@ const Criteria32 = ({onCrit32Data}) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> 
+                                    <td>
                                         Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('3.2.2.xlsx')}>Data Template</button>
@@ -228,7 +247,7 @@ const Criteria32 = ({onCrit32Data}) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td> 
+                                    <td>
                                         Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>
@@ -269,7 +288,7 @@ const Criteria32 = ({onCrit32Data}) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> 
+                                    <td>
                                         Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('3.2.3.xlsx')}>Data Template</button>
@@ -286,7 +305,7 @@ const Criteria32 = ({onCrit32Data}) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td> 
+                                    <td>
                                         Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>

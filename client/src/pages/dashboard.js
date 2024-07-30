@@ -9,6 +9,7 @@ import CardC7 from "../components/c7_card";
 import '../css/dashboard.css';
 import naacLogo from '../naac_logo.png';
 import { useNavigate } from "react-router-dom";
+import CardEP from "../components/ep-card";
 
 const Dashboard = () => {
     const [academicYear, setAcademicYear] = useState("");
@@ -39,6 +40,7 @@ const Dashboard = () => {
             <h2 className="hhv">Dashboard</h2>
             <h3>Academic Year: {academicYear}</h3>
             <div className="criteria-cont">
+                <CardEP />
                 <CardC1 />
                 <CardC2 />
                 <CardC3 />

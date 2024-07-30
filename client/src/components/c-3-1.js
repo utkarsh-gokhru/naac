@@ -212,8 +212,29 @@ const Criteria31 = ({ onCrit31Data }) => {
             file3_1_6_2
         };
         onCrit31Data(crit31);
-    }, [researchFacilities, file3_1_1, seedMoney, file3_1_2_1, file3_1_2_2, teachersFellowship, file3_1_3_1, file3_1_3_2,
-        fellowsEnrolled, file3_1_4_1, file3_1_4_2, feed_3_1_5_Type, file3_1_5, departmentNo, file3_1_6_1, file3_1_6_2]);
+    }, [researchFacilities, file3_1_1, seedMoney, file3_1_2_1, file3_1_2_2, teachersFellowship, file3_1_3_1, file3_1_3_2, fellowsEnrolled, file3_1_4_1, file3_1_4_2, feed_3_1_5_Type, file3_1_5, departmentNo, file3_1_6_1, file3_1_6_2]);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC3?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria31;
+
+            if (data) {
+                setResearchFacilities(data.researchFacilities ? data.researchFacilities : '');
+                setSeedMoney(data.seedMoney ? data.seedMoney : '');
+                setTeachersFellowship(data.teachersFellowship ? data.teachersFellowship : '');
+                setFellowsEnrolled(data.fellowsEnrolled ? data.fellowsEnrolled : '');
+                setFeed_3_1_5_Type(data.feed_3_1_5_Type ? data.feed_3_1_5_Type : '');
+                setDepartmentNo(data.departmentNo ? data.departmentNo : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className="c-3-1">

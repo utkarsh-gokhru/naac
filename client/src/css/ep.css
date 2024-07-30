@@ -1,0 +1,136 @@
+.info-section ul {
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+    }
+
+    li::before {
+        font-weight: bold;
+        font-size: 20px;
+        position: absolute;
+        left: 0;
+        top: 5px;
+    }
+
+}
+
+.text-area {
+    max-width: 80%;
+    height: auto;
+}
+
+table {
+    border-collapse: collapse;
+    max-width: 80%;
+    height: auto;
+    margin-top: 30px;
+    table-layout: auto;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+li {
+    list-style: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+.custom-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: grey;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: rgb(83, 82, 82);
+    }
+}
+
+.ep-head {
+    max-width: 100%;
+    margin: 30px;
+    padding: 30px;
+    border: 1px solid #ddd;
+}
+
+.EP {
+    max-width: 100%;
+    margin: 30px;
+    padding: 30px;
+    border: 1px solid #ddd;
+}
+
+.sec-1,
+.sec-2,
+.sec-3,
+.sec-4 {
+    margin: 30px;
+    padding: 30px;
+    border: 1px solid #ddd;
+}
+
+.yearly_status_rep {
+    background-color: #ddd;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .sec-1,
+    .sec-2,
+    .sec-3,
+    .sec-4 {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+}

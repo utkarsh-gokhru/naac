@@ -3,7 +3,7 @@ import StyledTextArea from "./textArea";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-const Criteria36 = ({onCrit36Data}) => {
+const Criteria36 = ({ onCrit36Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -35,14 +35,14 @@ const Criteria36 = ({onCrit36Data}) => {
 
     const saveSection3_6_1 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
             extensionActText,
             file3_6_1
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -59,7 +59,7 @@ const Criteria36 = ({onCrit36Data}) => {
 
     const saveSection3_6_2 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -67,7 +67,7 @@ const Criteria36 = ({onCrit36Data}) => {
             file3_6_2_1,
             file3_6_2_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -84,7 +84,7 @@ const Criteria36 = ({onCrit36Data}) => {
 
     const saveSection3_6_3 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -92,7 +92,7 @@ const Criteria36 = ({onCrit36Data}) => {
             file3_6_3_1,
             file3_6_3_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -109,7 +109,7 @@ const Criteria36 = ({onCrit36Data}) => {
 
     const saveSection3_6_4 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -117,7 +117,7 @@ const Criteria36 = ({onCrit36Data}) => {
             file3_6_4_1,
             file3_6_4_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -147,7 +147,27 @@ const Criteria36 = ({onCrit36Data}) => {
             file3_6_4_2
         };
         onCrit36Data(crit36);
-    },[extensionActText,file3_6_1,file3_6_2_1,file3_6_2_2,extActAwards,outreachPrograms,file3_6_3_1,file3_6_3_2,participatingStudents,file3_6_4_1,file3_6_4_2])
+    }, [extensionActText, file3_6_1, file3_6_2_1, file3_6_2_2, extActAwards, outreachPrograms, file3_6_3_1, file3_6_3_2, participatingStudents, file3_6_4_1, file3_6_4_2])
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC3?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria36;
+
+            if (data) {
+                setExtensionActText(data.extensionActText ? data.extensionActText : '');
+                setExtActAwards(data.extActAwards ? data.extActAwards : '');
+                setOutreachPrograms(data.outreachPrograms ? data.outreachPrograms : '');
+                setParticipatingStudents(data.participatingStudents ? data.participatingStudents : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className="c-3-6">
@@ -155,7 +175,7 @@ const Criteria36 = ({onCrit36Data}) => {
             <ul>
                 <li>
                     <div className="c-3_6_1">
-                        <h4>3.6.1 - Extension activities in the neighbourhood community in terms of impact and sensitising 
+                        <h4>3.6.1 - Extension activities in the neighbourhood community in terms of impact and sensitising
                             students to social issues and holistic development during the year
                         </h4>
                     </div>
@@ -203,21 +223,21 @@ const Criteria36 = ({onCrit36Data}) => {
                 </li>
                 <li>
                     <div className="c-3_6_2">
-                        <h4>3.6.2- Number of awards received by the instituion,its teachers and students from 
-                            Government/Government recognised bodies in recognition of the extension activities carried out 
+                        <h4>3.6.2- Number of awards received by the instituion,its teachers and students from
+                            Government/Government recognised bodies in recognition of the extension activities carried out
                             during the year
                         </h4>
                         <ul>
                             <li>
                                 <h4>
-                                    3.6.2.1- Total number of awards and recognition received for extension activities from 
+                                    3.6.2.1- Total number of awards and recognition received for extension activities from
                                     Government/Government recognisd bodies during the year
                                 </h4>
                                 <input
-                                type="number"
-                                id="extActAwards"
-                                value={extActAwards}
-                                onChange={(e) => setExtActAwards(e.target.value)}
+                                    type="number"
+                                    id="extActAwards"
+                                    value={extActAwards}
+                                    onChange={(e) => setExtActAwards(e.target.value)}
                                 /><br />
                                 <table>
                                     <thead>
@@ -230,7 +250,7 @@ const Criteria36 = ({onCrit36Data}) => {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td> 
+                                            <td>
                                                 Upload the data template</td>
                                             <td>
                                                 <button onClick={() => downloadExcel('3.6.2.xlsx')}>Data Template</button>
@@ -271,17 +291,17 @@ const Criteria36 = ({onCrit36Data}) => {
                     </div>
                 </li>
                 <li>
-                    <h4> 
+                    <h4>
                         3.6.3 - Number of extension and outreach programs conducted by the institution including those
                         NSS/NCC/Red Cross/YRC during the year (including Government initiated programs such as Swachh
                         Bharat, Aids Awareness, Gender issues, etc. and those organised in collaboration with industry
                         ,community and NGOs)
                     </h4>
                     <input
-                    type="number"
-                    id="outreachPrograms"
-                    value={outreachPrograms}
-                    onChange={(e) => setOutreachPrograms(e.target.value)}
+                        type="number"
+                        id="outreachPrograms"
+                        value={outreachPrograms}
+                        onChange={(e) => setOutreachPrograms(e.target.value)}
                     /><br />
                     <table>
                         <thead>
@@ -294,7 +314,7 @@ const Criteria36 = ({onCrit36Data}) => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td> 
+                                <td>
                                     Upload the data template</td>
                                 <td>
                                     <button onClick={() => downloadExcel('3.6.3.xlsx')}>Data Template</button>
@@ -332,15 +352,15 @@ const Criteria36 = ({onCrit36Data}) => {
                     </div>
                 </li>
                 <li>
-                    <h4> 
-                        3.6.4 - Total number of students participating in extension activities listed at 3.6.3 above 
-                        during the year 
+                    <h4>
+                        3.6.4 - Total number of students participating in extension activities listed at 3.6.3 above
+                        during the year
                     </h4>
                     <input
-                    type="number"
-                    id="participatingStudents"
-                    value={participatingStudents}
-                    onChange={(e) => setParticipatingStudents(e.target.value)}
+                        type="number"
+                        id="participatingStudents"
+                        value={participatingStudents}
+                        onChange={(e) => setParticipatingStudents(e.target.value)}
                     /><br />
                     <table>
                         <thead>
@@ -353,7 +373,7 @@ const Criteria36 = ({onCrit36Data}) => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td> 
+                                <td>
                                     Upload the data template</td>
                                 <td>
                                     <button onClick={() => downloadExcel('3.6.4.xlsx')}>Data Template</button>

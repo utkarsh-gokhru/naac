@@ -148,6 +148,26 @@ export const Criteria24 = ({ onCrit24Data }) => {
         onCrit24Data(crit24);
     }, [full_time_teachers, file2_4_1_1, file2_4_1_2, full_time_teachers_phd_etc, file2_4_2_1, file2_4_2_2, total_exp, file2_4_3_1, file2_4_3_2, award_rec_teachers, file2_4_4_1, file2_4_4_2]);
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC2?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria24;
+
+            if (data) {
+                setfull_time_teachers(data.full_time_teachers ? data.full_time_teachers : '');
+                setfull_time_teachers_phd_etc(data.full_time_teachers_phd_etc ? data.full_time_teachers_phd_etc : '');
+                setaward_rec_teachers(data.award_rec_teachers ? data.award_rec_teachers : '');
+                settotal_exp(data.total_exp ? data.total_exp : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+    
     return (
         <div class='c-2-4'>
             <h3>2.4 - Teacher Profile and Quality</h3>

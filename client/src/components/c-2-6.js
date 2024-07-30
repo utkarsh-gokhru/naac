@@ -112,6 +112,25 @@ const Criteria26 = ({ onCrit26Data }) => {
         onCrit26Data(crit26);
     }, [learning_outcomes, file2_6_1, attainment_prog_outcomes, file2_6_2, final_year_students_passed, final_year_students_appeared, file2_6_3_2_1, file2_6_3_2_2]);
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC2?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria26;
+
+            if (data) {
+                setlearning_outcomes(data.learning_outcomes? data.learning_outcomes:'');
+                setattainment_prog_outcomes(data.attainment_prog_outcomes? data.attainment_prog_outcomes:'');
+                setfinal_year_students_appeared(data.final_year_students_appeared? data.final_year_students_appeared:'');
+                setfinal_year_students_passed(data.final_year_students_passed? data.final_year_students_passed:'');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className='c-2-6'>

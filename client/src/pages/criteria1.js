@@ -39,7 +39,7 @@ const Criteria1 = () => {
     setShowPopup(true);
   };
 
-  const handePopupOk = async () => {
+  const handlePopupOk = async () => {
 
     try {
       const formdata = new FormData();
@@ -115,7 +115,7 @@ const Criteria1 = () => {
       {showPopup && (
         <Popup 
         message='Once the data is submitted, it cannot be edited. Are you sure you want to submit the data?'
-        onOk={handePopupOk}
+        onOk={handlePopupOk}
         onClose={handlePopupClose}
         />
       )}

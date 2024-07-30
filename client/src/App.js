@@ -13,6 +13,7 @@ import Criteria4 from './pages/criteria4';
 import Criteria6 from './pages/criteria6'
 import Criteria7 from './pages/criteria7';
 import AdminC3 from './pages/adminC3';
+import ExtendedProfile from './pages/extended_profile';
 
 function App() {
   
@@ -34,6 +35,7 @@ function App() {
         <Route path='/admin/criteria1' element = {< AdminC1 />} />
         <Route path='/admin/criteria3' element = {< AdminC3 />} />
         <Route path='/sections' element = {< SectionPage />} />
+        <Route path='/extended-profile' element = {< ExtendedProfile />} />
       </Routes>
       </BrowserRouter>
     </div>

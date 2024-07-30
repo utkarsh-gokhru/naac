@@ -121,6 +121,26 @@ const Criteria33 = ({ onCrit33Data }) => {
         onCrit33Data(crit33);
     }, [ecosystemText, file3_3_1, seminars, totalSeminars, file3_3_2_1, file3_3_2_2, awards, file3_3_3_1, file3_3_3_2])
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC3?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria33;
+
+            if (data) {
+                setEcosystemText(data.ecosystemText ? data.ecosystemText : '');
+                setSeminars(data.seminars ? data.seminars : '');
+                setTotalSeminars(data.totalSeminars ? data.totalSeminars : '');
+                setAwards(data.awards ? data.awards : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
         <div className="c-3-3">
             <h3>3.3 - Innovation Ecosystem</h3>

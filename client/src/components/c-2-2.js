@@ -72,12 +72,26 @@ export const Criteria22 = ({ onCrit22Data }) => {
             file2_2_2
         };
         onCrit22Data(crit22);
-    }, [learning_assessment,
-        file2_2_1_1,
-        link2_2_1_2,
-        no_of_students,
-        no_of_teachers,
-        file2_2_2]);
+    }, [learning_assessment, file2_2_1_1, link2_2_1_2, no_of_students, no_of_teachers, file2_2_2]);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC2?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria22;
+
+            if (data) {
+                setlearning_assessment(data.learning_assessment ? data.learning_assessment : '');
+                setno_of_students(data.no_of_students ? data.no_of_students : '');
+                setno_of_teachers(data.no_of_teachers ? data.no_of_teachers : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className='c-2-2'>

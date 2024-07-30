@@ -167,8 +167,29 @@ const Criteria43 = ({ onCrit43Data }) => {
             file4_3_5_2
         };
         onCrit43Data(crit43);
-    }, [
-        classrooms_and_seminarhalls, file4_3_1_1, file4_3_1_2, it_policy, file4_3_2, number_of_students, number_of_computers, bandwidth, file4_3_4, e_content_facilities, file4_3_5_1, file4_3_5_2]);
+    }, [classrooms_and_seminarhalls, file4_3_1_1, file4_3_1_2, it_policy, file4_3_2, number_of_students, number_of_computers, bandwidth, file4_3_4, e_content_facilities, file4_3_5_1, file4_3_5_2]);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria43;
+
+            if (data) {
+                setClassroomsAndSeminarHalls(data.classrooms_and_seminarhalls ? data.classrooms_and_seminarhalls : '');
+                setItPolicy(data.it_policy ? data.it_policy : '');
+                setNumberOfStudents(data.number_of_students ? data.number_of_students : '');
+                setNumberOfComputers(data.number_of_computers ? data.number_of_computers : '');
+                setBandwidth(data.bandwidth ? data.bandwidth : '');
+                setEContentFacilities(data.e_content_facilities ? data.e_content_facilities : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className="c-4-3">

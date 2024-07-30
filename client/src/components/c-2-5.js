@@ -144,6 +144,26 @@ const Criteria25 = ({ onCrit25Data }) => {
         onCrit25Data(crit25);
     }, [no_of_days, no_of_days_yearwise, file2_5_1_1, file2_5_1_2, no_of_student_grievances, file2_5_2, it_integration, file2_5_3, status_of_automation, file2_5_4_1, file2_5_4_2]);
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC2?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria25;
+
+            if (data) {
+                setno_of_days(data.no_of_days? data.no_of_days:'');
+                setno_of_days_yearwise(data.no_of_days_yearwise? data.no_of_days_yearwise:'');
+                setit_integration(data.it_integration? data.it_integration:'');
+                setno_of_student_grievances(data.no_of_student_grievances? data.no_of_student_grievances:'');
+                setstatus_of_automation(data.status_of_automation? data.status_of_automation:'');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
     return (
         <div className='c-2-5'>
             <br></br>

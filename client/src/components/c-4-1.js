@@ -152,6 +152,26 @@ const Criteria41 = ({ onCrit41Data }) => {
         }
     };
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria41;
+
+            if (data) {
+                setteaching_facilities(data.teaching_facilities ? data.teaching_facilities : '');
+                setcultural_facilities(data.cultural_facilities ? data.cultural_facilities : '');
+                setgeneral_facilities(data.general_facilities ? data.general_facilities : '');
+                settotal_expenditure(data.total_expenditure ? data.total_expenditure : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
         <div className="c-4-1">
             <h3>4.1 - Physical Facilities</h3>

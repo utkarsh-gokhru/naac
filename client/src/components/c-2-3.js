@@ -93,6 +93,25 @@ export const Criteria23 = ({ onCrit23Data }) => {
         onCrit23Data(crit23);
     }, [learning_exp, file2_3_1, effect_teach_learn, file2_3_2, no_of_mentors, file2_3_3]);
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC2?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria23;
+
+            if (data) {
+                setlearning_exp(data.learning_exp ? data.learning_exp : '');
+                setno_of_mentors(data.no_of_mentors ? data.no_of_mentors : '');
+                seteffect_teach_learn(data.effect_teach_learn ? data.effect_teach_learn : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
         <div className='c-2-3'>
             <h3>2.3- Teaching- Learning Process</h3>

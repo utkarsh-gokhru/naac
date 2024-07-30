@@ -3,7 +3,7 @@ import StyledTextArea from "./textArea";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-const Criteria35 = ({onCrit35Data}) => {
+const Criteria35 = ({ onCrit35Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -29,14 +29,14 @@ const Criteria35 = ({onCrit35Data}) => {
 
     const saveSection3_5_1 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
             consultancyText,
             file3_5_1
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -53,7 +53,7 @@ const Criteria35 = ({onCrit35Data}) => {
 
     const saveSection3_5_2 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -61,7 +61,7 @@ const Criteria35 = ({onCrit35Data}) => {
             file3_5_2_1,
             file3_5_2_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -85,7 +85,26 @@ const Criteria35 = ({onCrit35Data}) => {
             file3_5_2_2
         };
         onCrit35Data(crit35);
-    },[consultancyText,consultancyRev,file3_5_1,file3_5_2_1,file3_5_2_2])
+    }, [consultancyText, consultancyRev, file3_5_1, file3_5_2_1, file3_5_2_2])
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC3?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria35;
+
+            if (data) {
+                setConsultancyText(data.consultancyText ? data.consultancyText : '');
+                setConsultancyRev(data.consultancyRev ? data.consultancyRev : '');
+
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className="c-3-5">
@@ -93,7 +112,7 @@ const Criteria35 = ({onCrit35Data}) => {
             <ul>
                 <li>
                     <div className="c-3_5_1">
-                        <h4>3.5.1 - Instution has a policy of consultancy including revenue sharing between the institution and the 
+                        <h4>3.5.1 - Instution has a policy of consultancy including revenue sharing between the institution and the
                             individual and encourages its faculty to undertake consultancy
                         </h4>
                     </div>
@@ -146,10 +165,10 @@ const Criteria35 = ({onCrit35Data}) => {
                             <li>
                                 <h4>3.5.2.1- Total amount genrated from consultancy and corporate training during the year (INR in Lakhs)</h4>
                                 <input
-                                type="number"
-                                id="consultancyRev"
-                                value={consultancyRev}
-                                onChange={(e) => setConsultancyRev(e.target.value)}
+                                    type="number"
+                                    id="consultancyRev"
+                                    value={consultancyRev}
+                                    onChange={(e) => setConsultancyRev(e.target.value)}
                                 /><br />
                                 <table>
                                     <thead>
@@ -162,7 +181,7 @@ const Criteria35 = ({onCrit35Data}) => {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td> 
+                                            <td>
                                                 Upload the data template</td>
                                             <td>
                                                 <button onClick={() => downloadExcel('3.5.2.xlsx')}>Data Template</button>

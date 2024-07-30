@@ -83,12 +83,24 @@ export const Criteria21 = ({ onCrit21Data }) => {
             file2_1_2_2
         };
         onCrit21Data(crit21);
-    }, [no_of_seats,
-        file2_1_1_1,
-        file2_1_1_2,
-        students_reserved_cat,
-        file2_1_2_1,
-        file2_1_2_2])
+    }, [no_of_seats, file2_1_1_1, file2_1_1_2, students_reserved_cat, file2_1_2_1, file2_1_2_2]);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC2?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria21;
+            if (data) {
+                setno_of_seats(data.no_of_seats ? data.no_of_seats : '');
+                setstudents_reserved_cat(data.students_reserved_cat ? data.students_reserved_cat : '')
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div class='c-2-1'>

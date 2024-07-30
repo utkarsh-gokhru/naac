@@ -311,8 +311,35 @@ const Criteria34 = ({ onCrit34Data }) => {
         onCrit34Data(crit34);
     }, [code_of_ethics, file3_4_1, incentives, file3_4_2_1, file3_4_2_2, patents_published, file3_4_3_1, file3_4_3_2, phd_awarded, teachers_guides, file3_4_4_1, file3_4_4_2, research_papers_per_teacher, file3_4_5_1, file3_4_5_2, books_edited, file3_4_6_1, file3_4_6_2, e_content, file3_4_7_1, file3_4_7_2, scopus348, web_of_science348, file3_4_8_1, file3_4_8_2, scopus349, web_of_science349, file3_4_9_1, file3_4_9_2]);
 
-    return (
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC3?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria34;
 
+            if (data) {
+                setCode_of_ethics(data.code_of_ethics ? data.code_of_ethics : '');
+                setIncentives(data.incentives ? data.incentives : '');
+                setPatents_published(data.patents_published ? data.patents_published : '');
+                setPhd_awarded(data.phd_awarded ? data.phd_awarded : '');
+                setTeachers_guides(data.teachers_guides ? data.teachers_guides : '');
+                setResearch_papers_per_teacher(data.research_papers_per_teacher ? data.research_papers_per_teacher : '');
+                setBooks_edited(data.books_edited ? data.books_edited : '');
+                setE_content(data.e_content ? data.e_content : '');
+                setScopus348(data.scopus348 ? data.scopus348 : '');
+                setWeb_of_science348(data.web_of_science348 ? data.web_of_science348 : '');
+                setScopus349(data.scopus349 ? data.scopus349 : '');
+                setWeb_of_science349(data.web_of_science349 ? data.web_of_science349 : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    return (
         <div class="c-3-4">
             <h3>3.4 - Research Publication and awards</h3>
             <div className="c-3_4_1">

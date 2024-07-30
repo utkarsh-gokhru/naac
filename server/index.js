@@ -50,6 +50,9 @@ import { C72 } from './routes/c-7-2.js';
 import { C73 } from './routes/c-7-3.js';
 import { Criteria7_submit } from './routes/criteria7.js';
 import { fetchC7 } from './routes/fetchC7.js';
+import { SaveEP } from './routes/save-ep.js';
+import { EP_submit } from './routes/extended-profile.js';
+import { fetchEP } from './routes/fetchEP.js';
 
 const app = express();
 
@@ -72,5 +75,6 @@ app.use('/data', [Criteria1_submit, C11, C12, C13, C21, C22, C23, C24, C25, C26,
     C61, C62, C63, C64, C65, Criteria6_submit, fetchC6, C71, C72, C73, Criteria7_submit, fetchC7
 ]);
 app.use('/files', Files);
+app.use('/epData', [SaveEP, EP_submit, fetchEP]);
 
 app.listen(5000, () => console.log('Server started'));
