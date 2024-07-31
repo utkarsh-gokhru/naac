@@ -85,6 +85,24 @@ const Criteria44 = ({ onCrit44Data }) => {
         onCrit44Data(crit44);
     }, [physical_facilities_expenditure, file4_4_1_1, file4_4_1_2, established_systems, file4_4_2]);
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria44;
+
+            if (data) {
+                setClassroomsAndSeminarHalls(data.physical_facilities_expenditure ? data.physical_facilities_expenditure : '');
+                setItPolicy(data.established_systems ? data.established_systems : '');
+    
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
     return (
         <div className="c-4-4">
             <h3>4.4 - Maintenance and Campus Infrastructure</h3>

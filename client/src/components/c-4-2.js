@@ -19,6 +19,8 @@ const Criteria42 = ({ onCrit42Data }) => {
     const [file4_2_3_2, setFile4_2_3_2] = useState(null);
     const [file4_2_4, setFile4_2_4] = useState(null);
 
+    
+
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
 

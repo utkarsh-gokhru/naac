@@ -142,6 +142,27 @@ const Criteria51 = ({ onCrit51Data }) => {
         onCrit51Data(crit51);
     }, [scholarship_beneficiaries, file5_1_1_1, file5_1_1_2, career_counsel_beneficiaries, file5_1_2_1, file5_1_2_2, capacity_development_initiatives, file5_1_3_1, file5_1_3_2, student_grievances_redressal, file5_1_4]);
 
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria51;
+
+            if (data) {
+                setClassroomsAndSeminarHalls(data.scholarship_beneficiaries ? data.scholarship_beneficiaries : '');
+                setItPolicy(data.career_counsel_beneficiaries ? data.career_counsel_beneficiaries : '');
+                setNumberOfStudents(data.capacity_development_initiatives ? data.capacity_development_initiatives : '');
+                setNumberOfComputers(data.student_grievances_redressal ? data.student_grievances_redressal : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
 
         <div className="c-5-1">

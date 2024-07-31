@@ -124,6 +124,26 @@ const Criteria52 = ({ onCrit52Data }) => {
         onCrit52Data(crit52);
     }, [students_qualified, students_appeared, file5_2_1_1, file5_2_1_2, placement_no, file5_2_2_1, file5_2_2_2, higher_studies_students, file5_2_3_1, file5_2_3_2]);
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria52;
+
+            if (data) {
+                setClassroomsAndSeminarHalls(data.students_qualified ? data.students_qualified : '');
+                setItPolicy(data.students_appeared ? data.students_appeared : '');
+                setNumberOfStudents(data.higher_studies_students ? data.higher_studies_students : '');
+                setNumberOfComputers(data.placement_no ? data.placement_no : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
 
     return (
         <div className="c-5-2">
