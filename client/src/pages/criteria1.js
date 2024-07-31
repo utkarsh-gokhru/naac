@@ -8,6 +8,7 @@ import axios from "axios";
 import Popup from "../components/popup";
 import naacLogo from '../naac_logo.png';
 
+
 const Criteria1 = () => {
   const [crit12Data, setCrit12Data] = useState(null);
   const [crit13Data, setCrit13Data] = useState(null);
@@ -85,6 +86,7 @@ const Criteria1 = () => {
           <img src={naacLogo} alt='NAAC LOGO' />
           <div className='head'>
             <h1 >University of Mumbai</h1>
+           
             <h3>AQAR Platform</h3>
           </div>
         </div>

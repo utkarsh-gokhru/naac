@@ -29,7 +29,7 @@ const criteriaModels = {
 export const downloadCriteriaSection = async (req, res) => {
     console.log("Am I being called?");
     const { criteria, section } = req.params;
-
+     console.log(criteria,section+" check krra hu bhai");
     const model = criteriaModels[criteria];
     if (!model) {
         return res.status(400).json({ error: "Invalid criteria specified." });

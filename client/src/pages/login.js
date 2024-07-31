@@ -20,6 +20,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const departments = [
+        'Admin',
         'Academy of Administrative Careers',
         'Academy of Theatre Arts (Ambedkar Bhavan)',
         'Alkesh Dinesh Mosy Institute for Financial and Management Studies (Separate Building)',
@@ -145,7 +146,7 @@ const Login = () => {
                     localStorage.setItem('id', id);
                     localStorage.setItem('admin', department);
                     localStorage.setItem('academicYear', academicYear);
-                    navigate('/admin/dashboard').then(() =>{
+                    navigate('/admin/criteria').then(() =>{
                         window.location.reload();
                     });;
                 } else {
