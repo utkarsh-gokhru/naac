@@ -151,6 +151,26 @@ const Criteria64 = ({ onCrit64Data }) => {
         }
     };
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria64;
+
+            if (data) {
+                setText_6_4_1(data.text_6_4_1 ? data.text_6_4_1 : '');
+                setData_6_4_2(data.data_6_4_2 ? data.data_6_4_2 : '');
+                setData_6_4_3(data.data_6_4_3 ? data.data_6_4_3 : '');
+                setText_6_4_4(data.text_6_4_4 ? data.text_6_4_4 : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
 
     return (
         <div className="c-6-4">

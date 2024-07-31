@@ -91,8 +91,8 @@ const Criteria44 = ({ onCrit44Data }) => {
             const data = response.data.data.criteria44;
 
             if (data) {
-                setClassroomsAndSeminarHalls(data.physical_facilities_expenditure ? data.physical_facilities_expenditure : '');
-                setItPolicy(data.established_systems ? data.established_systems : '');
+                setPhysicalFacilitiesExpenditure(data.physical_facilities_expenditure ? data.physical_facilities_expenditure : '');
+                setEstablishedSystems(data.established_systems ? data.established_systems : '');
     
             }
         } catch (error) {

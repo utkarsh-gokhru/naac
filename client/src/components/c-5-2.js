@@ -130,10 +130,10 @@ const Criteria52 = ({ onCrit52Data }) => {
             const data = response.data.data.criteria52;
 
             if (data) {
-                setClassroomsAndSeminarHalls(data.students_qualified ? data.students_qualified : '');
-                setItPolicy(data.students_appeared ? data.students_appeared : '');
-                setNumberOfStudents(data.higher_studies_students ? data.higher_studies_students : '');
-                setNumberOfComputers(data.placement_no ? data.placement_no : '');
+                setstudents_qualified(data.students_qualified ? data.students_qualified : '');
+                setstudents_appeared(data.students_appeared ? data.students_appeared : '');
+                sethigher_studies_students(data.higher_studies_students ? data.higher_studies_students : '');
+                setplacement_no(data.placement_no ? data.placement_no : '');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);

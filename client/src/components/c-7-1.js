@@ -97,6 +97,34 @@ const Criteria71 = ({ onCrit71Data }) => {
         file7_1_11,
     ])
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria71;
+
+            if (data) {
+                settext_7_1_1(data.text_7_1_1 ? data.text_7_1_1 : '');
+                setdata_7_1_2(data.data_7_1_2 ? data.data_7_1_2: '');
+                settext_7_1_3(data.text7_1_3 ? data.text7_1_3 : '');
+                setdata_7_1_4(data.data_7_1_4? data.data_7_1_4 : '');
+                setdata_7_1_5(data.data_7_1_5 ? data.data_7_1_5 : '');
+                setdata_7_1_6(data.data_7_1_6 ? data.data_7_1_6 : '');
+                setdata_7_1_7(data.data_7_1_7 ? data.data_7_1_7 : '');
+                settext_7_1_8(data.text_7_1_8 ? data.text_7_1_8 : '');
+                settext_7_1_9(data.text_7_1_9 ? data.text_7_1_9 : '');
+                setdata_7_1_10(data.data_7_1_10 ? data.data_7_1_10 : '');
+                settext_7_1_11(data.text_7_1_11 ? data.text_7_1_11 : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
     return (
         <div className="c-7-1">
             <h3>7.1 - Institutional Values and Social Responsibilities</h3>

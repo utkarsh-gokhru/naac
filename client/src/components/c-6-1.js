@@ -70,6 +70,25 @@ const Criteria61 = ({ onCrit61Data }) => {
         onCrit61Data(crit61);
     }, [text_6_1_1,file6_1_1,text_6_1_2,file6_1_2,]);
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria61;
+
+            if (data) {
+                settext_6_1_1(data.text_6_1_1 ? data.text_6_1_1 : '');
+                settext_6_1_2,(data.text_6_1_2 ? data.text_6_1_2 : '');
+                }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
     return (
         <div className="c-6-1">
             <h3>6.1 - Institutional Vision and Leadership</h3>

@@ -165,6 +165,26 @@ const Criteria63 = ({ onCrit63Data }) => {
         }
     };
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria63;
+
+            if (data) {
+                settext_6_3_1(data.text_6_3_1 ? data.text_6_3_1 : '');
+                setdata_6_3_2(data.data_6_3_2 ? data.data_6_3_2 : '');
+                setdata_6_3_3(data.data_6_3_3 ? data.data_6_3_3 : '');
+                setdata_6_3_4(data.data_6_3_4 ? data.data_6_3_4 : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return(
         <div className="c-6-3">
             <h3>6.3 - Faculty Empowerment Strategies </h3>

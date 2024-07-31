@@ -41,6 +41,25 @@ const Criteria72 = ({ onCrit72Data }) => {
         text7_2_1,
     ])
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteri72;
+
+            if (data) {
+                settext7_2_1 (data.text7_2_1 ? data.text7_2_1 : '');
+                
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
     return(
         <div className="c-7-2">
             <h3>7.2 - Best Practices</h3>

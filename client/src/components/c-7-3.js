@@ -40,6 +40,25 @@ const Criteria73 = ({ onCrit73Data }) => {
         text7_3_2,
     ])
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteri73;
+
+            if (data) {
+                settext7_3_1 (data.text7_3_1 ? data.text7_3_1 : '');
+                settext7_3_1 (data.text7_3_2 ? data.text7_3_2 : '');
+                   
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return(
         <div className="c-7-3">
             <h3>7.3 - Institutional Distinctiveness</h3>

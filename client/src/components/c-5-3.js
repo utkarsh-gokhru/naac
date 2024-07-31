@@ -63,6 +63,25 @@ const Criteria53 = ({onCrit53Data}) => {
         onCrit53Data(crit53);
     }, [awards_no, file5_3_1_1, file5_3_1_2, student_council, file5_3_2, events, file5_3_3_1, file5_3_3_2]);    
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria53;
+
+            if (data) {
+                setAwards_no(data.awards_no ? data.awards_no : '');
+                setStudent_council(data.student_council ? data.student_council : '');
+                setEvents(data.events ? data.events : '');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return(
         <div className="c-5-3">
             <h3>Student Partcipation and Activities</h3>
