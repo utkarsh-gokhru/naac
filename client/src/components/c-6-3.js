@@ -171,7 +171,7 @@ const Criteria63 = ({ onCrit63Data }) => {
             const data = response.data.data.criteria63;
 
             if (data) {
-                settext_6_3_1(data.text_6_3_1 ? data.text_6_3_1 : '');
+                settext6_3_1(data.text_6_3_1 ? data.text_6_3_1 : '');
                 setdata_6_3_2(data.data_6_3_2 ? data.data_6_3_2 : '');
                 setdata_6_3_3(data.data_6_3_3 ? data.data_6_3_3 : '');
                 setdata_6_3_4(data.data_6_3_4 ? data.data_6_3_4 : '');
