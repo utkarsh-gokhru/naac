@@ -39,6 +39,28 @@ const EP4 = ({ onEP4Data }) => {
         onEP4Data(ep4Data);
     }, [eligible_admission_applications, file4_1, reserved_category_seats, file4_2, classrooms_and_seminar_halls, total_computers, total_expenditure]);
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchEP?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.ep4;
+
+            if (data) {
+                setClassrooms_and_seminar_halls(data.classrooms_and_seminar_halls ? data.classrooms_and_seminar_halls : '');
+                setReserved_category_seats(data.reserved_category_seats ? data.reserved_category_seats : '');
+                setTotal_computers(data.total_computers ? data.total_computers : '');
+                setTotal_expenditure(data.total_expenditure ? data.total_computers : '')
+                seteligible_admission_applications(data.eligible_admission_applications ? data.eligible_admission_applications : '')
+                   
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
         <div className="sec-4">
             <h3>4. Institution</h3>

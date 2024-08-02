@@ -90,7 +90,7 @@ const Criteria54 = ({onCrit54Data}) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC5?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data.Criteria54;
 
             if (data) {

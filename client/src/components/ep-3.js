@@ -57,6 +57,25 @@ const EP3 = ({ onEP3Data }) => {
         };
         onEP3Data(ep3Data);
     }, [courses_in_all_programmes, file3_1, full_time_teachers, file3_2, sanctioned_posts, file3_3]);
+    
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchEP?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.ep3;
+
+            if (data) {
+                setCourses_in_all_programmes(data.courses_in_all_programmes ? data.courses_in_all_programmes : '');
+                setFull_time_teachers(data.full_time_teachers ? data.full_time_teachers: '');
+                setSanctioned_posts(data.sanctioned_posts ? data.sanctioned_posts : '');         
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className="sec-3">
