@@ -152,7 +152,7 @@ const Criteria51 = ({ onCrit51Data }) => {
                 setscholarship_beneficiaries(data.scholarship_beneficiaries ? data.scholarship_beneficiaries : '');
                 setcareer_counsel_beneficiaries(data.career_counsel_beneficiaries ? data.career_counsel_beneficiaries : '');
                 setcapacity_development_initiatives(data.capacity_development_initiatives ? data.capacity_development_initiatives : '');
-                setNumberOfComputers(data.student_grievances_redressal ? data.student_grievances_redressal : '');
+                setstudent_grievances_redressal(data.student_grievances_redressal ? data.student_grievances_redressal : '');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);

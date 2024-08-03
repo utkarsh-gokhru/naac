@@ -13,7 +13,7 @@ const Criteria13 = ({ onCrit13Data }) => {
     const [file1_3_3_1_2, setFile1_3_3_1_2] = useState('');
     const [file1_3_4_1, setFile1_3_4_1] = useState('');
     const [file1_3_4_2, setFile1_3_4_2] = useState('');
-    const [text_1_3_1, setText_1_3_1] = useState('');
+    const [text1_3_1, settext1_3_1] = useState('');
     const [file1_3_1, setFile1_3_1] = useState('');
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -26,7 +26,7 @@ const Criteria13 = ({ onCrit13Data }) => {
             if (data) {
                 data.valueAddedCoursesCount1_3_2 ? setValueAddedCoursesCount1_3_2(data.valueAddedCoursesCount1_3_2) : setValueAddedCoursesCount1_3_2('');
                 data.enrolledStudentsCount1_3_3_1 ? setEnrolledStudentsCount1_3_3_1(data.enrolledStudentsCount1_3_3_1) : setEnrolledStudentsCount1_3_3_1('');
-                data.text_1_3_1 ? setText_1_3_1(data.text_1_3_1) : setText_1_3_1('');
+                data.text1_3_1 ? settext1_3_1(data.text1_3_1) : settext1_3_1('');
                 data.projectsCount1_3_4 ? setProjectsCount1_3_4(data.projectsCount1_3_4) : setProjectsCount1_3_4('');
             }
         } catch (error) {
@@ -40,7 +40,7 @@ const Criteria13 = ({ onCrit13Data }) => {
 
     useEffect(() => {
         const crit13 = {
-            text_1_3_1,
+            text1_3_1,
             file1_3_1,
             valueAddedCoursesCount1_3_2,
             enrolledStudentsCount1_3_3_1,
@@ -74,7 +74,7 @@ const Criteria13 = ({ onCrit13Data }) => {
         const sectionData = {
             department,
             academicYear,
-            text_1_3_1,
+            text1_3_1,
             file1_3_1
         };
 
@@ -169,8 +169,8 @@ const Criteria13 = ({ onCrit13Data }) => {
                         <StyledTextArea
                             rows={5}
                             placeholder="Type the text here"
-                            value={text_1_3_1}
-                            onChange={(e) => setText_1_3_1(e.target.value)}
+                            value={text1_3_1}
+                            onChange={(e) => settext1_3_1(e.target.value)}
                         />
                     </div>
                     <div className="table-1_3_1">

@@ -46,9 +46,9 @@ const Criteria73 = ({ onCrit73Data }) => {
             const data = response.data.data.criteri73;
 
             if (data) {
-                settext7_3_1 (data.text7_3_1 ? data.text7_3_1 : '');
-                settext7_3_1 (data.text7_3_2 ? data.text7_3_2 : '');
-                   
+                settext7_3_1(data.text7_3_1 ? data.text7_3_1 : '');
+                settext7_3_2(data.text7_3_2 ? data.text7_3_2 : '');
+
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -59,7 +59,7 @@ const Criteria73 = ({ onCrit73Data }) => {
         fetchData();
     }, []);
 
-    return(
+    return (
         <div className="c-7-3">
             <h3>7.3 - Institutional Distinctiveness</h3>
             <div className="c-7-3-1">
@@ -71,7 +71,7 @@ const Criteria73 = ({ onCrit73Data }) => {
                     onChange={(e) => settext7_3_1(e.target.value)}
                 />
                 <div>
-                    <button onClick={() => saveSection({ text7_3_1}, '7-3-1')}>Save</button>
+                    <button onClick={() => saveSection({ text7_3_1 }, '7-3-1')}>Save</button>
                 </div>
             </div>
             <div className="c-7-3-2">
@@ -82,9 +82,6 @@ const Criteria73 = ({ onCrit73Data }) => {
                     value={text7_3_2}
                     onChange={(e) => settext7_3_2(e.target.value)}
                 />
-                <div>
-                    <button onClick={() => saveSection({ text7_3_2}, '7-3-2')}>Save</button>
-                </div>
             </div>
         </div>
     )

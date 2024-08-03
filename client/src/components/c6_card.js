@@ -36,18 +36,18 @@ const CardC6 = () => {
         let count = 0;
 
         if (data.criteria61) {
-          count += data.criteria61.text_6_1_1 ? 1 : 0;
+          count += data.criteria61.text6_1_1 ? 1 : 0;
           count += data.criteria61.file6_1_1 ? 1 : 0;
-          count += data.criteria61.text_6_1_2 ? 1 : 0;
+          count += data.criteria61.text6_1_2 ? 1 : 0;
           count += data.criteria61.file6_1_2 ? 1 : 0;
         }
 
         if (data.criteria62) {
-          count += data.criteria62.text_6_2_1 ? 1 : 0;
+          count += data.criteria62.text6_2_1 ? 1 : 0;
           count += data.criteria62.file6_2_1 ? 1 : 0;
-          count += data.criteria62.text_6_2_2 ? 1 : 0;
+          count += data.criteria62.text6_2_2 ? 1 : 0;
           count += data.criteria62.file6_2_2 ? 1 : 0;
-          count += data.criteria62.data_6_2_3 ? 1 : 0;
+          count += data.criteria62.data6_2_3 ? 1 : 0;
           count += data.criteria62.file6_2_3_1 ? 1 : 0;
           count += data.criteria62.file6_2_3_2 ? 1 : 0;
         }
@@ -55,37 +55,37 @@ const CardC6 = () => {
         if (data.criteria63) {
           count += data.criteria63.text6_3_1 ? 1 : 0;
           count += data.criteria63.file6_3_1 ? 1 : 0;
-          count += data.criteria63.data_6_3_2 ? 1 : 0;
+          count += data.criteria63.data6_3_2 ? 1 : 0;
           count += data.criteria63.file6_3_2_1 ? 1 : 0;
           count += data.criteria63.file6_3_2_2 ? 1 : 0;
-          count += data.criteria63.data_6_3_3 ? 1 : 0;
+          count += data.criteria63.data6_3_3 ? 1 : 0;
           count += data.criteria63.file6_3_3_1 ? 1 : 0;
           count += data.criteria63.file6_3_3_2 ? 1 : 0;
-          count += data.criteria63.data_6_3_4 ? 1 : 0;
+          count += data.criteria63.data6_3_4 ? 1 : 0;
           count += data.criteria63.file6_3_4_1 ? 1 : 0;
           count += data.criteria63.file6_3_4_2 ? 1 : 0;
         }
 
         if (data.criteria64) {
-          count += data.criteria64.text_6_4_1 ? 1 : 0;
+          count += data.criteria64.text6_4_1 ? 1 : 0;
           count += data.criteria64.file6_4_1 ? 1 : 0;
-          count += data.criteria64.data_6_4_2 ? 1 : 0;
+          count += data.criteria64.data6_4_2 ? 1 : 0;
           count += data.criteria64.file6_4_2_1 ? 1 : 0;
           count += data.criteria64.file6_4_2_2 ? 1 : 0;
-          count += data.criteria64.data_6_4_3 ? 1 : 0;
+          count += data.criteria64.data6_4_3 ? 1 : 0;
           count += data.criteria64.file6_4_3_1 ? 1 : 0;
           count += data.criteria64.file6_4_3_2 ? 1 : 0;
-          count += data.criteria64.text_6_4_4 ? 1 : 0;
+          count += data.criteria64.text6_4_4 ? 1 : 0;
           count += data.criteria64.file6_4_4 ? 1 : 0;
         }
 
         if (data.criteria65) {
-          count += data.criteria65.text_6_5_1 ? 1 : 0;
+          count += data.criteria65.text6_5_1 ? 1 : 0;
           count += data.criteria65.file6_5_1 ? 1 : 0;
-          count += data.criteria65.data_6_5_2 ? 1 : 0;
+          count += data.criteria65.data6_5_2 ? 1 : 0;
           count += data.criteria65.file6_5_2_1 ? 1 : 0;
           count += data.criteria65.file6_5_2_2 ? 1 : 0;
-          count += data.criteria65.text_6_5_3 ? 1 : 0;
+          count += data.criteria65.text6_5_3 ? 1 : 0;
           count += data.criteria65.file6_5_3 ? 1 : 0;
         }
 

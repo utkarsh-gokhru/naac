@@ -17,7 +17,7 @@ const EP2 = ({ onEP2Data }) => {
     const [reval_applications, setReval_applications] = useState('');
 
     const downloadExcel = async (exc_file) => {
-        const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
+        const templateFilePath = `${process.env.PUBLIC_URL}/EP/${exc_file}`;
 
         try {
             const response = await fetch(templateFilePath);

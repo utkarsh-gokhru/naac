@@ -51,7 +51,7 @@ const CardC1 = () => {
           count += data.criteria13.file1_3_3_1_2 ? 1 : 0;
           count += data.criteria13.file1_3_4_1 ? 1 : 0;
           count += data.criteria13.file1_3_4_2 ? 1 : 0;
-          count += data.criteria13.text_1_3_1 ? 1 : 0;
+          count += data.criteria13.text1_3_1 ? 1 : 0;
           count += data.criteria13.file1_3_1 ? 1 : 0;
         }
 

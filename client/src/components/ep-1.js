@@ -13,7 +13,7 @@ const EP1 = ({ onEP1Data }) => {
     const [departments, setDepartments] = useState('');
 
     const downloadExcel = async (exc_file) => {
-        const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
+        const templateFilePath = `${process.env.PUBLIC_URL}/EP/${exc_file}`;
 
         try {
             const response = await fetch(templateFilePath);

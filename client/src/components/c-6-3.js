@@ -10,9 +10,9 @@ const Criteria63 = ({ onCrit63Data }) => {
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
     const [text6_3_1, settext6_3_1] = useState("");
-    const [data_6_3_2, setdata_6_3_2] = useState("");
-    const [data_6_3_3, setdata_6_3_3] = useState("");
-    const [data_6_3_4, setdata_6_3_4] = useState("");
+    const [data6_3_2, setdata6_3_2] = useState("");
+    const [data6_3_3, setdata6_3_3] = useState("");
+    const [data6_3_4, setdata6_3_4] = useState("");
     const [file6_3_1, setFile6_3_1] = useState(null);
     const [file6_3_2_1, setFile6_3_2_1] = useState(null);
     const [file6_3_2_2, setFile6_3_2_2] = useState(null);
@@ -54,7 +54,7 @@ const Criteria63 = ({ onCrit63Data }) => {
         const sectionData = {
             department,
             academicYear,
-            data_6_3_2,
+            data6_3_2,
             file6_3_2_1,
             file6_3_2_2
         };
@@ -79,7 +79,7 @@ const Criteria63 = ({ onCrit63Data }) => {
         const sectionData = {
             department,
             academicYear,
-            data_6_3_3,
+            data6_3_3,
             file6_3_3_1,
             file6_3_3_2
         };
@@ -104,7 +104,7 @@ const Criteria63 = ({ onCrit63Data }) => {
         const sectionData = {
             department,
             academicYear,
-            data_6_3_4,
+            data6_3_4,
             file6_3_4_1,
             file6_3_4_2
         };
@@ -127,26 +127,26 @@ const Criteria63 = ({ onCrit63Data }) => {
         const crit63 = {
             text6_3_1,
             file6_3_1,
-            data_6_3_2,
+            data6_3_2,
             file6_3_2_1,
             file6_3_2_2,
-            data_6_3_3,
+            data6_3_3,
             file6_3_3_1,
             file6_3_3_2,
-            data_6_3_4,
+            data6_3_4,
             file6_3_4_1,
             file6_3_4_2
         };
         onCrit63Data(crit63);
     },[text6_3_1,
         file6_3_1,
-        data_6_3_2,
+        data6_3_2,
         file6_3_2_1,
         file6_3_2_2,
-        data_6_3_3,
+        data6_3_3,
         file6_3_3_1,
         file6_3_3_2,
-        data_6_3_4,
+        data6_3_4,
         file6_3_4_1,
         file6_3_4_2])
 
@@ -171,10 +171,10 @@ const Criteria63 = ({ onCrit63Data }) => {
             const data = response.data.data.criteria63;
 
             if (data) {
-                settext_6_3_1(data.text_6_3_1 ? data.text_6_3_1 : '');
-                setdata_6_3_2(data.data_6_3_2 ? data.data_6_3_2 : '');
-                setdata_6_3_3(data.data_6_3_3 ? data.data_6_3_3 : '');
-                setdata_6_3_4(data.data_6_3_4 ? data.data_6_3_4 : '');
+                settext6_3_1(data.text6_3_1 ? data.text6_3_1 : '');
+                setdata6_3_2(data.data6_3_2 ? data.data6_3_2 : '');
+                setdata6_3_3(data.data6_3_3 ? data.data6_3_3 : '');
+                setdata6_3_4(data.data6_3_4 ? data.data6_3_4 : '');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -235,9 +235,9 @@ const Criteria63 = ({ onCrit63Data }) => {
 
                             <input
                             type="number"
-                            id="data_6_3_2"
-                            value={data_6_3_2}
-                            onChange={(e) => setdata_6_3_2(e.target.value)}
+                            id="data6_3_2"
+                            value={data6_3_2}
+                            onChange={(e) => setdata6_3_2(e.target.value)}
                         /><br />
                         <table>
                             <thead>
@@ -295,9 +295,9 @@ const Criteria63 = ({ onCrit63Data }) => {
 
                             <input
                             type="number"
-                            id="data_6_3_3"
-                            value={data_6_3_3}
-                            onChange={(e) => setdata_6_3_3(e.target.value)}
+                            id="data6_3_3"
+                            value={data6_3_3}
+                            onChange={(e) => setdata6_3_3(e.target.value)}
                         /><br />
                         <table>
                             <thead>
@@ -355,9 +355,9 @@ const Criteria63 = ({ onCrit63Data }) => {
 
                             <input
                             type="number"
-                            id="data_6_3_4"
-                            value={data_6_3_4}
-                            onChange={(e) => setdata_6_3_4(e.target.value)}
+                            id="data6_3_4"
+                            value={data6_3_4}
+                            onChange={(e) => setdata6_3_4(e.target.value)}
                         /><br />
                         <table>
                             <thead>

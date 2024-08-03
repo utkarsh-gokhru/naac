@@ -9,15 +9,15 @@ const Criteria71 = ({ onCrit71Data }) => {
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
     const [text7_1_1, settext7_1_1] = useState("");
-    const [data_7_1_2, setdata_7_1_2] = useState("");
+    const [data7_1_2, setdata7_1_2] = useState("");
     const [text7_1_3, settext7_1_3] = useState("");
-    const [data_7_1_4, setdata_7_1_4] = useState("");
-    const [data_7_1_5, setdata_7_1_5] = useState("");
-    const [data_7_1_6, setdata_7_1_6] = useState("");
-    const [data_7_1_7, setdata_7_1_7] = useState("");
+    const [data7_1_4, setdata7_1_4] = useState("");
+    const [data7_1_5, setdata7_1_5] = useState("");
+    const [data7_1_6, setdata7_1_6] = useState("");
+    const [data7_1_7, setdata7_1_7] = useState("");
     const [text7_1_8, settext7_1_8] = useState("");
     const [text7_1_9, settext7_1_9] = useState("");
-    const [data_7_1_10, setdata_7_1_10] = useState("");
+    const [data7_1_10, setdata7_1_10] = useState("");
     const [text7_1_11, settext7_1_11] = useState("");
     const [file7_1_1, setFile7_1_1] = useState(null);
     const [file7_1_2, setFile7_1_2] = useState(null);
@@ -51,15 +51,15 @@ const Criteria71 = ({ onCrit71Data }) => {
     useEffect(() => {
         const crit71 = {
             text7_1_1,
-            data_7_1_2,
+            data7_1_2,
             text7_1_3,
-            data_7_1_4,
-            data_7_1_5,
-            data_7_1_6,
-            data_7_1_7,
+            data7_1_4,
+            data7_1_5,
+            data7_1_6,
+            data7_1_7,
             text7_1_8,
             text7_1_9,
-            data_7_1_10,
+            data7_1_10,
             text7_1_11,
             file7_1_1,
             file7_1_2,
@@ -75,15 +75,15 @@ const Criteria71 = ({ onCrit71Data }) => {
         onCrit71Data(crit71);
     }, [
         text7_1_1,
-        data_7_1_2,
+        data7_1_2,
         text7_1_3,
-        data_7_1_4,
-        data_7_1_5,
-        data_7_1_6,
-        data_7_1_7,
+        data7_1_4,
+        data7_1_5,
+        data7_1_6,
+        data7_1_7,
         text7_1_8,
         text7_1_9,
-        data_7_1_10,
+        data7_1_10,
         text7_1_11,
         file7_1_1,
         file7_1_2,
@@ -103,17 +103,17 @@ const Criteria71 = ({ onCrit71Data }) => {
             const data = response.data.data.criteria71;
 
             if (data) {
-                settext_7_1_1(data.text_7_1_1 ? data.text_7_1_1 : '');
-                setdata_7_1_2(data.data_7_1_2 ? data.data_7_1_2: '');
-                settext_7_1_3(data.text7_1_3 ? data.text7_1_3 : '');
-                setdata_7_1_4(data.data_7_1_4? data.data_7_1_4 : '');
-                setdata_7_1_5(data.data_7_1_5 ? data.data_7_1_5 : '');
-                setdata_7_1_6(data.data_7_1_6 ? data.data_7_1_6 : '');
-                setdata_7_1_7(data.data_7_1_7 ? data.data_7_1_7 : '');
-                settext_7_1_8(data.text_7_1_8 ? data.text_7_1_8 : '');
-                settext_7_1_9(data.text_7_1_9 ? data.text_7_1_9 : '');
-                setdata_7_1_10(data.data_7_1_10 ? data.data_7_1_10 : '');
-                settext_7_1_11(data.text_7_1_11 ? data.text_7_1_11 : '');
+                settext7_1_1(data.text7_1_1 ? data.text7_1_1 : '');
+                setdata7_1_2(data.data7_1_2 ? data.data7_1_2: '');
+                settext7_1_3(data.text7_1_3 ? data.text7_1_3 : '');
+                setdata7_1_4(data.data7_1_4? data.data7_1_4 : '');
+                setdata7_1_5(data.data7_1_5 ? data.data7_1_5 : '');
+                setdata7_1_6(data.data7_1_6 ? data.data7_1_6 : '');
+                setdata7_1_7(data.data7_1_7 ? data.data7_1_7 : '');
+                settext7_1_8(data.text7_1_8 ? data.text7_1_8 : '');
+                settext7_1_9(data.text7_1_9 ? data.text7_1_9 : '');
+                setdata7_1_10(data.data7_1_10 ? data.data7_1_10 : '');
+                settext7_1_11(data.text7_1_11 ? data.text7_1_11 : '');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -180,19 +180,19 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <li><h4>5. Use of LED bulbs/ power-efficient equipment</h4></li>
                 </ul>
                 <form action="/submit-response" method="post">
-                    <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata_7_1_2(e.target.value)} />
+                    <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata7_1_2(e.target.value)} />
                     <label htmlFor="all">Any 4 or All of the above</label><br />
 
-                    <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata_7_1_2(e.target.value)} />
+                    <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata7_1_2(e.target.value)} />
                     <label htmlFor="any3">Any 3 of the above</label><br />
 
-                    <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata_7_1_2(e.target.value)} />
+                    <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata7_1_2(e.target.value)} />
                     <label htmlFor="any2">Any 2 of the above</label><br />
 
-                    <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata_7_1_2(e.target.value)} />
+                    <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata7_1_2(e.target.value)} />
                     <label htmlFor="any1">Any 1 of the above</label><br />
 
-                    <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata_7_1_2(e.target.value)} />
+                    <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata7_1_2(e.target.value)} />
                     <label htmlFor="none">None of the above</label><br />
                 </form>
                 <table>
@@ -224,7 +224,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={() => saveSection({ data_7_1_2, file7_1_2 }, '7-1-2')}>Save</button>
+                    <button onClick={() => saveSection({ data7_1_2, file7_1_2 }, '7-1-2')}>Save</button>
                 </div>
             </div>
 
@@ -287,19 +287,19 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <li><h4>5. Maintenance of water bodies and distribution system in the campus</h4></li>
                 </ul>
                 <form action="/submit-response" method="post">
-                    <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata_7_1_4(e.target.value)} />
+                    <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata7_1_4(e.target.value)} />
                     <label htmlFor="all">Any 4 or All of the above</label><br />
 
-                    <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata_7_1_4(e.target.value)} />
+                    <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata7_1_4(e.target.value)} />
                     <label htmlFor="any3">Any 3 of the above</label><br />
 
-                    <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata_7_1_4(e.target.value)} />
+                    <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata7_1_4(e.target.value)} />
                     <label htmlFor="any2">Any 2 of the above</label><br />
 
-                    <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata_7_1_4(e.target.value)} />
+                    <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata7_1_4(e.target.value)} />
                     <label htmlFor="any1">Any 1 of the above</label><br />
 
-                    <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata_7_1_4(e.target.value)} />
+                    <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata7_1_4(e.target.value)} />
                     <label htmlFor="none">None of the above</label><br />
                 </form>
                 <table>
@@ -331,7 +331,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={() => saveSection({ data_7_1_4, file7_1_4 }, '7-1-4')}>Save</button>
+                    <button onClick={() => saveSection({ data7_1_4, file7_1_4 }, '7-1-4')}>Save</button>
                 </div>
             </div>
 
@@ -346,19 +346,19 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <li><h4>5. Landscaping</h4></li>
                 </ul>
                 <form action="/submit-response" method="post">
-                    <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata_7_1_5(e.target.value)} />
+                    <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata7_1_5(e.target.value)} />
                     <label htmlFor="all">Any 4 or All of the above</label><br />
 
-                    <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata_7_1_5(e.target.value)} />
+                    <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata7_1_5(e.target.value)} />
                     <label htmlFor="any3">Any 3 of the above</label><br />
 
-                    <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata_7_1_5(e.target.value)} />
+                    <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata7_1_5(e.target.value)} />
                     <label htmlFor="any2">Any 2 of the above</label><br />
 
-                    <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata_7_1_5(e.target.value)} />
+                    <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata7_1_5(e.target.value)} />
                     <label htmlFor="any1">Any 1 of the above</label><br />
 
-                    <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata_7_1_5(e.target.value)} />
+                    <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata7_1_5(e.target.value)} />
                     <label htmlFor="none">None of the above</label><br />
                 </form>
                 <table>
@@ -390,7 +390,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={() => saveSection({ data_7_1_5, file7_1_5 }, '7-1-5')}>Save</button>
+                    <button onClick={() => saveSection({ data7_1_5, file7_1_5 }, '7-1-5')}>Save</button>
                 </div>
             </div>
 
@@ -405,19 +405,19 @@ const Criteria71 = ({ onCrit71Data }) => {
             </ul>
 
             <form action="/submit-response" method="post">
-                <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata_7_1_6(e.target.value)} />
+                <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata7_1_6(e.target.value)} />
                 <label htmlFor="all">Any 4 or All of the above</label><br />
 
-                <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata_7_1_6(e.target.value)} />
+                <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata7_1_6(e.target.value)} />
                 <label htmlFor="any3">Any 3 of the above</label><br />
 
-                <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata_7_1_6(e.target.value)} />
+                <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata7_1_6(e.target.value)} />
                 <label htmlFor="any2">Any 2 of the above</label><br />
 
-                <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata_7_1_6(e.target.value)} />
+                <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata7_1_6(e.target.value)} />
                 <label htmlFor="any1">Any 1 of the above</label><br />
 
-                <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata_7_1_6(e.target.value)} />
+                <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata7_1_6(e.target.value)} />
                 <label htmlFor="none">None of the above</label><br />
             </form>
             <table>
@@ -449,7 +449,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={() => saveSection({ data_7_1_6, file7_1_6 }, '7-1-6')}>Save</button>
+                <button onClick={() => saveSection({ data7_1_6, file7_1_6 }, '7-1-6')}>Save</button>
             </div>
 
             <div className="c-7-1-1">
@@ -463,19 +463,19 @@ const Criteria71 = ({ onCrit71Data }) => {
                 </ul>
 
                 <form action="/submit-response" method="post">
-                    <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata_7_1_7(e.target.value)} />
+                    <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata7_1_7(e.target.value)} />
                     <label htmlFor="all">Any 4 or All of the above</label><br />
 
-                    <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata_7_1_7(e.target.value)} />
+                    <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata7_1_7(e.target.value)} />
                     <label htmlFor="any3">Any 3 of the above</label><br />
 
-                    <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata_7_1_7(e.target.value)} />
+                    <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata7_1_7(e.target.value)} />
                     <label htmlFor="any2">Any 2 of the above</label><br />
 
-                    <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata_7_1_7(e.target.value)} />
+                    <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata7_1_7(e.target.value)} />
                     <label htmlFor="any1">Any 1 of the above</label><br />
 
-                    <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata_7_1_7(e.target.value)} />
+                    <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata7_1_7(e.target.value)} />
                     <label htmlFor="none">None of the above</label><br />
                 </form>
                 <table>
@@ -507,7 +507,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={() => saveSection({ data_7_1_7, file7_1_7 }, '7-1-7')}>Save</button>
+                    <button onClick={() => saveSection({ data7_1_7, file7_1_7 }, '7-1-7')}>Save</button>
                 </div>
             </div>
 
@@ -571,19 +571,19 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <li><h4>4. Annual awareness programmes on Code of Conduct are organized</h4></li>
                 </ul>
                 <form action="/submit-response" method="post">
-                    <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata_7_1_10(e.target.value)} />
+                    <input type="radio" id="all" name="option" value="all" onChange={(e) => setdata7_1_10(e.target.value)} />
                     <label htmlFor="all">Any 4 or All of the above</label><br />
 
-                    <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata_7_1_10(e.target.value)} />
+                    <input type="radio" id="any3" name="option" value="any3" onChange={(e) => setdata7_1_10(e.target.value)} />
                     <label htmlFor="any3">Any 3 of the above</label><br />
 
-                    <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata_7_1_10(e.target.value)} />
+                    <input type="radio" id="any2" name="option" value="any2" onChange={(e) => setdata7_1_10(e.target.value)} />
                     <label htmlFor="any2">Any 2 of the above</label><br />
 
-                    <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata_7_1_10(e.target.value)} />
+                    <input type="radio" id="any1" name="option" value="any1" onChange={(e) => setdata7_1_10(e.target.value)} />
                     <label htmlFor="any1">Any 1 of the above</label><br />
 
-                    <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata_7_1_10(e.target.value)} />
+                    <input type="radio" id="none" name="option" value="none" onChange={(e) => setdata7_1_10(e.target.value)} />
                     <label htmlFor="none">None of the above</label><br />
                 </form>
                 <table>
@@ -615,7 +615,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={() => saveSection({ data_7_1_10, file7_1_10 }, '7-1-10')}>Save</button>
+                    <button onClick={() => saveSection({ data7_1_10, file7_1_10 }, '7-1-10')}>Save</button>
                 </div>
             </div>
 

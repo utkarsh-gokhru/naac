@@ -16,7 +16,7 @@ const EP3 = ({ onEP3Data }) => {
     const [file3_3, setFile3_3] = useState(null);
 
     const downloadExcel = async (exc_file) => {
-        const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
+        const templateFilePath = `${process.env.PUBLIC_URL}/EP/${exc_file}`;
 
         try {
             const response = await fetch(templateFilePath);

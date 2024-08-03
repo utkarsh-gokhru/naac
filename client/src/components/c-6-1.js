@@ -7,8 +7,8 @@ const Criteria61 = ({ onCrit61Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
-    const [text_6_1_1, settext_6_1_1] = useState("");
-    const [text_6_1_2, settext_6_1_2] = useState("");
+    const [text6_1_1, settext6_1_1] = useState("");
+    const [text6_1_2, settext6_1_2] = useState("");
     const [file6_1_1, setFile6_1_1] = useState(null);
     const [file6_1_2, setFile6_1_2] = useState(null);
 
@@ -18,7 +18,7 @@ const Criteria61 = ({ onCrit61Data }) => {
         const sectionData = {
             department,
             academicYear,
-            text_6_1_1,
+            text6_1_1,
             file6_1_1
         };
 
@@ -42,7 +42,7 @@ const Criteria61 = ({ onCrit61Data }) => {
         const sectionData = {
             department,
             academicYear,
-            text_6_1_2,
+            text6_1_2,
             file6_1_2
         };
 
@@ -62,13 +62,13 @@ const Criteria61 = ({ onCrit61Data }) => {
 
     useEffect(() => {
         const crit61 = {
-            text_6_1_1,
+            text6_1_1,
             file6_1_1,
-            text_6_1_2,
+            text6_1_2,
             file6_1_2,
         };
         onCrit61Data(crit61);
-    }, [text_6_1_1,file6_1_1,text_6_1_2,file6_1_2,]);
+    }, [text6_1_1,file6_1_1,text6_1_2,file6_1_2,]);
 
     const fetchData = async () => {
         try {
@@ -76,8 +76,8 @@ const Criteria61 = ({ onCrit61Data }) => {
             const data = response.data.data.criteria61;
 
             if (data) {
-                settext_6_1_1(data.text_6_1_1 ? data.text_6_1_1 : '');
-                settext_6_1_2,(data.text_6_1_2 ? data.text_6_1_2 : '');
+                settext6_1_1(data.text6_1_1 ? data.text6_1_1 : '');
+                settext6_1_2(data.text6_1_2 ? data.text6_1_2 : '');
                 }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -99,8 +99,8 @@ const Criteria61 = ({ onCrit61Data }) => {
                 <StyledTextArea
                     rows={5}
                     placeholder="Type the text here"
-                    value={text_6_1_1}
-                    onChange={(e) => settext_6_1_1(e.target.value)}
+                    value={text6_1_1}
+                    onChange={(e) => settext6_1_1(e.target.value)}
                 />
                 <table>
                     <thead>
@@ -131,7 +131,7 @@ const Criteria61 = ({ onCrit61Data }) => {
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={() => saveSection6_1_1({ text_6_1_1, file6_1_1 }, '6-1-1')}>Save</button>
+                    <button onClick={() => saveSection6_1_1({ text6_1_1, file6_1_1 }, '6-1-1')}>Save</button>
                 </div>
             </div>
 
@@ -141,8 +141,8 @@ const Criteria61 = ({ onCrit61Data }) => {
                 <StyledTextArea
                     rows={5}
                     placeholder="Type the text here"
-                    value={text_6_1_2}
-                    onChange={(e) => settext_6_1_2(e.target.value)}
+                    value={text6_1_2}
+                    onChange={(e) => settext6_1_2(e.target.value)}
                 />
                 <table>
                     <thead>
@@ -173,7 +173,7 @@ const Criteria61 = ({ onCrit61Data }) => {
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={() => saveSection6_1_2({ text_6_1_2, file6_1_2 }, '6-1-2')}>Save</button>
+                    <button onClick={() => saveSection6_1_2({ text6_1_2, file6_1_2 }, '6-1-2')}>Save</button>
                 </div>
             </div>
 

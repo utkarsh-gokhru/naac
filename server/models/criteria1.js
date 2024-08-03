@@ -22,7 +22,7 @@ const Criteria1Schema = new mongoose.Schema({
     file1_2_2_2: { type: String }
   },
   criteria13: {
-    text_1_3_1: {type: String},
+    text1_3_1: {type: String},
     file1_3_1: {type: String},
     valueAddedCoursesCount1_3_2: { type: Number },
     enrolledStudentsCount1_3_3_1: { type: Number },

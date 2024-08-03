@@ -14,7 +14,7 @@ const EP4 = ({ onEP4Data }) => {
     const [total_expenditure, setTotal_expenditure] = useState('');
 
     const downloadExcel = async (exc_file) => {
-        const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
+        const templateFilePath = `${process.env.PUBLIC_URL}/EP/${exc_file}`;
 
         try {
             const response = await fetch(templateFilePath);

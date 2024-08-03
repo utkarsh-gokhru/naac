@@ -8,14 +8,14 @@ const Criteria65 = ({ onCrit65Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
-    const [text_6_5_1, setText_6_5_1] = useState("");
+    const [text6_5_1, settext6_5_1] = useState("");
     const [file6_5_1, setFile6_5_1] = useState(null);
 
-    const [data_6_5_2, setData_6_5_2] = useState("");
+    const [data6_5_2, setdata6_5_2] = useState("");
     const [file6_5_2_1, setFile6_5_2_1] = useState(null);
     const [file6_5_2_2, setFile6_5_2_2] = useState(null);
 
-    const [text_6_5_3, setText_6_5_3] = useState("");
+    const [text6_5_3, settext6_5_3] = useState("");
     const [file6_5_3, setFile6_5_3] = useState(null);
 
 
@@ -27,7 +27,7 @@ const Criteria65 = ({ onCrit65Data }) => {
         const sectionData = {
             department,
             academicYear,
-            text_6_5_1,
+            text6_5_1,
             file6_5_1
         };
 
@@ -51,7 +51,7 @@ const Criteria65 = ({ onCrit65Data }) => {
         const sectionData = {
             department,
             academicYear,
-            data_6_5_2,
+            data6_5_2,
             file6_5_2_1,
             file6_5_2_2
         };
@@ -76,7 +76,7 @@ const Criteria65 = ({ onCrit65Data }) => {
         const sectionData = {
             department,
             academicYear,
-            text_6_5_3,
+            text6_5_3,
             file6_5_3
         };
 
@@ -96,16 +96,16 @@ const Criteria65 = ({ onCrit65Data }) => {
 
     useEffect(() => {
         const crit65 = {
-            text_6_5_1,
+            text6_5_1,
             file6_5_1,
-            data_6_5_2,
+            data6_5_2,
             file6_5_2_1,
             file6_5_2_2,
-            text_6_5_3,
+            text6_5_3,
             file6_5_3
         };
         onCrit65Data(crit65);
-    }, [text_6_5_1, file6_5_1, data_6_5_2, file6_5_2_1, file6_5_2_2, text_6_5_3, file6_5_3])
+    }, [text6_5_1, file6_5_1, data6_5_2, file6_5_2_1, file6_5_2_2, text6_5_3, file6_5_3])
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -126,9 +126,9 @@ const Criteria65 = ({ onCrit65Data }) => {
             const data = response.data.data.criteria65;
 
             if (data) {
-                setText_6_5_1(data.text_6_5_1 ? data.text_6_5_1 : '');
-                setData_6_5_2(data.data_6_5_2 ? data.data_6_5_2 : '');
-                setText_6_5_3(data.data_6_5_3 ? data.data_6_5_3 : '');
+                settext6_5_1(data.text6_5_1 ? data.text6_5_1 : '');
+                setdata6_5_2(data.data6_5_2 ? data.data6_5_2 : '');
+                settext6_5_3(data.data6_5_3 ? data.data6_5_3 : '');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -151,8 +151,8 @@ const Criteria65 = ({ onCrit65Data }) => {
                 <StyledTextArea
                     rows={5}
                     placeholder="Type the text here"
-                    value={text_6_5_1}
-                    onChange={(e) => setText_6_5_1(e.target.value)}
+                    value={text6_5_1}
+                    onChange={(e) => settext6_5_1(e.target.value)}
                 />
                 <table>
                     <thead>
@@ -198,19 +198,19 @@ const Criteria65 = ({ onCrit65Data }) => {
                     </ol>
                 </h4>
                 <div className="radioBtn-1_4_1">
-                    <input type="radio" id="all4_1_4_1" name="group1_4_1" onChange={() => setData_6_5_2('Any 5 or all of the above')} />
+                    <input type="radio" id="all4_1_4_1" name="group1_4_1" onChange={() => setdata6_5_2('Any 5 or all of the above')} />
                     <label htmlFor="all4_1_4_1">Any 5 or all of the above</label>
 
-                    <input type="radio" id="all4_1_4_1" name="group1_4_1" onChange={() => setData_6_5_2('Any 4 of the above')} />
+                    <input type="radio" id="all4_1_4_1" name="group1_4_1" onChange={() => setdata6_5_2('Any 4 of the above')} />
                     <label htmlFor="all4_1_4_1">Any 4 of the above</label>
 
-                    <input type="radio" id="any3_1_4_1" name="group1_4_1" onChange={() => setData_6_5_2('Any 3 of the above')} />
+                    <input type="radio" id="any3_1_4_1" name="group1_4_1" onChange={() => setdata6_5_2('Any 3 of the above')} />
                     <label htmlFor="any3_1_4_1">Any 3 of the above</label>
 
-                    <input type="radio" id="any2_1_4_1" name="group1_4_1" onChange={() => setData_6_5_2('Any 2 of the above')} />
+                    <input type="radio" id="any2_1_4_1" name="group1_4_1" onChange={() => setdata6_5_2('Any 2 of the above')} />
                     <label htmlFor="any2_1_4_1">Any 2 of the above</label>
 
-                    <input type="radio" id="any1_1_4_1" name="group1_4_1" onChange={() => setData_6_5_2('Any 1 of the above')} />
+                    <input type="radio" id="any1_1_4_1" name="group1_4_1" onChange={() => setdata6_5_2('Any 1 of the above')} />
                     <label htmlFor="any1_1_4_1">Any 1 of the above</label>
                 </div>
                 <table>
@@ -258,8 +258,8 @@ const Criteria65 = ({ onCrit65Data }) => {
                 <StyledTextArea
                     rows={5}
                     placeholder="Type the text here"
-                    value={text_6_5_3}
-                    onChange={(e) => setText_6_5_3(e.target.value)}
+                    value={text6_5_3}
+                    onChange={(e) => settext6_5_3(e.target.value)}
                 />
                 <table>
                     <thead>

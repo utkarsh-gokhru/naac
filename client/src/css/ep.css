@@ -93,6 +93,10 @@ li {
     border: 1px solid #ddd;
 }
 
+.sec1-1,.sec1-2,.sec2-1,.sec2-2,.sec2-3,.sec2-4,.sec3-1,.sec3-2,.sec3-3,.sec4-1,.sec4-2,.sec4-3,.sec4-4 {
+    margin: 20px;
+}
+
 .yearly_status_rep {
     background-color: #ddd;
 }
