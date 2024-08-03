@@ -130,7 +130,7 @@ const Criteria62 = ({ onCrit62Data }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC4?department=${department}&academicYear=${academicYear}`);
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC6?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data.criteria62;
 
             if (data) {

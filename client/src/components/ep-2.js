@@ -59,6 +59,26 @@ const EP2 = ({ onEP2Data }) => {
         };
         onEP2Data(ep2Data);
     }, [students, file2_1, outgoing_students, file2_2, students_appeared_in_university_exam, file2_3, reval_applications]);
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchEP?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.ep2;
+
+            if (data) {
+                setStudents(data.students ? data.students : '');
+                setOutgoing_students(data.outgoing_students ? data.outgoing_students : '');
+                setStudents_appeared_in_university_exam(data.students_appeared_in_university_exam ? data.students_appeared_in_university_exam : '');
+                setReval_applications(data.reval_applications ? data.reval_applications : '')
+                   
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className="sec-2">

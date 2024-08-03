@@ -52,6 +52,26 @@ const EP1 = ({ onEP1Data }) => {
         onEP1Data(ep1Data);
     }, [programmes, file1_1, departments]);
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchEP?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.ep1;
+
+            if (data) {
+                setProgrammes(data.programmes ? data.programmes : '');
+                setDepartments(data.departments ? data.departments : '');
+                   
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
     return (
         <div className="sec-1">
             <h3>1. Programme</h3>
