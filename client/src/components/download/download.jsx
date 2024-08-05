@@ -9,7 +9,7 @@ const DownloadButton = ({Criteria,Section}) => {
             const section = Section 
           
             const response = await axios({
-                url: `https://naacserver.onrender.com/admin/download/${criteria}/${criteria+section}`,
+                url: `https://naacserver.onrender.com/admin/download/${criteria}/${section}`,
                 method: 'GET',
                 responseType: 'blob', 
             });
