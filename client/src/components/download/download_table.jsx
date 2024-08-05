@@ -23,9 +23,6 @@ const CriterionDownloadTable = () => {
 
     return (
         <div>
-            <div>
-               
-            </div>
             <div className="flex justify-center items-center mt-4">
                 <div className="w-1/2 max-w-md">
                     <label htmlFor="criteria" className="block text-sm font-medium text-gray-700">Select Criterion:</label>
@@ -58,7 +55,7 @@ const CriterionDownloadTable = () => {
                                 <td className="border p-1 text-center">{index + 1}</td>
                                 <td className="border p-1">Section {section}</td>
                                 <td className="border p-1 text-center">
-                                    <DownloadButton Criteria={selectedCriteria} Section={`section${section}`} />
+                                    <DownloadButton Criteria={selectedCriteria} Section={`criteria${selectedCriteria.slice(-1)}${section}`} />
                                 </td>
                             </tr>
                         ))}
@@ -70,3 +67,4 @@ const CriterionDownloadTable = () => {
 };
 
 export default CriterionDownloadTable;
+
