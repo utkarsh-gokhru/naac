@@ -4,7 +4,7 @@ import { saveAs } from 'file-saver';
 import axios from "axios";
 import '../css/criteria5.css';
 
-const Criteria53 = ({onCrit53Data}) => {
+const Criteria53 = ({ onCrit53Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
@@ -18,21 +18,34 @@ const Criteria53 = ({onCrit53Data}) => {
     const [file5_3_3_1, setFile5_3_3_1] = useState(null);
     const [file5_3_3_2, setFile5_3_3_2] = useState(null);
 
-    const saveSection = async (sectionData,section) => {
+    const saveSection = async (sectionData, section) => {
         const formData = new FormData();
 
         formData.append("department", department);
         formData.append("academicYear", academicYear);
 
+        let allFieldsFilled = true;
+
         for (const key in sectionData) {
-            formData.append(key, sectionData[key]);
+            if (sectionData[key] === null || sectionData[key] === '') {
+                allFieldsFilled = false;
+                break;
+            }
         }
-        try{
-            const response = await axios.post(`https://naacserver.onrender.com/data/save${section}`, formData);
-            console.log(response.data); 
+
+        if (!allFieldsFilled) {
+            alert('Please fill in all the fields of the section.');
+        } else {
+            for (const key in sectionData) {
+                formData.append(key, sectionData[key]);
+            }
+        }
+        try {
+            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
+            console.log(response.data);
             alert(`Saved Section ${section} data`);
-        }catch(error){
-            console.log("Error",error.message);
+        } catch (error) {
+            console.log("Error", error.message);
         }
     }
 
@@ -61,7 +74,7 @@ const Criteria53 = ({onCrit53Data}) => {
             file5_3_3_2
         };
         onCrit53Data(crit53);
-    }, [awards_no, file5_3_1_1, file5_3_1_2, student_council, file5_3_2, events, file5_3_3_1, file5_3_3_2]);    
+    }, [awards_no, file5_3_1_1, file5_3_1_2, student_council, file5_3_2, events, file5_3_3_1, file5_3_3_2]);
 
     const fetchData = async () => {
         try {
@@ -82,7 +95,7 @@ const Criteria53 = ({onCrit53Data}) => {
         fetchData();
     }, []);
 
-    return(
+    return (
         <div className="c-5-3">
             <h3>Student Partcipation and Activities</h3>
             <ul>
@@ -109,7 +122,7 @@ const Criteria53 = ({onCrit53Data}) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> 
+                                    <td>
                                         Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('5.3.1.xlsx')}>Data Template</button></td>
                                     <td>
@@ -133,7 +146,7 @@ const Criteria53 = ({onCrit53Data}) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={() => saveSection({awards_no,file5_3_1_1,file5_3_1_2},'5-3-1')}>Save</button>
+                            <button onClick={() => saveSection({ awards_no, file5_3_1_1, file5_3_1_2 }, '5-3-1')}>Save</button>
                         </div>
                     </div>
                 </li>
@@ -141,10 +154,10 @@ const Criteria53 = ({onCrit53Data}) => {
                     <div className="c-5-3-2">
                         <h4>5.3.2 - Prsence of Student Council and its activitiesfor institutional development and student welfare</h4>
                         <StyledTextArea
-                                rows={5}
-                                placeholder="Type the text here"
-                                value={student_council}
-                                onChange={(e) => setStudent_council(e.target.value)}
+                            rows={5}
+                            placeholder="Type the text here"
+                            value={student_council}
+                            onChange={(e) => setStudent_council(e.target.value)}
                         />
                         <table>
                             <thead>
@@ -175,12 +188,12 @@ const Criteria53 = ({onCrit53Data}) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={() => saveSection({student_council,file5_3_2},'5-3-2')}>Save</button>
+                            <button onClick={() => saveSection({ student_council, file5_3_2 }, '5-3-2')}>Save</button>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div className="c-5-3-3"> 
+                    <div className="c-5-3-3">
                         <h4>Number of sports and cultural events organised by the institution during the year</h4>
                         <input
                             type="number"
@@ -199,7 +212,7 @@ const Criteria53 = ({onCrit53Data}) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> 
+                                    <td>
                                         Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('5.3.3.xlsx')}>Data Template</button></td>
                                     <td>
@@ -223,7 +236,7 @@ const Criteria53 = ({onCrit53Data}) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={() => saveSection({events,file5_3_3_1,file5_3_3_2 },'5-3-3')}>Save</button>
+                            <button onClick={() => saveSection({ events, file5_3_3_1, file5_3_3_2 }, '5-3-3')}>Save</button>
                         </div>
                     </div>
                 </li>
