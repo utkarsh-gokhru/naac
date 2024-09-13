@@ -81,9 +81,6 @@ async function generateExcel(model, nestedObjectName) {
     } catch (error) {
         console.error("Error generating Excel file:", error);
         return null;
-    } finally {
-        await mongoose.disconnect();
-        console.log('DB disconnected!');
     }
 }
 
