@@ -20,80 +20,36 @@ const Criteria52 = ({ onCrit52Data }) => {
     const [file5_2_3_2, setFile5_2_3_2] = useState(null);
 
 
-    const saveSection5_2_1 = async () => {
-        const formdata = new FormData();
+    const saveSection = async (sectionData, section) => {
+        const formData = new FormData();
 
-        const sectionData = {
-            department,
-            academicYear,
-            file5_2_1_1,
-            file5_2_1_2,
-            students_qualified,
-            students_appeared
+        formData.append("department", department);
+        formData.append("academicYear", academicYear);
 
-        };
+        let allFieldsFilled = true;
 
         for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
+            if (sectionData[key] === null || sectionData[key] === '') {
+                allFieldsFilled = false;
+                break;
+            }
+        }
+
+        if (!allFieldsFilled) {
+            alert('Please fill in all the fields of the section.');
+        } else {
+            for (const key in sectionData) {
+                formData.append(key, sectionData[key]);
+            }
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save5-2-1", formdata);
+            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
             console.log(response.data);
-            alert("Saved Section 5.2.1 data:");
+            alert(`Saved Section ${section} data`);
         } catch (error) {
             console.log("Error", error.message);
         }
-    };
-
-    const saveSection5_2_2 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file5_2_2_1,
-            file5_2_2_2,
-            placement_no
-
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save5-2-2", formdata);
-            console.log(response.data);
-            alert("Saved Section 5.2.2 data:");
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    };
-
-
-    const saveSection5_2_3 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file5_2_3_1,
-            file5_2_3_2,
-            higher_studies_students
-
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save5-2-3", formdata);
-            console.log(response.data);
-            alert("Saved Section 5.2.3 data:");
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    };
-
+    }
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -215,7 +171,7 @@ const Criteria52 = ({ onCrit52Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection5_2_1}>Save</button>
+            <button onClick={() => saveSection({ students_qualified, students_appeared, file5_2_1_1, file5_2_1_2 }, '5-2-1')}>Save</button>
             </div>
             <h4> 5.2.2 - total number of placememt of ongoing students during the year</h4>
             <input
@@ -271,7 +227,7 @@ const Criteria52 = ({ onCrit52Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection5_2_2}>Save</button>
+            <button onClick={() => saveSection({ placement_no, file5_2_2_1, file5_2_2_2 }, '5-2-2')}>Save</button>
             </div>
 
             <h4>5.2.3 - Number of recently graduated students who have progressed to higher education ( previous graduating batch) during The year </h4>
@@ -328,7 +284,7 @@ const Criteria52 = ({ onCrit52Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection5_2_3}>Save</button>
+            <button onClick={() => saveSection({ higher_studies_students, file5_2_3_1, file5_2_3_2 }, '5-2-3')}>Save</button>
             </div>
         </div>
     )

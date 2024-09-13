@@ -20,97 +20,36 @@ const Criteria51 = ({ onCrit51Data }) => {
     const [file5_1_3_2, setFile5_1_3_2] = useState(null);
     const [file5_1_4, setfile5_1_4] = useState(null);
 
-    const saveSection5_1_1 = async () => {
-        const formdata = new FormData();
+    const saveSection = async (sectionData, section) => {
+        const formData = new FormData();
 
-        const sectionData = {
-            department,
-            academicYear,
-            file5_1_1_1,
-            file5_1_1_2,
-            scholarship_beneficiaries
-        };
+        formData.append("department", department);
+        formData.append("academicYear", academicYear);
+
+        let allFieldsFilled = true;
 
         for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
+            if (sectionData[key] === null || sectionData[key] === '') {
+                allFieldsFilled = false;
+                break;
+            }
+        }
+
+        if (!allFieldsFilled) {
+            alert('Please fill in all the fields of the section.');
+        } else {
+            for (const key in sectionData) {
+                formData.append(key, sectionData[key]);
+            }
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save5-1-1", formdata);
+            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
             console.log(response.data);
-            alert("Saved Section 5.1.1 data:");
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    };
-
-    const saveSection5_1_2 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file5_1_2_1,
-            file5_1_2_2,
-            career_counsel_beneficiaries
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save5-1-2", formdata);
-            console.log(response.data);
-            alert("Saved Section 5.1.2 data:");
+            alert(`Saved Section ${section} data`);
         } catch (error) {
             console.log("Error", error.message);
         }
     }
-
-    const saveSection5_1_3 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file5_1_3_1,
-            file5_1_3_2,
-            capacity_development_initiatives
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save5-1-3", formdata);
-            console.log(response.data);
-            alert("Saved Section 5.1.3 data:");
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    };
-
-    const saveSection5_1_4 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file5_1_4,
-            student_grievances_redressal
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save5-1-4", formdata);
-            console.log(response.data);
-            alert("Saved Section 5.1.4 data:");
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    }
-
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -221,7 +160,7 @@ const Criteria51 = ({ onCrit51Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection5_1_1}>Save</button>
+            <button onClick={() => saveSection({ scholarship_beneficiaries, file5_1_1_1, file5_1_1_2 }, '5-1-1')}>Save</button>
             </div>
 
             <h4>5.1.2 - Total number of students benefited by career counselling and guidance for competitive examinations offered by the Institution during the year</h4>
@@ -277,7 +216,7 @@ const Criteria51 = ({ onCrit51Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection5_1_2}>Save</button>
+            <button onClick={() => saveSection({ career_counsel_beneficiaries, file5_1_2_1, file5_1_2_2 }, '5-1-2')}>Save</button>
             </div>
 
             <h4>5.1.3 - Following Capacity development and skills enhancement initiatives are taken by the institution</h4>
@@ -350,7 +289,7 @@ const Criteria51 = ({ onCrit51Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection5_1_3}>Save</button>
+            <button onClick={() => saveSection({ capacity_development_initiatives, file5_1_3_1, file5_1_3_2 }, '5-1-3')}>Save</button>
             </div>
 
             <h4>5.1.4 - The Institution adopts the following for redressal of student grievances including sexual harassment and ragging cases:</h4>
@@ -413,7 +352,7 @@ const Criteria51 = ({ onCrit51Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection5_1_4}>Save</button>
+            <button onClick={() => saveSection({ student_grievances_redressal, file5_1_4 }, '5-1-4')}>Save</button>
             </div>
         </div>
     )

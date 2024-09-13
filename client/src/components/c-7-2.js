@@ -11,26 +11,34 @@ const Criteria72 = ({ onCrit72Data }) => {
 
     const saveSection = async (sectionData, section) => {
         const formData = new FormData();
+
         formData.append("department", department);
         formData.append("academicYear", academicYear);
-    
+
+        let allFieldsFilled = true;
+
         for (const key in sectionData) {
-            formData.append(key, sectionData[key]);
+            if (sectionData[key] === null || sectionData[key] === '') {
+                allFieldsFilled = false;
+                break;
+            }
         }
-    
+
+        if (!allFieldsFilled) {
+            alert('Please fill in all the fields of the section.');
+        } else {
+            for (const key in sectionData) {
+                formData.append(key, sectionData[key]);
+            }
+        }
         try {
-            const response = await axios.post(`https://naacserver.onrender.com/data/save${section}`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
+            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
             console.log(response.data);
             alert(`Saved Section ${section} data`);
         } catch (error) {
             console.log("Error", error.message);
         }
     }
-    
 
     useEffect(() => {
         const crit72 = {
