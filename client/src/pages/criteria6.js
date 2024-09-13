@@ -42,6 +42,52 @@ const Criteria6 = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // Validation check
+        if (
+            !crit61Data.text6_1_1 ||
+            !crit61Data.file6_1_1 ||
+            !crit61Data.text6_1_2 ||
+            !crit61Data.file6_1_2 ||
+            !crit62Data.text6_2_1 ||
+            !crit62Data.file6_2_1 ||
+            !crit62Data.text6_2_2 ||
+            !crit62Data.file6_2_2 ||
+            !crit62Data.data6_2_3 ||
+            !crit62Data.file6_2_3_1 ||
+            !crit62Data.file6_2_3_2 ||
+            !crit63Data.text6_3_1 ||
+            !crit63Data.file6_3_1 ||
+            !crit63Data.data6_3_2 ||
+            !crit63Data.file6_3_2_1 ||
+            !crit63Data.file6_3_2_2 ||
+            !crit63Data.data6_3_3 ||
+            !crit63Data.file6_3_3_1 ||
+            !crit63Data.file6_3_3_2 ||
+            !crit63Data.data6_3_4 ||
+            !crit63Data.file6_3_4_1 ||
+            !crit63Data.file6_3_4_2 ||
+            !crit64Data.text6_4_1 ||
+            !crit64Data.file6_4_1 ||
+            !crit64Data.data6_4_2 ||
+            !crit64Data.file6_4_2_1 ||
+            !crit64Data.file6_4_2_2 ||
+            !crit64Data.data6_4_3 ||
+            !crit64Data.file6_4_3_1 ||
+            !crit64Data.file6_4_3_2 ||
+            !crit64Data.text6_4_4 ||
+            !crit64Data.file6_4_4 ||
+            !crit65Data.text6_5_1 ||
+            !crit65Data.file6_5_1 ||
+            !crit65Data.data6_5_2 ||
+            !crit65Data.file6_5_2_1 ||
+            !crit65Data.file6_5_2_2 ||
+            !crit65Data.text6_5_3 ||
+            !crit65Data.file6_5_3
+        ) {
+            alert("Please fill all the fields before submitting.");
+            return;
+        }
+
         setShowPopup(true);
     };
 

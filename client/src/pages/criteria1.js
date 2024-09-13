@@ -37,15 +37,52 @@ const Criteria1 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Validation check
+    if (
+      !crit11Data.curriculumText ||
+      !crit11Data.syllabusRevisionCount ||
+      !crit11Data.file1_1_1 ||
+      !crit11Data.file1_1_2_1 ||
+      !crit11Data.file1_1_2_2 ||
+      !crit11Data.coursesFocusCount ||
+      !crit11Data.file1_1_3_1 ||
+      !crit11Data.file1_1_3_2 ||
+      !crit12Data.programCount1_2_2 ||
+      !crit12Data.newCoursesCount1_2_1 ||
+      !crit12Data.file1_2_1_1 ||
+      !crit12Data.file1_2_1_2 ||
+      !crit12Data.file1_2_2_1 ||
+      !crit12Data.file1_2_2_2 ||
+      !crit13Data.text1_3_1 ||
+      !crit13Data.file1_3_1 ||
+      !crit13Data.valueAddedCoursesCount1_3_2 ||
+      !crit13Data.enrolledStudentsCount1_3_3_1 ||
+      !crit13Data.projectsCount1_3_4 ||
+      !crit13Data.file1_3_2_1 ||
+      !crit13Data.file1_3_2_2 ||
+      !crit13Data.file1_3_3_1_1 ||
+      !crit13Data.file1_3_3_1_2 ||
+      !crit13Data.file1_3_4_1 ||
+      !crit13Data.file1_3_4_2 ||
+      !crit14Data.feedbackType1_4_1 ||
+      !crit14Data.feedbackType1_4_2 ||
+      !crit14Data.file1_4_1 ||
+      !crit14Data.file1_4_2
+    ) {
+      alert("Please fill all the fields before submitting.");
+      return;
+    }
+
     setShowPopup(true);
   };
+
 
   const handlePopupOk = async () => {
 
     try {
       const formdata = new FormData();
-      formdata.append('department',department)
-      formdata.append('academicYear',academicYear);
+      formdata.append('department', department)
+      formdata.append('academicYear', academicYear);
       for (const key in crit11Data) {
         formdata.append(key, crit11Data[key]);
       }
@@ -62,13 +99,13 @@ const Criteria1 = () => {
         formdata.append(key, crit14Data[key]);
       }
       const response = await axios.post("https://naacserver.onrender.com/data/criteria1/submit", formdata);
-      console.log(response.data); 
+      console.log(response.data);
       alert("Criteria 1 submitted!");
     } catch (error) {
       console.error(error);
       if (error.response && error.response.status === 400) {
         alert("Submission failed due to incomplete data. Please fill all the data and try again.");
-      }else{
+      } else {
         alert("Submission failed. Please try again later.");
       }
     }
@@ -86,7 +123,7 @@ const Criteria1 = () => {
           <img src={naacLogo} alt='NAAC LOGO' />
           <div className='head'>
             <h1 >University of Mumbai</h1>
-           
+
             <h3>AQAR Platform</h3>
           </div>
         </div>
@@ -112,13 +149,13 @@ const Criteria1 = () => {
         <Criteria14 onCrit14Data={handleCrit14Data} />
       </div>
       <div className="button-container">
-          <button onClick={handleSubmit} className="custom-button">Submit</button>
+        <button onClick={handleSubmit} className="custom-button">Submit</button>
       </div>
       {showPopup && (
-        <Popup 
-        message='Once the data is submitted, it cannot be edited. Are you sure you want to submit the data?'
-        onOk={handlePopupOk}
-        onClose={handlePopupClose}
+        <Popup
+          message='Once the data is submitted, it cannot be edited. Are you sure you want to submit the data?'
+          onOk={handlePopupOk}
+          onClose={handlePopupClose}
         />
       )}
     </div>

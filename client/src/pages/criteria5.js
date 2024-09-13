@@ -35,9 +35,50 @@ const Criteria5 = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+      
+        // Validation check
+        if (
+          !crit51Data.scholarship_beneficiaries ||
+          !crit51Data.file5_1_1_1 ||
+          !crit51Data.file5_1_1_2 ||
+          !crit51Data.career_counsel_beneficiaries ||
+          !crit51Data.file5_1_2_1 ||
+          !crit51Data.file5_1_2_2 ||
+          !crit51Data.capacity_development_initiatives ||
+          !crit51Data.file5_1_3_1 ||
+          !crit51Data.file5_1_3_2 ||
+          !crit51Data.student_grievances_redressal ||
+          !crit51Data.file5_1_4 ||
+          !crit52Data.students_qualified ||
+          !crit52Data.students_appeared ||
+          !crit52Data.file5_2_1_1 ||
+          !crit52Data.file5_2_1_2 ||
+          !crit52Data.placement_no ||
+          !crit52Data.file5_2_2_1 ||
+          !crit52Data.file5_2_2_2 ||
+          !crit52Data.higher_studies_students ||
+          !crit52Data.file5_2_3_1 ||
+          !crit52Data.file5_2_3_2 ||
+          !crit53Data.awards_no ||
+          !crit53Data.file5_3_1_1 ||
+          !crit53Data.file5_3_1_2 ||
+          !crit53Data.student_council ||
+          !crit53Data.file5_3_2 ||
+          !crit53Data.events ||
+          !crit53Data.file5_3_3_1 ||
+          !crit53Data.file5_3_3_2 ||
+          !crit54Data.alumni_chapters ||
+          !crit54Data.file5_4_1 ||
+          !crit54Data.alumni_contributions ||
+          !crit54Data.file5_4_2
+        ) {
+          alert("Please fill all the fields before submitting.");
+          return;
+        }
+      
         setShowPopup(true);
-    };
+      };
+      
     
     const handePopupOk = async () => {
 

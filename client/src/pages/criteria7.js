@@ -31,9 +31,41 @@ const Criteria7 = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+      
+        // Validation check
+        if (
+          !crit71Data.text7_1_1 ||
+          !crit71Data.file7_1_1 ||
+          !crit71Data.data7_1_2 ||
+          !crit71Data.file7_1_2 ||
+          !crit71Data.text7_1_3 ||
+          !crit71Data.file7_1_3 ||
+          !crit71Data.data7_1_4 ||
+          !crit71Data.file7_1_4 ||
+          !crit71Data.data7_1_5 ||
+          !crit71Data.file7_1_5 ||
+          !crit71Data.data7_1_6 ||
+          !crit71Data.file7_1_6 ||
+          !crit71Data.data7_1_7 ||
+          !crit71Data.file7_1_7 ||
+          !crit71Data.text7_1_8 ||
+          !crit71Data.file7_1_8 ||
+          !crit71Data.text7_1_9 ||
+          !crit71Data.data7_1_10 ||
+          !crit71Data.file7_1_10 ||
+          !crit71Data.text7_1_11 ||
+          !crit71Data.file7_1_11 ||
+          !crit72Data.text7_2_1 ||
+          !crit73Data.text7_3_1 ||
+          !crit73Data.text7_3_2
+        ) {
+          alert("Please fill all the fields before submitting.");
+          return;
+        }
+      
         setShowPopup(true);
-    };
+      };
+      
 
     const handePopupOk = async () => {
 

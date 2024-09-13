@@ -51,9 +51,67 @@ const Criteria2 = () => {
     setcrit27Data(data);
   };
 
+  const validateFields = () => {
+    return (
+      crit21Data.no_of_seats &&
+      crit21Data.file2_1_1_1 &&
+      crit21Data.file2_1_1_2 &&
+      crit21Data.students_reserved_cat &&
+      crit21Data.file2_1_2_1 &&
+      crit21Data.file2_1_2_2 &&
+      crit22Data.learning_assessment &&
+      crit22Data.file2_2_1_1 &&
+      crit22Data.link2_2_1_2 &&
+      crit22Data.no_of_students &&
+      crit22Data.no_of_teachers &&
+      crit22Data.file2_2_2 &&
+      crit23Data.learning_exp &&
+      crit23Data.file2_3_1 &&
+      crit23Data.effect_teach_learn &&
+      crit23Data.file2_3_2 &&
+      crit23Data.no_of_mentors &&
+      crit23Data.file2_3_3 &&
+      crit24Data.full_time_teachers &&
+      crit24Data.file2_4_1_1 &&
+      crit24Data.file2_4_1_2 &&
+      crit24Data.full_time_teachers_phd_etc &&
+      crit24Data.file2_4_2_1 &&
+      crit24Data.file2_4_2_2 &&
+      crit24Data.total_exp &&
+      crit24Data.file2_4_3_1 &&
+      crit24Data.file2_4_3_2 &&
+      crit24Data.award_rec_teachers &&
+      crit24Data.file2_4_4_1 &&
+      crit24Data.file2_4_4_2 &&
+      crit25Data.no_of_days &&
+      crit25Data.no_of_days_yearwise &&
+      crit25Data.file2_5_1_1 &&
+      crit25Data.file2_5_1_2 &&
+      crit25Data.no_of_student_grievances &&
+      crit25Data.file2_5_2 &&
+      crit25Data.it_integration &&
+      crit25Data.file2_5_3 &&
+      crit25Data.status_of_automation &&
+      crit25Data.file2_5_4_1 &&
+      crit25Data.file2_5_4_2 &&
+      crit26Data.learning_outcomes &&
+      crit26Data.file2_6_1 &&
+      crit26Data.attainment_prog_outcomes &&
+      crit26Data.file2_6_2 &&
+      crit26Data.final_year_students_passed &&
+      crit26Data.final_year_students_appeared &&
+      crit26Data.file2_6_3_2_1 &&
+      crit26Data.file2_6_3_2_2 &&
+      crit27Data.sss_web_link
+    );
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    if (!validateFields()) {
+      alert("Please fill all the fields before submitting.");
+      return;
+    }
     setShowPopup(true);
   };
 
@@ -108,18 +166,18 @@ const Criteria2 = () => {
   return (
     <div className="Criteria2">
       <div className='crit2-head'>
-      <div className='logo-e'>
-        <img src={naacLogo} alt='NAAC LOGO' />
-        <div className='head'>
-          <h1 >University of Mumbai</h1>
-          <h3>AQAR Platform</h3>
+        <div className='logo-e'>
+          <img src={naacLogo} alt='NAAC LOGO' />
+          <div className='head'>
+            <h1 >University of Mumbai</h1>
+            <h3>AQAR Platform</h3>
+          </div>
         </div>
-      </div>
-      <div className="yearly_status_rep">
-        <p>Yearly Status Report - Part B</p>
-        <p>Academic Year to which AQAR has to be submitted: {academicYear}</p>
-        <p>Department: {department}</p>
-      </div>
+        <div className="yearly_status_rep">
+          <p>Yearly Status Report - Part B</p>
+          <p>Academic Year to which AQAR has to be submitted: {academicYear}</p>
+          <p>Department: {department}</p>
+        </div>
       </div>
 
       <div className="crit2">

@@ -36,8 +36,50 @@ const Criteria4 = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
     
+        // Validation check
+        if (
+          !crit41Data.teaching_facilities ||
+          !crit41Data.file4_1_1 ||
+          !crit41Data.cultural_facilities ||
+          !crit41Data.file4_1_2 ||
+          !crit41Data.general_facilities ||
+          !crit41Data.file4_1_3 ||
+          !crit41Data.total_expenditure ||
+          !crit41Data.file4_1_4_1 ||
+          !crit41Data.file4_1_4_2 ||
+          !crit42Data.automated_library ||
+          !crit42Data.file4_2_1 ||
+          !crit42Data.subscription ||
+          !crit42Data.file4_2_2 ||
+          !crit42Data.books_expenditure ||
+          !crit42Data.file4_2_3_1 ||
+          !crit42Data.file4_2_3_2 ||
+          !crit42Data.library_usage_per_day ||
+          !crit42Data.file4_2_4 ||
+          !crit43Data.classrooms_and_seminarhalls ||
+          !crit43Data.file4_3_1_1 ||
+          !crit43Data.file4_3_1_2 ||
+          !crit43Data.it_policy ||
+          !crit43Data.file4_3_2 ||
+          !crit43Data.number_of_students ||
+          !crit43Data.number_of_computers ||
+          !crit43Data.bandwidth ||
+          !crit43Data.file4_3_4 ||
+          !crit43Data.e_content_facilities ||
+          !crit43Data.file4_3_5_1 ||
+          !crit43Data.file4_3_5_2 ||
+          !crit44Data.physical_facilities_expenditure ||
+          !crit44Data.file4_4_1_1 ||
+          !crit44Data.file4_4_1_2 ||
+          !crit44Data.established_systems ||
+          !crit44Data.file4_4_2
+        ) {
+          alert("Please fill all the fields before submitting.");
+          return;
+        }
+    
         setShowPopup(true);
-    };
+      };
     
     const handePopupOk = async () => {
 

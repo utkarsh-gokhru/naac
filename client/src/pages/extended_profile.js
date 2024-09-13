@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import axios from "axios";
 import Popup from "../components/popup";
 import naacLogo from '../naac_logo.png';
@@ -37,9 +36,39 @@ const ExtendedProfile = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+      
+        // Validation check
+        if (
+          !ep1Data.programmes ||
+          !ep1Data.file1_1 ||
+          !ep1Data.departments ||
+          !ep2Data.students ||
+          !ep2Data.file2_1 ||
+          !ep2Data.outgoing_students ||
+          !ep2Data.file2_2 ||
+          !ep2Data.students_appeared_in_university_exam ||
+          !ep2Data.file2_3 ||
+          !ep2Data.reval_applications ||
+          !ep3Data.courses_in_all_programmes ||
+          !ep3Data.file3_1 ||
+          !ep3Data.full_time_teachers ||
+          !ep3Data.file3_2 ||
+          !ep3Data.sanctioned_posts ||
+          !ep3Data.file3_3 ||
+          !ep4Data.eligible_admission_applications ||
+          !ep4Data.file4_1 ||
+          !ep4Data.reserved_category_seats ||
+          !ep4Data.file4_2 ||
+          !ep4Data.classrooms_and_seminar_halls ||
+          !ep4Data.total_computers ||
+          !ep4Data.total_expenditure
+        ) {
+          alert("Please fill all the fields before submitting.");
+          return;
+        }
+      
         setShowPopup(true);
-    };
+      };      
 
     const handlePopupOk = async () => {
         try {
