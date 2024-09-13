@@ -44,153 +44,36 @@ const Criteria31 = ({ onCrit31Data }) => {
         }
     };
 
-    const saveSection3_1_1 = async () => {
-        const formdata = new FormData();
+    const saveSection = async (sectionData, section) => {
+        const formData = new FormData();
 
-        const sectionData = {
-            department,
-            academicYear,
-            researchFacilities,
-            file3_1_1
-        };
+        formData.append("department", department);
+        formData.append("academicYear", academicYear);
+
+        let allFieldsFilled = true;
 
         for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
+            if (sectionData[key] === null || sectionData[key] === '') {
+                allFieldsFilled = false;
+                break;
+            }
         }
 
+        if (!allFieldsFilled) {
+            alert('Please fill in all the fields of the section.');
+        } else {
+            for (const key in sectionData) {
+                formData.append(key, sectionData[key]);
+            }
+        }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-1", formdata);
+            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
             console.log(response.data);
-            alert("Saved Section 3.1.1 data successfully!");
+            alert(`Saved Section ${section} data`);
         } catch (error) {
-            console.error("Error saving Section 3.1.1 data:", error.message);
-            alert("Failed to save Section 3.1.1 data. Please try again.");
+            console.log("Error", error.message);
         }
-    };
-
-    const saveSection3_1_2 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            seedMoney,
-            file3_1_2_1,
-            file3_1_2_2
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-2", formdata);
-            console.log(response.data);
-            alert("Saved Section 3.1.2 data successfully!");
-        } catch (error) {
-            console.error("Error saving Section 3.1.2 data:", error.message);
-            alert("Failed to save Section 3.1.2 data. Please try again.");
-        }
-    };
-
-    const saveSection3_1_3 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            teachersFellowship,
-            file3_1_3_1,
-            file3_1_3_2
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-3", formdata);
-            console.log(response.data);
-            alert("Saved Section 3.1.3 data successfully!");
-        } catch (error) {
-            console.error("Error saving Section 3.1.3 data:", error.message);
-            alert("Failed to save Section 3.1.3 data. Please try again.");
-        }
-    };
-
-    const saveSection3_1_4 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            fellowsEnrolled,
-            file3_1_4_1,
-            file3_1_4_2
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-4", formdata);
-            console.log(response.data);
-            alert("Saved Section 3.1.4 data successfully!");
-        } catch (error) {
-            console.error("Error saving Section 3.1.4 data:", error.message);
-            alert("Failed to save Section 3.1.4 data. Please try again.");
-        }
-    };
-
-    const saveSection3_1_5 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            feed_3_1_5_Type,
-            file3_1_5
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-5", formdata);
-            console.log(response.data);
-            alert("Saved Section 3.1.5 data successfully!");
-        } catch (error) {
-            console.error("Error saving Section 3.1.5 data:", error.message);
-            alert("Failed to save Section 3.1.5 data. Please try again.");
-        }
-    };
-
-    const saveSection3_1_6 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            departmentNo,
-            file3_1_6_1,
-            file3_1_6_2
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-1-6", formdata);
-            console.log(response.data);
-            alert("Saved Section 3.1.6 data successfully!");
-        } catch (error) {
-            console.error("Error saving Section 3.1.6 data:", error.message);
-            alert("Failed to save Section 3.1.6 data. Please try again.");
-        }
-    };
+    }
 
     useEffect(() => {
         const crit31 = {
@@ -284,7 +167,7 @@ const Criteria31 = ({ onCrit31Data }) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection3_1_1}>Save</button>
+                        <button onClick={() => saveSection({ researchFacilities, file3_1_1 }, '3-1-1')}>Save</button>
                         </div>
                     </div>
                 </li>
@@ -344,7 +227,7 @@ const Criteria31 = ({ onCrit31Data }) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection3_1_2}>Save</button>
+                        <button onClick={() => saveSection({ seedMoney, file3_1_2_1, file3_1_2_2 }, '3-1-2')}>Save</button>
                         </div>
                     </div>
                 </li>
@@ -403,7 +286,7 @@ const Criteria31 = ({ onCrit31Data }) => {
                         </table>
                     </div>
                     <div>
-                        <button onClick={saveSection3_1_3}>Save</button>
+                    <button onClick={() => saveSection({ teachersFellowship, file3_1_3_1, file3_1_3_2 }, '3-1-3')}>Save</button>
                     </div>
                 </li>
                 <li>
@@ -461,7 +344,7 @@ const Criteria31 = ({ onCrit31Data }) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection3_1_4}>Save</button>
+                        <button onClick={() => saveSection({ fellowsEnrolled, file3_1_4_1, file3_1_4_2 }, '3-1-4')}>Save</button>
                         </div>
                     </div>
                 </li>
@@ -527,7 +410,7 @@ const Criteria31 = ({ onCrit31Data }) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection3_1_5}>Save</button>
+                        <button onClick={() => saveSection({ feed_3_1_5_Type, file3_1_5 }, '3-1-5')}>Save</button>
                         </div>
                     </div>
                 </li>
@@ -586,7 +469,7 @@ const Criteria31 = ({ onCrit31Data }) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection3_1_6}>Save</button>
+                        <button onClick={() => saveSection({ departmentNo, file3_1_6_1, file3_1_6_2 }, '3-1-6')}>Save</button>
                         </div>
                     </div>
                 </li>

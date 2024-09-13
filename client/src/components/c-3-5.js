@@ -27,54 +27,36 @@ const Criteria35 = ({ onCrit35Data }) => {
         }
     };
 
-    const saveSection3_5_1 = async () => {
-        const formdata = new FormData();
+    const saveSection = async (sectionData, section) => {
+        const formData = new FormData();
 
-        const sectionData = {
-            department,
-            academicYear,
-            consultancyText,
-            file3_5_1
-        };
+        formData.append("department", department);
+        formData.append("academicYear", academicYear);
+
+        let allFieldsFilled = true;
 
         for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
+            if (sectionData[key] === null || sectionData[key] === '') {
+                allFieldsFilled = false;
+                break;
+            }
         }
 
+        if (!allFieldsFilled) {
+            alert('Please fill in all the fields of the section.');
+        } else {
+            for (const key in sectionData) {
+                formData.append(key, sectionData[key]);
+            }
+        }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-5-1", formdata);
+            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
             console.log(response.data);
-            alert("Saved Section 3.5.1 data successfully!");
+            alert(`Saved Section ${section} data`);
         } catch (error) {
-            console.error("Error saving Section 3.5.1 data:", error.message);
-            alert("Failed to save Section 3.5.1 data. Please try again.");
+            console.log("Error", error.message);
         }
-    };
-
-    const saveSection3_5_2 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            consultancyRev,
-            file3_5_2_1,
-            file3_5_2_2
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save3-5-2", formdata);
-            console.log(response.data);
-            alert("Saved Section 3.5.2 data successfully!");
-        } catch (error) {
-            console.error("Error saving Section 3.5.2 data:", error.message);
-            alert("Failed to save Section 3.5.2 data. Please try again.");
-        }
-    };
+    }
 
     useEffect(() => {
         const crit35 = {
@@ -154,7 +136,7 @@ const Criteria35 = ({ onCrit35Data }) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={saveSection3_5_1}>Save</button>
+                        <button onClick={() => saveSection({ consultancyText, file3_5_1 }, '3-5-1')}>Save</button>
                         </div>
                     </div>
                 </li>
@@ -217,7 +199,7 @@ const Criteria35 = ({ onCrit35Data }) => {
                             </li>
                         </ul>
                         <div>
-                            <button onClick={saveSection3_5_2}>Save</button>
+                        <button onClick={() => saveSection({ consultancyRev, file3_5_2_1, file3_5_2_2 }, '3-5-2')}>Save</button>
                         </div>
                     </div>
                 </li>

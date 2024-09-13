@@ -16,51 +16,36 @@ export const Criteria22 = ({ onCrit22Data }) => {
     const [link2_2_1_2, setlink2_2_1_2] = useState(null);
     const [file2_2_2, setfile2_2_2] = useState(null);
 
-    const saveSection2_2_1 = async () => {
-        const formdata = new FormData();
+    const saveSection = async (sectionData, section) => {
+        const formData = new FormData();
 
-        const sectionData = {
-            department,
-            academicYear,
-            file2_2_1_1,
-            link2_2_1_2,
-            learning_assessment
-        };
+        formData.append("department", department);
+        formData.append("academicYear", academicYear);
+
+        let allFieldsFilled = true;
 
         for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
+            if (sectionData[key] === null || sectionData[key] === '') {
+                allFieldsFilled = false;
+                break;
+            }
+        }
+
+        if (!allFieldsFilled) {
+            alert('Please fill in all the fields of the section.');
+        } else {
+            for (const key in sectionData) {
+                formData.append(key, sectionData[key]);
+            }
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-2-1", formdata);
+            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
             console.log(response.data);
-            alert("Saved Section 2.2.1 data:");
+            alert(`Saved Section ${section} data`);
         } catch (error) {
             console.log("Error", error.message);
         }
-    };
-
-    const saveSection2_2_2 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            no_of_students,
-            no_of_teachers,
-            file2_2_2
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-2-2", formdata);
-            console.log(response.data);
-            alert("Saved Section 2.2.2 data:");
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    };
+    }
 
     useEffect(() => {
         const crit22 = {
@@ -154,7 +139,7 @@ export const Criteria22 = ({ onCrit22Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_2_1}>Save</button>
+            <button onClick={() => saveSection({ learning_assessment, file2_2_1_1, link2_2_1_2 }, '2-2-1')}>Save</button>
             </div>
             <br></br>
 
@@ -217,7 +202,7 @@ export const Criteria22 = ({ onCrit22Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_2_2}>Save</button>
+            <button onClick={() => saveSection({ no_of_students, no_of_teachers, file2_2_2 }, '2-2-2')}>Save</button>
             </div>
         </div>
 

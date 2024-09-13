@@ -1,12 +1,45 @@
 import React, { useState, useEffect } from "react";
 import { saveAs } from "file-saver";
+import axios from "axios";
 
 const Criteria14 = ({ onCrit14Data }) => {
   const [feedbackType1_4_1, setFeedbackType1_4_1] = useState('');
   const [feedbackType1_4_2, setFeedbackType1_4_2] = useState('');
   const [file1_4_1, setFile1_4_1] = useState('');
   const [file1_4_2, setFile1_4_2] = useState('');
-  
+  const department = localStorage.getItem('department');
+  const academicYear = localStorage.getItem('academicYear');
+
+  const saveSection = async (sectionData, section) => {
+    const formData = new FormData();
+
+    formData.append("department", department);
+    formData.append("academicYear", academicYear);
+
+    let allFieldsFilled = true;
+
+    for (const key in sectionData) {
+        if (sectionData[key] === null || sectionData[key] === '') {
+            allFieldsFilled = false;
+            break;
+        }
+    }
+
+    if (!allFieldsFilled) {
+        alert('Please fill in all the fields of the section.');
+    } else {
+        for (const key in sectionData) {
+            formData.append(key, sectionData[key]);
+        }
+    }
+    try {
+        const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
+        console.log(response.data);
+        alert(`Saved Section ${section} data`);
+    } catch (error) {
+        console.log("Error", error.message);
+    }
+}
 
   useEffect(() => {
     const crit14 = {
@@ -80,6 +113,9 @@ const Criteria14 = ({ onCrit14Data }) => {
                 </tr>
               </tbody>
             </table>
+            <div>
+            <button onClick={() => saveSection({ feedbackType1_4_1, file1_4_1 }, '1-4-1')}>Save</button>
+            </div>
           </div>
         </li>
         <li>
@@ -119,6 +155,9 @@ const Criteria14 = ({ onCrit14Data }) => {
                 </tr>
               </tbody>
               </table>
+              <div>
+            <button onClick={() => saveSection({ feedbackType1_4_2, file1_4_2 }, '1-4-2')}>Save</button>
+            </div>
           </div>
         </li>
       </ul>
