@@ -14,72 +14,36 @@ export const Criteria23 = ({ onCrit23Data }) => {
     const [file2_3_2, setfile2_3_2] = useState(null);
     const [file2_3_3, setfile2_3_3] = useState(null);
 
-    const saveSection2_3_1 = async () => {
-        const formdata = new FormData();
+    const saveSection = async (sectionData, section) => {
+        const formData = new FormData();
 
-        const sectionData = {
-            department,
-            academicYear,
-            file2_3_1,
-            learning_exp
-        };
+        formData.append("department", department);
+        formData.append("academicYear", academicYear);
+
+        let allFieldsFilled = true;
 
         for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
+            if (sectionData[key] === null || sectionData[key] === '') {
+                allFieldsFilled = false;
+                break;
+            }
+        }
+
+        if (!allFieldsFilled) {
+            alert('Please fill in all the fields of the section.');
+        } else {
+            for (const key in sectionData) {
+                formData.append(key, sectionData[key]);
+            }
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-3-1", formdata);
+            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
             console.log(response.data);
-            alert("Saved Section 2.3.1 data:");
+            alert(`Saved Section ${section} data`);
         } catch (error) {
             console.log("Error", error.message);
         }
-    };
-
-    const saveSection2_3_2 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file2_3_2,
-            effect_teach_learn
-
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-3-2", formdata);
-            console.log(response.data);
-            alert("Saved Section 2.3.2 data:");
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    };
-
-    const saveSection2_3_3 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file2_3_3,
-            no_of_mentors
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-3-3", formdata);
-            console.log(response.data);
-            alert("Saved Section 2.3.3 data:");
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    };
+    }
 
     useEffect(() => {
         const crit23 = {
@@ -157,7 +121,7 @@ export const Criteria23 = ({ onCrit23Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_3_1}>Save</button>
+            <button onClick={() => saveSection({ learning_exp, file2_3_1 }, '2-3-1')}>Save</button>
             </div>
 
             <h4>2.3.2 - Teachers use ICT enabled tools incuding online resources for effective teaching and learning processes during the year</h4>
@@ -201,7 +165,7 @@ export const Criteria23 = ({ onCrit23Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_3_2}>Save</button>
+            <button onClick={() => saveSection({ effect_teach_learn, file2_3_2 }, '2-3-2')}>Save</button>
             </div>
 
             <h4>2.3.3 - Ratio of students to mentor for academic and other related issues during the year</h4>
@@ -244,7 +208,7 @@ export const Criteria23 = ({ onCrit23Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_3_3}>Save</button>
+            <button onClick={() => saveSection({ no_of_mentors, file2_3_3 }, '2-3-3')}>Save</button>
             </div>
         </div>
     )

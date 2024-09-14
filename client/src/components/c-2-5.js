@@ -20,99 +20,36 @@ const Criteria25 = ({ onCrit25Data }) => {
     const [file2_5_3, setfile2_5_3] = useState(null);
     const [status_of_automation, setstatus_of_automation] = useState('');
 
-    const saveSection2_5_1 = async () => {
-        const formdata = new FormData();
+    const saveSection = async (sectionData, section) => {
+        const formData = new FormData();
 
-        const sectionData = {
-            department,
-            academicYear,
-            file2_5_1_1,
-            file2_5_1_2,
-            no_of_days_yearwise,
-            no_of_days
+        formData.append("department", department);
+        formData.append("academicYear", academicYear);
 
-        };
+        let allFieldsFilled = true;
 
         for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
+            if (sectionData[key] === null || sectionData[key] === '') {
+                allFieldsFilled = false;
+                break;
+            }
+        }
+
+        if (!allFieldsFilled) {
+            alert('Please fill in all the fields of the section.');
+        } else {
+            for (const key in sectionData) {
+                formData.append(key, sectionData[key]);
+            }
         }
         try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-5-1", formdata);
+            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
             console.log(response.data);
-            alert("Saved Section 2.5.1.1 data:");
+            alert(`Saved Section ${section} data`);
         } catch (error) {
             console.log("Error", error.message);
         }
-    };
-
-    const saveSection2_5_2 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file2_5_2,
-            no_of_student_grievances
-
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-5-2", formdata);
-            console.log(response.data);
-            alert("Saved Section 2.5.3 data:")
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    };
-
-    const saveSection2_5_3 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file2_5_3,
-            it_integration
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-5-3", formdata);
-            console.log(response.data);
-            alert("Saved Section 2.5.2 data:")
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    };
-
-    const saveSection2_5_4 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            file2_5_4_1,
-            file2_5_4_2,
-            status_of_automation
-
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save2-5-4", formdata);
-            console.log(response.data);
-            alert("Saved Section 2.5.4.1 data:");
-        } catch (error) {
-            console.log("Error", error.message);
-        }
-    };
+    }
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -238,7 +175,7 @@ const Criteria25 = ({ onCrit25Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_5_1}>Save</button>
+            <button onClick={() => saveSection({ no_of_days, no_of_days_yearwise, file2_5_1_1, file2_5_1_2 }, '2-5-1')}>Save</button>
             </div>
 
             <h4>2.5.2 - Total number of student complaints/grievances about evaluation against total number appeared in the examinations during the year</h4>
@@ -278,7 +215,7 @@ const Criteria25 = ({ onCrit25Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_5_2}>Save</button>
+            <button onClick={() => saveSection({ no_of_student_grievances, file2_5_2 }, '2-5-2')}>Save</button>
             </div>
 
             <h4>2.5.3 - IT integration and reforms in the examination procedures and processes (continuous internal assessment and end- semester assessment) have brought in considerable improvement in examination management system of the institution</h4>
@@ -322,7 +259,7 @@ const Criteria25 = ({ onCrit25Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_5_3}>Save</button>
+            <button onClick={() => saveSection({ it_integration, file2_5_3 }, '2-5-3')}>Save</button>
             </div>
 
             <h4>2.5.4- Status of automation of Examination division along with approved Examination Manual</h4>
@@ -399,7 +336,7 @@ const Criteria25 = ({ onCrit25Data }) => {
                 </tbody>
             </table>
             <div>
-                <button onClick={saveSection2_5_4}>Save</button>
+            <button onClick={() => saveSection({ status_of_automation, file2_5_4_1, file2_5_4_2 }, '2-5-4')}>Save</button>
             </div>
 
 

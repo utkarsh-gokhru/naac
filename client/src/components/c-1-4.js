@@ -1,12 +1,48 @@
 import React, { useState, useEffect } from "react";
 import { saveAs } from "file-saver";
+import axios from "axios";
 
 const Criteria14 = ({ onCrit14Data }) => {
   const [feedbackType1_4_1, setFeedbackType1_4_1] = useState('');
   const [feedbackType1_4_2, setFeedbackType1_4_2] = useState('');
   const [file1_4_1, setFile1_4_1] = useState(null);
   const [file1_4_2, setFile1_4_2] = useState(null);
-  
+  const department = localStorage.getItem('department');
+  const academicYear = localStorage.getItem('academicYear');
+
+  const saveSection = async (sectionData, section) => {
+    const formData = new FormData();
+
+    formData.append("department", department);
+    formData.append("academicYear", academicYear);
+
+    let allFieldsFilled = true;
+
+    for (const key in sectionData) {
+      if (sectionData[key] === null || sectionData[key] === '') {
+        allFieldsFilled = false;
+        break;
+      }
+    }
+
+    if (!allFieldsFilled) {
+      alert('Please fill in all the fields of the section.');
+    } else {
+      for (const key in sectionData) {
+        formData.append(key, sectionData[key]);
+      }
+
+      try {
+        const response = await axios.post(`https://naacserver.onrender.com/data/save${section}`, formData);
+        console.log(response.data);
+        alert(`Saved Section ${section} data successfully!`);
+      } catch (error) {
+        console.error(`Error saving Section ${section} data:`, error.message);
+        alert(`Failed to save Section ${section} data. Please try again.`);
+      }
+    }
+  };
+
 
   useEffect(() => {
     const crit14 = {
@@ -16,7 +52,7 @@ const Criteria14 = ({ onCrit14Data }) => {
       file1_4_2
     };
     onCrit14Data(crit14);
-  }, [feedbackType1_4_1, feedbackType1_4_2, file1_4_1,file1_4_2]);
+  }, [feedbackType1_4_1, feedbackType1_4_2, file1_4_1, file1_4_2]);
 
   const downloadExcel = async (exc_file) => {
     const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -64,13 +100,13 @@ const Criteria14 = ({ onCrit14Data }) => {
 
             <table>
               <thead>
-                    <tr>
-                        <th>File Description</th>
-                        <th>Template</th>
-                        <th>Documents</th>
-                        <th>File Types/Size Supported</th>
-                    </tr>
-                </thead>
+                <tr>
+                  <th>File Description</th>
+                  <th>Template</th>
+                  <th>Documents</th>
+                  <th>File Types/Size Supported</th>
+                </tr>
+              </thead>
               <tbody>
                 <tr>
                   <td>Upload relevant supporting documents</td>
@@ -80,6 +116,9 @@ const Criteria14 = ({ onCrit14Data }) => {
                 </tr>
               </tbody>
             </table>
+            <div>
+              <button onClick={() => saveSection({ feedbackType1_4_1, file1_4_1 }, '6-1-1')}>Save</button>
+            </div>
           </div>
         </li>
         <li>
@@ -103,12 +142,12 @@ const Criteria14 = ({ onCrit14Data }) => {
             </div>
             <table>
               <thead>
-                  <tr>
-                      <th>File Description</th>
-                      <th>Template</th>
-                      <th>Documents</th>
-                      <th>File Types/Size Supported</th>
-                  </tr>
+                <tr>
+                  <th>File Description</th>
+                  <th>Template</th>
+                  <th>Documents</th>
+                  <th>File Types/Size Supported</th>
+                </tr>
               </thead>
               <tbody>
                 <tr>
@@ -118,7 +157,7 @@ const Criteria14 = ({ onCrit14Data }) => {
                   <td>xls, xlsx, doc, docx, pdf.<b>File size: 6MB</b> </td>
                 </tr>
               </tbody>
-              </table>
+            </table>
           </div>
         </li>
       </ul>

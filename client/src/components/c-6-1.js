@@ -7,56 +7,41 @@ const Criteria61 = ({ onCrit61Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
-    const [text6_1_1, settext6_1_1] = useState("");
-    const [text6_1_2, settext6_1_2] = useState("");
+    const [text6_1_1, setText6_1_1] = useState("");
+    const [text6_1_2, setText6_1_2] = useState("");
     const [file6_1_1, setFile6_1_1] = useState(null);
     const [file6_1_2, setFile6_1_2] = useState(null);
 
-    const saveSection6_1_1 = async () => {
-        const formdata = new FormData();
+    const saveSection = async (sectionData, section) => {
+        const formData = new FormData();
 
-        const sectionData = {
-            department,
-            academicYear,
-            text6_1_1,
-            file6_1_1
-        };
+        formData.append("department", department);
+        formData.append("academicYear", academicYear);
+
+        let allFieldsFilled = true;
 
         for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
+            if (sectionData[key] === null || sectionData[key] === '') {
+                allFieldsFilled = false;
+                break;
+            }
         }
 
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save6-1-1", formdata);
-            console.log(response.data);
-            alert("Saved Section 6.1.1 data successfully!");
-        } catch (error) {
-            console.error("Error saving Section 6.1.1 data:", error.message);
-            alert("Failed to save Section 6.1.1 data. Please try again.");
-        }
-    };
+        if (!allFieldsFilled) {
+            alert('Please fill in all the fields of the section.');
+        } else {
+            for (const key in sectionData) {
+                formData.append(key, sectionData[key]);
+            }
 
-    const saveSection6_1_2 = async () => {
-        const formdata = new FormData();
-
-        const sectionData = {
-            department,
-            academicYear,
-            text6_1_2,
-            file6_1_2
-        };
-
-        for (const key in sectionData) {
-            formdata.append(key, sectionData[key]);
-        }
-
-        try {
-            const response = await axios.post("https://naacserver.onrender.com/data/save6-1-2", formdata);
-            console.log(response.data);
-            alert("Saved Section 6.1.2 data successfully!");
-        } catch (error) {
-            console.error("Error saving Section 6.1.2 data:", error.message);
-            alert("Failed to save Section 6.1.2 data. Please try again.");
+            try {
+                const response = await axios.post(`https://naacserver.onrender.com/data/save${section}`, formData);
+                console.log(response.data);
+                alert(`Saved Section ${section} data successfully!`);
+            } catch (error) {
+                console.error(`Error saving Section ${section} data:`, error.message);
+                alert(`Failed to save Section ${section} data. Please try again.`);
+            }
         }
     };
 
@@ -68,7 +53,7 @@ const Criteria61 = ({ onCrit61Data }) => {
             file6_1_2,
         };
         onCrit61Data(crit61);
-    }, [text6_1_1, file6_1_1, text6_1_2, file6_1_2,]);
+    }, [text6_1_1, file6_1_1, text6_1_2, file6_1_2]);
 
     const fetchData = async () => {
         try {
@@ -76,8 +61,8 @@ const Criteria61 = ({ onCrit61Data }) => {
             const data = response.data.data.criteria61;
 
             if (data) {
-                settext6_1_1(data.text6_1_1 || '');
-                settext6_1_2(data.text6_1_2 || '');
+                setText6_1_1(data.text6_1_1 || '');
+                setText6_1_2(data.text6_1_2 || '');
                 setFile6_1_1(data.file6_1_1 ? 'true' : 'false');
                 setFile6_1_2(data.file6_1_2 ? 'true' : 'false');
             }
@@ -90,25 +75,23 @@ const Criteria61 = ({ onCrit61Data }) => {
         fetchData();
     }, []);
 
-
     return (
         <div className="c-6-1">
             <h3>6.1 - Institutional Vision and Leadership</h3>
 
             <div className="c-6-1-1">
-                <h4>6.1.1 - The institution has a clearly stated vision and mission which are reflected in is academic and administrative governance.</h4>
+                <h4>6.1.1 - The institution has a clearly stated vision and mission which are reflected in its academic and administrative governance.</h4>
 
                 <StyledTextArea
                     rows={5}
                     placeholder="Type the text here"
                     value={text6_1_1}
-                    onChange={(e) => settext6_1_1(e.target.value)}
+                    onChange={(e) => setText6_1_1(e.target.value)}
                 />
                 <table>
                     <thead>
                         <tr>
                             <th>File Description</th>
-                            <th>Template</th>
                             <th>Documents</th>
                             <th>File Types/Size Supported</th>
                         </tr>
@@ -129,12 +112,12 @@ const Criteria61 = ({ onCrit61Data }) => {
                                     onChange={(e) => setFile6_1_1(e.target.files[0])}
                                 />
                             </td>
-                            <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
+                            <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
                         </tr>
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={() => saveSection6_1_1({ text6_1_1, file6_1_1 }, '6-1-1')}>Save</button>
+                    <button onClick={() => saveSection({ text6_1_1, file6_1_1 }, '6-1-1')}>Save</button>
                 </div>
             </div>
 
@@ -145,13 +128,12 @@ const Criteria61 = ({ onCrit61Data }) => {
                     rows={5}
                     placeholder="Type the text here"
                     value={text6_1_2}
-                    onChange={(e) => settext6_1_2(e.target.value)}
+                    onChange={(e) => setText6_1_2(e.target.value)}
                 />
                 <table>
                     <thead>
                         <tr>
                             <th>File Description</th>
-                            <th>Template</th>
                             <th>Documents</th>
                             <th>File Types/Size Supported</th>
                         </tr>
@@ -172,17 +154,17 @@ const Criteria61 = ({ onCrit61Data }) => {
                                     onChange={(e) => setFile6_1_2(e.target.files[0])}
                                 />
                             </td>
-                            <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
+                            <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
                         </tr>
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={() => saveSection6_1_2({ text6_1_2, file6_1_2 }, '6-1-2')}>Save</button>
+                    <button onClick={() => saveSection({ text6_1_2, file6_1_2 }, '6-1-2')}>Save</button>
                 </div>
             </div>
-
         </div>
     );
 };
 
 export default Criteria61;
+

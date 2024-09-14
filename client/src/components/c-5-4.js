@@ -42,51 +42,6 @@ const Criteria54 = ({ onCrit54Data }) => {
         onCrit54Data(crit54);
     }, [alumni_chapters, file5_4_1, alumni_contributions, file5_4_2]);
 
-
-    // const saveSection5_4_1 = async() => {
-    //     const formdata = new FormData();
-
-    //     const sectionData = {
-    //         department,
-    //         academicYear,
-    //         alumni_chapters,
-    //         file5_4_1
-    //     };
-
-    //     for (const key in sectionData) {
-    //         formdata.append(key, sectionData[key]);
-    //     }
-    //     try{
-    //         const response = await axios.post("https://naacserver.onrender.com/data/save5-4-1", formdata);
-    //         console.log(response.data); 
-    //         alert("Saved Section 5.4.1 data:");
-    //     }catch(error){
-    //         console.log("Error",error.message);
-    //     }
-    // };
-
-    // const saveSection5_4_2 = async() => {
-    //     const formdata = new FormData();
-
-    //     const sectionData = {
-    //         department,
-    //         academicYear,
-    //         alumni_contributions,
-    //         file5_4_2
-    //     };
-
-    //     for (const key in sectionData) {
-    //         formdata.append(key, sectionData[key]);
-    //     }
-    //     try{
-    //         const response = await axios.post("https://naacserver.onrender.com/data/save5-4-1", formdata);
-    //         console.log(response.data); 
-    //         alert("Saved Section 5.4.1 data:");
-    //     }catch(error){
-    //         console.log("Error",error.message);
-    //     }
-    // };
-
     const fetchData = async () => {
         try {
             const response = await axios.get(`https://naacserver.onrender.com/data/fetchC5?department=${department}&academicYear=${academicYear}`);
