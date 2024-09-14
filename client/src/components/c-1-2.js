@@ -25,7 +25,7 @@ const Criteria12 = ({ onCrit12Data }) => {
         }
     };
 
-    const saveSection1_2_1 = async() => {
+    const saveSection1_2_1 = async () => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -39,16 +39,16 @@ const Criteria12 = ({ onCrit12Data }) => {
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
-        try{
+        try {
             const response = await axios.post("https://naacserver.onrender.com/data/save1-2-1", formdata);
-            console.log(response.data); 
+            console.log(response.data);
             alert("Saved Section 1.2.1 data:");
-        }catch(error){
-            console.log("Error",error.message);
+        } catch (error) {
+            console.log("Error", error.message);
         }
     };
 
-    const saveSection1_2_2 = async() => {
+    const saveSection1_2_2 = async () => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -62,12 +62,12 @@ const Criteria12 = ({ onCrit12Data }) => {
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
-        try{
+        try {
             const response = await axios.post("https://naacserver.onrender.com/data/save1-2-2", formdata);
-            console.log(response.data); 
+            console.log(response.data);
             alert("Saved Section 1.2.2 data:");
-        }catch(error){
-            console.log("Error",error.message);
+        } catch (error) {
+            console.log("Error", error.message);
         }
     };
 
@@ -75,14 +75,14 @@ const Criteria12 = ({ onCrit12Data }) => {
         try {
             const response = await axios.get(`https://naacserver.onrender.com/data/fetchC1?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data.criteria12;
-    
+
             if (data) {
-                data.programCount1_2_2 ? setProgramCount1_2_2(data.programCount1_2_2) : setProgramCount1_2_2('');
-                data.newCoursesCount1_2_1 ? setNewCoursesCount1_2_1(data.newCoursesCount1_2_1) : setNewCoursesCount1_2_1('');
-                data.file1_2_1_1 ? setFile1_2_1_1('true') : setFile1_2_1_1('false');
-                data.file1_2_1_2 ? setFile1_2_1_2('true') : setFile1_2_1_2('false');
-                data.file1_2_2_1 ? setFile1_2_1_1('true') : setFile1_2_1_1('false');
-                data.file1_2_2_2 ? setFile1_2_2_2('true') : setFile1_2_2_2('false');
+                setProgramCount1_2_2(data.programCount1_2_2 ? data.programCount1_2_2 : '');
+                setNewCoursesCount1_2_1(data.newCoursesCount1_2_1 ? data.newCoursesCount1_2_1 : '');
+                setFile1_2_1_1(data.file1_2_1_1 ? 'true' : 'false');
+                setFile1_2_1_2(data.file1_2_1_2 ? 'true' : 'false');
+                setFile1_2_2_1(data.file1_2_2_1 ? 'true' : 'false');
+                setFile1_2_2_2(data.file1_2_2_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -91,7 +91,7 @@ const Criteria12 = ({ onCrit12Data }) => {
 
     useEffect(() => {
         fetchData();
-    },[]);
+    }, []);
 
     useEffect(() => {
         const crit12 = {
@@ -103,7 +103,7 @@ const Criteria12 = ({ onCrit12Data }) => {
             file1_2_2_2
         };
         onCrit12Data(crit12);
-    }, [programCount1_2_2, newCoursesCount1_2_1, file1_2_1_1, file1_2_1_2, file1_2_2_1, file1_2_2_2]);    
+    }, [programCount1_2_2, newCoursesCount1_2_1, file1_2_1_1, file1_2_1_2, file1_2_2_1, file1_2_2_2]);
 
     return (
         <div className="c-1_2">
@@ -129,9 +129,17 @@ const Criteria12 = ({ onCrit12Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> {file1_2_1_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)} 
-                                        Upload the data template</td>
-                                    <td><button onClick={() => downloadExcel('1.2.1.xlsx')}>Data Template</button></td>
+                                    <td>
+                                        {file1_2_1_1 === 'true' ? (
+                                            <span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>
+                                        ) : (
+                                            <span style={{ color: 'red', fontWeight: 'bold' }}></span>
+                                        )}
+                                        Upload the data template
+                                    </td>
+                                    <td>
+                                        <button onClick={() => downloadExcel('1.2.1.xlsx')}>Data Template</button>
+                                    </td>
                                     <td>
                                         <input
                                             type="file"
@@ -144,11 +152,25 @@ const Criteria12 = ({ onCrit12Data }) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td>{file1_2_1_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)} 
-                                        Upload relevant supporting documents</td>
+                                    <td>
+                                        {file1_2_1_2 === 'true' ? (
+                                            <span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>
+                                        ) : (
+                                            <span style={{ color: 'red', fontWeight: 'bold' }}></span>
+                                        )}
+                                        Upload relevant supporting documents
+                                    </td>
                                     <td></td>
-                                    <td><input type="file" id="fileUpload1_2_1_2" onChange={(e) => setFile1_2_1_2(e.target.files[0])} name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
-                                    <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
+                                    <td>
+                                        <input
+                                            type="file"
+                                            id="fileUpload1_2_1_2"
+                                            onChange={(e) => setFile1_2_1_2(e.target.files[0])}
+                                            name="fileUpload1"
+                                            accept=".xls, .xlsx, .doc, .docx, .pdf"
+                                        />
+                                    </td>
+                                    <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -177,24 +199,54 @@ const Criteria12 = ({ onCrit12Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> {file1_2_2_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)} 
-                                        Upload the data template</td>
-                                    <td><button onClick={() => downloadExcel('1.2.2.xlsx')}>Data Template</button></td>
-                                    <td><input type="file" id="fileUpload1_2_2" onChange={(e) => setFile1_2_2_1(e.target.files[0])} name="fileUpload" accept=".xls, .xlsx" /></td>
+                                    <td>
+                                        {file1_2_2_1 === 'true' ? (
+                                            <span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>
+                                        ) : (
+                                            <span style={{ color: 'red', fontWeight: 'bold' }}></span>
+                                        )}
+                                        Upload the data template
+                                    </td>
+                                    <td>
+                                        <button onClick={() => downloadExcel('1.2.2.xlsx')}>Data Template</button>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="file"
+                                            id="fileUpload1_2_2_1"
+                                            onChange={(e) => setFile1_2_2_1(e.target.files[0])}
+                                            name="fileUpload"
+                                            accept=".xls, .xlsx"
+                                        />
+                                    </td>
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td> {file1_2_2_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)} 
-                                        Upload relevant supporting documents</td>
+                                    <td>
+                                        {file1_2_2_2 === 'true' ? (
+                                            <span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>
+                                        ) : (
+                                            <span style={{ color: 'red', fontWeight: 'bold' }}></span>
+                                        )}
+                                        Upload relevant supporting documents
+                                    </td>
                                     <td></td>
-                                    <td><input type="file" id="fileUpload1_2_2_2" onChange={(e) => setFile1_2_2_2(e.target.files[0])} name="fileUpload2" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
-                                    <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
+                                    <td>
+                                        <input
+                                            type="file"
+                                            id="fileUpload1_2_2_2"
+                                            onChange={(e) => setFile1_2_2_2(e.target.files[0])}
+                                            name="fileUpload"
+                                            accept=".xls, .xlsx, .doc, .docx, .pdf"
+                                        />
+                                    </td>
+                                    <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div>
-                        <button onClick={saveSection1_2_2}>Save</button>
+                        <div>
+                            <button onClick={saveSection1_2_2}>Save</button>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -203,3 +255,4 @@ const Criteria12 = ({ onCrit12Data }) => {
 };
 
 export default Criteria12;
+

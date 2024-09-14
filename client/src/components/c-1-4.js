@@ -4,8 +4,8 @@ import { saveAs } from "file-saver";
 const Criteria14 = ({ onCrit14Data }) => {
   const [feedbackType1_4_1, setFeedbackType1_4_1] = useState('');
   const [feedbackType1_4_2, setFeedbackType1_4_2] = useState('');
-  const [file1_4_1, setFile1_4_1] = useState('');
-  const [file1_4_2, setFile1_4_2] = useState('');
+  const [file1_4_1, setFile1_4_1] = useState(null);
+  const [file1_4_2, setFile1_4_2] = useState(null);
   
 
   useEffect(() => {

@@ -12,11 +12,11 @@ const Criteria36 = ({ onCrit36Data }) => {
     const [file3_6_1, setFile3_6_1] = useState(null);
     const [file3_6_2_1, setFile3_6_2_1] = useState(null);
     const [file3_6_2_2, setFile3_6_2_2] = useState(null);
-    const [extActAwards, setExtActAwards] = useState(0);
-    const [outreachPrograms, setOutreachPrograms] = useState(0);
+    const [extActAwards, setExtActAwards] = useState();
+    const [outreachPrograms, setOutreachPrograms] = useState();
     const [file3_6_3_1, setFile3_6_3_1] = useState(null);
     const [file3_6_3_2, setFile3_6_3_2] = useState(null);
-    const [participatingStudents, setParticipatingStudents] = useState(0);
+    const [participatingStudents, setParticipatingStudents] = useState();
     const [file3_6_4_1, setFile3_6_4_1] = useState(null);
     const [file3_6_4_2, setFile3_6_4_2] = useState(null);
 
@@ -156,9 +156,18 @@ const Criteria36 = ({ onCrit36Data }) => {
 
             if (data) {
                 setExtensionActText(data.extensionActText ? data.extensionActText : '');
-                setExtActAwards(data.extActAwards ? data.extActAwards : '');
-                setOutreachPrograms(data.outreachPrograms ? data.outreachPrograms : '');
-                setParticipatingStudents(data.participatingStudents ? data.participatingStudents : '');
+                setFile3_6_1(data.file3_6_1 ? 'true' : 'false');
+                setFile3_6_2_1(data.file3_6_2_1 ? 'true' : 'false');
+                setFile3_6_2_2(data.file3_6_2_2 ? 'true' : 'false');
+
+                setExtActAwards(data.extActAwards ? data.extActAwards : 0);
+                setOutreachPrograms(data.outreachPrograms ? data.outreachPrograms : 0);
+                setFile3_6_3_1(data.file3_6_3_1 ? 'true' : 'false');
+                setFile3_6_3_2(data.file3_6_3_2 ? 'true' : 'false');
+
+                setParticipatingStudents(data.participatingStudents ? data.participatingStudents : 0);
+                setFile3_6_4_1(data.file3_6_4_1 ? 'true' : 'false');
+                setFile3_6_4_2(data.file3_6_4_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -200,6 +209,7 @@ const Criteria36 = ({ onCrit36Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_6_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -251,6 +261,7 @@ const Criteria36 = ({ onCrit36Data }) => {
                                     <tbody>
                                         <tr>
                                             <td>
+                                                {file3_6_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload the data template</td>
                                             <td>
                                                 <button onClick={() => downloadExcel('3.6.2.xlsx')}>Data Template</button>
@@ -268,6 +279,7 @@ const Criteria36 = ({ onCrit36Data }) => {
                                         </tr>
                                         <tr>
                                             <td>
+                                                {file3_6_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload relevant supporting documents</td>
                                             <td></td>
                                             <td>
@@ -315,6 +327,7 @@ const Criteria36 = ({ onCrit36Data }) => {
                         <tbody>
                             <tr>
                                 <td>
+                                    {file3_6_3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                     Upload the data template</td>
                                 <td>
                                     <button onClick={() => downloadExcel('3.6.3.xlsx')}>Data Template</button>
@@ -332,6 +345,7 @@ const Criteria36 = ({ onCrit36Data }) => {
                             </tr>
                             <tr>
                                 <td>
+                                    {file3_6_3_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                     Upload relevant supporting documents</td>
                                 <td></td>
                                 <td>
@@ -374,6 +388,7 @@ const Criteria36 = ({ onCrit36Data }) => {
                         <tbody>
                             <tr>
                                 <td>
+                                    {file3_6_4_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                     Upload the data template</td>
                                 <td>
                                     <button onClick={() => downloadExcel('3.6.4.xlsx')}>Data Template</button>
@@ -391,6 +406,7 @@ const Criteria36 = ({ onCrit36Data }) => {
                             </tr>
                             <tr>
                                 <td>
+                                    {file3_6_4_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                     Upload relevant supporting documents</td>
                                 <td></td>
                                 <td>

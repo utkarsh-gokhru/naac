@@ -65,11 +65,14 @@ const EP2 = ({ onEP2Data }) => {
             const data = response.data.data.ep2;
 
             if (data) {
-                setStudents(data.students ? data.students : '');
-                setOutgoing_students(data.outgoing_students ? data.outgoing_students : '');
-                setStudents_appeared_in_university_exam(data.students_appeared_in_university_exam ? data.students_appeared_in_university_exam : '');
-                setReval_applications(data.reval_applications ? data.reval_applications : '')
-                   
+                setStudents(data.students || '');
+                setOutgoing_students(data.outgoing_students || '');
+                setStudents_appeared_in_university_exam(data.students_appeared_in_university_exam || '');
+                setReval_applications(data.reval_applications || '');
+
+                setFile2_1(data.file2_1 ? 'true' : 'false');
+                setFile2_2(data.file2_2 ? 'true' : 'false');
+                setFile2_3(data.file2_3 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -103,6 +106,7 @@ const EP2 = ({ onEP2Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template</td>
                             <td><button onClick={() => downloadExcel('2.1.xlsx')}>Data Template</button></td>
                             <td>
@@ -139,6 +143,7 @@ const EP2 = ({ onEP2Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template</td>
                             <td><button onClick={() => downloadExcel('2.2.xlsx')}>Data Template</button></td>
                             <td>
@@ -175,6 +180,7 @@ const EP2 = ({ onEP2Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file2_3 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template</td>
                             <td><button onClick={() => downloadExcel('2.3.xlsx')}>Data Template</button></td>
                             <td>
@@ -204,7 +210,7 @@ const EP2 = ({ onEP2Data }) => {
                 <button onClick={() => saveSection({ students, file2_1, outgoing_students, file2_2, students_appeared_in_university_exam, file2_3, reval_applications }, '2')}>Save</button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default EP2;

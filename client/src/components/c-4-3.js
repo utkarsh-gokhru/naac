@@ -5,18 +5,18 @@ import axios from "axios";
 
 const Criteria43 = ({ onCrit43Data }) => {
 
-    const [classrooms_and_seminarhalls, setClassroomsAndSeminarHalls] = useState(0);
-    const [file4_3_1_1, setFile4_3_1_1] = useState("");
-    const [file4_3_1_2, setFile4_3_1_2] = useState("");
+    const [classrooms_and_seminarhalls, setClassroomsAndSeminarHalls] = useState();
+    const [file4_3_1_1, setFile4_3_1_1] = useState(null);
+    const [file4_3_1_2, setFile4_3_1_2] = useState(null);
     const [it_policy, setItPolicy] = useState("");
-    const [file4_3_2, setFile4_3_2] = useState("");
-    const [number_of_students, setNumberOfStudents] = useState(0);
-    const [number_of_computers, setNumberOfComputers] = useState(0);
+    const [file4_3_2, setFile4_3_2] = useState(null);
+    const [number_of_students, setNumberOfStudents] = useState();
+    const [number_of_computers, setNumberOfComputers] = useState();
     const [bandwidth, setBandwidth] = useState("");
-    const [file4_3_4, setFile4_3_4] = useState("");
+    const [file4_3_4, setFile4_3_4] = useState(null);
     const [e_content_facilities, setEContentFacilities] = useState("");
-    const [file4_3_5_1, setFile4_3_5_1] = useState("");
-    const [file4_3_5_2, setFile4_3_5_2] = useState("");
+    const [file4_3_5_1, setFile4_3_5_1] = useState(null);
+    const [file4_3_5_2, setFile4_3_5_2] = useState(null);
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
 
@@ -175,13 +175,20 @@ const Criteria43 = ({ onCrit43Data }) => {
             const data = response.data.data.criteria43;
 
             if (data) {
-                setClassroomsAndSeminarHalls(data.classrooms_and_seminarhalls ? data.classrooms_and_seminarhalls : '');
-                setItPolicy(data.it_policy ? data.it_policy : '');
-                setNumberOfStudents(data.number_of_students ? data.number_of_students : '');
-                setNumberOfComputers(data.number_of_computers ? data.number_of_computers : '');
-                setBandwidth(data.bandwidth ? data.bandwidth : '');
-                setEContentFacilities(data.e_content_facilities ? data.e_content_facilities : '');
+                setClassroomsAndSeminarHalls(data.classrooms_and_seminarhalls || "");
+                setFile4_3_1_1(data.file4_3_1_1 ? 'true' : 'false');
+                setFile4_3_1_2(data.file4_3_1_2 ? 'true' : 'false');
+                setItPolicy(data.it_policy || "");
+                setFile4_3_2(data.file4_3_2 ? 'true' : 'false');
+                setNumberOfStudents(data.number_of_students || "");
+                setNumberOfComputers(data.number_of_computers || "");
+                setBandwidth(data.bandwidth || "");
+                setFile4_3_4(data.file4_3_4 ? 'true' : 'false');
+                setEContentFacilities(data.e_content_facilities || "");
+                setFile4_3_5_1(data.file4_3_5_1 ? 'true' : 'false');
+                setFile4_3_5_2(data.file4_3_5_2 ? 'true' : 'false');
             }
+
         } catch (error) {
             console.error("Error fetching data:", error.message);
         }
@@ -375,7 +382,9 @@ const Criteria43 = ({ onCrit43Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Upload relevant supporting documents</td>
+                                    <td>
+                                        {file4_3_4 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Upload relevant supporting documents</td>
                                     <td></td>
                                     <td><input type="file" id="file4_3_4" onChange={(e) => setFile4_3_4(e.target.files[0])} name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
                                     <td>xls, xlsx, doc, docx, .pdf <b>File size: 6MB</b> </td>
@@ -398,19 +407,19 @@ const Criteria43 = ({ onCrit43Data }) => {
                         </ol>
                         <br />
                         <div className="radioBtn-1_4_1">
-                            <input type="radio" id="all4_1_4_1" name="group1_4_1" onChange={() => setEContentFacilities('All 4 of the above')} />
+                            <input type="radio" id="all4_1_4_1" name="group1_4_2" onChange={() => setEContentFacilities('All 4 of the above')} />
                             <label htmlFor="all4_1_4_1">All 4 of the above</label>
 
-                            <input type="radio" id="any3_1_4_1" name="group1_4_1" onChange={() => setEContentFacilities('Any 3 of the above')} />
+                            <input type="radio" id="any3_1_4_1" name="group1_4_2" onChange={() => setEContentFacilities('Any 3 of the above')} />
                             <label htmlFor="any3_1_4_1">Any 3 of the above</label>
 
-                            <input type="radio" id="any2_1_4_1" name="group1_4_1" onChange={() => setEContentFacilities('Any 2 of the above')} />
+                            <input type="radio" id="any2_1_4_1" name="group1_4_2" onChange={() => setEContentFacilities('Any 2 of the above')} />
                             <label htmlFor="any2_1_4_1">Any 2 of the above</label>
 
-                            <input type="radio" id="any1_1_4_1" name="group1_4_1" onChange={() => setEContentFacilities('Any 1 of the above')} />
+                            <input type="radio" id="any1_1_4_1" name="group1_4_2" onChange={() => setEContentFacilities('Any 1 of the above')} />
                             <label htmlFor="any1_1_4_1">Any 1 of the above</label>
 
-                            <input type="radio" id="none_1_4_1" name="group1_4_1" onChange={() => setEContentFacilities('None of the above')} />
+                            <input type="radio" id="none_1_4_1" name="group1_4_2" onChange={() => setEContentFacilities('None of the above')} />
                             <label htmlFor="none_1_4_1">None of the above</label>
                         </div>
 
@@ -425,13 +434,17 @@ const Criteria43 = ({ onCrit43Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Upload relevant supporting documents</td>
+                                    <td>
+                                        {file4_3_5_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Upload relevant supporting documents</td>
                                     <td></td>
                                     <td><input type="file" id="file4_3_5_1" onChange={(e) => setFile4_3_5_1(e.target.files[0])} name="fileUpload" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
                                 </tr>
                                 <tr>
-                                    <td>Upload the data template</td>
+                                    <td>
+                                        {file4_3_5_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('4.3.5.xlsx')}>Data Template</button></td>
                                     <td><input type="file" id="file4_3_5_2" onChange={(e) => setFile4_3_5_2(e.target.files[0])} name="fileUpload" accept=".xls, .xlsx" /></td>
                                     <td>xls, xlsx. <b>File size: 6MB</b> </td>

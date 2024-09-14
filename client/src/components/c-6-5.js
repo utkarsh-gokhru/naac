@@ -18,9 +18,6 @@ const Criteria65 = ({ onCrit65Data }) => {
     const [text6_5_3, settext6_5_3] = useState("");
     const [file6_5_3, setFile6_5_3] = useState(null);
 
-
-
-
     const saveSection6_5_1 = async () => {
         const formdata = new FormData();
 
@@ -126,9 +123,15 @@ const Criteria65 = ({ onCrit65Data }) => {
             const data = response.data.data.criteria65;
 
             if (data) {
-                settext6_5_1(data.text6_5_1 ? data.text6_5_1 : '');
-                setdata6_5_2(data.data6_5_2 ? data.data6_5_2 : '');
-                settext6_5_3(data.data6_5_3 ? data.data6_5_3 : '');
+                settext6_5_1(data.text6_5_1 || '');
+                setFile6_5_1(data.file6_5_1 ? 'true' : 'false');
+
+                setdata6_5_2(data.data6_5_2 || '');
+                setFile6_5_2_1(data.file6_5_2_1 ? 'true' : 'false');
+                setFile6_5_2_2(data.file6_5_2_2 ? 'true' : 'false');
+
+                settext6_5_3(data.text6_5_3 || '');
+                setFile6_5_3(data.file6_5_3 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -166,6 +169,7 @@ const Criteria65 = ({ onCrit65Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file6_5_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -225,6 +229,7 @@ const Criteria65 = ({ onCrit65Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file6_5_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template</td>
                             <td><button onClick={() => downloadExcel('6.5.2.xlsx')}>Data Template</button></td>
                             <td>
@@ -240,6 +245,7 @@ const Criteria65 = ({ onCrit65Data }) => {
                         </tr>
                         <tr>
                             <td>
+                                {file6_5_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents</td>
                             <td></td>
                             <td><input type="file" id="fileUpload6_5_2_2" onChange={(e) => setFile6_5_2_2(e.target.files[0])} name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>

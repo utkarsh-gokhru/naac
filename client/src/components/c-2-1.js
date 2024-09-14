@@ -9,10 +9,10 @@ export const Criteria21 = ({ onCrit21Data }) => {
     const academicYear = localStorage.getItem('academicYear');
     const [no_of_seats, setno_of_seats] = useState("");
     const [students_reserved_cat, setstudents_reserved_cat] = useState("");
-    const [file2_1_1_1, setfile2_1_1_1] = useState(null);
-    const [file2_1_1_2, setfile2_1_1_2] = useState(null);
-    const [file2_1_2_1, setfile2_1_2_1] = useState(null);
-    const [file2_1_2_2, setfile2_1_2_2] = useState(null);
+    const [file2_1_1_1, setFile2_1_1_1] = useState(null);
+    const [file2_1_1_2, setFile2_1_1_2] = useState(null);
+    const [file2_1_2_1, setFile2_1_2_1] = useState(null);
+    const [file2_1_2_2, setFile2_1_2_2] = useState(null);
 
     const saveSection2_1_1 = async () => {
         const formdata = new FormData();
@@ -91,7 +91,11 @@ export const Criteria21 = ({ onCrit21Data }) => {
             const data = response.data.data.criteria21;
             if (data) {
                 setno_of_seats(data.no_of_seats ? data.no_of_seats : '');
-                setstudents_reserved_cat(data.students_reserved_cat ? data.students_reserved_cat : '')
+                setstudents_reserved_cat(data.students_reserved_cat ? data.students_reserved_cat : '');
+                setFile2_1_1_1(data.file2_1_1_1 ? 'true' : 'false');
+                setFile2_1_1_2(data.file2_1_1_2 ? 'true' : 'false');
+                setFile2_1_2_1(data.file2_1_2_1 ? 'true' : 'false');
+                setFile2_1_2_2(data.file2_1_2_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -130,8 +134,8 @@ export const Criteria21 = ({ onCrit21Data }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td> {file2_1_1_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
-
+                        <td>
+                            {file2_1_1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                             Upload the data template</td>
                         <td>
                             <button onClick={() => downloadExcel('2.1.1.xlsx')}>Data Template</button>
@@ -142,13 +146,14 @@ export const Criteria21 = ({ onCrit21Data }) => {
                                 id="file2_1_1_1"
                                 name="fileUpload"
                                 accept=".xls, .xlsx"
-                                onChange={(e) => setfile2_1_1_1(e.target.files[0])}
+                                onChange={(e) => setFile2_1_1_1(e.target.files[0])}
                             />
                         </td>
                         <td>xls, xlsx. File size: 6MB</td>
                     </tr>
                     <tr>
-                        <td> {file2_1_1_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                        <td>
+                            {file2_1_1_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                             Upload relevant supporting documents</td>
                         <td></td>
                         <td>
@@ -157,7 +162,7 @@ export const Criteria21 = ({ onCrit21Data }) => {
                                 id="file2_1_1_2"
                                 name="fileUpload"
                                 accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                onChange={(e) => setfile2_1_1_2(e.target.files[0])}
+                                onChange={(e) => setFile2_1_1_2(e.target.files[0])}
                             />
                         </td>
                         <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>
@@ -195,7 +200,8 @@ export const Criteria21 = ({ onCrit21Data }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td> {file2_1_2_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                        <td>
+                            {file2_1_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
 
                             Upload the data template</td>
                         <td>
@@ -207,13 +213,14 @@ export const Criteria21 = ({ onCrit21Data }) => {
                                 id="file1_1_2_1"
                                 name="fileUpload"
                                 accept=".xls, .xlsx"
-                                onChange={(e) => setfile2_1_2_1(e.target.files[0])}
+                                onChange={(e) => setFile2_1_2_1(e.target.files[0])}
                             />
                         </td>
                         <td>xls, xlsx. File size: 6MB</td>
                     </tr>
                     <tr>
-                        <td> {file2_1_2_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                        <td>
+                            {file2_1_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                             Upload relevant supporting documents</td>
                         <td></td>
                         <td>
@@ -222,7 +229,7 @@ export const Criteria21 = ({ onCrit21Data }) => {
                                 id="file1_1_2_2"
                                 name="fileUpload"
                                 accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                onChange={(e) => setfile2_1_2_2(e.target.files[0])}
+                                onChange={(e) => setFile2_1_2_2(e.target.files[0])}
                             />
                         </td>
                         <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b></td>

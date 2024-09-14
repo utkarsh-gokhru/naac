@@ -60,7 +60,7 @@ const EP1 = ({ onEP1Data }) => {
             if (data) {
                 setProgrammes(data.programmes ? data.programmes : '');
                 setDepartments(data.departments ? data.departments : '');
-                   
+                setFile1_1(data.file1_1 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -95,6 +95,7 @@ const EP1 = ({ onEP1Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template</td>
                             <td><button onClick={() => downloadExcel('1.1.xlsx')}>Data Template</button></td>
                             <td>

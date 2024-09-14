@@ -5,7 +5,7 @@ import axios from "axios";
 
 const Criteria44 = ({ onCrit44Data }) => {
 
-    const [physical_facilities_expenditure, setPhysicalFacilitiesExpenditure] = useState(0);
+    const [physical_facilities_expenditure, setPhysicalFacilitiesExpenditure] = useState();
     const [file4_4_1_1, setFile4_4_1_1] = useState("");
     const [file4_4_1_2, setFile4_4_1_2] = useState("");
     const [established_systems, setEstablishedSystems] = useState("");
@@ -91,9 +91,10 @@ const Criteria44 = ({ onCrit44Data }) => {
             const data = response.data.data.criteria44;
 
             if (data) {
-                setPhysicalFacilitiesExpenditure(data.physical_facilities_expenditure ? data.physical_facilities_expenditure : '');
-                setEstablishedSystems(data.established_systems ? data.established_systems : '');
-    
+                setPhysicalFacilitiesExpenditure(data.physical_facilities_expenditure || "");
+                setFile4_4_1_1(data.file4_4_1_1 ? 'true' : 'false');
+                setFile4_4_1_2(data.file4_4_1_2 ? 'true' : 'false');
+                setEstablishedSystems(data.established_systems || "");
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -109,7 +110,7 @@ const Criteria44 = ({ onCrit44Data }) => {
             <ul>
                 <li>
                     <div className="c-4-4-det">
-                        <h4>4.4.1 - Total expenditure incurred in maintenance of physical facilities and academic support 
+                        <h4>4.4.1 - Total expenditure incurred in maintenance of physical facilities and academic support
                             facilities excluding salary component during the year
                         </h4>
                     </div>
@@ -196,7 +197,6 @@ const Criteria44 = ({ onCrit44Data }) => {
                                 <tbody>
                                     <tr>
                                         <td>
-                                            {file4_4_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
                                             Upload relevant supporting documents
                                         </td>
                                         <td></td>

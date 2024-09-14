@@ -10,11 +10,11 @@ const Criteria33 = ({ onCrit33Data }) => {
 
     const [ecosystemText, setEcosystemText] = useState("");
     const [file3_3_1, setFile3_3_1] = useState(null);
-    const [seminars, setSeminars] = useState(0);
-    const [totalSeminars, setTotalSeminars] = useState(0);
+    const [seminars, setSeminars] = useState();
+    const [totalSeminars, setTotalSeminars] = useState();
     const [file3_3_2_1, setFile3_3_2_1] = useState(null);
     const [file3_3_2_2, setFile3_3_2_2] = useState(null);
-    const [awards, setAwards] = useState(0);
+    const [awards, setAwards] = useState();
     const [file3_3_3_1, setFile3_3_3_1] = useState(null);
     const [file3_3_3_2, setFile3_3_3_2] = useState(null);
 
@@ -128,10 +128,16 @@ const Criteria33 = ({ onCrit33Data }) => {
 
             if (data) {
                 setEcosystemText(data.ecosystemText ? data.ecosystemText : '');
-                setSeminars(data.seminars ? data.seminars : '');
-                setTotalSeminars(data.totalSeminars ? data.totalSeminars : '');
-                setAwards(data.awards ? data.awards : '');
+                setFile3_3_1(data.file3_3_1 ? 'true' : 'false');
+                setSeminars(data.seminars ? data.seminars : 0);
+                setTotalSeminars(data.totalSeminars ? data.totalSeminars : 0);
+                setFile3_3_2_1(data.file3_3_2_1 ? 'true' : 'false');
+                setFile3_3_2_2(data.file3_3_2_2 ? 'true' : 'false');
+                setAwards(data.awards ? data.awards : 0);
+                setFile3_3_3_1(data.file3_3_3_1 ? 'true' : 'false');
+                setFile3_3_3_2(data.file3_3_3_2 ? 'true' : 'false');
             }
+
         } catch (error) {
             console.error("Error fetching data:", error.message);
         }
@@ -170,6 +176,7 @@ const Criteria33 = ({ onCrit33Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -227,6 +234,7 @@ const Criteria33 = ({ onCrit33Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_3_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('3.3.2.xlsx')}>Data Template</button></td>
                                     <td><input type="file" id="file3_3_2_1" onChange={(e) => setFile3_3_2_1(e.target.files[0])} name="fileUpload" accept=".xls, .xlsx" /></td>
@@ -234,6 +242,7 @@ const Criteria33 = ({ onCrit33Data }) => {
                                 </tr>
                                 <tr>
                                     <td>
+                                        {file3_3_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents</td>
                                     <td></td>
                                     <td><input type="file" id="file3_3_2_2" onChange={(e) => setFile3_3_2_2(e.target.files[0])} name="fileUpload2" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
@@ -276,6 +285,7 @@ const Criteria33 = ({ onCrit33Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_3_3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('3.3.3.xlsx')}>Data Template</button></td>
                                     <td><input type="file" id="fileUpload3_3_3_1" onChange={(e) => setFile3_3_3_1(e.target.files[0])} name="fileUpload" accept=".xls, .xlsx" /></td>
@@ -283,6 +293,7 @@ const Criteria33 = ({ onCrit33Data }) => {
                                 </tr>
                                 <tr>
                                     <td>
+                                        {file3_3_3_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents</td>
                                     <td></td>
                                     <td><input type="file" id="fileUpload3_3_3_2" onChange={(e) => setFile3_3_3_2(e.target.files[0])} name="fileUpload2" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>

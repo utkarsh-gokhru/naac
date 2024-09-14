@@ -9,20 +9,18 @@ const Criteria64 = ({ onCrit64Data }) => {
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
     const [text6_4_1, settext6_4_1] = useState("");
-    const [file6_4_1, setFile6_4_1] = useState("");
+    const [file6_4_1, setFile6_4_1] = useState(null);
 
-    const [data6_4_2, setdata6_4_2] = useState(0);
-    const [file6_4_2_1, setFile6_4_2_1] = useState("");
-    const [file6_4_2_2, setFile6_4_2_2] = useState("");
+    const [data6_4_2, setdata6_4_2] = useState();
+    const [file6_4_2_1, setFile6_4_2_1] = useState(null);
+    const [file6_4_2_2, setFile6_4_2_2] = useState(null);
 
-    const [data6_4_3, setdata6_4_3] = useState(0);
-    const [file6_4_3_1, setFile6_4_3_1] = useState("");
-    const [file6_4_3_2, setFile6_4_3_2] = useState("");
+    const [data6_4_3, setdata6_4_3] = useState();
+    const [file6_4_3_1, setFile6_4_3_1] = useState(null);
+    const [file6_4_3_2, setFile6_4_3_2] = useState(null);
 
     const [text6_4_4, settext6_4_4] = useState("");
-    const [file6_4_4, setFile6_4_4] = useState("");
-
-
+    const [file6_4_4, setFile6_4_4] = useState(null);
 
     const saveSection6_4_1 = async () => {
         const formdata = new FormData();
@@ -157,10 +155,19 @@ const Criteria64 = ({ onCrit64Data }) => {
             const data = response.data.data.criteria64;
 
             if (data) {
-                settext6_4_1(data.text6_4_1 ? data.text6_4_1 : '');
-                setdata6_4_2(data.data6_4_2 ? data.data6_4_2 : '');
-                setdata6_4_3(data.data6_4_3 ? data.data6_4_3 : '');
-                settext6_4_4(data.text6_4_4 ? data.text6_4_4 : '');
+                settext6_4_1(data.text6_4_1 || '');
+                setFile6_4_1(data.file6_4_1 ? 'true' : 'false');
+
+                setdata6_4_2(data.data6_4_2 || '');
+                setFile6_4_2_1(data.file6_4_2_1 ? 'true' : 'false');
+                setFile6_4_2_2(data.file6_4_2_2 ? 'true' : 'false');
+
+                setdata6_4_3(data.data6_4_3 || '');
+                setFile6_4_3_1(data.file6_4_3_1 ? 'true' : 'false');
+                setFile6_4_3_2(data.file6_4_3_2 ? 'true' : 'false');
+
+                settext6_4_4(data.text6_4_4 || '');
+                setFile6_4_4(data.file6_4_4 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -195,6 +202,7 @@ const Criteria64 = ({ onCrit64Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file6_4_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -238,6 +246,7 @@ const Criteria64 = ({ onCrit64Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file6_4_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template</td>
                             <td><button onClick={() => downloadExcel('6.4.2.xlsx')}>Data Template</button></td>
                             <td>
@@ -253,6 +262,7 @@ const Criteria64 = ({ onCrit64Data }) => {
                         </tr>
                         <tr>
                             <td>
+                                {file6_4_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents</td>
                             <td></td>
                             <td><input type="file" id="fileUpload6_4_2_2" onChange={(e) => setFile6_4_2_2(e.target.files[0])} name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
@@ -287,6 +297,7 @@ const Criteria64 = ({ onCrit64Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file6_4_3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template</td>
                             <td><button onClick={() => downloadExcel('6.4.3.xlsx')}>Data Template</button></td>
                             <td>
@@ -302,6 +313,7 @@ const Criteria64 = ({ onCrit64Data }) => {
                         </tr>
                         <tr>
                             <td>
+                                {file6_4_3_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents</td>
                             <td></td>
                             <td><input type="file" id="fileUpload6_4_3_2" onChange={(e) => setFile6_4_3_2(e.target.files[0])} name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
@@ -314,7 +326,7 @@ const Criteria64 = ({ onCrit64Data }) => {
                 </div>
             </div>
             <div className="c-6-4-4">
-                <h4>6.4.1 - Institution conducts internal and external financial audits regularly</h4>
+                <h4>6.4.4 - Institution conducts internal and external financial audits regularly</h4>
                 <StyledTextArea
                     rows={5}
                     placeholder="Type the text here"
@@ -333,6 +345,7 @@ const Criteria64 = ({ onCrit64Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file6_4_4 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -354,7 +367,7 @@ const Criteria64 = ({ onCrit64Data }) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Criteria64;

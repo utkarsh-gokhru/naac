@@ -158,6 +158,14 @@ export const Criteria24 = ({ onCrit24Data }) => {
                 setfull_time_teachers_phd_etc(data.full_time_teachers_phd_etc ? data.full_time_teachers_phd_etc : '');
                 setaward_rec_teachers(data.award_rec_teachers ? data.award_rec_teachers : '');
                 settotal_exp(data.total_exp ? data.total_exp : '');
+                setfile2_4_1_1(data.file2_4_1_1 ? 'true' : 'false');
+                setfile2_4_1_2(data.file2_4_1_2 ? 'true' : 'false');
+                setfile2_4_2_1(data.file2_4_2_1 ? 'true' : 'false');
+                setfile2_4_2_2(data.file2_4_2_2 ? 'true' : 'false');
+                setfile2_4_3_1(data.file2_4_3_1 ? 'true' : 'false');
+                setfile2_4_3_2(data.file2_4_3_2 ? 'true' : 'false');
+                setfile2_4_4_1(data.file2_4_4_1 ? 'true' : 'false');
+                setfile2_4_4_2(data.file2_4_4_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -167,7 +175,7 @@ export const Criteria24 = ({ onCrit24Data }) => {
     useEffect(() => {
         fetchData();
     }, []);
-    
+
     return (
         <div class='c-2-4'>
             <h3>2.4 - Teacher Profile and Quality</h3>

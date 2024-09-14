@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import StyledTextArea from "./textArea";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 import '../css/criteria5.css';
@@ -149,10 +148,17 @@ const Criteria51 = ({ onCrit51Data }) => {
             const data = response.data.data.criteria51;
 
             if (data) {
-                setscholarship_beneficiaries(data.scholarship_beneficiaries ? data.scholarship_beneficiaries : '');
-                setcareer_counsel_beneficiaries(data.career_counsel_beneficiaries ? data.career_counsel_beneficiaries : '');
-                setcapacity_development_initiatives(data.capacity_development_initiatives ? data.capacity_development_initiatives : '');
-                setstudent_grievances_redressal(data.student_grievances_redressal ? data.student_grievances_redressal : '');
+                setscholarship_beneficiaries(data.scholarship_beneficiaries || "");
+                setcareer_counsel_beneficiaries(data.career_counsel_beneficiaries || "");
+                setcapacity_development_initiatives(data.capacity_development_initiatives || "");
+                setstudent_grievances_redressal(data.student_grievances_redressal || "");
+                setFile5_1_1_1(data.file5_1_1_1 ? 'true' : 'false');
+                setFile5_1_1_2(data.file5_1_1_2 ? 'true' : 'false');
+                setFile5_1_2_1(data.file5_1_2_1 ? 'true' : 'false');
+                setFile5_1_2_2(data.file5_1_2_2 ? 'true' : 'false');
+                setFile5_1_3_1(data.file5_1_3_1 ? 'true' : 'false');
+                setFile5_1_3_2(data.file5_1_3_2 ? 'true' : 'false');
+                setfile5_1_4(data.file5_1_4 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -186,8 +192,8 @@ const Criteria51 = ({ onCrit51Data }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td> {file5_1_1_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
-
+                        <td>
+                            {file5_1_1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                             Upload the data template</td>
                         <td>
                             <button onClick={() => downloadExcel('5.1.1.xlsx')}>Data Template</button>
@@ -205,6 +211,7 @@ const Criteria51 = ({ onCrit51Data }) => {
                     </tr>
                     <tr>
                         <td>
+                            {file5_1_1_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                             Upload relevant supporting documents</td>
                         <td></td>
                         <td>
@@ -243,7 +250,7 @@ const Criteria51 = ({ onCrit51Data }) => {
                 <tbody>
                     <tr>
                         <td>
-
+                            {file5_1_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                             Upload the data template</td>
                         <td>
                             <button onClick={() => downloadExcel('5.1.2.xlsx')}>Data Template</button>

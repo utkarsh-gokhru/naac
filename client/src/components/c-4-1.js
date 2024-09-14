@@ -158,11 +158,17 @@ const Criteria41 = ({ onCrit41Data }) => {
             const data = response.data.data.criteria41;
 
             if (data) {
-                setteaching_facilities(data.teaching_facilities ? data.teaching_facilities : '');
-                setcultural_facilities(data.cultural_facilities ? data.cultural_facilities : '');
-                setgeneral_facilities(data.general_facilities ? data.general_facilities : '');
-                settotal_expenditure(data.total_expenditure ? data.total_expenditure : '');
+                setteaching_facilities(data.teaching_facilities || "");
+                setcultural_facilities(data.cultural_facilities || "");
+                setgeneral_facilities(data.general_facilities || "");
+                settotal_expenditure(data.total_expenditure || "");
+                setFile4_1_1(data.file4_1_1 ? 'true' : 'false');
+                setFile4_1_2(data.file4_1_2 ? 'true' : 'false');
+                setFile4_1_3(data.file4_1_3 ? 'true' : 'false');
+                setFile4_1_4_1(data.file4_1_4_1 ? 'true' : 'false');
+                setFile4_1_4_2(data.file4_1_4_2 ? 'true' : 'false');
             }
+
         } catch (error) {
             console.error("Error fetching data:", error.message);
         }
@@ -197,6 +203,7 @@ const Criteria41 = ({ onCrit41Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file4_1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -239,6 +246,7 @@ const Criteria41 = ({ onCrit41Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file4_1_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -281,6 +289,7 @@ const Criteria41 = ({ onCrit41Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file4_1_3 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -323,6 +332,7 @@ const Criteria41 = ({ onCrit41Data }) => {
                         <tbody>
                             <tr>
                                 <td>
+                                    {file4_1_4_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                     Upload the data template
                                 </td>
                                 <td>
@@ -341,6 +351,7 @@ const Criteria41 = ({ onCrit41Data }) => {
                             </tr>
                             <tr>
                                 <td>
+                                    {file4_1_4_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                     Upload relevant supporting documents
                                 </td>
                                 <td></td>
@@ -362,13 +373,8 @@ const Criteria41 = ({ onCrit41Data }) => {
                     </div>
                 </div>
             </li>
-
-
-
-
         </div>
-    )
-
-}
+    );
+};
 
 export default Criteria41;

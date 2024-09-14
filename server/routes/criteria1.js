@@ -79,7 +79,7 @@ const expectedFileFields = [
     'file1_1_3_2', 'file1_2_1_1', 'file1_2_1_2', 'file1_2_2_1',
     'file1_2_2_2', 'file1_3_1', 'file1_3_2_1', 'file1_3_2_2',
     'file1_3_3_1_1', 'file1_3_3_1_2', 'file1_3_4_1', 'file1_3_4_2',
-    'file1_4_1','file1_4_2'
+    'file1_4_1', 'file1_4_2'
 ];
 
 //Function to update exisiting data in the database
@@ -90,7 +90,7 @@ const updateExistingData = async (existingData, filePaths) => {
             fieldsToUpdate[fieldName] = filePaths[fieldName];
         }
         return fieldsToUpdate;
-    }, {}); 
+    }, {});
 
     if (Object.keys(updateFields).length > 0) {
         Object.assign(existingData, updateFields);
@@ -102,7 +102,7 @@ const updateExistingData = async (existingData, filePaths) => {
 
 //Handling post request 
 app.post('/criteria1/submit', upload.fields([
-    { name: 'file1_1_1', maxCount: 1},
+    { name: 'file1_1_1', maxCount: 1 },
     { name: 'file1_1_2_1', maxCount: 1 },
     { name: 'file1_1_2_2', maxCount: 1 },
     { name: 'file1_1_3_1', maxCount: 1 },
@@ -130,7 +130,7 @@ app.post('/criteria1/submit', upload.fields([
             'file1_1_3_2', 'file1_2_1_1', 'file1_2_1_2', 'file1_2_2_1',
             'file1_2_2_2', 'file1_3_1', 'file1_3_2_1', 'file1_3_2_2',
             'file1_3_3_1_1', 'file1_3_3_1_2', 'file1_3_4_1', 'file1_3_4_2',
-            'file1_4_1','file1_4_2'
+            'file1_4_1', 'file1_4_2'
         ];
 
         let existingData = await Criteria1Model.findOne({ department: req.body.department, academicYear: req.body.academicYear });
@@ -146,7 +146,7 @@ app.post('/criteria1/submit', upload.fields([
                             const index = requiredFileFields.indexOf(missingField);
                             if (index !== -1) {
                                 requiredFileFields.splice(index, 1);
-                                expectedFileFields.splice(index,1);
+                                expectedFileFields.splice(index, 1);
                             }
                         }
                     }
@@ -156,7 +156,7 @@ app.post('/criteria1/submit', upload.fields([
                             const index = requiredFileFields.indexOf(missingField);
                             if (index !== -1) {
                                 requiredFileFields.splice(index, 1);
-                                expectedFileFields.splice(index,1);
+                                expectedFileFields.splice(index, 1);
                             }
                         }
                     }
@@ -166,7 +166,7 @@ app.post('/criteria1/submit', upload.fields([
                             const index = requiredFileFields.indexOf(missingField);
                             if (index !== -1) {
                                 requiredFileFields.splice(index, 1);
-                                expectedFileFields.splice(index,1);
+                                expectedFileFields.splice(index, 1);
                             }
                         }
                     }
@@ -176,12 +176,12 @@ app.post('/criteria1/submit', upload.fields([
                             const index = requiredFileFields.indexOf(missingField);
                             if (index !== -1) {
                                 requiredFileFields.splice(index, 1);
-                                expectedFileFields.splice(index,1);
+                                expectedFileFields.splice(index, 1);
                             }
                         }
                     }
                 }
-            }     
+            }
             if (!requiredFileFields.every(fieldName => files[fieldName])) {
                 const errorMessage = 'All required files must be present in the request';
                 console.error(errorMessage);
@@ -210,7 +210,7 @@ app.post('/criteria1/submit', upload.fields([
         if (existingData) {
 
             const existingDataCopy = JSON.parse(JSON.stringify(existingData));
-            
+
             for (let i = 11; i <= 14; i++) {
                 const criteria = existingDataCopy[`criteria${i}`];
                 for (const x in criteria) {
@@ -229,12 +229,12 @@ app.post('/criteria1/submit', upload.fields([
                             }
                         }
                         if (!fileFound) {
-                            criteria[x] = ''; 
+                            criteria[x] = '';
                         }
                     }
                 }
-            }             
-    
+            }
+
             await deleteExistingFiles(existingDataCopy);
             const updateResult = await updateExistingData(existingData, filePaths);
 

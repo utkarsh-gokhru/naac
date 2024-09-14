@@ -41,7 +41,7 @@ const Criteria53 = ({ onCrit53Data }) => {
             }
         }
         try {
-            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
+            const response = await axios.post(`https://naacserver.onrender.com/data/save${section}`, formData);
             console.log(response.data);
             alert(`Saved Section ${section} data`);
         } catch (error) {
@@ -82,9 +82,14 @@ const Criteria53 = ({ onCrit53Data }) => {
             const data = response.data.data.criteria53;
 
             if (data) {
-                setAwards_no(data.awards_no ? data.awards_no : '');
-                setStudent_council(data.student_council ? data.student_council : '');
-                setEvents(data.events ? data.events : '');
+                setAwards_no(data.awards_no || '');
+                setFile5_3_1_1(data.file5_3_1_1 ? 'true' : 'false');
+                setFile5_3_1_2(data.file5_3_1_2 ? 'true' : 'false');
+                setStudent_council(data.student_council || '');
+                setFile5_3_2(data.file5_3_2 ? 'true' : 'false');
+                setEvents(data.events || '');
+                setFile5_3_3_1(data.file5_3_3_1 ? 'true' : 'false');
+                setFile5_3_3_2(data.file5_3_3_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -123,6 +128,7 @@ const Criteria53 = ({ onCrit53Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file5_3_1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('5.3.1.xlsx')}>Data Template</button></td>
                                     <td>
@@ -138,6 +144,7 @@ const Criteria53 = ({ onCrit53Data }) => {
                                 </tr>
                                 <tr>
                                     <td>
+                                        {file5_3_1_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents</td>
                                     <td></td>
                                     <td><input type="file" id="fileUpload5_3_1_2" onChange={(e) => setFile5_3_1_2(e.target.files[0])} name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>
@@ -171,6 +178,7 @@ const Criteria53 = ({ onCrit53Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file5_3_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -213,6 +221,7 @@ const Criteria53 = ({ onCrit53Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file5_3_3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload the data template</td>
                                     <td><button onClick={() => downloadExcel('5.3.3.xlsx')}>Data Template</button></td>
                                     <td>
@@ -228,6 +237,7 @@ const Criteria53 = ({ onCrit53Data }) => {
                                 </tr>
                                 <tr>
                                     <td>
+                                        {file5_3_3_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents</td>
                                     <td></td>
                                     <td><input type="file" id="fileUpload5_3_3_2" onChange={(e) => setFile5_3_3_2(e.target.files[0])} name="fileUpload1" accept=".xls, .xlsx, .doc, .docx, .pdf" /></td>

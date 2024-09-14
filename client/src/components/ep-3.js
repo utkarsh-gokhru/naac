@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
@@ -57,16 +56,20 @@ const EP3 = ({ onEP3Data }) => {
         };
         onEP3Data(ep3Data);
     }, [courses_in_all_programmes, file3_1, full_time_teachers, file3_2, sanctioned_posts, file3_3]);
-    
+
     const fetchData = async () => {
         try {
             const response = await axios.get(`https://naacserver.onrender.com/data/fetchEP?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data.ep3;
 
             if (data) {
-                setCourses_in_all_programmes(data.courses_in_all_programmes ? data.courses_in_all_programmes : '');
-                setFull_time_teachers(data.full_time_teachers ? data.full_time_teachers: '');
-                setSanctioned_posts(data.sanctioned_posts ? data.sanctioned_posts : '');         
+                setCourses_in_all_programmes(data.courses_in_all_programmes || '');
+                setFull_time_teachers(data.full_time_teachers || '');
+                setSanctioned_posts(data.sanctioned_posts || '');
+
+                setFile3_1(data.file3_1 ? 'true' : 'false');
+                setFile3_2(data.file3_2 ? 'true' : 'false');
+                setFile3_3(data.file3_3 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -100,6 +103,7 @@ const EP3 = ({ onEP3Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template</td>
                             <td><button onClick={() => downloadExcel('3.1.xlsx')}>Data Template</button></td>
                             <td>
@@ -136,6 +140,7 @@ const EP3 = ({ onEP3Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file3_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template</td>
                             <td><button onClick={() => downloadExcel('3.2.xlsx')}>Data Template</button></td>
                             <td>
@@ -172,6 +177,7 @@ const EP3 = ({ onEP3Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file3_3 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template</td>
                             <td><button onClick={() => downloadExcel('3.3.xlsx')}>Data Template</button></td>
                             <td>

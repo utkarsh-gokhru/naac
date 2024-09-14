@@ -68,7 +68,7 @@ const Criteria61 = ({ onCrit61Data }) => {
             file6_1_2,
         };
         onCrit61Data(crit61);
-    }, [text6_1_1,file6_1_1,text6_1_2,file6_1_2,]);
+    }, [text6_1_1, file6_1_1, text6_1_2, file6_1_2,]);
 
     const fetchData = async () => {
         try {
@@ -76,9 +76,11 @@ const Criteria61 = ({ onCrit61Data }) => {
             const data = response.data.data.criteria61;
 
             if (data) {
-                settext6_1_1(data.text6_1_1 ? data.text6_1_1 : '');
-                settext6_1_2(data.text6_1_2 ? data.text6_1_2 : '');
-                }
+                settext6_1_1(data.text6_1_1 || '');
+                settext6_1_2(data.text6_1_2 || '');
+                setFile6_1_1(data.file6_1_1 ? 'true' : 'false');
+                setFile6_1_2(data.file6_1_2 ? 'true' : 'false');
+            }
         } catch (error) {
             console.error("Error fetching data:", error.message);
         }
@@ -114,6 +116,7 @@ const Criteria61 = ({ onCrit61Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file6_1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -156,6 +159,7 @@ const Criteria61 = ({ onCrit61Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file6_1_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -178,7 +182,7 @@ const Criteria61 = ({ onCrit61Data }) => {
             </div>
 
         </div>
-    )
-}
+    );
+};
 
 export default Criteria61;

@@ -41,33 +41,33 @@ const Criteria1 = () => {
     if (
       !crit11Data.curriculumText ||
       !crit11Data.syllabusRevisionCount ||
-      !crit11Data.file1_1_1 ||
-      !crit11Data.file1_1_2_1 ||
-      !crit11Data.file1_1_2_2 ||
+      // !crit11Data.file1_1_1 ||
+      // !crit11Data.file1_1_2_1 ||
+      // !crit11Data.file1_1_2_2 ||
       !crit11Data.coursesFocusCount ||
-      !crit11Data.file1_1_3_1 ||
-      !crit11Data.file1_1_3_2 ||
+      // !crit11Data.file1_1_3_1 ||
+      // !crit11Data.file1_1_3_2 ||
       !crit12Data.programCount1_2_2 ||
       !crit12Data.newCoursesCount1_2_1 ||
-      !crit12Data.file1_2_1_1 ||
-      !crit12Data.file1_2_1_2 ||
-      !crit12Data.file1_2_2_1 ||
-      !crit12Data.file1_2_2_2 ||
+      // !crit12Data.file1_2_1_1 ||
+      // !crit12Data.file1_2_1_2 ||
+      // !crit12Data.file1_2_2_1 ||
+      // !crit12Data.file1_2_2_2 ||
       !crit13Data.text1_3_1 ||
-      !crit13Data.file1_3_1 ||
+      // !crit13Data.file1_3_1 ||
       !crit13Data.valueAddedCoursesCount1_3_2 ||
       !crit13Data.enrolledStudentsCount1_3_3_1 ||
       !crit13Data.projectsCount1_3_4 ||
-      !crit13Data.file1_3_2_1 ||
-      !crit13Data.file1_3_2_2 ||
-      !crit13Data.file1_3_3_1_1 ||
-      !crit13Data.file1_3_3_1_2 ||
-      !crit13Data.file1_3_4_1 ||
-      !crit13Data.file1_3_4_2 ||
+      // !crit13Data.file1_3_2_1 ||
+      // !crit13Data.file1_3_2_2 ||
+      // !crit13Data.file1_3_3_1_1 ||
+      // !crit13Data.file1_3_3_1_2 ||
+      // !crit13Data.file1_3_4_1 ||
+      // !crit13Data.file1_3_4_2 ||
       !crit14Data.feedbackType1_4_1 ||
-      !crit14Data.feedbackType1_4_2 ||
-      !crit14Data.file1_4_1 ||
-      !crit14Data.file1_4_2
+      !crit14Data.feedbackType1_4_2 
+      // !crit14Data.file1_4_1 ||
+      // !crit14Data.file1_4_2
     ) {
       alert("Please fill all the fields before submitting.");
       return;

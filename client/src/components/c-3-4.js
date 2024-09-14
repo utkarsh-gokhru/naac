@@ -318,17 +318,42 @@ const Criteria34 = ({ onCrit34Data }) => {
 
             if (data) {
                 setCode_of_ethics(data.code_of_ethics ? data.code_of_ethics : '');
+                setFile3_4_1(data.file3_4_1 ? 'true' : 'false');
+
                 setIncentives(data.incentives ? data.incentives : '');
+                setFile3_4_2_1(data.file3_4_2_1 ? 'true' : 'false');
+                setFile3_4_2_2(data.file3_4_2_2 ? 'true' : 'false');
+
                 setPatents_published(data.patents_published ? data.patents_published : '');
+                setFile3_4_3_1(data.file3_4_3_1 ? 'true' : 'false');
+                setFile3_4_3_2(data.file3_4_3_2 ? 'true' : 'false');
+
                 setPhd_awarded(data.phd_awarded ? data.phd_awarded : '');
                 setTeachers_guides(data.teachers_guides ? data.teachers_guides : '');
+                setFile3_4_4_1(data.file3_4_4_1 ? 'true' : 'false');
+                setFile3_4_4_2(data.file3_4_4_2 ? 'true' : 'false');
+
                 setResearch_papers_per_teacher(data.research_papers_per_teacher ? data.research_papers_per_teacher : '');
+                setFile3_4_5_1(data.file3_4_5_1 ? 'true' : 'false');
+                setFile3_4_5_2(data.file3_4_5_2 ? 'true' : 'false');
+
                 setBooks_edited(data.books_edited ? data.books_edited : '');
+                setFile3_4_6_1(data.file3_4_6_1 ? 'true' : 'false');
+                setFile3_4_6_2(data.file3_4_6_2 ? 'true' : 'false');
+
                 setE_content(data.e_content ? data.e_content : '');
+                setFile3_4_7_1(data.file3_4_7_1 ? 'true' : 'false');
+                setFile3_4_7_2(data.file3_4_7_2 ? 'true' : 'false');
+
                 setScopus348(data.scopus348 ? data.scopus348 : '');
                 setWeb_of_science348(data.web_of_science348 ? data.web_of_science348 : '');
+                setFile3_4_8_1(data.file3_4_8_1 ? 'true' : 'false');
+                setFile3_4_8_2(data.file3_4_8_2 ? 'true' : 'false');
+
                 setScopus349(data.scopus349 ? data.scopus349 : '');
                 setWeb_of_science349(data.web_of_science349 ? data.web_of_science349 : '');
+                setFile3_4_9_1(data.file3_4_9_1 ? 'true' : 'false');
+                setFile3_4_9_2(data.file3_4_9_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -385,6 +410,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_4_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -444,7 +470,9 @@ const Criteria34 = ({ onCrit34Data }) => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Upload the data template</td>
+                                        <td>
+                                            {file3_4_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                            Upload the data template</td>
                                         <td>
                                             <button onClick={() => downloadExcel('3.4.2.xlsx')}>Data Template</button>
                                         </td>
@@ -460,7 +488,9 @@ const Criteria34 = ({ onCrit34Data }) => {
                                         <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
                                     </tr>
                                     <tr>
-                                        <td>Upload relevant supporting documents</td>
+                                        <td>
+                                            {file3_4_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                            Upload relevant supporting documents</td>
                                         <td></td>
                                         <td>
                                             <input
@@ -503,6 +533,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <tbody>
                                         <tr>
                                             <td>
+                                                {file3_4_3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload the data template
                                             </td>
                                             <td>
@@ -521,6 +552,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                         </tr>
                                         <tr>
                                             <td>
+                                                {file3_4_3_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload relevant supporting documents
                                             </td>
                                             <td></td>
@@ -574,6 +606,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <tbody>
                                         <tr>
                                             <td>
+                                                {file3_4_4_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload the data template
                                             </td>
                                             <td>
@@ -592,6 +625,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                         </tr>
                                         <tr>
                                             <td>
+                                                {file3_4_4_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload relevant supporting documents
                                             </td>
                                             <td></td>
@@ -632,6 +666,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <tbody>
                                         <tr>
                                             <td>
+                                                {file3_4_5_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload the data template
                                             </td>
                                             <td>
@@ -650,6 +685,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                         </tr>
                                         <tr>
                                             <td>
+                                                {file3_4_5_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload relevant supporting documents
                                             </td>
                                             <td></td>
@@ -693,6 +729,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                         <tbody>
                                             <tr>
                                                 <td>
+                                                    {file3_4_6_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                     Upload the data template
                                                 </td>
                                                 <td>
@@ -711,6 +748,7 @@ const Criteria34 = ({ onCrit34Data }) => {
                                             </tr>
                                             <tr>
                                                 <td>
+                                                    {file3_4_6_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                     Upload relevant supporting documents
                                                 </td>
                                                 <td></td>
@@ -772,7 +810,9 @@ const Criteria34 = ({ onCrit34Data }) => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Upload the data template</td>
+                                        <td>
+                                            {file3_4_7_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                            Upload the data template</td>
                                         <td>
                                             <button onClick={() => downloadExcel('3.4.7.xlsx')}>Data Template</button>
                                         </td>
@@ -788,7 +828,9 @@ const Criteria34 = ({ onCrit34Data }) => {
                                         <td>.xls, .xlsx <b>File size: 6MB</b> </td>
                                     </tr>
                                     <tr>
-                                        <td>Upload relevant supporting documents</td>
+                                        <td>
+                                            {file3_4_7_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                            Upload relevant supporting documents</td>
                                         <td></td>
                                         <td>
                                             <input
@@ -831,12 +873,14 @@ const Criteria34 = ({ onCrit34Data }) => {
                                             onChange={(e) => setScopus348(e.target.value)}
                                         /><br />
                                     </td>
-                                    <input
-                                        type="number"
-                                        id="web_of_science348"
-                                        value={web_of_science348}
-                                        onChange={(e) => setWeb_of_science348(e.target.value)}
-                                    /><br />
+                                    <td>
+                                        <input
+                                            type="number"
+                                            id="web_of_science348"
+                                            value={web_of_science348}
+                                            onChange={(e) => setWeb_of_science348(e.target.value)}
+                                        /><br />
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -853,7 +897,9 @@ const Criteria34 = ({ onCrit34Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Any additional information</td>
+                                    <td>
+                                        {file3_4_8_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Any additional information</td>
                                     <td>
                                     </td>
                                     <td>
@@ -868,7 +914,9 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
                                 </tr>
                                 <tr>
-                                    <td>Bibliometrics of the publications during the year</td>
+                                    <td>
+                                        {file3_4_8_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Bibliometrics of the publications during the year</td>
                                     <td></td>
                                     <td>
                                         <input
@@ -909,12 +957,14 @@ const Criteria34 = ({ onCrit34Data }) => {
                                             onChange={(e) => setScopus349(e.target.value)}
                                         /><br />
                                     </td>
-                                    <input
-                                        type="number"
-                                        id="web_of_science349"
-                                        value={web_of_science349}
-                                        onChange={(e) => setWeb_of_science349(e.target.value)}
-                                    /><br />
+                                    <td>
+                                        <input
+                                            type="number"
+                                            id="web_of_science349"
+                                            value={web_of_science349}
+                                            onChange={(e) => setWeb_of_science349(e.target.value)}
+                                        /><br />
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -931,7 +981,9 @@ const Criteria34 = ({ onCrit34Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Bibliometrics of the publications based on Scopus/web of Science -h-index of the Institution</td>
+                                    <td>
+                                        {file3_4_9_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Bibliometrics of the publications based on Scopus/web of Science -h-index of the Institution</td>
                                     <td>
                                     </td>
                                     <td>
@@ -946,7 +998,9 @@ const Criteria34 = ({ onCrit34Data }) => {
                                     <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
                                 </tr>
                                 <tr>
-                                    <td>Any additional information</td>
+                                    <td>
+                                        {file3_4_9_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Any additional information</td>
                                     <td></td>
                                     <td>
                                         <input

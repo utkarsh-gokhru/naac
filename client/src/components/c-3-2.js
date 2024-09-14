@@ -129,8 +129,16 @@ const Criteria32 = ({ onCrit32Data }) => {
 
             if (data) {
                 setExtraFunding(data.extraFunding ? data.extraFunding : '');
+                setFile3_2_1_1(data.file3_2_1_1 ? 'true' : 'false');
+                setFile3_2_1_2(data.file3_2_1_2 ? 'true' : 'false');
+
                 setGrants(data.grants ? data.grants : '');
+                setFile3_2_2_1(data.file3_2_2_1 ? 'true' : 'false');
+                setFile3_2_2_2(data.file3_2_2_2 ? 'true' : 'false');
+
                 setTeacherResearchProjects(data.teacherResearchProjects ? data.teacherResearchProjects : '');
+                setFile3_2_3_1(data.file3_2_3_1 ? 'true' : 'false');
+                setFile3_2_3_2(data.file3_2_3_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -172,6 +180,7 @@ const Criteria32 = ({ onCrit32Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_2_1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('3.2.1.xlsx')}>Data Template</button>
@@ -189,6 +198,7 @@ const Criteria32 = ({ onCrit32Data }) => {
                                 </tr>
                                 <tr>
                                     <td>
+                                        {file3_2_1_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -231,6 +241,7 @@ const Criteria32 = ({ onCrit32Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_2_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('3.2.2.xlsx')}>Data Template</button>
@@ -248,6 +259,7 @@ const Criteria32 = ({ onCrit32Data }) => {
                                 </tr>
                                 <tr>
                                     <td>
+                                        {file3_2_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>
@@ -289,6 +301,7 @@ const Criteria32 = ({ onCrit32Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_2_3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('3.2.3.xlsx')}>Data Template</button>
@@ -306,6 +319,7 @@ const Criteria32 = ({ onCrit32Data }) => {
                                 </tr>
                                 <tr>
                                     <td>
+                                        {file3_2_3_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>

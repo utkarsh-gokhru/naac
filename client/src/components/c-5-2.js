@@ -130,10 +130,16 @@ const Criteria52 = ({ onCrit52Data }) => {
             const data = response.data.data.criteria52;
 
             if (data) {
-                setstudents_qualified(data.students_qualified ? data.students_qualified : '');
-                setstudents_appeared(data.students_appeared ? data.students_appeared : '');
-                sethigher_studies_students(data.higher_studies_students ? data.higher_studies_students : '');
-                setplacement_no(data.placement_no ? data.placement_no : '');
+                setstudents_qualified(data.students_qualified || "");
+                setstudents_appeared(data.students_appeared || "");
+                sethigher_studies_students(data.higher_studies_students || "");
+                setplacement_no(data.placement_no || "");
+                setFile5_2_1_1(data.file5_2_1_1 ? 'true' : 'false');
+                setFile5_2_1_2(data.file5_2_1_2 ? 'true' : 'false');
+                setFile5_2_2_1(data.file5_2_2_1 ? 'true' : 'false');
+                setFile5_2_2_2(data.file5_2_2_2 ? 'true' : 'false');
+                setFile5_2_3_1(data.file5_2_3_1 ? 'true' : 'false');
+                setFile5_2_3_2(data.file5_2_3_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -331,7 +337,7 @@ const Criteria52 = ({ onCrit52Data }) => {
                 <button onClick={saveSection5_2_3}>Save</button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Criteria52;

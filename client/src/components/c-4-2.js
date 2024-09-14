@@ -19,7 +19,7 @@ const Criteria42 = ({ onCrit42Data }) => {
     const [file4_2_3_2, setFile4_2_3_2] = useState(null);
     const [file4_2_4, setFile4_2_4] = useState(null);
 
-    
+
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -161,11 +161,17 @@ const Criteria42 = ({ onCrit42Data }) => {
             const data = response.data.data.criteria42;
 
             if (data) {
-                setautomated_library(data.automated_library ? data.automated_library : '');
-                setsubscription(data.subscription ? data.subscription : '');
-                setbooks_expenditure(data.books_expenditure ? data.books_expenditure : '');
-                setlibrary_usage_per_day(data.library_usage_per_day ? data.library_usage_per_day : '');
+                setautomated_library(data.automated_library || "");
+                setsubscription(data.subscription || "");
+                setbooks_expenditure(data.books_expenditure || "");
+                setlibrary_usage_per_day(data.library_usage_per_day || "");
+                setFile4_2_1(data.file4_2_1 ? 'true' : 'false');
+                setFile4_2_2(data.file4_2_2 ? 'true' : 'false');
+                setFile4_2_3_1(data.file4_2_3_1 ? 'true' : 'false');
+                setFile4_2_3_2(data.file4_2_3_2 ? 'true' : 'false');
+                setFile4_2_4(data.file4_2_4 ? 'true' : 'false');
             }
+
         } catch (error) {
             console.error("Error fetching data:", error.message);
         }
@@ -200,6 +206,7 @@ const Criteria42 = ({ onCrit42Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file4_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -260,6 +267,7 @@ const Criteria42 = ({ onCrit42Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file4_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -302,6 +310,7 @@ const Criteria42 = ({ onCrit42Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file4_2_3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload the data template
                             </td>
                             <td>
@@ -320,6 +329,7 @@ const Criteria42 = ({ onCrit42Data }) => {
                         </tr>
                         <tr>
                             <td>
+                                {file4_2_3_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -362,6 +372,7 @@ const Criteria42 = ({ onCrit42Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file4_2_4 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -382,11 +393,8 @@ const Criteria42 = ({ onCrit42Data }) => {
                     <button onClick={saveSection4_2_4}>Save</button>
                 </div>
             </div>
-
-
         </div>
-    )
+    );
+};
 
-}
-
-export default Criteria42
+export default Criteria42;

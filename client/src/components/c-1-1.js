@@ -4,7 +4,7 @@ import { saveAs } from 'file-saver';
 import axios from "axios";
 
 const Criteria11 = ({ onCrit11Data }) => {
-    
+
     const [curriculumText, setCurriculumText] = useState("");
     const [file1_1_1, setFile1_1_1] = useState(null);
     const [syllabusRevisionCount, setSyllabusRevisionCount] = useState("");
@@ -16,7 +16,7 @@ const Criteria11 = ({ onCrit11Data }) => {
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
 
-    const saveSection1_1_1 = async() => {
+    const saveSection1_1_1 = async () => {
         const formdata = new FormData();
 
         const sectionData = {
@@ -30,18 +30,18 @@ const Criteria11 = ({ onCrit11Data }) => {
             formdata.append(key, sectionData[key]);
         }
 
-        try{
+        try {
             const response = await axios.post("https://naacserver.onrender.com/data/save1-1-1", formdata);
-            console.log(response.data); 
+            console.log(response.data);
             alert("Saved Section 1.1.1 data:");
-        }catch(error){
-            console.log("Error",error.message);
+        } catch (error) {
+            console.log("Error", error.message);
         }
     };
 
     const saveSection1_1_2 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -49,11 +49,11 @@ const Criteria11 = ({ onCrit11Data }) => {
             file1_1_2_1,
             file1_1_2_2,
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
-    
+
         try {
             const response = await axios.post("https://naacserver.onrender.com/data/save1-1-2", formdata);
             console.log(response.data);
@@ -63,10 +63,10 @@ const Criteria11 = ({ onCrit11Data }) => {
             alert("Failed to save Section 1.1.2 data. Please try again.");
         }
     };
-    
+
     const saveSection1_1_3 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -74,7 +74,7 @@ const Criteria11 = ({ onCrit11Data }) => {
             file1_1_3_1,
             file1_1_3_2,
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -87,7 +87,7 @@ const Criteria11 = ({ onCrit11Data }) => {
             console.error("Error saving Section 1.1.3 data:", error.message);
             alert("Failed to save Section 1.1.3 data. Please try again.");
         }
-    };    
+    };
 
     const downloadExcel = async (exc_file) => {
         const templateFilePath = `${process.env.PUBLIC_URL}/${exc_file}`;
@@ -106,14 +106,16 @@ const Criteria11 = ({ onCrit11Data }) => {
         try {
             const response = await axios.get(`https://naacserver.onrender.com/data/fetchC1?department=${department}&academicYear=${academicYear}`);
             const data = response.data.data.criteria11;
-    
+
             if (data) {
-                data.curriculumText ? setCurriculumText(data.curriculumText) : setCurriculumText('');
-                data.coursesFocusCount ? setCoursesFocusCount(data.coursesFocusCount) : setCoursesFocusCount('');
-                data.syllabusRevisionCount ? setSyllabusRevisionCount(data.syllabusRevisionCount) : setSyllabusRevisionCount('');
-                data.file1_1_1 ? setFile1_1_1('true') : setFile1_1_1('false');
-                data.file1_1_2_1 ? setFile1_1_2_1('true') : setFile1_1_2_1('false');
-                data.file1_1_2_2 ? setFile1_1_2_2('true') : setFile1_1_2_2('false');
+                setCurriculumText(data.curriculumText ? data.curriculumText : '');
+                setCoursesFocusCount(data.coursesFocusCount ? data.coursesFocusCount : '');
+                setSyllabusRevisionCount(data.syllabusRevisionCount ? data.syllabusRevisionCount : '');
+                setFile1_1_1(data.file1_1_1 ? 'true' : 'false');
+                setFile1_1_2_1(data.file1_1_2_1 ? 'true' : 'false');
+                setFile1_1_2_2(data.file1_1_2_2 ? 'true' : 'false');
+                setFile1_1_3_1(data.file1_1_3_1 ? 'true' : 'false');
+                setFile1_1_3_2(data.file1_1_3_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -122,7 +124,7 @@ const Criteria11 = ({ onCrit11Data }) => {
 
     useEffect(() => {
         fetchData();
-    },[]);
+    }, []);
 
     useEffect(() => {
         const crit11 = {
@@ -136,7 +138,7 @@ const Criteria11 = ({ onCrit11Data }) => {
             file1_1_3_2
         };
         onCrit11Data(crit11);
-    }, [file1_1_1, curriculumText, syllabusRevisionCount, file1_1_2_1, file1_1_2_2, coursesFocusCount, file1_1_3_1, file1_1_3_2]); 
+    }, [file1_1_1, curriculumText, syllabusRevisionCount, file1_1_2_1, file1_1_2_2, coursesFocusCount, file1_1_3_1, file1_1_3_2]);
 
     return (
         <div className="c-1_1">
@@ -144,7 +146,7 @@ const Criteria11 = ({ onCrit11Data }) => {
             <ul>
                 <li>
                     <div className="c-1_1-det">
-                        <h4>1.1.1 - Curricula developed and implemented have relevance to the local, regional, national and 
+                        <h4>1.1.1 - Curricula developed and implemented have relevance to the local, regional, national and
                             global development needs which is reflected in Programme Outcomes (POs), Programme Specific Outcomes (PSOs)
                             and Course Outcome (COs) of the Programmes offered by the University
                         </h4>
@@ -170,7 +172,7 @@ const Criteria11 = ({ onCrit11Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
-                                    {file1_1_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                                        {file1_1_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -213,7 +215,7 @@ const Criteria11 = ({ onCrit11Data }) => {
                             <tbody>
                                 <tr>
                                     <td> {file1_1_2_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
-                                      
+
                                         Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('1.1.2.xlsx')}>Data Template</button>
@@ -253,7 +255,7 @@ const Criteria11 = ({ onCrit11Data }) => {
                 </li>
                 <li>
                     <div className="c-1_1_3">
-                        <h4>1.1.3 - Total number of courses having focus on employability/ entrepreneurship/ skill 
+                        <h4>1.1.3 - Total number of courses having focus on employability/ entrepreneurship/ skill
                             development offered by the University during the year
                         </h4>
                         <ul>
@@ -276,7 +278,8 @@ const Criteria11 = ({ onCrit11Data }) => {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Upload the data template</td>
+                                            <td>{file1_1_3_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                                                Upload the data template</td>
                                             <td>
                                                 <button onClick={() => downloadExcel('1.1.3.xlsx')}>Data Template</button>
                                             </td>
@@ -292,7 +295,9 @@ const Criteria11 = ({ onCrit11Data }) => {
                                             <td>xls, xlsx. File size: 6MB</td>
                                         </tr>
                                         <tr>
-                                            <td>Upload relevant supporting documents</td>
+                                            <td>{file1_1_3_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                                                Upload relevant supporting documents
+                                            </td>
                                             <td></td>
                                             <td>
                                                 <input

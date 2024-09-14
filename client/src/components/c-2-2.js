@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import StyledTextArea from "./textArea";
-import { saveAs } from 'file-saver';
 import axios from "axios";
 
 export const Criteria22 = ({ onCrit22Data }) => {
@@ -12,9 +11,9 @@ export const Criteria22 = ({ onCrit22Data }) => {
     const [learning_assessment, setlearning_assessment] = useState("");
     const [no_of_students, setno_of_students] = useState("");
     const [no_of_teachers, setno_of_teachers] = useState("");
-    const [file2_2_1_1, setfile2_2_1_1] = useState(null);
+    const [file2_2_1_1, setFile2_2_1_1] = useState(null);
     const [link2_2_1_2, setlink2_2_1_2] = useState(null);
-    const [file2_2_2, setfile2_2_2] = useState(null);
+    const [file2_2_2, setFile2_2_2] = useState(null);
 
     const saveSection2_2_1 = async () => {
         const formdata = new FormData();
@@ -83,7 +82,11 @@ export const Criteria22 = ({ onCrit22Data }) => {
                 setlearning_assessment(data.learning_assessment ? data.learning_assessment : '');
                 setno_of_students(data.no_of_students ? data.no_of_students : '');
                 setno_of_teachers(data.no_of_teachers ? data.no_of_teachers : '');
+                setFile2_2_1_1(data.file2_2_1_1 ? 'true' : 'false');
+                setlink2_2_1_2(data.link2_2_1_2 ? data.link2_2_1_2 : '');
+                setFile2_2_2(data.file2_2_2 ? 'true' : 'false');
             }
+
         } catch (error) {
             console.error("Error fetching data:", error.message);
         }
@@ -121,7 +124,8 @@ export const Criteria22 = ({ onCrit22Data }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td> {file2_2_1_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                        <td>
+                            {file2_2_1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
 
                             Upload the data template</td>
                         <td>
@@ -132,13 +136,13 @@ export const Criteria22 = ({ onCrit22Data }) => {
                                 id="file2_2_1_1"
                                 name="fileUpload"
                                 accept=".xls, .xlsx"
-                                onChange={(e) => setfile2_2_1_1(e.target.files[0])}
+                                onChange={(e) => setFile2_2_1_1(e.target.files[0])}
                             />
                         </td>
                         <td>xls, xlsx. File size: 6MB</td>
                     </tr>
                     <tr>
-                        <td> {link2_2_1_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
+                        <td>
                             Link for Additional Information</td>
                         <td></td>
                         <td>
@@ -198,8 +202,8 @@ export const Criteria22 = ({ onCrit22Data }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td> {file2_2_2 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
-
+                        <td>
+                            {file2_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                             Upload the data template</td>
                         <td>
                         </td>
@@ -209,7 +213,7 @@ export const Criteria22 = ({ onCrit22Data }) => {
                                 id="file2_2_2"
                                 name="fileUpload"
                                 accept=".xls, .xlsx"
-                                onChange={(e) => setfile2_2_2(e.target.files[0])}
+                                onChange={(e) => setFile2_2_2(e.target.files[0])}
                             />
                         </td>
                         <td>xls, xlsx. File size: 6MB</td>

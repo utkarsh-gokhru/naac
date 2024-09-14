@@ -103,18 +103,30 @@ const Criteria71 = ({ onCrit71Data }) => {
             const data = response.data.data.criteria71;
 
             if (data) {
-                settext7_1_1(data.text7_1_1 ? data.text7_1_1 : '');
-                setdata7_1_2(data.data7_1_2 ? data.data7_1_2: '');
-                settext7_1_3(data.text7_1_3 ? data.text7_1_3 : '');
-                setdata7_1_4(data.data7_1_4? data.data7_1_4 : '');
-                setdata7_1_5(data.data7_1_5 ? data.data7_1_5 : '');
-                setdata7_1_6(data.data7_1_6 ? data.data7_1_6 : '');
-                setdata7_1_7(data.data7_1_7 ? data.data7_1_7 : '');
-                settext7_1_8(data.text7_1_8 ? data.text7_1_8 : '');
-                settext7_1_9(data.text7_1_9 ? data.text7_1_9 : '');
-                setdata7_1_10(data.data7_1_10 ? data.data7_1_10 : '');
-                settext7_1_11(data.text7_1_11 ? data.text7_1_11 : '');
+                settext7_1_1(data.text7_1_1 || '');
+                setdata7_1_2(data.data7_1_2 || '');
+                settext7_1_3(data.text7_1_3 || '');
+                setdata7_1_4(data.data7_1_4 || '');
+                setdata7_1_5(data.data7_1_5 || '');
+                setdata7_1_6(data.data7_1_6 || '');
+                setdata7_1_7(data.data7_1_7 || '');
+                settext7_1_8(data.text7_1_8 || '');
+                settext7_1_9(data.text7_1_9 || '');
+                setdata7_1_10(data.data7_1_10 || '');
+                settext7_1_11(data.text7_1_11 || '');
+
+                setFile7_1_1(data.file7_1_1 ? 'true' : 'false');
+                setFile7_1_2(data.file7_1_2 ? 'true' : 'false');
+                setFile7_1_3(data.file7_1_3 ? 'true' : 'false');
+                setFile7_1_4(data.file7_1_4 ? 'true' : 'false');
+                setFile7_1_5(data.file7_1_5 ? 'true' : 'false');
+                setFile7_1_6(data.file7_1_6 ? 'true' : 'false');
+                setFile7_1_7(data.file7_1_7 ? 'true' : 'false');
+                setFile7_1_8(data.file7_1_8 ? 'true' : 'false');
+                setFile7_1_10(data.file7_1_10 ? 'true' : 'false');
+                setFile7_1_11(data.file7_1_11 ? 'true' : 'false');
             }
+
         } catch (error) {
             console.error("Error fetching data:", error.message);
         }
@@ -149,6 +161,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file7_1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -207,6 +220,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file7_1_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -256,6 +270,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file7_1_3 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -314,6 +329,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file7_1_4 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -373,6 +389,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file7_1_5 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -432,6 +449,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                 <tbody>
                     <tr>
                         <td>
+                            {file7_1_6 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                             Upload relevant supporting documents
                         </td>
                         <td></td>
@@ -490,6 +508,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file7_1_7 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -531,6 +550,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file7_1_8 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -598,6 +618,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file7_1_10 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -639,6 +660,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                     <tbody>
                         <tr>
                             <td>
+                                {file7_1_11 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                 Upload relevant supporting documents
                             </td>
                             <td></td>
@@ -660,8 +682,7 @@ const Criteria71 = ({ onCrit71Data }) => {
                 </div>
             </div>
         </div>
-    )
-
-}
+    );
+};
 
 export default Criteria71;

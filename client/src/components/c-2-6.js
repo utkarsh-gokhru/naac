@@ -118,10 +118,14 @@ const Criteria26 = ({ onCrit26Data }) => {
             const data = response.data.data.criteria26;
 
             if (data) {
-                setlearning_outcomes(data.learning_outcomes? data.learning_outcomes:'');
-                setattainment_prog_outcomes(data.attainment_prog_outcomes? data.attainment_prog_outcomes:'');
-                setfinal_year_students_appeared(data.final_year_students_appeared? data.final_year_students_appeared:'');
-                setfinal_year_students_passed(data.final_year_students_passed? data.final_year_students_passed:'');
+                setlearning_outcomes(data.learning_outcomes ? data.learning_outcomes : '');
+                setattainment_prog_outcomes(data.attainment_prog_outcomes ? data.attainment_prog_outcomes : '');
+                setfinal_year_students_passed(data.final_year_students_passed ? data.final_year_students_passed : '');
+                setfinal_year_students_appeared(data.final_year_students_appeared ? data.final_year_students_appeared : '');
+                setfile2_6_2(data.file2_6_2 ? 'true' : 'false');
+                setfile2_6_1(data.file2_6_1 ? 'true' : 'false');
+                setfile2_6_3_2_1(data.file2_6_3_2_1 ? 'true' : 'false');
+                setfile2_6_3_2_2(data.file2_6_3_2_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);

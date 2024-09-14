@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import StyledTextArea from "./textArea";
-import { saveAs } from 'file-saver';
 import axios from "axios";
 import '../css/criteria5.css';
 
-const Criteria54 = ({onCrit54Data}) => {
+const Criteria54 = ({ onCrit54Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
 
     const [alumni_chapters, setAlumni_chapters] = useState('');
-    const[file5_4_1, setFile5_4_1] = useState(null);
+    const [file5_4_1, setFile5_4_1] = useState(null);
     const [alumni_contributions, setAlumni_contributions] = useState('');
-    const[file5_4_2, setFile5_4_2] = useState(null);
+    const [file5_4_2, setFile5_4_2] = useState(null);
 
-    const saveSection = async (sectionData,section) => {
+    const saveSection = async (sectionData, section) => {
         const formData = new FormData();
 
         formData.append("department", department);
@@ -23,12 +22,12 @@ const Criteria54 = ({onCrit54Data}) => {
         for (const key in sectionData) {
             formData.append(key, sectionData[key]);
         }
-        try{
+        try {
             const response = await axios.post(`https://naacserver.onrender.com/data/save${section}`, formData);
-            console.log(response.data); 
+            console.log(response.data);
             alert(`Saved Section ${section} data`);
-        }catch(error){
-            console.log("Error",error.message);
+        } catch (error) {
+            console.log("Error", error.message);
         }
 
     };
@@ -42,7 +41,7 @@ const Criteria54 = ({onCrit54Data}) => {
         };
         onCrit54Data(crit54);
     }, [alumni_chapters, file5_4_1, alumni_contributions, file5_4_2]);
-    
+
 
     // const saveSection5_4_1 = async() => {
     //     const formdata = new FormData();
@@ -91,12 +90,13 @@ const Criteria54 = ({onCrit54Data}) => {
     const fetchData = async () => {
         try {
             const response = await axios.get(`https://naacserver.onrender.com/data/fetchC5?department=${department}&academicYear=${academicYear}`);
-            const data = response.data.data.Criteria54;
+            const data = response.data.data.criteria54;
 
             if (data) {
                 setAlumni_chapters(data.alumni_chapters ? data.alumni_chapters : '');
                 setAlumni_contributions(data.alumni_contributions ? data.alumni_contributions : '');
-                }
+                setFile5_4_1(data.file5_4_1 ? 'true' : 'false');
+            }
         } catch (error) {
             console.error("Error fetching data:", error.message);
         }
@@ -107,20 +107,20 @@ const Criteria54 = ({onCrit54Data}) => {
     }, []);
 
 
-    return(
+    return (
         <div className="c-5-4">
             <h3>Alumni Engagement</h3>
             <ul>
                 <li>
                     <div className="c-5-4-1">
-                        <h4>5.4.1 - The Alimni Association/Chapters (registered and functional) contributes significantly 
+                        <h4>5.4.1 - The Alimni Association/Chapters (registered and functional) contributes significantly
                             to the development of the institution through financial aid and support services during the year
                         </h4>
                         <StyledTextArea
-                                rows={5}
-                                placeholder="Type the text here"
-                                value={alumni_chapters}
-                                onChange={(e) => setAlumni_chapters(e.target.value)}
+                            rows={5}
+                            placeholder="Type the text here"
+                            value={alumni_chapters}
+                            onChange={(e) => setAlumni_chapters(e.target.value)}
                         />
                         <table>
                             <thead>
@@ -134,6 +134,7 @@ const Criteria54 = ({onCrit54Data}) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file5_4_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -151,7 +152,7 @@ const Criteria54 = ({onCrit54Data}) => {
                             </tbody>
                         </table>
                         <div>
-                            <button onClick={() => saveSection({alumni_chapters,file5_4_1},'5-4-1')}>Save</button>
+                            <button onClick={() => saveSection({ alumni_chapters, file5_4_1 }, '5-4-1')}>Save</button>
                         </div>
                     </div>
                 </li>
@@ -176,36 +177,36 @@ const Criteria54 = ({onCrit54Data}) => {
                         </div>
                     </div>
                     <table>
-                            <thead>
-                                <tr>
-                                    <th>File Description</th>
-                                    <th>Template</th>
-                                    <th>Documents</th>
-                                    <th>File Types/Size Supported</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        Upload relevant supporting documents
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <input
-                                            type="file"
-                                            id="file5_4_2"
-                                            name="fileUpload"
-                                            accept=".xls, .xlsx, .doc, .docx, .pdf"
-                                            onChange={(e) => setFile5_4_2(e.target.files[0])}
-                                        />
-                                    </td>
-                                    <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div>
-                            <button onClick={() => saveSection({alumni_contributions,file5_4_2},'5-4-2')}>Save</button>
-                        </div>
+                        <thead>
+                            <tr>
+                                <th>File Description</th>
+                                <th>Template</th>
+                                <th>Documents</th>
+                                <th>File Types/Size Supported</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Upload relevant supporting documents
+                                </td>
+                                <td></td>
+                                <td>
+                                    <input
+                                        type="file"
+                                        id="file5_4_2"
+                                        name="fileUpload"
+                                        accept=".xls, .xlsx, .doc, .docx, .pdf"
+                                        onChange={(e) => setFile5_4_2(e.target.files[0])}
+                                    />
+                                </td>
+                                <td>xls, xlsx, doc, docx, pdf. <b>File size: 6MB</b> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <button onClick={() => saveSection({ alumni_contributions, file5_4_2 }, '5-4-2')}>Save</button>
+                    </div>
                 </li>
             </ul>
         </div>

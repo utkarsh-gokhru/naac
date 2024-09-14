@@ -101,7 +101,10 @@ export const Criteria23 = ({ onCrit23Data }) => {
             if (data) {
                 setlearning_exp(data.learning_exp ? data.learning_exp : '');
                 setno_of_mentors(data.no_of_mentors ? data.no_of_mentors : '');
+                setfile2_3_1(data.file2_3_1 ? 'true' : 'false');
                 seteffect_teach_learn(data.effect_teach_learn ? data.effect_teach_learn : '');
+                setfile2_3_2(data.file2_3_2 ? 'true' : 'false');
+                setfile2_3_3(data.file2_3_3 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -135,8 +138,8 @@ export const Criteria23 = ({ onCrit23Data }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td> {file2_3_1 === 'true' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>) : (<span style={{ color: 'red', fontWeight: 'bold' }}></span>)}
-
+                        <td>
+                            {file2_3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                             Upload the data template</td>
                         <td>
                         </td>
@@ -243,8 +246,6 @@ export const Criteria23 = ({ onCrit23Data }) => {
             <div>
                 <button onClick={saveSection2_3_3}>Save</button>
             </div>
-
-
         </div>
     )
 }

@@ -221,11 +221,26 @@ const Criteria31 = ({ onCrit31Data }) => {
 
             if (data) {
                 setResearchFacilities(data.researchFacilities ? data.researchFacilities : '');
+                setFile3_1_1(data.file3_1_1 ? 'true' : 'false');
+
                 setSeedMoney(data.seedMoney ? data.seedMoney : '');
+                setFile3_1_2_1(data.file3_1_2_1 ? 'true' : 'false');
+                setFile3_1_2_2(data.file3_1_2_2 ? 'true' : 'false');
+
                 setTeachersFellowship(data.teachersFellowship ? data.teachersFellowship : '');
+                setFile3_1_3_1(data.file3_1_3_1 ? 'true' : 'false');
+                setFile3_1_3_2(data.file3_1_3_2 ? 'true' : 'false');
+
                 setFellowsEnrolled(data.fellowsEnrolled ? data.fellowsEnrolled : '');
+                setFile3_1_4_1(data.file3_1_4_1 ? 'true' : 'false');
+                setFile3_1_4_2(data.file3_1_4_2 ? 'true' : 'false');
+
                 setFeed_3_1_5_Type(data.feed_3_1_5_Type ? data.feed_3_1_5_Type : '');
+                setFile3_1_5(data.file3_1_5 ? 'true' : 'false');
+
                 setDepartmentNo(data.departmentNo ? data.departmentNo : '');
+                setFile3_1_6_1(data.file3_1_6_1 ? 'true' : 'false');
+                setFile3_1_6_2(data.file3_1_6_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -267,6 +282,7 @@ const Criteria31 = ({ onCrit31Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -309,6 +325,7 @@ const Criteria31 = ({ onCrit31Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_1_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload the data template
                                     </td>
                                     <td>
@@ -327,6 +344,7 @@ const Criteria31 = ({ onCrit31Data }) => {
                                 </tr>
                                 <tr>
                                     <td>
+                                        {file3_1_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -370,7 +388,9 @@ const Criteria31 = ({ onCrit31Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Upload the data template</td>
+                                    <td>
+                                        {file3_1_3_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('3.1.3.xlsx')}>Data Template</button>
                                     </td>
@@ -386,7 +406,9 @@ const Criteria31 = ({ onCrit31Data }) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td>Upload relevant supporting documents</td>
+                                    <td>
+                                        {file3_1_3_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>
                                         <input
@@ -429,7 +451,9 @@ const Criteria31 = ({ onCrit31Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Upload the data template</td>
+                                    <td>
+                                        {file3_1_4_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('3.1.4.xlsx')}>Data Template</button>
                                     </td>
@@ -445,7 +469,9 @@ const Criteria31 = ({ onCrit31Data }) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td>Upload relevant supporting documents</td>
+                                    <td>
+                                        {file3_1_4_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>
                                         <input
@@ -511,7 +537,9 @@ const Criteria31 = ({ onCrit31Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Upload relevant supporting documents</td>
+                                    <td>
+                                        {file3_1_5 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>
                                         <input
@@ -554,7 +582,9 @@ const Criteria31 = ({ onCrit31Data }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Upload the data template</td>
+                                    <td>
+                                        {file3_1_6_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('3.1.6.xlsx')}>Data Template</button>
                                     </td>
@@ -570,7 +600,9 @@ const Criteria31 = ({ onCrit31Data }) => {
                                     <td>xls, xlsx. File size: 6MB</td>
                                 </tr>
                                 <tr>
-                                    <td>Upload relevant supporting documents</td>
+                                    <td>
+                                        {file3_1_6_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
+                                        Upload relevant supporting documents</td>
                                     <td></td>
                                     <td>
                                         <input

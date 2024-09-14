@@ -95,7 +95,9 @@ const Criteria35 = ({ onCrit35Data }) => {
             if (data) {
                 setConsultancyText(data.consultancyText ? data.consultancyText : '');
                 setConsultancyRev(data.consultancyRev ? data.consultancyRev : '');
-
+                setFile3_5_1(data.file3_5_1 ? 'true' : 'false');
+                setFile3_5_2_1(data.file3_5_2_1 ? 'true' : 'false');
+                setFile3_5_2_2(data.file3_5_2_2 ? 'true' : 'false');
             }
         } catch (error) {
             console.error("Error fetching data:", error.message);
@@ -137,6 +139,7 @@ const Criteria35 = ({ onCrit35Data }) => {
                             <tbody>
                                 <tr>
                                     <td>
+                                        {file3_5_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                         Upload relevant supporting documents
                                     </td>
                                     <td></td>
@@ -182,6 +185,7 @@ const Criteria35 = ({ onCrit35Data }) => {
                                     <tbody>
                                         <tr>
                                             <td>
+                                                {file3_5_2_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload the data template</td>
                                             <td>
                                                 <button onClick={() => downloadExcel('3.5.2.xlsx')}>Data Template</button>
@@ -199,6 +203,7 @@ const Criteria35 = ({ onCrit35Data }) => {
                                         </tr>
                                         <tr>
                                             <td>
+                                                {file3_5_2_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload relevant supporting documents</td>
                                             <td></td>
                                             <td>

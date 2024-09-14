@@ -150,12 +150,19 @@ const Criteria25 = ({ onCrit25Data }) => {
             const data = response.data.data.criteria25;
 
             if (data) {
-                setno_of_days(data.no_of_days? data.no_of_days:'');
-                setno_of_days_yearwise(data.no_of_days_yearwise? data.no_of_days_yearwise:'');
-                setit_integration(data.it_integration? data.it_integration:'');
-                setno_of_student_grievances(data.no_of_student_grievances? data.no_of_student_grievances:'');
-                setstatus_of_automation(data.status_of_automation? data.status_of_automation:'');
+                setno_of_days(data.no_of_days ? data.no_of_days : '');
+                setno_of_days_yearwise(data.no_of_days_yearwise ? data.no_of_days_yearwise : '');
+                setit_integration(data.it_integration ? data.it_integration : '');
+                setno_of_student_grievances(data.no_of_student_grievances ? data.no_of_student_grievances : '');
+                setfile2_5_1_1(data.file2_5_1_1 ? 'true' : 'false');
+                setfile2_5_1_2(data.file2_5_1_2 ? 'true' : 'false');
+                setfile2_5_4_1(data.file2_5_4_1 ? 'true' : 'false');
+                setfile2_5_4_2(data.file2_5_4_2 ? 'true' : 'false');
+                setfile2_5_2(data.file2_5_2 ? 'true' : 'false');
+                setfile2_5_3(data.file2_5_3 ? 'true' : 'false');
+                setstatus_of_automation(data.status_of_automation ? data.status_of_automation : '');
             }
+
         } catch (error) {
             console.error("Error fetching data:", error.message);
         }

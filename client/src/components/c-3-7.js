@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 
-const Criteria37 = ({onCrit37Data}) => {
+const Criteria37 = ({ onCrit37Data }) => {
 
     const department = localStorage.getItem('department');
     const academicYear = localStorage.getItem('academicYear');
 
-    const [collAct, setCollAct] = useState(0);
+    const [collAct, setCollAct] = useState();
     const [file3_7_1_1, setFile3_7_1_1] = useState(null);
     const [file3_7_1_2, setFile3_7_1_2] = useState(null);
-    const [functionalMOUs, setFunctionalMOUs] = useState(0);
+    const [functionalMOUs, setFunctionalMOUs] = useState();
     const [file3_7_2_1, setFile3_7_2_1] = useState(null);
     const [file3_7_2_2, setFile3_7_2_2] = useState(null);
 
@@ -29,7 +29,7 @@ const Criteria37 = ({onCrit37Data}) => {
 
     const saveSection3_7_1 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -37,7 +37,7 @@ const Criteria37 = ({onCrit37Data}) => {
             file3_7_1_1,
             file3_7_1_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -54,7 +54,7 @@ const Criteria37 = ({onCrit37Data}) => {
 
     const saveSection3_7_2 = async () => {
         const formdata = new FormData();
-    
+
         const sectionData = {
             department,
             academicYear,
@@ -62,7 +62,7 @@ const Criteria37 = ({onCrit37Data}) => {
             file3_7_2_1,
             file3_7_2_2
         };
-    
+
         for (const key in sectionData) {
             formdata.append(key, sectionData[key]);
         }
@@ -87,7 +87,26 @@ const Criteria37 = ({onCrit37Data}) => {
             file3_7_2_2
         };
         onCrit37Data(crit37);
-    }, [collAct,file3_7_1_1,file3_7_1_2,functionalMOUs,file3_7_2_1,file3_7_2_2])
+    }, [collAct, file3_7_1_1, file3_7_1_2, functionalMOUs, file3_7_2_1, file3_7_2_2]);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`https://naacserver.onrender.com/data/fetchC3?department=${department}&academicYear=${academicYear}`);
+            const data = response.data.data.criteria37;
+
+            if (data) {
+                setCollAct(data.collAct ? data.collAct : 0);
+                setFile3_7_1_1(data.file3_7_1_1 ? 'true' : 'false');
+                setFile3_7_1_2(data.file3_7_1_2 ? 'true' : 'false');
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className="c-3-7">
@@ -104,10 +123,10 @@ const Criteria37 = ({onCrit37Data}) => {
                                     industry for research and acadmec development of faculty and students during the year
                                 </h4>
                                 <input
-                                type="number"
-                                id="collAct"
-                                value={collAct}
-                                onChange={(e) => setCollAct(e.target.value)}
+                                    type="number"
+                                    id="collAct"
+                                    value={collAct}
+                                    onChange={(e) => setCollAct(e.target.value)}
                                 />
                                 <table>
                                     <thead>
@@ -120,7 +139,8 @@ const Criteria37 = ({onCrit37Data}) => {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td> 
+                                            <td>
+                                                {file3_7_1_1 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload the data template</td>
                                             <td>
                                                 <button onClick={() => downloadExcel('3.7.1.xlsx')}>Data Template</button>
@@ -138,6 +158,7 @@ const Criteria37 = ({onCrit37Data}) => {
                                         </tr>
                                         <tr>
                                             <td>
+                                                {file3_7_1_2 === 'true' && (<span style={{ color: 'green', fontWeight: 'bold' }}>&#10003;</span>)}
                                                 Upload relevant supporting documents</td>
                                             <td></td>
                                             <td>
@@ -162,15 +183,15 @@ const Criteria37 = ({onCrit37Data}) => {
                 </li>
                 <li>
                     <div className="c-3_7_2">
-                        <h4>3.7.2- Number of functional MOUs with instituions/industries in India and abroad 
+                        <h4>3.7.2- Number of functional MOUs with instituions/industries in India and abroad
                             for internship, on-the job training, project work, student/faculty exchange and collaborative
-                            research during the year 
+                            research during the year
                         </h4>
                         <input
-                        type="number"
-                        id="functionalMOUs"
-                        value={functionalMOUs}
-                        onChange={(e) => setFunctionalMOUs(e.target.value)}
+                            type="number"
+                            id="functionalMOUs"
+                            value={functionalMOUs}
+                            onChange={(e) => setFunctionalMOUs(e.target.value)}
                         /><br />
                         <table>
                             <thead>
@@ -183,7 +204,7 @@ const Criteria37 = ({onCrit37Data}) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> 
+                                    <td>
                                         Upload the data template</td>
                                     <td>
                                         <button onClick={() => downloadExcel('3.7.2.xlsx')}>Data Template</button>
