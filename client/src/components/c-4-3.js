@@ -43,7 +43,7 @@ const Criteria43 = ({ onCrit43Data }) => {
             }
         }
         try {
-            const response = await axios.post(`http://localhost:5000/data/save${section}`, formData);
+            const response = await axios.post(`https://naacserver.onrender.com/data/save${section}`, formData);
             console.log(response.data);
             alert(`Saved Section ${section} data`);
         } catch (error) {
