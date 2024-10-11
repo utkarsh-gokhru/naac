@@ -1,4 +1,7 @@
+import "./index.css"
+
 import Heading from '../../components/download/heading';
+
 import CriterionDownloadTable from '../../components/download/download_table';
 
 

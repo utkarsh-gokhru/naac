@@ -1,5 +1,5 @@
 import naac_logo from '../../naac_logo.png';
-
+import "../../pages/download/index.css"
 const Heading = () => {
   return (
     <div className="border border-slate-400">

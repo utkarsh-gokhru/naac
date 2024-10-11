@@ -1,7 +1,7 @@
 
 import React from 'react';
 import axios from 'axios';
-
+import "../../pages/download/index.css"
 const DownloadButton = ({Criteria,Section}) => {
     const downloadFile = async () => {
         try {

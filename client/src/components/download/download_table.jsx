@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DownloadButton from "../../components/download/download"
-
+import "../../pages/download/index.css"
 const CriterionDownloadTable = () => {
     const criteriaData = {
         criteria1: [1, 2, 3, 4],
