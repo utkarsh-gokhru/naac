@@ -3,7 +3,9 @@ import bodyParser from 'body-parser';
 import multer from 'multer';
 import Criteria1Model from '../models/criteria1.js';
 import { getStorage } from '../firebase.js';
-import { ref, getDownloadURL, deleteObject, uploadBytes } from 'firebase/storage';
+import { deleteFiles } from '../utils/deletefiles.js';
+import { updateExistingData } from '../utils/updateData.js';
+import { uploadFilesToFirebase } from '../utils/fileUpload.js';
 
 const app = express();
 
@@ -34,45 +36,10 @@ const deleteExistingFiles = async (data) => {
         data?.criteria14?.file1_4_1,
         data?.criteria14?.file1_4_2
     ];
-
-    const deletePromises = filePaths.map(async (filePath) => {
-        if (filePath) {
-            const fileRef = ref(storage, filePath);
-
-            try {
-                await getDownloadURL(fileRef);
-                await deleteObject(fileRef);
-                return { filePath, status: 'fulfilled' };
-            } catch (error) {
-                if (error.code === 'storage/object-not-found') {
-                    console.log(`File not found: ${filePath}`);
-                    return { filePath, status: 'fulfilled' };
-                } else {
-                    console.error(`Error deleting existing file ${filePath}:`, error);
-                    return { filePath, status: 'rejected', error };
-                }
-            }
-        }
-    });
-
-    try {
-        const results = await Promise.all(deletePromises);
-        console.log('Deleted existing files from Firebase Storage');
-        return results;
-    } catch (err) {
-        console.error('Error deleting existing files from Firebase Storage:', err);
-        return deletePromises.map(promise => ({ filePath: promise.filePath, status: 'rejected', error: err }));
-    }
+    deleteFiles(filePaths, storage);
 };
 
 const upload = multer();
-
-//Function to generate unique file names
-function generateUniqueFileName(filename) {
-    const sanitizedFilename = filename.replace(/[^a-zA-Z0-9_.]/g, '_');
-    const uniquePrefix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    return uniquePrefix + '_' + sanitizedFilename;
-}
 
 const expectedFileFields = [
     'file1_1_1', 'file1_1_2_1', 'file1_1_2_2', 'file1_1_3_1',
@@ -82,56 +49,12 @@ const expectedFileFields = [
     'file1_4_1', 'file1_4_2'
 ];
 
-//Function to update exisiting data in the database
-const updateExistingData = async (existingData, filePaths) => {
-
-    const updateFields = expectedFileFields.reduce((fieldsToUpdate, fieldName) => {
-        if (fieldName in filePaths && existingData[fieldName] !== filePaths[fieldName]) {
-            fieldsToUpdate[fieldName] = filePaths[fieldName];
-        }
-        return fieldsToUpdate;
-    }, {});
-
-    if (Object.keys(updateFields).length > 0) {
-        Object.assign(existingData, updateFields);
-        return { success: true, message: 'Data updated successfully!' };
-    } else {
-        return { success: true, message: 'No new data to update.' };
-    }
-};
-
 //Handling post request 
-app.post('/criteria1/submit', upload.fields([
-    { name: 'file1_1_1', maxCount: 1 },
-    { name: 'file1_1_2_1', maxCount: 1 },
-    { name: 'file1_1_2_2', maxCount: 1 },
-    { name: 'file1_1_3_1', maxCount: 1 },
-    { name: 'file1_1_3_2', maxCount: 1 },
-    { name: 'file1_2_1_1', maxCount: 1 },
-    { name: 'file1_2_1_2', maxCount: 1 },
-    { name: 'file1_2_2_1', maxCount: 1 },
-    { name: 'file1_2_2_2', maxCount: 1 },
-    { name: 'file1_3_1', maxCount: 1 },
-    { name: 'file1_3_2_1', maxCount: 1 },
-    { name: 'file1_3_2_2', maxCount: 1 },
-    { name: 'file1_3_3_1_1', maxCount: 1 },
-    { name: 'file1_3_3_1_2', maxCount: 1 },
-    { name: 'file1_3_4_1', maxCount: 1 },
-    { name: 'file1_3_4_2', maxCount: 1 },
-    { name: 'file1_4_1', maxCount: 1 },
-    { name: 'file1_4_2', maxCount: 1 },
-]), async (req, res) => {
+app.post('/criteria1/submit', upload.fields(expectedFileFields.map(field => ({ name: field, maxCount: 1 }))), async (req, res) => {
     try {
         const files = req.files;
-        const filePaths = {};
 
-        const requiredFileFields = [
-            'file1_1_1', 'file1_1_2_1', 'file1_1_2_2', 'file1_1_3_1',
-            'file1_1_3_2', 'file1_2_1_1', 'file1_2_1_2', 'file1_2_2_1',
-            'file1_2_2_2', 'file1_3_1', 'file1_3_2_1', 'file1_3_2_2',
-            'file1_3_3_1_1', 'file1_3_3_1_2', 'file1_3_4_1', 'file1_3_4_2',
-            'file1_4_1', 'file1_4_2'
-        ];
+        const requiredFileFields = [...expectedFileFields];
 
         let existingData = await Criteria1Model.findOne({ department: req.body.department, academicYear: req.body.academicYear });
 
@@ -189,23 +112,7 @@ app.post('/criteria1/submit', upload.fields([
             }
         }
 
-        //Storing the file in firebase
-        for (const fieldName in files) {
-            const field = files[fieldName][0];
-            const uniqueFilename = generateUniqueFileName(field.originalname);
-            const fileRef = ref(storage, `uploads/${uniqueFilename}`);
-
-            const metadata = {
-                contentType: field.mimetype,
-            };
-
-            try {
-                await uploadBytes(fileRef, field.buffer, metadata);
-                filePaths[fieldName] = await getDownloadURL(fileRef);
-            } catch (error) {
-                console.error(`Error uploading or getting download URL for ${fieldName}:`, error);
-            }
-        }
+        const filePaths = await uploadFilesToFirebase(files, storage);
 
         if (existingData) {
 
@@ -236,7 +143,7 @@ app.post('/criteria1/submit', upload.fields([
             }
 
             await deleteExistingFiles(existingDataCopy);
-            const updateResult = await updateExistingData(existingData, filePaths);
+            const updateResult = await updateExistingData(existingData, filePaths, expectedFileFields);
 
             if (updateResult.success) {
                 try {

@@ -8,7 +8,6 @@ import axios from "axios";
 import Popup from "../components/popup";
 import naacLogo from '../naac_logo.png';
 
-
 const Criteria1 = () => {
   const [crit12Data, setCrit12Data] = useState(null);
   const [crit13Data, setCrit13Data] = useState(null);
@@ -65,7 +64,7 @@ const Criteria1 = () => {
       // !crit13Data.file1_3_4_1 ||
       // !crit13Data.file1_3_4_2 ||
       !crit14Data.feedbackType1_4_1 ||
-      !crit14Data.feedbackType1_4_2 
+      !crit14Data.feedbackType1_4_2
       // !crit14Data.file1_4_1 ||
       // !crit14Data.file1_4_2
     ) {
@@ -98,7 +97,7 @@ const Criteria1 = () => {
       for (const key in crit14Data) {
         formdata.append(key, crit14Data[key]);
       }
-      const response = await axios.post("https://naacserver.onrender.com/data/criteria1/submit", formdata);
+      const response = await axios.post("http://localhost:5000/data/criteria1/submit", formdata);
       console.log(response.data);
       alert("Criteria 1 submitted!");
     } catch (error) {

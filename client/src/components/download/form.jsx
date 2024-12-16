@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Form = ({ isOpen, onClose, onSubmit, children }) => {
   const [formData, setFormData] = useState({
     departmentName: '',
+    email: '',
     id: '',
     password: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(formData);
-    onClose();
+    try {
+      const response = await axios.post('http://localhost:5000/admin/add-dept', formData);
+      console.log(response.data);
+      setFormData({
+        departmentName: '',
+        email: '',
+        id: '',
+        password: ''
+      });
+      alert('Department added successfully');
+      onClose();
+    } catch (error) {
+      console.error('There was an error submitting the form!', error);
+      alert('Department could not be added. Please try again');
+    }
   };
 
   const handleChange = (e) => {
@@ -48,6 +63,21 @@ const Form = ({ isOpen, onClose, onSubmit, children }) => {
                 id="departmentName"
                 name="departmentName"
                 value={formData.departmentName}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
                 onChange={handleChange}
                 required
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"

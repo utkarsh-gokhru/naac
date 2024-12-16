@@ -1,135 +1,163 @@
-.info-section ul{
-ul {
-list-style-type: none;
-padding: 0;
-}
+.info-section ul {
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-li {
-margin-bottom: 10px;
-padding-left: 20px;
-position: relative;
-}
+    li {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+    }
 
-li::before {
-font-weight: bold;
-font-size: 20px;
-position: absolute;
-left: 0;
-top: 5px;
-}
+    li::before {
+        font-weight: bold;
+        font-size: 20px;
+        position: absolute;
+        left: 0;
+        top: 5px;
+    }
 
 }
 
 .text-area {
-max-width: 80%;
-height: auto;
+    max-width: 80%;
+    height: auto;
 }
 
 table {
-border-collapse: collapse;
-max-width: 80%;
-height: auto;
-margin-top: 30px;
-table-layout: auto;
+    border-collapse: collapse;
+    max-width: 80%;
+    height: auto;
+    margin-top: 30px;
+    table-layout: auto;
 }
 
-th, td {
-border: 1px solid #ddd;
-padding: 8px;
-text-align: left;
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
 
 th {
-background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
 
 li {
-list-style: none;
+    list-style: none;
 }
 
 .button-container {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
 }
 
 .custom-button {
-padding: 10px 20px;
-font-size: 18px;
-background-color: grey; 
-color: #fff;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: grey;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 
-&:hover {
-background-color: rgb(83, 82, 82);
-}
-}
-
-.radioBtn-1_4_1,
-.radioBtn-1_4_2 {
-margin-top: 20px;
-max-width: 1000px;
-display: flex;
+    &:hover {
+        background-color: rgb(83, 82, 82);
+    }
 }
 
-.c-2-1, .c-2-2, .c-2-3, .c-2-4,.c-2-5,.c-2-6,.c-2-7,.crit2-head {
+.radio-buttons {
+    margin-top: 20px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    display: flex;
+    flex-direction: row;
+}
+
+label input {
+    width: 10%;
+}
+
+.c-2-1,
+.c-2-2,
+.c-2-3,
+.c-2-4,
+.c-2-5,
+.c-2-6,
+.c-2-7,
+.crit2-head {
     max-width: 100%;
     margin: 30px;
     padding: 30px;
     border: 1px solid #ddd;
 }
 
-.yearly_status_rep{
-background-color: #ddd;
+.yearly_status_rep {
+    background-color: #ddd;
 }
 
 .overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(255, 255, 255, 0.5); 
-z-index: 9999; 
-display: flex;
-justify-content: center;
-align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .loading-spinner {
-border: 4px solid rgba(255, 255, 255, 0.3); 
-border-top-color: blue; 
-border-radius: 50%;
-width: 50px;
-height: 50px;
-animation: spin 1s linear infinite;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: blue;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
 }
 
+
+
 @keyframes spin {
-to {
-transform: rotate(360deg);
-}
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media only screen and (max-width: 600px) {
-.c-2_1, .c-2_2, .c-2_3, .c-2_4,.criteria2,.crit2{
-margin: 10px;
-padding: 10px;
+
+    .c-2_1,
+    .c-2_2,
+    .c-2_3,
+    .c-2_4,
+    .criteria2,
+    .crit2 {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .radioBtn-2_4_1,
+    .radioBtn-2_4_2 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
 }
-.radioBtn-2_4_1,
-.radioBtn-2_4_2{
-display: flex;
-flex-wrap: wrap;
-}
-table {
-border-collapse: collapse;
-border-spacing: 0;
-width: 100%;
-display: block;
-overflow-x: auto;
-}
-}  
