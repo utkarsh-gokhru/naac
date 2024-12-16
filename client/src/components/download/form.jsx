@@ -12,7 +12,7 @@ const Form = ({ isOpen, onClose, onSubmit, children }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/admin/add-dept', formData);
+      const response = await axios.post('https://naacserver.onrender.com0/admin/add-dept', formData);
       console.log(response.data);
       setFormData({
         departmentName: '',
