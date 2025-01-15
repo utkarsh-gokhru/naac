@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import DownloadButton from "../../components/download/download";
 import Form from "./form";
 import "../../pages/download/index.css";
@@ -18,6 +19,8 @@ const CriterionDownloadTable = () => {
     const [sections, setSections] = useState(criteriaData[selectedCriteria]);
     const [isFormOpen, setIsFormOpen] = useState(false);
 
+    const navigate = useNavigate(); // Hook for navigation
+
     const handleCriteriaChange = (event) => {
         const newCriteria = event.target.value;
         setSelectedCriteria(newCriteria);
@@ -30,8 +33,23 @@ const CriterionDownloadTable = () => {
         // Add your download or authentication logic here
     };
 
+    const handleLogout = () => {
+        localStorage.clear(); // Clear all local storage
+        navigate("/"); // Navigate to the login page (or another page)
+    };
+
     return (
         <div className="container mx-auto px-4">
+            {/* Logout Button */}
+            <div className="flex justify-end mt-4">
+                <button
+                    onClick={handleLogout}
+                    className="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-md transition-colors"
+                >
+                    Logout
+                </button>
+            </div>
+
             {/* Download Form Button */}
             <div className="flex justify-end mt-4">
                 <button
