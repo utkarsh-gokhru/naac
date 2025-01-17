@@ -54,6 +54,7 @@ import { fetchC7 } from "./routes/fetchC7.js";
 import { SaveEP } from './routes/save-ep.js';
 import { EP_submit } from './routes/extended-profile.js';
 import { fetchEP } from './routes/fetchEP.js';
+import { getDepts } from "./routes/getDepts.js";
 
 const app = express();
 
@@ -73,6 +74,7 @@ mongoose
 
 app.use("/auth", userAuth);
 app.use("/admin", adminRoute);
+app.use('/get',getDepts);
 app.use("/data", [
   Criteria1_submit,
   C11,
