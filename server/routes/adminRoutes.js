@@ -4,7 +4,7 @@ import { addDept } from "../controllers/addDept.js";
 
 const router = express.Router();
 
-router.get("/download/:criteria/:section", downloadCriteriaSection);
+router.get("/download/:criteria/:section/:academicYear", downloadCriteriaSection);
 
 router.post('/add-dept',addDept);
 

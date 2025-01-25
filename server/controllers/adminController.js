@@ -23,20 +23,20 @@ const criteriaModels = {
     'criteria5': Criteria5Model,
     'criteria6': Criteria6Model,
     'criteria7': Criteria7Model,
-    'ep' : ExtendedProfileModel
+    'ep': ExtendedProfileModel
 };
 
 export const downloadCriteriaSection = async (req, res) => {
     console.log("Am I being called?");
-    const { criteria, section } = req.params;
-     console.log(criteria,section+" check krra hu bhai");
+    const { criteria, section, academicYear } = req.params;
+    console.log(criteria, section + " check krra hu bhai");
     const model = criteriaModels[criteria];
     if (!model) {
         return res.status(400).json({ error: "Invalid criteria specified." });
     }
 
     try {
-        const filePath = await generateExcel(model, section);
+        const filePath = await generateExcel(model, section, academicYear);
         if (!filePath) {
             return res.status(404).json({ error: "No data found." });
         }

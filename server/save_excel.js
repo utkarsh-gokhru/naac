@@ -9,7 +9,7 @@ import fs from 'fs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-async function generateExcel(model, nestedObjectName) {
+async function generateExcel(model, nestedObjectName, academicYear) {
     try {
         dotenv.config();
 
@@ -20,7 +20,7 @@ async function generateExcel(model, nestedObjectName) {
         });
         console.log('DB connected! hurray');
 
-        const data = await model.find({});
+        const data = await model.find({ academicYear });
         if (data.length === 0) {
             console.log("No data found.");
             return null;
@@ -78,7 +78,7 @@ async function generateExcel(model, nestedObjectName) {
             worksheet.addRow(rowData);
         });
 
-        console.log("Numeric Columns Identified: ", Array.from(numericColumns));  // Debugging line
+        // console.log("Numeric Columns Identified: ", Array.from(numericColumns));  // Debugging line
 
         // Initialize the sumRow with "Pending" for non-numeric columns
         const sumRow = headerArray.map(header => {
@@ -93,7 +93,7 @@ async function generateExcel(model, nestedObjectName) {
         worksheet.addRow(sumRow);
 
         const directory = path.join(process.cwd(), 'files');
-        if (!fs.existsSync(directory)){
+        if (!fs.existsSync(directory)) {
             fs.mkdirSync(directory);
         }
         const filePath = path.join(directory, `${nestedObjectName}_data.xlsx`);
