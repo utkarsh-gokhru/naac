@@ -6,7 +6,6 @@ const app = express();
 app.get('/fetchC4', async (req, res) => {
   try {
     const { department, academicYear } = req.query;
-    console.log(department, academicYear);
 
     if (!department || !academicYear) {
       return res.status(400).json({ message: 'Missing required parameters' });

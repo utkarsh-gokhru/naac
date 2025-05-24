@@ -310,7 +310,7 @@ const Criteria13 = ({ onCrit13Data }) => {
                             </tbody>
                         </table>
                         <div>
-                        <button onClick={() => saveSection({ projectsCount1_3_4, file1_3_4_1, file1_3_4_2 }, '1-3-1')}>Save</button>
+                        <button onClick={() => saveSection({ projectsCount1_3_4, file1_3_4_1, file1_3_4_2 }, '1-3-4')}>Save</button>
                         </div>
                     </div>
                 </li>

@@ -46,6 +46,19 @@
     color: #555;
 }
 
+.logout-btn {
+    background-color: red;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+}
+
+
 @media (max-width: 768px) {
     .criteria-cont {
         display: flex;

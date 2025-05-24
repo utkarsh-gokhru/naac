@@ -64,9 +64,9 @@ const Criteria1 = () => {
       // !crit13Data.file1_3_4_1 ||
       // !crit13Data.file1_3_4_2 ||
       !crit14Data.feedbackType1_4_1 ||
-      !crit14Data.feedbackType1_4_2
-      // !crit14Data.file1_4_1 ||
-      // !crit14Data.file1_4_2
+      !crit14Data.feedbackType1_4_2 ||
+      !crit14Data.file1_4_1 ||
+      !crit14Data.file1_4_2
     ) {
       alert("Please fill all the fields before submitting.");
       return;
